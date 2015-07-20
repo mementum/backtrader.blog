@@ -1,0 +1,15 @@
+
+backtrader - Python backtesting
+===============================
+
+.. postlist:: 5
+   :format: {title}
+   :excerpts:
+   :list-style: circle
+   :sort:
+
+
+.. toctree::
+   :hidden:
+
+   about.rst
