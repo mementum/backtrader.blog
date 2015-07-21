@@ -1,0 +1,13 @@
+
+Extending an Indicator
+-----------------------
+
+.. post:: Jul 19, 2015
+   :author: mementum
+
+
+hola hola holan
+
+:ref:`dev-an-ind`
+
+adios adios adios

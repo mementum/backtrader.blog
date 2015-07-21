@@ -1,0 +1,13 @@
+
+Extending an Indicator
+-----------------------
+
+.. post:: Jul 20, 2015
+   :author: mementum
+   :image: 1
+
+
+adios adios adio
+----------------
+
+:ref:`blog-posts`

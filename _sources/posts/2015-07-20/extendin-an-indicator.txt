@@ -1,0 +1,11 @@
+
+Extending an Indicator
+----------------------
+
+hola hola
+
+The :ref:`developing-an-indicator` is noting special
+
+.. post:: Jul 19, 2015
+   :author: mementum
+   :image: 1

@@ -2,28 +2,51 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">backtrader Blog</title>
   <id>http://www.backtrader.com/blog/atom.xml</id>
-  <updated>2015-07-18T00:00:00Z</updated>
+  <updated>2015-07-21T00:00:00Z</updated>
   <link href="http://www.backtrader.com" />
   <link href="http://www.backtrader.com/blog/atom.xml" rel="self" />
   <generator uri="http://ablog.readthedocs.org" version="0.7.6">ABlog</generator>
   <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+    <title type="text">Extending an Indicator</title>
+    <id>http://www.backtrader.com/posts/2015-07-20/extending-an-indicator/</id>
+    <updated>2015-07-21T00:00:00Z</updated>
+    <published>2015-07-21T00:00:00Z</published>
+    <link href="http://www.backtrader.com/posts/2015-07-20/extending-an-indicator/" />
+    <author>
+      <name>mementum</name>
+    </author>
+    <content type="html">&lt;p&gt;In Object Oriented Programming, and of course in Python itself, extension of an
+existing class can be achieved in two ways.&lt;/p&gt;
+&lt;a data-lightbox=&quot;group-8f8a91d6-2fa2-489d-b67f-2b71cdb391b4&quot;
+                   href=&quot;../_images\trixsignal-inherited1.png&quot;
+                   class=&quot;&quot;
+                   title=&quot;&quot;
+                   data-title=&quot;&quot;
+                   &gt;&lt;img src=&quot;../_images\trixsignal-inherited1.png&quot;
+                    class=&quot;&quot;
+                    width=&quot;100%&quot;
+                    height=&quot;auto&quot;
+                    alt=&quot;&quot;/&gt;
+                    &lt;/a&gt;</content>
+  </entry>
+  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
     <title type="text">Developing an Indicator</title>
-    <id>http://www.backtrader.com/posts/2015-07-18/00-post/</id>
+    <id>http://www.backtrader.com/posts/2015-07-18/developing-an-indicator/</id>
     <updated>2015-07-18T00:00:00Z</updated>
     <published>2015-07-18T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2015-07-18/00-post/" />
+    <link href="http://www.backtrader.com/posts/2015-07-18/developing-an-indicator/" />
     <author>
       <name>mementum</name>
     </author>
     <content type="html">&lt;p&gt;After much ado in fine tuning &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt; (give it had already been running
 for a while) I decided to not only share it via GitHub but to also tell the
 world it was there and posted about its existence in &amp;#8220;Reddit&amp;#8221;.&lt;/p&gt;
-&lt;a data-lightbox=&quot;group-cfcd81fa-8001-4806-8360-30df5af8bcd4&quot;
-                   href=&quot;../_images\trix-0011.png&quot;
+&lt;a data-lightbox=&quot;group-f8285f30-86a2-4226-8d83-29d62b8be59e&quot;
+                   href=&quot;../_images\trix1.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
                    data-title=&quot;&quot;
-                   &gt;&lt;img src=&quot;../_images\trix-0011.png&quot;
+                   &gt;&lt;img src=&quot;../_images\trix1.png&quot;
                     class=&quot;&quot;
                     width=&quot;100%&quot;
                     height=&quot;auto&quot;

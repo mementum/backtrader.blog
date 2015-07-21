@@ -47,16 +47,7 @@
   </style>
 
   </head>
-  <body role="document">
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../../genindex/" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="nav-item nav-item-0"><a href="../../../">backtrader  documentation</a> &raquo;</li> 
-      </ul>
-    </div>  
+  <body role="document">  
 
     <div class="document">
       <div class="documentwrapper">
@@ -125,7 +116,7 @@ new ideas with ease of use ... has been reached.</p>
 <p>A breakdown of the development:</p>
 <blockquote>
 <div><ul>
-<li><p class="first">lines = (&#8216;trix&#8217;,)</p>
+<li><p class="first"><strong>lines = (&#8216;trix&#8217;,)</strong></p>
 <p>This tuple defines the output lines (just one in this case) of the
 indicator. This statement at the beginning of the class declaration
 generates a lot of background action during class creation and object
@@ -144,14 +135,14 @@ position in the tuple</li>
 </ul>
 </div></blockquote>
 </li>
-<li><p class="first">params = ((&#8216;period&#8217;, 15),)</p>
+<li><p class="first"><strong>params = ((&#8216;period&#8217;, 15),)</strong></p>
 <p>This tuple of tuples (can also be a dict or OrderedDict) defines the
 parameters the indicator accepted and declares the default values.</p>
 <p>The burden of parsing kwargs is taken off the shoulders of the users.</p>
 <p>Parameters can be accessed with the &#8220;self.params.xxxxx&#8221; notation or with the
 shorthand &#8220;self.p.xxxxx&#8221;</p>
 </li>
-<li><p class="first">The calculation (where EMA stands for ExponentialMovingAverage)</p>
+<li><p class="first"><strong>The calculation (where EMA stands for ExponentialMovingAverage)</strong></p>
 <blockquote>
 <div><ul>
 <li><p class="first"><strong>ema1 = btind.EMA(self.data, period=self.p.period)</strong></p>
@@ -216,7 +207,7 @@ post.</p>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">addstrategy</span><span class="p">(</span><span class="n">NoStrategy</span><span class="p">,</span> <span class="n">trixperiod</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 
     <span class="c"># Create a Data Feed</span>
-    <span class="n">datapath</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;../../datas/2006-day-001.txt&#39;</span><span class="p">)</span>
+    <span class="n">datapath</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;../datas/2006-day-001.txt&#39;</span><span class="p">)</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">feeds</span><span class="o">.</span><span class="n">BacktraderCSVData</span><span class="p">(</span><span class="n">dataname</span><span class="o">=</span><span class="n">datapath</span><span class="p">)</span>
 
     <span class="c"># Add the Data Feed to Cerebro</span>
@@ -232,12 +223,12 @@ post.</p>
 <p>And the visual output is below (open the chart in a new window/tab for a full
 size image), hopefully showing how quickly and easy an indicator can be created
 and visually evaluated with <code class="docutils literal"><span class="pre">backtrader</span></code></p>
-<a data-lightbox="group-cfcd81fa-8001-4806-8360-30df5af8bcd4"
-                   href="../../../_images\trix-0011.png"
+<a data-lightbox="group-f8285f30-86a2-4226-8d83-29d62b8be59e"
+                   href="../../../_images\trix1.png"
                    class=""
                    title=""
                    data-title=""
-                   ><img src="../../../_images\trix-0011.png"
+                   ><img src="../../../_images\trix1.png"
                     class=""
                     width="100%"
                     height="auto"
@@ -256,6 +247,13 @@ and visually evaluated with <code class="docutils literal"><span class="pre">bac
   <span>&nbsp;</span>
   <span style="float: right;">
   
+  
+  <a href="../../2015-07-20/extending-an-indicator/">
+    Extending an Indicator
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  </span>
+  
 </div>
 
   
@@ -266,9 +264,9 @@ and visually evaluated with <code class="docutils literal"><span class="pre">bac
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
-        var disqus_identifier = '/posts/2015-07-18/00-post/';
+        var disqus_identifier = '/posts/2015-07-18/developing-an-indicator/';
         var disqus_title = 'Developing an Indicator';
-        var disqus_url = 'http://www.backtrader.com/posts/2015-07-18/00-post';
+        var disqus_url = 'http://www.backtrader.com/posts/2015-07-18/developing-an-indicator';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -355,7 +353,7 @@ and visually evaluated with <code class="docutils literal"><span class="pre">bac
     }());
     </script>
     <i class="fa-fw fa fa-comments"></i>
-    <a href="#disqus_thread" data-disqus-identifier="/posts/2015-07-18/00-post/"> </a>
+    <a href="#disqus_thread" data-disqus-identifier="/posts/2015-07-18/developing-an-indicator/"> </a>
   </li>
   
   </ul>
@@ -372,13 +370,15 @@ and visually evaluated with <code class="docutils literal"><span class="pre">bac
   <ul>
     
     
+      <li><a href="../../2015-07-20/extending-an-indicator/">Jul 21 - Extending an Indicator</a></li>
+    
   </ul>
 
   <h3><a href="../../../blog/archive/">Archives</a></h3>
   <ul>
   
     
-    <li><a href="../../../blog/2015/">2015 (1)</a></li>
+    <li><a href="../../../blog/2015/">2015 (2)</a></li>
     
   
   </ul>
@@ -405,16 +405,16 @@ and visually evaluated with <code class="docutils literal"><span class="pre">bac
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
       
       |
-      <a href="../../../_sources/posts/2015-07-18/00-post.txt"
-          rel="nofollow">Page source</a></li>
+      <a href="../../../_sources/posts/2015-07-18/developing-an-indicator.txt"
+          rel="nofollow">Page source</a>
     </div>
 
     
     <a href="https://github.com/mementum/backtrader" class="github">
-        <img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
     </a>
     
 
