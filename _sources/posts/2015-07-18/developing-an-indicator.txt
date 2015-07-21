@@ -5,6 +5,7 @@ Developing an Indicator
 .. post:: Jul 18, 2015
    :author: mementum
    :image: 1
+   :redirect: posts/2015-07-18/00-post
 
 After much ado in fine tuning ``backtrader`` (give it had already been running
 for a while) I decided to not only share it via GitHub but to also tell the
