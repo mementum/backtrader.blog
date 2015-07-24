@@ -12,6 +12,12 @@ Multicore Optimization
    adjustments are expected to ensure all indicators and functions can be passed
    back and forth amongst processes when doing multicore optimization.
 
+.. update:: Jul 24, 2015
+
+   Some extra corrections for multicore have been pushed as release 1.0.10.88 to
+   have more "unpickable" things made pickable. Indicators tests have shown no
+   problems so far.
+
 Making use of all available cores was something I had in mind for ``backtrader``
 but never got done. Support of natural operations, removal of array notation,
 inclusion of new indicators and bla, bla, bla.

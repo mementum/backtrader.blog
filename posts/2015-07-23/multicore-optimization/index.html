@@ -63,6 +63,12 @@ set of test cases. Given the behavior exhibited by <code class="docutils literal
 adjustments are expected to ensure all indicators and functions can be passed
 back and forth amongst processes when doing multicore optimization.</p>
 </div>
+<div class="note update admonition">
+<p class="first admonition-title">Updated on Jul 24, 2015</p>
+<p class="last">Some extra corrections for multicore have been pushed as release 1.0.10.88 to
+have more &#8220;unpickable&#8221; things made pickable. Indicators tests have shown no
+problems so far.</p>
+</div>
 <p>Making use of all available cores was something I had in mind for <code class="docutils literal"><span class="pre">backtrader</span></code>
 but never got done. Support of natural operations, removal of array notation,
 inclusion of new indicators and bla, bla, bla.</p>
@@ -190,7 +196,7 @@ machine with 16 GBytes of RAM, running Windows 8.1 and Python 64bit 2.7.9</p>
 <p>Unluckily the creation/destruction of processes and the pickling of objects back
 and forth takes on the potential benefits but the speedup is still significant.</p>
 <p>The image shows the 8 cores being used.</p>
-<a data-lightbox="group-49925833-d19e-4466-b162-6dc92ecc9f40"
+<a data-lightbox="group-9de179ab-5667-4d49-a958-3b66c2d7f943"
                    href="../../../_images\eight-cores-in-use1.png"
                    class=""
                    title=""
@@ -358,6 +364,9 @@ core.</p>
 
   <ul>
     
+  <li><i class="fa fa-pencil-square-o"></i>
+    Jul 24, 2015</li>
+  
 
   
   <li><i class="fa-fw fa fa-user"></i>
