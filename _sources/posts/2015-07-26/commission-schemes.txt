@@ -135,7 +135,7 @@ expressed as::
   from bt import CommissionInfo
 
   class CommEurostoxx50(CommissionInfo):
-      paramss = dict(commission=2.0, margin=2000.0, mult=10.0)
+      params = dict(commission=2.0, margin=2000.0, mult=10.0)
 
 And later::
 
