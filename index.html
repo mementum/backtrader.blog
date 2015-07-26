@@ -57,13 +57,61 @@
             
   <div class="section" id="backtrader-python-backtesting">
 <h1>backtrader - Python backtesting<a class="headerlink" href="#backtrader-python-backtesting" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal"><span class="pre">backtrader</span></code> offers a complete backtesting platform with this (not fully
+comprehensive) list of features:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Index 0 approach to access the currently produced (or to be produced) data</li>
+<li>Index -1 approach to access the last produced data (to remain Pythonic)</li>
+<li>Multiple Strategies at the same time</li>
+<li>Multiple Datas at the same Time</li>
+<li>Datas with different timeframes can be mixed (days and weeks)</li>
+<li>Data Resampling</li>
+<li>Data Replaying (i.e: indicators/strategies see 5 bars in a weekly timeframe)</li>
+<li>Indicators (several) which can of course take datas and/or indicators as input</li>
+<li>Natural python language/operations for Indicator development and object
+comparison/operations (arithmetic, logical operators)
+As much as permitted by Pthon overriding capabilities (if, and, or cannot
+be overriden ... but they are provided as logical functions)</li>
+<li>Broker implementation with AtMarket, AtClose, AtLimit, Stop, StopLimit
+orders</li>
+<li>Commission schemes supporting futures-like and stocks-like objects and
+customizable</li>
+<li>Event based (strategy/indicator &#8216;next&#8217; will be called with all subordinate
+indicators calculated and data fetched)</li>
+<li>Vector (in the form on inner for loops) based for a one shot calculation
+This applies to indicators ... Strategies always are executed one step at a
+time</li>
+<li>Strategy optimization (including multicore support)</li>
+<li>Plotting support for visual inspection</li>
+</ul>
+</div></blockquote>
+<div class="section" id="the-blog-entries">
+<h2>The Blog Entries<a class="headerlink" href="#the-blog-entries" title="Permalink to this headline">¶</a></h2>
 <ul class="post-list-style-circle">
+<li><p class="first"><a class="reference internal" href="posts/2015-07-26/commission-schemes/"><em>Commissions: Stocks vs Futures</em></a> by <a class="reference internal" href="blog/author/mementum/" title="mementum"><em>mementum</em></a> on Jul 26</p>
+<p><code class="docutils literal"><span class="pre">backtrader</span></code> has been born out of necessity. My own ... to have the feeling I
+control my own backtesting platform and can experiment new ideas. But in doing
+so and fully open sourcing it from the very beginning it was clear it has to
+have a way to fulfill the needs and wishes of others.</p>
+<a data-lightbox="group-ad84b87a-d25b-4f78-a946-78de5f0d25fc"
+                   href="_images\commission-futures1.png"
+                   class=""
+                   title=""
+                   data-title=""
+                   ><img src="_images\commission-futures1.png"
+                    class=""
+                    width="100%"
+                    height="auto"
+                    alt=""/>
+                    </a><div class="line"><br /></div>
+</li>
 <li><p class="first"><a class="reference internal" href="posts/2015-07-23/multicore-optimization/"><em>Multicore Optimization</em></a> by <a class="reference internal" href="blog/author/mementum/" title="mementum"><em>mementum</em></a> on Jul 23</p>
 <p>The initial multicore support is there and has worked for the <em>well known</em>
 set of test cases. Given the behavior exhibited by <code class="docutils literal"><span class="pre">pickle</span></code> some other
 adjustments are expected to ensure all indicators and functions can be passed
 back and forth amongst processes when doing multicore optimization.</p>
-<a data-lightbox="group-9de179ab-5667-4d49-a958-3b66c2d7f943"
+<a data-lightbox="group-8483eb5f-3b3e-4c73-9777-122be26327a3"
                    href="_images\eight-cores-in-use1.png"
                    class=""
                    title=""
@@ -73,11 +121,12 @@ back and forth amongst processes when doing multicore optimization.</p>
                     width="100%"
                     height="auto"
                     alt=""/>
-                    </a></li>
+                    </a><div class="line"><br /></div>
+</li>
 <li><p class="first"><a class="reference internal" href="posts/2015-07-20/extending-an-indicator/"><em>Extending an Indicator</em></a> by <a class="reference internal" href="blog/author/mementum/" title="mementum"><em>mementum</em></a> on Jul 21</p>
 <p>In Object Oriented Programming, and of course in Python itself, extension of an
 existing class can be achieved in two ways.</p>
-<a data-lightbox="group-bf41f657-9721-44ac-a5e5-54bdbffdd575"
+<a data-lightbox="group-a3f878e3-c9a1-422c-a50c-af181cdcf8bd"
                    href="_images\trixsignal-inherited1.png"
                    class=""
                    title=""
@@ -87,12 +136,13 @@ existing class can be achieved in two ways.</p>
                     width="100%"
                     height="auto"
                     alt=""/>
-                    </a></li>
+                    </a><div class="line"><br /></div>
+</li>
 <li><p class="first"><a class="reference internal" href="posts/2015-07-18/developing-an-indicator/"><em>Developing an Indicator</em></a> by <a class="reference internal" href="blog/author/mementum/" title="mementum"><em>mementum</em></a> on Jul 18</p>
 <p>After much ado in fine tuning <code class="docutils literal"><span class="pre">backtrader</span></code> (give it had already been running
 for a while) I decided to not only share it via GitHub but to also tell the
 world it was there and posted about its existence in &#8220;Reddit&#8221;.</p>
-<a data-lightbox="group-7bc539c3-5f8c-4aa2-91bb-33c37923e074"
+<a data-lightbox="group-dda8b119-c40f-4096-8066-679fff24ddaf"
                    href="_images\trix1.png"
                    class=""
                    title=""
@@ -102,9 +152,11 @@ world it was there and posted about its existence in &#8220;Reddit&#8221;.</p>
                     width="100%"
                     height="auto"
                     alt=""/>
-                    </a></li>
+                    </a><div class="line"><br /></div>
+</li>
 </ul>
 <div class="toctree-wrapper compound">
+</div>
 </div>
 </div>
 
@@ -155,6 +207,8 @@ world it was there and posted about its existence in &#8220;Reddit&#8221;.</p>
   <ul>
     
     
+      <li><a href="posts/2015-07-26/commission-schemes/">Jul 26 - Commissions: Stocks vs Futures</a></li>
+    
       <li><a href="posts/2015-07-23/multicore-optimization/">Jul 23 - Multicore Optimization</a></li>
     
       <li><a href="posts/2015-07-20/extending-an-indicator/">Jul 21 - Extending an Indicator</a></li>
@@ -167,7 +221,7 @@ world it was there and posted about its existence in &#8220;Reddit&#8221;.</p>
   <ul>
   
     
-    <li><a href="blog/2015/">2015 (3)</a></li>
+    <li><a href="blog/2015/">2015 (4)</a></li>
     
   
   </ul>
