@@ -6,6 +6,14 @@ Commissions: Stocks vs Futures
    :author: mementum
    :image: 1
 
+.. update:: Jul 31, 2015
+
+   Follow up post with newly added operations/trades notifications, fixing the
+   plotting of trades P&L figures and avoiding manual calculation like in the
+   example below
+
+   :ref:`commission-schemes-updated`
+
 ``backtrader`` has been born out of necessity. My own ... to have the feeling I
 control my own backtesting platform and can experiment new ideas. But in doing
 so and fully open sourcing it from the very beginning it was clear it has to

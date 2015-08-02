@@ -17,7 +17,7 @@
     </author>
     <content type="html">&lt;p&gt;Posting &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt; usage examples has given me an insight into things that
 were missing. For starters:&lt;/p&gt;
-&lt;a data-lightbox=&quot;group-2aa95406-25d2-40f0-be99-43ab39e2d5fa&quot;
+&lt;a data-lightbox=&quot;group-90741c77-ae9a-407e-a8a7-0d79b91e615c&quot;
                    href=&quot;../_images\commission-futures-updated1.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
@@ -32,17 +32,16 @@ were missing. For starters:&lt;/p&gt;
   <entry xml:base="http://www.backtrader.com/blog/atom.xml">
     <title type="text">Commissions: Stocks vs Futures</title>
     <id>http://www.backtrader.com/posts/2015-07-26/commission-schemes/</id>
-    <updated>2015-07-26T00:00:00Z</updated>
+    <updated>2015-07-31T00:00:00Z</updated>
     <published>2015-07-26T00:00:00Z</published>
     <link href="http://www.backtrader.com/posts/2015-07-26/commission-schemes/" />
     <author>
       <name>mementum</name>
     </author>
-    <content type="html">&lt;p&gt;&lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt; has been born out of necessity. My own ... to have the feeling I
-control my own backtesting platform and can experiment new ideas. But in doing
-so and fully open sourcing it from the very beginning it was clear it has to
-have a way to fulfill the needs and wishes of others.&lt;/p&gt;
-&lt;a data-lightbox=&quot;group-70db8da4-9c7f-4e1f-9d38-1f9df32f2d14&quot;
+    <content type="html">&lt;p&gt;Follow up post with newly added operations/trades notifications, fixing the
+plotting of trades P&amp;amp;L figures and avoiding manual calculation like in the
+example below&lt;/p&gt;
+&lt;a data-lightbox=&quot;group-186c5239-9104-4a2e-a0e8-d05274364668&quot;
                    href=&quot;../_images\commission-futures1.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
