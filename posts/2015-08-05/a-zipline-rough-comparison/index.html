@@ -1,0 +1,581 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>A rough Zipline comparison &mdash; backtrader  documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinxcontrib-images\LightBox2\lightbox2\css\lightbox.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/sphinxcontrib-images\LightBox2\lightbox2\js\jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../../_static/sphinxcontrib-images\LightBox2\lightbox2\js\lightbox.min.js"></script>
+    <script type="text/javascript" src="../../../_static/sphinxcontrib-images\LightBox2\lightbox2-customize\jquery-noconflict.js"></script>
+    <link rel="author" title="About these documents" href="../../../about/" />
+    <link rel="top" title="backtrader  documentation" href="../../../" />
+  
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  
+  
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.post-list-style-disc {list-style-type: disc;}
+    ul.post-list-style-none {list-style-type: none;}
+    ul.post-list-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="a-rough-zipline-comparison">
+<h1>A rough Zipline comparison<a class="headerlink" href="#a-rough-zipline-comparison" title="Permalink to this headline">¶</a></h1>
+<p>This &#8220;rough&#8221; and &#8220;quick&#8221; comparison hast its origin in an issue opened in
+GitHub, <a class="reference external" href="https://github.com/mementum/backtrader/issues/7">Issue #7</a> asks about
+the differences with Quantopian&#8217;s <a class="reference external" href="https://github.com/quantopian/zipline">Zipline</a>.</p>
+<p>The <code class="docutils literal"><span class="pre">Zipline</span></code> platform is listed in the <code class="docutils literal"><span class="pre">backtrader</span></code> <a class="reference external" href="https://github.com/mementum/backtrader">README.rst</a> as an open source alternative to
+<code class="docutils literal"><span class="pre">backtrader</span></code></p>
+<p>Open Source is not a war (at least for me) and if anyone finds the API, ways of
+doing things, naming conventions or others better in <code class="docutils literal"><span class="pre">Zipline</span></code>, I will not
+preach to move him/her away from that platform or any other.</p>
+<p>And additionally ... if time and effort have been long invested in another
+platform, no matter which advantages may <code class="docutils literal"><span class="pre">backtrader</span></code> have, moving to it may
+not be worth the efffort.</p>
+<p>As I have never ever used <code class="docutils literal"><span class="pre">Zipline</span></code> before and becauseI know <code class="docutils literal"><span class="pre">backtrader</span></code>
+from the inside out it would be unfair to compare in terms of this is better and
+this is not.</p>
+<p>Given there is a <strong>Getting Started</strong> guide for <code class="docutils literal"><span class="pre">Zipline</span></code> available at <a class="reference external" href="http://www.zipline.io/tutorial/">Zipline
+beginner tutorial</a>, I can comment as what
+difference I perceive when I look at this tutorial.</p>
+<div class="section" id="approach">
+<h2>Approach<a class="headerlink" href="#approach" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">Zipline</span></code> seems to be module and function based. An algorithm must define
+<code class="docutils literal"><span class="pre">initialize</span></code> and <code class="docutils literal"><span class="pre">handle_data</span></code> in a module and will get a <code class="docutils literal"><span class="pre">context</span></code>
+variable.</p>
+<p>In the good old times of C programming this was called Poor Man Object
+Orientend Programming. Not &#8220;poor&#8221; by any means. It was a good way to use the
+OOP advantages in a language/environment which didn&#8217;t provide the means</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">backtrader</span></code> has in contrast an OOP approach. The <strong>algorithm</strong> (strategy)
+is an object which is self-contained</p>
+<p>A subclass of <code class="docutils literal"><span class="pre">backtrader.Strategy</span></code> is needed. A single module can contain
+a collection of such classes.</p>
+<p>The final operative details are ver similar:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Declare indicators and others in <code class="docutils literal"><span class="pre">__init__</span></code></li>
+<li>Evaluate the logic in <code class="docutils literal"><span class="pre">next</span></code> for each incoming data</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p>It&#8217;s possibly a matter of taste whether to go for a full OOP approach or stick
+to functions.</p>
+</div>
+<div class="section" id="plotting">
+<h2>Plotting<a class="headerlink" href="#plotting" title="Permalink to this headline">¶</a></h2>
+<p>Not knowing if <code class="docutils literal"><span class="pre">Zipline</span></code> offers a simplified interface to <code class="docutils literal"><span class="pre">matplotlib</span></code>, but
+the tutorial shows a very manual approach to plotting.</p>
+<p><code class="docutils literal"><span class="pre">backtrader</span></code> has plotting automated, fully integrated and features a simple
+control interface for what&#8217;s get plotted and what not (giving the user full
+control)</p>
+<p>Plotting is not the ultimate goal of a backtesting platform but it can aid when
+it comes down to identifying traits to try to improve an algorithm.</p>
+<p>For examples of plotting in <code class="docutils literal"><span class="pre">backtrader</span></code> see:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="http://backtrader.readthedocs.org/quickstart.html#visual-inspection-plotting">Visual Inspection: Plotting</a></li>
+<li><a class="reference external" href="http://www.backtrader.com/posts/2015-07-20/extending-an-indicator/">Extending an Indicator</a></li>
+<li><a class="reference external" href="http://www.backtrader.com/posts/2015-07-31/commission-schemes-updated/">Improving Commissions: Stocks vs Futures</a></li>
+</ul>
+</div></blockquote>
+<p>And for reference on how to apply that to the <code class="docutils literal"><span class="pre">Indicators</span></code>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="http://backtrader.readthedocs.org/induse.html#indicator-plotting">Indicator plotting</a></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="data-flow">
+<h2>Data Flow<a class="headerlink" href="#data-flow" title="Permalink to this headline">¶</a></h2>
+<p>One of the things I tried to achieve with <code class="docutils literal"><span class="pre">backtrader</span></code> was full freedom for
+the end user in terms of ease of use.</p>
+<p>From the <code class="docutils literal"><span class="pre">Zipline</span></code> tutorial:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
+    <span class="c"># Register 2 histories that track daily prices,</span>
+    <span class="c"># one with a 100 window and one with a 300 day window</span>
+    <span class="n">add_history</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="s">&#39;1d&#39;</span><span class="p">,</span> <span class="s">&#39;price&#39;</span><span class="p">)</span>
+    <span class="n">add_history</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="s">&#39;1d&#39;</span><span class="p">,</span> <span class="s">&#39;price&#39;</span><span class="p">)</span>
+
+    <span class="n">context</span><span class="o">.</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">def</span> <span class="nf">handle_data</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="c"># Skip first 300 days to get full windows</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">context</span><span class="o">.</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">300</span><span class="p">:</span>
+        <span class="k">return</span>
+</pre></div>
+</div>
+<p>The user is forced to:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Initialize a counter in the context</li>
+<li>Inform the system to keep a <strong>history</strong> of bars</li>
+<li>Implement a logic to skip a certain number of bars</li>
+</ul>
+</div></blockquote>
+<p>Here <code class="docutils literal"><span class="pre">backtrader</span></code> tries to help in that those 3 actions are not user
+implemented.</p>
+<blockquote>
+<div><ul class="simple">
+<li>If an indicator like a <em>Simple Moving Average</em> of period 300 is declared,
+the system will not call the <code class="docutils literal"><span class="pre">next</span></code> method of a strategy until 300 bars
+are available and the <em>Simple Moving Average</em> has been able to produce the
+1st value</li>
+<li>If several indicators are declared, the largest of the periods will
+determine when the <code class="docutils literal"><span class="pre">next</span></code> method gets first called</li>
+</ul>
+</div></blockquote>
+<p>Of course a user (for whatever reason) wants to override this, there are two
+ways to get early access to the bars (even without the indicators having
+produced a single output value)</p>
+<blockquote>
+<div><ul class="simple">
+<li>Declare a <code class="docutils literal"><span class="pre">prenext</span></code> method which will be called until <code class="docutils literal"><span class="pre">next</span></code> is called</li>
+</ul>
+</div></blockquote>
+<p>or</p>
+<blockquote>
+<div><ul class="simple">
+<li>use the method <code class="docutils literal"><span class="pre">setminperiod</span></code> to set the number of bars to skip</li>
+</ul>
+</div></blockquote>
+<p>The automatic behavior is of course fully recommended.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><code class="docutils literal"><span class="pre">backtrader</span></code> supports mixing different timeframes datas in a single
+run. Larger timeframe datas will of course push the first invocation of
+<code class="docutils literal"><span class="pre">next</span></code> further into the future according to the declared indicators</p>
+</div>
+<p>Example for <code class="docutils literal"><span class="pre">backtrader</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
+<span class="kn">import</span> <span class="nn">backtrader.indicators</span> <span class="kn">as</span> <span class="nn">btind</span>
+
+<span class="k">class</span> <span class="nc">SMACrossOver</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Strategy</span><span class="p">):</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s">&#39;period1&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;period2&#39;</span><span class="p">,</span> <span class="mi">300</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">sma1</span> <span class="o">=</span> <span class="n">btind</span><span class="o">.</span><span class="n">SMA</span><span class="p">(</span><span class="n">period</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">period1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sma2</span> <span class="o">=</span> <span class="n">btind</span><span class="o">.</span><span class="n">SMA</span><span class="p">(</span><span class="n">period</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">period2</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c"># not called until enough bars have elapsed.</span>
+        <span class="c"># with the default parameters from above: 300 bars</span>
+
+        <span class="c"># implement your logic here</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="indicator-declaration-and-logic-implementation">
+<h2>Indicator declaration and Logic implementation<a class="headerlink" href="#indicator-declaration-and-logic-implementation" title="Permalink to this headline">¶</a></h2>
+<p>From the zipline tutorial:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
+    <span class="c"># Register 2 histories that track daily prices,</span>
+    <span class="c"># one with a 100 window and one with a 300 day window</span>
+    <span class="n">add_history</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="s">&#39;1d&#39;</span><span class="p">,</span> <span class="s">&#39;price&#39;</span><span class="p">)</span>
+    <span class="n">add_history</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="s">&#39;1d&#39;</span><span class="p">,</span> <span class="s">&#39;price&#39;</span><span class="p">)</span>
+
+    <span class="o">...</span>
+
+<span class="k">def</span> <span class="nf">handle_data</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="o">...</span>
+
+    <span class="c"># Compute averages</span>
+    <span class="c"># history() has to be called with the same params</span>
+    <span class="c"># from above and returns a pandas dataframe.</span>
+    <span class="n">short_mavg</span> <span class="o">=</span> <span class="n">history</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="s">&#39;1d&#39;</span><span class="p">,</span> <span class="s">&#39;price&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">long_mavg</span> <span class="o">=</span> <span class="n">history</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="s">&#39;1d&#39;</span><span class="p">,</span> <span class="s">&#39;price&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The averages are being &#8220;calculated&#8221;/&#8221;declared&#8221;/&#8221;call it x&#8221; during the
+<code class="docutils literal"><span class="pre">handle_data</span></code> phase, which should only care about logic issues. This also
+decouples the <code class="docutils literal"><span class="pre">add_history</span></code> from the <code class="docutils literal"><span class="pre">history</span></code></p>
+<p>Obviously (without having looked into the details), <code class="docutils literal"><span class="pre">history</span></code> returns and
+object which provides functions like <code class="docutils literal"><span class="pre">mean</span></code>.</p>
+<p>The declaration in <code class="docutils literal"><span class="pre">backtrader</span></code> (repeating from above just the <code class="docutils literal"><span class="pre">__init__</span></code>
+part) is a single one:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">SMACrossOver</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Strategy</span><span class="p">):</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s">&#39;period1&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;period2&#39;</span><span class="p">,</span> <span class="mi">300</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">sma1</span> <span class="o">=</span> <span class="n">btind</span><span class="o">.</span><span class="n">SMA</span><span class="p">(</span><span class="n">period</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">period1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sma2</span> <span class="o">=</span> <span class="n">btind</span><span class="o">.</span><span class="n">SMA</span><span class="p">(</span><span class="n">period</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">period2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The actual logic implementation is similar, but <code class="docutils literal"><span class="pre">backtrader</span></code> can offer some
+advantages when compared with the tutorial (again ... <code class="docutils literal"><span class="pre">Zipline</span></code> may offer
+alternative methods similar to the ones shown below)</p>
+<p>From the tutorial:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">handle_data</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="o">...</span>
+
+    <span class="c"># Trading logic</span>
+    <span class="k">if</span> <span class="n">short_mavg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">long_mavg</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="c"># order_target orders as many shares as needed to</span>
+        <span class="c"># achieve the desired number of shares.</span>
+        <span class="n">order_target</span><span class="p">(</span><span class="n">symbol</span><span class="p">(</span><span class="s">&#39;AAPL&#39;</span><span class="p">),</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">short_mavg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">long_mavg</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="n">order_target</span><span class="p">(</span><span class="n">symbol</span><span class="p">(</span><span class="s">&#39;AAPL&#39;</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">backtrader</span></code> offers also the <strong>[0]</strong> notation to access the value. Sample next
+implementation:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sma1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">sma2</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buy</span><span class="p">()</span>  <span class="c"># buys the main data feed passed to the system</span>
+
+    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">sma1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">sma2</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sell</span><span class="p">()</span>  <span class="c"># sells the main data feed passed to the system</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p><code class="docutils literal"><span class="pre">Zipline</span></code> issues orders by fetching a <code class="docutils literal"><span class="pre">symbol</span></code> which looking at the
+tutorial means the end user can be analyzing NVDA and operating on AAPL
+(which is legit ... whether it makes sense or not ... there may be a
+correlation)</p>
+<p class="last"><code class="docutils literal"><span class="pre">backtrader</span></code> operates on one of the data feeds which are present in the
+system (having been passed to a <code class="docutils literal"><span class="pre">Cerebro</span></code> instance). The default when
+nothing is indicated is to operate on the main <code class="docutils literal"><span class="pre">data</span></code>, which is what common
+sense dictates makes more sense.</p>
+</div>
+<p>An even better approach in <code class="docutils literal"><span class="pre">backtrader</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sma1</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">sma2</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buy</span><span class="p">()</span>  <span class="c"># buys the main data feed passed to the system</span>
+
+    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">sma1</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">sma2</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sell</span><span class="p">()</span>  <span class="c"># sells the main data feed passed to the system</span>
+</pre></div>
+</div>
+<p>The objects (indicators) can be compared directly, because operator overloading
+has been implemented.</p>
+<p>An even better alternative approach (in the author&#8217;s modest opinion) is to
+define the comparison logic during the <code class="docutils literal"><span class="pre">__init__</span></code> phase. Approach 1:</p>
+<div class="highlight-python"><div class="highlight"><pre>class SMACrossOver(bt.Strategy):
+    params = ((&#39;period1&#39;, 100), (&#39;period2&#39;, 300))
+
+    def __init__(self):
+
+        sma1 = btind.SMA(period=self.params.period1)
+        sma2 = btind.SMA(period=self.params.period2)
+
+        self.buysell = btind.Cmp(sma1, sma2)
+
+ def next(self):
+     if self.buysell &gt; 0:
+         self.buy()  # buys the main data feed passed to the system
+
+     elif self.buysell &lt; 0:
+         self.sell()  # sells the main data feed passed to the system
+</pre></div>
+</div>
+<p>And yet another possibility further using the already built-in operator
+overloading:</p>
+<div class="highlight-python"><div class="highlight"><pre>class SMACrossOver(bt.Strategy):
+    params = ((&#39;period1&#39;, 100), (&#39;period2&#39;, 300))
+
+    def __init__(self):
+
+        sma1 = btind.SMA(period=self.params.period1)
+        sma2 = btind.SMA(period=self.params.period2)
+
+        self.buysig = sma1 &gt; sma2
+        self.sellsig = sma1 &lt; sma2
+
+ def next(self):
+     if self.buysig &gt; 0:
+         self.buy()  # buys the main data feed passed to the system
+
+     elif self.sellsig &lt; 0:
+         self.sell()  # sells the main data feed passed to the system
+</pre></div>
+</div>
+<p>There are other options like using the built-in <code class="docutils literal"><span class="pre">CrossOver</span></code> / <code class="docutils literal"><span class="pre">CrossUp</span></code> /
+<code class="docutils literal"><span class="pre">CrossDown</span></code> indicator family.</p>
+</div>
+<div class="section" id="data-recording">
+<h2>Data Recording<a class="headerlink" href="#data-recording" title="Permalink to this headline">¶</a></h2>
+<p>This part of the <code class="docutils literal"><span class="pre">Zipline</span></code> tutorial has got me really puzzled:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">handle_data</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="o">...</span>
+
+    <span class="c"># Save values for later inspection</span>
+    <span class="n">record</span><span class="p">(</span><span class="n">AAPL</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="n">symbol</span><span class="p">(</span><span class="s">&#39;AAPL&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">price</span><span class="p">,</span>
+           <span class="n">short_mavg</span><span class="o">=</span><span class="n">short_mavg</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+           <span class="n">long_mavg</span><span class="o">=</span><span class="n">long_mavg</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">backtrader</span></code> keeps the values of all datas, indicators, orders, trades and
+statistics (growing area at the time of writing) always there for current or
+later inspection.</p>
+</div>
+<div class="section" id="other-things-not-seen-in-the-tutorial">
+<h2>Other things (not seen in the tutorial)<a class="headerlink" href="#other-things-not-seen-in-the-tutorial" title="Permalink to this headline">¶</a></h2>
+<p>I have to assume this are available in <code class="docutils literal"><span class="pre">Zipline</span></code> but not shown in the
+tutorial:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Order notification (one thing is creating an order, but getting it accepted,
+executed and getting the execution price are different ones)</li>
+<li>Trade notification (buy opens a trade, sell can or cannot close it ...)</li>
+<li>Optimization using different parameters</li>
+<li>Data Resampling</li>
+<li>Data Replaying</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+  <div class="section">
+  
+    
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  
+  <a href="../../2015-08-04/generic-csv-datafeed/">
+    <i class="fa fa-arrow-circle-left"></i>
+    A Generic CSV Data Feed
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+</div>
+
+  
+  
+    <div class="section">
+    <h2>Comments</h2>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
+        var disqus_identifier = '/posts/2015-08-05/a-zipline-rough-comparison/';
+        var disqus_title = 'A rough Zipline comparison';
+        var disqus_url = 'http://www.backtrader.com/posts/2015-08-05/a-zipline-rough-comparison';
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+  
+  </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../">backtrader</a></h1>
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=mementum&repo=backtrader&type=watch&count=true&size=large"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+    
+
+<p>
+<a href="https://travis-ci.org/mementum/backtrader">
+    <img
+        alt="https://secure.travis-ci.org/mementum/backtrader.png?branch=master"
+        src="https://secure.travis-ci.org/mementum/backtrader.png?branch=master"
+    >
+</a>
+</p>
+
+  
+  
+  <h2>
+  
+  <i class="fa fa-calendar"></i>
+    Aug 05, 2015
+  
+  </h2>
+
+  <ul>
+    
+
+  
+  <li><i class="fa-fw fa fa-user"></i>
+    
+      
+      <a href="../../../blog/author/mementum/">mementum</a>
+      
+    </li>
+  
+
+  
+
+  
+
+  
+
+  
+  
+  <li>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+    </script>
+    <i class="fa-fw fa fa-comments"></i>
+    <a href="#disqus_thread" data-disqus-identifier="/posts/2015-08-05/a-zipline-rough-comparison/"> </a>
+  </li>
+  
+  </ul>
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/">About backtrader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/#documentation">Documentation</a></li>
+</ul>
+
+
+  <h3><a href="../../../blog/">Recent Posts</a></h3>
+  <ul>
+    
+    
+      <li><a href="../../2015-08-04/generic-csv-datafeed/">Aug 04 - A Generic CSV Data Feed</a></li>
+    
+      <li><a href="../../2015-07-31/commission-schemes-updated/">Jul 31 - Improving Commissions: Stocks vs Futures</a></li>
+    
+      <li><a href="../../2015-07-26/commission-schemes/">Jul 26 - Commissions: Stocks vs Futures</a></li>
+    
+      <li><a href="../../2015-07-23/multicore-optimization/">Jul 23 - Multicore Optimization</a></li>
+    
+      <li><a href="../../2015-07-20/extending-an-indicator/">Jul 21 - Extending an Indicator</a></li>
+    
+  </ul>
+
+  <h3><a href="../../../blog/archive/">Archives</a></h3>
+  <ul>
+  
+    
+    <li><a href="../../../blog/2015/">2015 (7)</a></li>
+    
+  
+  </ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search/" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, mementum.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="../../../_sources/posts/2015-08-05/a-zipline-rough-comparison.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+    <a href="https://github.com/mementum/backtrader" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-2435868-6']);
+      _gaq.push(['_setDomainName', 'none']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    
+  </body>
+</html>

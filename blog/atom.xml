@@ -2,10 +2,24 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">backtrader Blog</title>
   <id>http://www.backtrader.com/blog/atom.xml</id>
-  <updated>2015-08-04T00:00:00Z</updated>
+  <updated>2015-08-05T00:00:00Z</updated>
   <link href="http://www.backtrader.com" />
   <link href="http://www.backtrader.com/blog/atom.xml" rel="self" />
   <generator uri="http://ablog.readthedocs.org" version="0.7.7">ABlog</generator>
+  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+    <title type="text">A rough Zipline comparison</title>
+    <id>http://www.backtrader.com/posts/2015-08-05/a-zipline-rough-comparison/</id>
+    <updated>2015-08-05T00:00:00Z</updated>
+    <published>2015-08-05T00:00:00Z</published>
+    <link href="http://www.backtrader.com/posts/2015-08-05/a-zipline-rough-comparison/" />
+    <author>
+      <name>mementum</name>
+    </author>
+    <content type="html">&lt;p&gt;This &amp;#8220;rough&amp;#8221; and &amp;#8220;quick&amp;#8221; comparison hast its origin in an issue opened in
+GitHub, &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/mementum/backtrader/issues/7&quot;&gt;Issue #7&lt;/a&gt; asks about
+the differences with Quantopian&amp;#8217;s &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/quantopian/zipline&quot;&gt;Zipline&lt;/a&gt;.&lt;/p&gt;
+</content>
+  </entry>
   <entry xml:base="http://www.backtrader.com/blog/atom.xml">
     <title type="text">A Generic CSV Data Feed</title>
     <id>http://www.backtrader.com/posts/2015-08-04/generic-csv-datafeed/</id>
@@ -103,11 +117,11 @@ back and forth amongst processes when doing multicore optimization.&lt;/p&gt;
     <content type="html">&lt;p&gt;In Object Oriented Programming, and of course in Python itself, extension of an
 existing class can be achieved in two ways.&lt;/p&gt;
 &lt;a data-lightbox=&quot;group-a3f878e3-c9a1-422c-a50c-af181cdcf8bd&quot;
-                   href=&quot;../_images\trixsignal-inherited1.png&quot;
+                   href=&quot;posts\2015-07-20\./trixsignal-inherited.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
                    data-title=&quot;&quot;
-                   &gt;&lt;img src=&quot;../_images\trixsignal-inherited1.png&quot;
+                   &gt;&lt;img src=&quot;posts\2015-07-20\./trixsignal-inherited.png&quot;
                     class=&quot;&quot;
                     width=&quot;100%&quot;
                     height=&quot;auto&quot;
