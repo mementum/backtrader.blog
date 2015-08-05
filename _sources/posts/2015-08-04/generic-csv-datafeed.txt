@@ -61,7 +61,7 @@ Of course more importantly, the meaning of the newly define parameters:
     If a negative value is passed (example: -1) it indicates the field is not
     present in the CSV data
 
-  - ``nullvalue`` (default: float('NaN')
+  - ``nullvalue`` (default: float('NaN'))
 
     Value that will be used if a value which should be there is missing (the CSV
     field is empty)

@@ -2,10 +2,23 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">backtrader Blog</title>
   <id>http://www.backtrader.com/blog/atom.xml</id>
-  <updated>2015-08-05T00:00:00Z</updated>
+  <updated>2015-08-06T00:00:00Z</updated>
   <link href="http://www.backtrader.com" />
   <link href="http://www.backtrader.com/blog/atom.xml" rel="self" />
   <generator uri="http://ablog.readthedocs.org" version="0.7.7">ABlog</generator>
+  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+    <title type="text">CSV Data Feed Development</title>
+    <id>http://www.backtrader.com/posts/2015-08-06/csv-data-feed-development/</id>
+    <updated>2015-08-06T00:00:00Z</updated>
+    <published>2015-08-06T00:00:00Z</published>
+    <link href="http://www.backtrader.com/posts/2015-08-06/csv-data-feed-development/" />
+    <author>
+      <name>mementum</name>
+    </author>
+    <content type="html">&lt;p&gt;&lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt; already offers a Generic CSV Data feed and some specific CSV Data
+Feeds. Summarizing:&lt;/p&gt;
+</content>
+  </entry>
   <entry xml:base="http://www.backtrader.com/blog/atom.xml">
     <title type="text">A rough Zipline comparison</title>
     <id>http://www.backtrader.com/posts/2015-08-05/a-zipline-rough-comparison/</id>
@@ -94,11 +107,11 @@ set of test cases. Given the behavior exhibited by &lt;code class=&quot;docutils
 adjustments are expected to ensure all indicators and functions can be passed
 back and forth amongst processes when doing multicore optimization.&lt;/p&gt;
 &lt;a data-lightbox=&quot;group-8483eb5f-3b3e-4c73-9777-122be26327a3&quot;
-                   href=&quot;../_images\eight-cores-in-use1.png&quot;
+                   href=&quot;posts\2015-07-23\./eight-cores-in-use.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
                    data-title=&quot;&quot;
-                   &gt;&lt;img src=&quot;../_images\eight-cores-in-use1.png&quot;
+                   &gt;&lt;img src=&quot;posts\2015-07-23\./eight-cores-in-use.png&quot;
                     class=&quot;&quot;
                     width=&quot;100%&quot;
                     height=&quot;auto&quot;
