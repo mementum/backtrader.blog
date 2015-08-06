@@ -1,0 +1,386 @@
+
+.. post:: Aug 8, 2015
+   :author: mementum
+   :image: 1
+
+Order Management and Execution
+##############################
+
+Backtesting, and hence ``backtrader``, would not be complete if orders could not
+be simulated. To do so, the following is available in the platform.
+
+For order management 3 primitives:
+
+  - ``buy``
+  - ``sell``
+  - ``cancel``
+
+.. note::
+
+   An ``update`` primitive is obviously something logic but common sense
+   dictates that such a method is mostly used by manual operators working with
+   a judgmental trading approach.
+
+For order execution logic the following execution types:
+
+  - ``Market``
+  - ``Close``
+  - ``Limit``
+  - ``Stop``
+  - ``StopLimit``
+
+Order Management
+================
+
+The main goal is ease of use and therefore the most direct (and simple) way to
+do order management is from the strategy itself.
+
+The ``buy`` and ``self`` primitives have the following signature as ``Strategy``
+methods:
+
+  - def buy(self, data=None, size=None, price=None, plimit=None, exectype=None, valid=None):
+
+  - **def buy(self, data=None, size=None, price=None, exectype=None, valid=None)**
+
+    - ``data`` -> data feed reference which is the assed to buy
+
+      If ``None`` is passed the main data of the strategy is used as the target
+
+    - ``size`` -> int/long determining the stake to apply
+
+      if ``None`` is passed, the ``Sizer`` available in the strategy will be
+      used to automatically determine the stake. The default ``Sizer`` uses a
+      fixed state of **1**
+
+    - ``price`` -> will be ignored for ``Market`` and can be left as ``None``
+      orders but must be a float for the other order types. If left as ``None``
+      the current closing price will be used
+
+    - ``plimit`` -> limit price in ``StopLimit`` orders where ``price`` will be
+      used as the trigger price
+
+      If left as ``None`` then ``price`` will be used as the limit (trigger and
+      limit are the same)
+
+    - ``exectype`` -> One of the order execution types. If ``None`` is passed
+      then ``Market`` will be assumed
+
+      The execution types are enumerated in ``Order``. Example: ``Order.Limit``
+
+    - ``valid`` -> float value from date2num (or from the data feed) or a
+      datetime.datetime Python object
+
+      **Note**: A ``Market`` order will be executed regardless of the ``valid``
+      parameter
+
+    RETURN VALUE: an ``Order`` instance
+
+  - **def sell(self, data=None, size=None, price=None, exectype=None, valid=None)**
+
+Because canceling an order just requires the ``order`` reference returned by
+either ``buy`` or ``self``, the primitive from the broker can be used (see below)
+
+Some examples::
+
+  # buy the main date, with sizer default stake, Market order
+  order = self.buy()
+
+  # Market order - valid will be "IGNORED"
+  order = self.buy(valid=datetime.datetime.now() + datetime.timedelta(days=3))
+
+  # Market order - price will be IGNORED
+  order = self.buy(price=self.data.close[0] * 1.02)
+
+  # Market order - manual stake
+  order = self.buy(size=25)
+
+  # Limit order - want to set the price and can set a validity
+  order = self.buy(exectype=Order.Limit,
+                   price=self.data.close[0] * 1.02,
+                   valid=datetime.datetime.now() + datetime.timedelta(days=3)))
+
+  # StopLimit order - want to set the price, price limit
+  order = self.buy(exectype=Order.StopLimit,
+                   price=self.data.close[0] * 1.02,
+		   plimit=self.data.close[0] * 1.07)
+
+  # Canceling an existing order
+  self.broker.cancel(order)
+
+.. note::
+
+   All order types can be create by creating an ``Order`` instance (or one of
+   its subclasses) and then passed to to the broker with::
+
+     order = self.broker.submit(order)
+
+.. note::
+
+   There are ``buy`` and ``sell`` primitives in the ``broker`` itself, but they
+   are less forgiving with regards to default parameters.
+
+Order Execution Logic
+=====================
+
+The ``broker`` uses 2 main guidelines (assumptions?) for order execution.
+
+  - The current data has already happened and cannot be used to execcute an
+    order.
+
+    If the logic in the strategy is something like::
+
+      if self.data.close > self.sma:  # where sma is a Simple Moving Average
+          self.buy()
+
+     The expectation CANNOT be that the order will be executed with the
+     ``close`` price which is being examined in the logic BECAUSE it has already
+     happened.
+
+     The order CAN BE 1st EXECUTED withing the bounds of the next set of
+     Open/High/Low/Close price points (and the conditions set forth herein by
+     the order)
+
+  - Volume does not play a role
+
+    It actually does in real trading if the trader goes for non-liquid assets or
+    precisely the extremes (high/low) of a price bar are hit.
+
+    But hitting the high/low points is a seldom occurrence (if you do ... you
+    don't need ``backtrader``) and the chosen assets will have enough liquidity
+    to absorb the orders of any regular trading
+
+Market
+------
+
+Execution:
+
+  Opening price of the next set of Open/High/Low/Close prices (commonly referred
+  as *bar*)
+
+Rationale:
+
+  If the logic has executed at point X in time and issued a ``Market`` order,
+  the next price spot that will happen is the upcoming ``open`` price
+
+.. note::
+
+   This order executes always and disregards any ``price`` and ``valid``
+   parameters used to create it
+
+Close
+-----
+
+Execution:
+
+  Using the ``close`` price of the next barwhen the next bar actually CLOSES
+
+Rationale:
+
+  Most **backtesting** feeds contain already **closed** bars and the order will
+  execute immediately with the ``close`` price of the next bar. A daily data
+  feed is the most common example.
+
+  But the system could be fed with "tick" prices and the actual bar (time/date
+  wise) is being udpated constantly with the new ticks, without actually moving
+  to the **next** bar (because time and/or date have not changed)
+
+  Only when the time or date changes, the bar has actually been closed and the
+  order gets executed
+
+Limit
+-----
+
+Execution:
+
+  The ``price`` set at order creation if the ``data`` touches it, starting with the
+  next price bar.
+
+  The order will be canceled if ``valid`` is set and the time point is reached
+
+Price Matching:
+
+   ``backtrader`` tries to provide **most realistic execution price** for
+   ``Limit`` orders.
+
+   Using the 4 price spots (Open/High/Low/Close) it can be partially inferred if
+   the requested ``price`` can be improved.
+
+   For ``Buy`` Orders
+
+     - Case 1:
+
+       If the ``open`` price of the bar is below the limit price the order
+       executes immediately with the ``open`` price. The order has been swept
+       during the opening phase of the session
+
+     - Case 2:
+
+       If the ``open`` price has not penetrated below the limit price but the
+       ``low`` price is below the limit price, then the limit price has been
+       seen during the session and the order can be executed
+
+   The logic is obviously inverted for ``Sell`` orders.
+
+Stop
+----
+
+Execution:
+
+  The trigger ``price`` set at order creation if the ``data`` touches it,
+  starting with the next price bar.
+
+  The order will be canceled if ``valid`` is set and the time point is reached
+
+Price Matching:
+
+   ``backtrader`` tries to provide **most realistic trigger price** for
+   ``Stop`` orders.
+
+   Using the 4 price spots (Open/High/Low/Close) it can be partially inferred if
+   the requested ``price`` can be improved.
+
+   For ```Stop`` orders which ``Buy``
+
+     - Case 1:
+
+       If the ``open`` price of the bar is above the stop price the order is
+       executed immediately with the ``open`` price.
+
+       Intended to stop a loss if the price is moving upwards against an
+       existing short position
+
+     - Case 2:
+
+       If the ```` price has not penetrated above the stop price but the
+       ``high`` price is above the stop price, then the stop price has been
+       seen during the session and the order can be executed
+
+   The logic is obviously inverted for ``Stop`` orders which``Sell``.
+
+
+StopLimit
+---------
+
+Execution:
+
+  The trigger ``price`` sets the order in motion starting with the next price bar.
+
+Price Matchin:
+
+  - **Trigger**: Uses the ``Stop`` matching logic (but only triggers and turns
+    the order into a ``Limit`` order)
+
+  - **Limit**: Uses the ``Limit`` price matching logic
+
+Some samples
+============
+
+As always pictures (with code) are worth several million long explanations.
+Please note that the snippets concentrate on the order creation part. The full
+code is at the bottom.
+
+A *price closes above/below a simple moving average* strategy will be used for
+the generation of the buy/sell signals
+
+The signal is seen at the bottom of the charts: the ``CrossOver`` using the
+crossover indicator.
+
+
+Execution Type: Market
+----------------------
+
+See in the chart how how the orders are executed one bar after the signal is
+generated
+
+.. literalinclude:: ./order-execution-samples.py
+   :language: python
+   :lines: 21-
+
+Execution Type: Close
+---------------------
+
+Now the orders are also executed one bar after the signal but with the closing
+price.
+
+.. literalinclude:: ./order-execution-samples.py
+   :language: python
+   :lines: 21-
+
+Execution Type: Limit
+----------------------
+
+A limit price 3% below the signal generation price (the close at the signal
+bar) is set. Notice how this prevents many from the orders above from being executed.
+
+.. literalinclude:: ./order-execution-samples.py
+   :language: python
+   :lines: 21-
+
+Execution Type: Limit with validity
+-----------------------------------
+
+A limit price 3% below the signal generation price (the close at the signal
+bar) is set. The order is only executed within the next 4 calendar days.
+
+This further limits the amount of executed orders
+
+.. literalinclude:: ./order-execution-samples.py
+   :language: python
+   :lines: 21-
+
+
+Execution Type: Stop
+--------------------
+
+A stop price 3% above the signal price is set. That means that the strategy only
+buys if the signal is generated and the price continues climbing up, which could
+be intrepreted as a signal of strength.
+
+This completely alters the execution panorama.
+
+.. literalinclude:: ./order-execution-samples.py
+   :language: python
+   :lines: 21-
+
+
+Execution Type: StopLimit
+-------------------------
+
+A stop price 3% above the signal price is set. But the limit price is set 1%
+above the signal price which could be interpreted as: wait for the strength to
+show up but do not buy the peak. Wait for a dip.
+
+.. literalinclude:: ./order-execution-samples.py
+   :language: python
+   :lines: 21-
+
+
+The full code
+-------------
+
+To control which price execution is used and the % used, the script below
+accepts the following command line arguments for execution:
+
+  - exectype (default: Market)
+
+    Other options: Close, Limit, Stop, StopLimit
+
+  - valid (default: 4)
+
+    Number of calendar days to wait before canceling the order. Only used in the
+    'Limit with validity' example
+
+  - perc1 (default: 0.03 meaning 3%)
+
+    Used as percentage for the 'Limit', 'Limit with validity', 'Stop' and
+    'StopLimit' examples
+
+  - perc2 (default: 0.01 meaning 1%)
+
+    Used as percentage for the 'StopLimit' example for the limit price.
+
+  - exec_sample
+
+.. literalinclude:: ./order-execution-samples.py
+   :language: python
+   :lines: 21-

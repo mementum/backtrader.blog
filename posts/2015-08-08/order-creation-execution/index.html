@@ -1,0 +1,544 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Order Management and Execution &mdash; backtrader  documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinxcontrib-images\LightBox2\lightbox2\css\lightbox.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/sphinxcontrib-images\LightBox2\lightbox2\js\jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../../_static/sphinxcontrib-images\LightBox2\lightbox2\js\lightbox.min.js"></script>
+    <script type="text/javascript" src="../../../_static/sphinxcontrib-images\LightBox2\lightbox2-customize\jquery-noconflict.js"></script>
+    <link rel="author" title="About these documents" href="../../../about/" />
+    <link rel="top" title="backtrader  documentation" href="../../../" />
+  
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  
+  
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.post-list-style-disc {list-style-type: disc;}
+    ul.post-list-style-none {list-style-type: none;}
+    ul.post-list-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="order-management-and-execution">
+<h1>Order Management and Execution<a class="headerlink" href="#order-management-and-execution" title="Permalink to this headline">¶</a></h1>
+<p>Backtesting, and hence <code class="docutils literal"><span class="pre">backtrader</span></code>, would not be complete if orders could not
+be simulated. To do so, the following is available in the platform.</p>
+<p>For order management 3 primitives:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">buy</span></code></li>
+<li><code class="docutils literal"><span class="pre">sell</span></code></li>
+<li><code class="docutils literal"><span class="pre">cancel</span></code></li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">An <code class="docutils literal"><span class="pre">update</span></code> primitive is obviously something logic but common sense
+dictates that such a method is mostly used by manual operators working with
+a judgmental trading approach.</p>
+</div>
+<p>For order execution logic the following execution types:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">Market</span></code></li>
+<li><code class="docutils literal"><span class="pre">Close</span></code></li>
+<li><code class="docutils literal"><span class="pre">Limit</span></code></li>
+<li><code class="docutils literal"><span class="pre">Stop</span></code></li>
+<li><code class="docutils literal"><span class="pre">StopLimit</span></code></li>
+</ul>
+</div></blockquote>
+<div class="section" id="order-management">
+<h2>Order Management<a class="headerlink" href="#order-management" title="Permalink to this headline">¶</a></h2>
+<p>The main goal is ease of use and therefore the most direct (and simple) way to
+do order management is from the strategy itself.</p>
+<p>The <code class="docutils literal"><span class="pre">buy</span></code> and <code class="docutils literal"><span class="pre">self</span></code> primitives have the following signature as <code class="docutils literal"><span class="pre">Strategy</span></code>
+methods:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">def buy(self, data=None, size=None, price=None, plimit=None, exectype=None, valid=None):</p>
+</li>
+<li><p class="first"><strong>def buy(self, data=None, size=None, price=None, exectype=None, valid=None)</strong></p>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">data</span></code> -&gt; data feed reference which is the assed to buy</p>
+<p>If <code class="docutils literal"><span class="pre">None</span></code> is passed the main data of the strategy is used as the target</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">size</span></code> -&gt; int/long determining the stake to apply</p>
+<p>if <code class="docutils literal"><span class="pre">None</span></code> is passed, the <code class="docutils literal"><span class="pre">Sizer</span></code> available in the strategy will be
+used to automatically determine the stake. The default <code class="docutils literal"><span class="pre">Sizer</span></code> uses a
+fixed state of <strong>1</strong></p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">price</span></code> -&gt; will be ignored for <code class="docutils literal"><span class="pre">Market</span></code> and can be left as <code class="docutils literal"><span class="pre">None</span></code>
+orders but must be a float for the other order types. If left as <code class="docutils literal"><span class="pre">None</span></code>
+the current closing price will be used</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">plimit</span></code> -&gt; limit price in <code class="docutils literal"><span class="pre">StopLimit</span></code> orders where <code class="docutils literal"><span class="pre">price</span></code> will be
+used as the trigger price</p>
+<p>If left as <code class="docutils literal"><span class="pre">None</span></code> then <code class="docutils literal"><span class="pre">price</span></code> will be used as the limit (trigger and
+limit are the same)</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">exectype</span></code> -&gt; One of the order execution types. If <code class="docutils literal"><span class="pre">None</span></code> is passed
+then <code class="docutils literal"><span class="pre">Market</span></code> will be assumed</p>
+<p>The execution types are enumerated in <code class="docutils literal"><span class="pre">Order</span></code>. Example: <code class="docutils literal"><span class="pre">Order.Limit</span></code></p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">valid</span></code> -&gt; float value from date2num (or from the data feed) or a
+datetime.datetime Python object</p>
+<p><strong>Note</strong>: A <code class="docutils literal"><span class="pre">Market</span></code> order will be executed regardless of the <code class="docutils literal"><span class="pre">valid</span></code>
+parameter</p>
+</li>
+</ul>
+<p>RETURN VALUE: an <code class="docutils literal"><span class="pre">Order</span></code> instance</p>
+</li>
+<li><p class="first"><strong>def sell(self, data=None, size=None, price=None, exectype=None, valid=None)</strong></p>
+</li>
+</ul>
+</div></blockquote>
+<p>Because canceling an order just requires the <code class="docutils literal"><span class="pre">order</span></code> reference returned by
+either <code class="docutils literal"><span class="pre">buy</span></code> or <code class="docutils literal"><span class="pre">self</span></code>, the primitive from the broker can be used (see below)</p>
+<p>Some examples:</p>
+<div class="highlight-python"><div class="highlight"><pre># buy the main date, with sizer default stake, Market order
+order = self.buy()
+
+# Market order - valid will be &quot;IGNORED&quot;
+order = self.buy(valid=datetime.datetime.now() + datetime.timedelta(days=3))
+
+# Market order - price will be IGNORED
+order = self.buy(price=self.data.close[0] * 1.02)
+
+# Market order - manual stake
+order = self.buy(size=25)
+
+# Limit order - want to set the price and can set a validity
+order = self.buy(exectype=Order.Limit,
+                 price=self.data.close[0] * 1.02,
+                 valid=datetime.datetime.now() + datetime.timedelta(days=3)))
+
+# StopLimit order - want to set the price, price limit
+order = self.buy(exectype=Order.StopLimit,
+                 price=self.data.close[0] * 1.02,
+                 plimit=self.data.close[0] * 1.07)
+
+# Canceling an existing order
+self.broker.cancel(order)
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>All order types can be create by creating an <code class="docutils literal"><span class="pre">Order</span></code> instance (or one of
+its subclasses) and then passed to to the broker with:</p>
+<div class="last highlight-python"><div class="highlight"><pre><span class="n">order</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">order</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">There are <code class="docutils literal"><span class="pre">buy</span></code> and <code class="docutils literal"><span class="pre">sell</span></code> primitives in the <code class="docutils literal"><span class="pre">broker</span></code> itself, but they
+are less forgiving with regards to default parameters.</p>
+</div>
+</div>
+<div class="section" id="order-execution-logic">
+<h2>Order Execution Logic<a class="headerlink" href="#order-execution-logic" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal"><span class="pre">broker</span></code> uses 2 main guidelines (assumptions?) for order execution.</p>
+<blockquote>
+<div><ul>
+<li><p class="first">The current data has already happened and cannot be used to execcute an
+order.</p>
+<p>If the logic in the strategy is something like:</p>
+<div class="highlight-python"><div class="highlight"><pre> if self.data.close &gt; self.sma:  # where sma is a Simple Moving Average
+     self.buy()
+
+The expectation CANNOT be that the order will be executed with the
+``close`` price which is being examined in the logic BECAUSE it has already
+happened.
+
+The order CAN BE 1st EXECUTED withing the bounds of the next set of
+Open/High/Low/Close price points (and the conditions set forth herein by
+the order)
+</pre></div>
+</div>
+</li>
+<li><p class="first">Volume does not play a role</p>
+<p>It actually does in real trading if the trader goes for non-liquid assets or
+precisely the extremes (high/low) of a price bar are hit.</p>
+<p>But hitting the high/low points is a seldom occurrence (if you do ... you
+don&#8217;t need <code class="docutils literal"><span class="pre">backtrader</span></code>) and the chosen assets will have enough liquidity
+to absorb the orders of any regular trading</p>
+</li>
+</ul>
+</div></blockquote>
+<div class="section" id="market">
+<h3>Market<a class="headerlink" href="#market" title="Permalink to this headline">¶</a></h3>
+<p>Execution:</p>
+<blockquote>
+<div>Opening price of the next set of Open/High/Low/Close prices (commonly referred
+as <em>bar</em>)</div></blockquote>
+<p>Rationale:</p>
+<blockquote>
+<div>If the logic has executed at point X in time and issued a <code class="docutils literal"><span class="pre">Market</span></code> order,
+the next price spot that will happen is the upcoming <code class="docutils literal"><span class="pre">open</span></code> price</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This order executes always and disregards any <code class="docutils literal"><span class="pre">price</span></code> and <code class="docutils literal"><span class="pre">valid</span></code>
+parameters used to create it</p>
+</div>
+</div>
+<div class="section" id="close">
+<h3>Close<a class="headerlink" href="#close" title="Permalink to this headline">¶</a></h3>
+<p>Execution:</p>
+<blockquote>
+<div>Using the <code class="docutils literal"><span class="pre">close</span></code> price of the next barwhen the next bar actually CLOSES</div></blockquote>
+<p>Rationale:</p>
+<blockquote>
+<div><p>Most <strong>backtesting</strong> feeds contain already <strong>closed</strong> bars and the order will
+execute immediately with the <code class="docutils literal"><span class="pre">close</span></code> price of the next bar. A daily data
+feed is the most common example.</p>
+<p>But the system could be fed with &#8220;tick&#8221; prices and the actual bar (time/date
+wise) is being udpated constantly with the new ticks, without actually moving
+to the <strong>next</strong> bar (because time and/or date have not changed)</p>
+<p>Only when the time or date changes, the bar has actually been closed and the
+order gets executed</p>
+</div></blockquote>
+</div>
+<div class="section" id="limit">
+<h3>Limit<a class="headerlink" href="#limit" title="Permalink to this headline">¶</a></h3>
+<p>Execution:</p>
+<blockquote>
+<div><p>The <code class="docutils literal"><span class="pre">price</span></code> set at order creation if the <code class="docutils literal"><span class="pre">data</span></code> touches it, starting with the
+next price bar.</p>
+<p>The order will be canceled if <code class="docutils literal"><span class="pre">valid</span></code> is set and the time point is reached</p>
+</div></blockquote>
+<p>Price Matching:</p>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">backtrader</span></code> tries to provide <strong>most realistic execution price</strong> for
+<code class="docutils literal"><span class="pre">Limit</span></code> orders.</p>
+<p>Using the 4 price spots (Open/High/Low/Close) it can be partially inferred if
+the requested <code class="docutils literal"><span class="pre">price</span></code> can be improved.</p>
+<p>For <code class="docutils literal"><span class="pre">Buy</span></code> Orders</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Case 1:</p>
+<p>If the <code class="docutils literal"><span class="pre">open</span></code> price of the bar is below the limit price the order
+executes immediately with the <code class="docutils literal"><span class="pre">open</span></code> price. The order has been swept
+during the opening phase of the session</p>
+</li>
+<li><p class="first">Case 2:</p>
+<p>If the <code class="docutils literal"><span class="pre">open</span></code> price has not penetrated below the limit price but the
+<code class="docutils literal"><span class="pre">low</span></code> price is below the limit price, then the limit price has been
+seen during the session and the order can be executed</p>
+</li>
+</ul>
+</div></blockquote>
+<p>The logic is obviously inverted for <code class="docutils literal"><span class="pre">Sell</span></code> orders.</p>
+</div></blockquote>
+</div>
+<div class="section" id="stop">
+<h3>Stop<a class="headerlink" href="#stop" title="Permalink to this headline">¶</a></h3>
+<p>Execution:</p>
+<blockquote>
+<div><p>The trigger <code class="docutils literal"><span class="pre">price</span></code> set at order creation if the <code class="docutils literal"><span class="pre">data</span></code> touches it,
+starting with the next price bar.</p>
+<p>The order will be canceled if <code class="docutils literal"><span class="pre">valid</span></code> is set and the time point is reached</p>
+</div></blockquote>
+<p>Price Matching:</p>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">backtrader</span></code> tries to provide <strong>most realistic trigger price</strong> for
+<code class="docutils literal"><span class="pre">Stop</span></code> orders.</p>
+<p>Using the 4 price spots (Open/High/Low/Close) it can be partially inferred if
+the requested <code class="docutils literal"><span class="pre">price</span></code> can be improved.</p>
+<p>For <code class="docutils literal"><span class="pre">`Stop</span></code> orders which <code class="docutils literal"><span class="pre">Buy</span></code></p>
+<blockquote>
+<div><ul>
+<li><p class="first">Case 1:</p>
+<p>If the <code class="docutils literal"><span class="pre">open</span></code> price of the bar is above the stop price the order is
+executed immediately with the <code class="docutils literal"><span class="pre">open</span></code> price.</p>
+<p>Intended to stop a loss if the price is moving upwards against an
+existing short position</p>
+</li>
+<li><p class="first">Case 2:</p>
+<p>If the <a href="#id1"><span class="problematic" id="id2">``</span></a>`` price has not penetrated above the stop price but the
+<code class="docutils literal"><span class="pre">high</span></code> price is above the stop price, then the stop price has been
+seen during the session and the order can be executed</p>
+</li>
+</ul>
+</div></blockquote>
+<p>The logic is obviously inverted for <code class="docutils literal"><span class="pre">Stop</span></code> orders which``Sell``.</p>
+</div></blockquote>
+</div>
+<div class="section" id="stoplimit">
+<h3>StopLimit<a class="headerlink" href="#stoplimit" title="Permalink to this headline">¶</a></h3>
+<p>Execution:</p>
+<blockquote>
+<div>The trigger <code class="docutils literal"><span class="pre">price</span></code> sets the order in motion starting with the next price bar.</div></blockquote>
+<p>Price Matchin:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Trigger</strong>: Uses the <code class="docutils literal"><span class="pre">Stop</span></code> matching logic (but only triggers and turns
+the order into a <code class="docutils literal"><span class="pre">Limit</span></code> order)</li>
+<li><strong>Limit</strong>: Uses the <code class="docutils literal"><span class="pre">Limit</span></code> price matching logic</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="some-samples">
+<h2>Some samples<a class="headerlink" href="#some-samples" title="Permalink to this headline">¶</a></h2>
+<p>As always pictures (with code) are worth several million long explanations.
+Please note that the snippets concentrate on the order creation part. The full
+code is at the bottom.</p>
+<p>A <em>price closes above/below a simple moving average</em> strategy will be used for
+the generation of the buy/sell signals</p>
+<p>The signal is seen at the bottom of the charts: the <code class="docutils literal"><span class="pre">CrossOver</span></code> using the
+crossover indicator.</p>
+<div class="section" id="execution-type-market">
+<h3>Execution Type: Market<a class="headerlink" href="#execution-type-market" title="Permalink to this headline">¶</a></h3>
+<p>See in the chart how how the orders are executed one bar after the signal is
+generated</p>
+</div>
+<div class="section" id="execution-type-close">
+<h3>Execution Type: Close<a class="headerlink" href="#execution-type-close" title="Permalink to this headline">¶</a></h3>
+<p>Now the orders are also executed one bar after the signal but with the closing
+price.</p>
+</div>
+<div class="section" id="execution-type-limit">
+<h3>Execution Type: Limit<a class="headerlink" href="#execution-type-limit" title="Permalink to this headline">¶</a></h3>
+<p>A limit price 3% below the signal generation price (the close at the signal
+bar) is set. Notice how this prevents many from the orders above from being executed.</p>
+</div>
+<div class="section" id="execution-type-limit-with-validity">
+<h3>Execution Type: Limit with validity<a class="headerlink" href="#execution-type-limit-with-validity" title="Permalink to this headline">¶</a></h3>
+<p>A limit price 3% below the signal generation price (the close at the signal
+bar) is set. The order is only executed within the next 4 calendar days.</p>
+<p>This further limits the amount of executed orders</p>
+</div>
+<div class="section" id="execution-type-stop">
+<h3>Execution Type: Stop<a class="headerlink" href="#execution-type-stop" title="Permalink to this headline">¶</a></h3>
+<p>A stop price 3% above the signal price is set. That means that the strategy only
+buys if the signal is generated and the price continues climbing up, which could
+be intrepreted as a signal of strength.</p>
+<p>This completely alters the execution panorama.</p>
+</div>
+<div class="section" id="execution-type-stoplimit">
+<h3>Execution Type: StopLimit<a class="headerlink" href="#execution-type-stoplimit" title="Permalink to this headline">¶</a></h3>
+<p>A stop price 3% above the signal price is set. But the limit price is set 1%
+above the signal price which could be interpreted as: wait for the strength to
+show up but do not buy the peak. Wait for a dip.</p>
+</div>
+<div class="section" id="the-full-code">
+<h3>The full code<a class="headerlink" href="#the-full-code" title="Permalink to this headline">¶</a></h3>
+<p>To control which price execution is used and the % used, the script below
+accepts the following command line arguments for execution:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">exectype (default: Market)</p>
+<p>Other options: Close, Limit, Stop, StopLimit</p>
+</li>
+<li><p class="first">valid (default: 4)</p>
+<p>Number of calendar days to wait before canceling the order. Only used in the
+&#8216;Limit with validity&#8217; example</p>
+</li>
+<li><p class="first">perc1 (default: 0.03 meaning 3%)</p>
+<p>Used as percentage for the &#8216;Limit&#8217;, &#8216;Limit with validity&#8217;, &#8216;Stop&#8217; and
+&#8216;StopLimit&#8217; examples</p>
+</li>
+<li><p class="first">perc2 (default: 0.01 meaning 1%)</p>
+<p>Used as percentage for the &#8216;StopLimit&#8217; example for the limit price.</p>
+</li>
+<li><p class="first">exec_sample</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+  <div class="section">
+  
+    
+
+
+  
+  
+  </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../">backtrader</a></h1>
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=mementum&repo=backtrader&type=watch&count=true&size=large"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+    
+
+<p>
+<a href="https://travis-ci.org/mementum/backtrader">
+    <img
+        alt="https://secure.travis-ci.org/mementum/backtrader.png?branch=master"
+        src="https://secure.travis-ci.org/mementum/backtrader.png?branch=master"
+    >
+</a>
+</p>
+
+  
+  
+  <h2>
+  
+    <i class="fa fa-pencil"></i>
+    Aug 08, 2015
+    
+  
+  </h2>
+
+  <ul>
+    
+
+  
+  <li><i class="fa-fw fa fa-user"></i>
+    
+      
+      <a href="../../../blog/author/mementum/">mementum</a>
+      
+    </li>
+  
+
+  
+
+  
+
+  
+
+  
+  
+  </ul>
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/">About backtrader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/#documentation">Documentation</a></li>
+</ul>
+
+
+  <h3><a href="../../../blog/">Recent Posts</a></h3>
+  <ul>
+    
+    
+      <li><a href="../../2015-08-07/extending-a-datafeed/">Aug 07 - Extending a data feed</a></li>
+    
+      <li><a href="../../2015-08-06/csv-data-feed-development/">Aug 06 - CSV Data Feed Development</a></li>
+    
+      <li><a href="../../2015-08-05/a-zipline-rough-comparison/">Aug 05 - A rough Zipline comparison</a></li>
+    
+      <li><a href="../../2015-08-04/generic-csv-datafeed/">Aug 04 - A Generic CSV Data Feed</a></li>
+    
+      <li><a href="../../2015-07-31/commission-schemes-updated/">Jul 31 - Improving Commissions: Stocks vs Futures</a></li>
+    
+  </ul>
+
+  <h3><a href="../../../blog/archive/">Archives</a></h3>
+  <ul>
+  
+    
+    <li><a href="../../../blog/2015/">2015 (9)</a></li>
+    
+  
+  </ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search/" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, mementum.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="../../../_sources/posts/2015-08-08/order-creation-execution.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+    <a href="https://github.com/mementum/backtrader" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-2435868-6']);
+      _gaq.push(['_setDomainName', 'none']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    
+  </body>
+</html>
