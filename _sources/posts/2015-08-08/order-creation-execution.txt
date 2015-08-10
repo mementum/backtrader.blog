@@ -251,11 +251,11 @@ Price Matching:
 
      - Case 2:
 
-       If the ```` price has not penetrated above the stop price but the
+       If the ``open`` price has not penetrated above the stop price but the
        ``high`` price is above the stop price, then the stop price has been
        seen during the session and the order can be executed
 
-   The logic is obviously inverted for ``Stop`` orders which``Sell``.
+   The logic is obviously inverted for ``Stop`` orders which ``Sell``.
 
 
 StopLimit
@@ -265,7 +265,7 @@ Execution:
 
   The trigger ``price`` sets the order in motion starting with the next price bar.
 
-Price Matchin:
+Price Matching:
 
   - **Trigger**: Uses the ``Stop`` matching logic (but only triggers and turns
     the order into a ``Limit`` order)
@@ -285,16 +285,39 @@ the generation of the buy/sell signals
 The signal is seen at the bottom of the charts: the ``CrossOver`` using the
 crossover indicator.
 
+A reference to generated "buy" orders will be kept to only allow one
+simultaneous order at most in the system.
+
 
 Execution Type: Market
 ----------------------
 
 See in the chart how how the orders are executed one bar after the signal is
-generated
+generated with the opening price.
 
 .. literalinclude:: ./order-execution-samples.py
    :language: python
-   :lines: 21-
+   :lines: 110-115
+
+The output chart.
+
+.. thumbnail:: ./market.png
+
+The command line and output::
+
+  $ ./order-execution-samples.py --exectype Market
+  2006-01-26T23:59:59+00:00, BUY CREATE, exectype Market, price 3641.42
+  2006-01-26T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-01-27T23:59:59+00:00, BUY EXECUTED, Price: 3643.35, Cost: 3643.35, Comm 0.00
+  2006-03-02T23:59:59+00:00, SELL CREATE, 3763.73
+  2006-03-02T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-03-03T23:59:59+00:00, SELL EXECUTED, Price: 3763.95, Cost: 3763.95, Comm 0.00
+  ...
+  ...
+  2006-12-11T23:59:59+00:00, BUY CREATE, exectype Market, price 4052.89
+  2006-12-11T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-12-12T23:59:59+00:00, BUY EXECUTED, Price: 4052.55, Cost: 4052.55, Comm 0.00
+
 
 Execution Type: Close
 ---------------------
@@ -304,35 +327,130 @@ price.
 
 .. literalinclude:: ./order-execution-samples.py
    :language: python
-   :lines: 21-
+   :lines: 116-121
+
+
+The output chart.
+
+.. thumbnail:: ./close.png
+
+The command line and output::
+
+  $ ./order-execution-samples.py --exectype Close
+  2006-01-26T23:59:59+00:00, BUY CREATE, exectype Close, price 3641.42
+  2006-01-26T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-01-27T23:59:59+00:00, BUY EXECUTED, Price: 3641.42, Cost: 3641.42, Comm 0.00
+  2006-03-02T23:59:59+00:00, SELL CREATE, 3763.73
+  2006-03-02T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-03-03T23:59:59+00:00, SELL EXECUTED, Price: 3763.95, Cost: 3763.95, Comm 0.00
+  ...
+  ...
+  2006-12-11T23:59:59+00:00, BUY CREATE, exectype Close, price 4052.89
+  2006-12-11T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-12-12T23:59:59+00:00, BUY EXECUTED, Price: 4052.89, Cost: 4052.89, Comm 0.00
 
 Execution Type: Limit
 ----------------------
 
-A limit price 3% below the signal generation price (the close at the signal
+Validity is being calculated some lines before in case it has been passed as
+argument.
+
+.. literalinclude:: ./order-execution-samples.py
+   :language: python
+   :lines: 103-108
+
+A limit price 1% below the signal generation price (the close at the signal
 bar) is set. Notice how this prevents many from the orders above from being executed.
 
 .. literalinclude:: ./order-execution-samples.py
    :language: python
-   :lines: 21-
+   :lines: 122-132
+
+The output chart.
+
+.. thumbnail:: ./limit-perc1-1.png
+
+Just 4 orders have been issued. Limiting the price trying to catch a small dip
+has completly changed the output.
+
+The command line and output::
+
+  $ ./order-execution-samples.py --exectype Limit --perc1 1
+  2006-01-26T23:59:59+00:00, BUY CREATE, exectype Limit, price 3605.01
+  2006-01-26T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-05-18T23:59:59+00:00, BUY EXECUTED, Price: 3605.01, Cost: 3605.01, Comm 0.00
+  2006-06-05T23:59:59+00:00, SELL CREATE, 3604.33
+  2006-06-05T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-06-06T23:59:59+00:00, SELL EXECUTED, Price: 3598.58, Cost: 3598.58, Comm 0.00
+  2006-06-21T23:59:59+00:00, BUY CREATE, exectype Limit, price 3491.57
+  2006-06-21T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-06-28T23:59:59+00:00, BUY EXECUTED, Price: 3491.57, Cost: 3491.57, Comm 0.00
+  2006-07-13T23:59:59+00:00, SELL CREATE, 3562.56
+  2006-07-13T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-07-14T23:59:59+00:00, SELL EXECUTED, Price: 3545.92, Cost: 3545.92, Comm 0.00
+  2006-07-24T23:59:59+00:00, BUY CREATE, exectype Limit, price 3596.60
+  2006-07-24T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
 
 Execution Type: Limit with validity
 -----------------------------------
 
-A limit price 3% below the signal generation price (the close at the signal
-bar) is set. The order is only executed within the next 4 calendar days.
+To not wait forever on a limit order which may only execute when the price is
+moving against the "buy" order, the order will only be valid 4 (calendar) days.
 
-This further limits the amount of executed orders
+The output chart.
 
-.. literalinclude:: ./order-execution-samples.py
-   :language: python
-   :lines: 21-
+.. thumbnail:: ./limit-perc1-1-valid-4.png
 
+More orders have been generated, but all but one "buy" order expired, further
+limiting the amount of operations.
+
+The command line and output::
+
+  $ ./order-execution-samples.py --exectype Limit --perc1 1 --valid 4
+  2006-01-26T23:59:59+00:00, BUY CREATE, exectype Limit, price 3605.01, valid: 2006-01-30
+  2006-01-26T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-01-30T23:59:59+00:00, BUY EXPIRED
+  2006-03-10T23:59:59+00:00, BUY CREATE, exectype Limit, price 3760.48, valid: 2006-03-14
+  2006-03-10T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-03-14T23:59:59+00:00, BUY EXPIRED
+  2006-03-30T23:59:59+00:00, BUY CREATE, exectype Limit, price 3835.86, valid: 2006-04-03
+  2006-03-30T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-04-03T23:59:59+00:00, BUY EXPIRED
+  2006-04-20T23:59:59+00:00, BUY CREATE, exectype Limit, price 3821.40, valid: 2006-04-24
+  2006-04-20T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-04-24T23:59:59+00:00, BUY EXPIRED
+  2006-05-04T23:59:59+00:00, BUY CREATE, exectype Limit, price 3804.65, valid: 2006-05-08
+  2006-05-04T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-05-08T23:59:59+00:00, BUY EXPIRED
+  2006-06-01T23:59:59+00:00, BUY CREATE, exectype Limit, price 3611.85, valid: 2006-06-05
+  2006-06-01T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-06-05T23:59:59+00:00, BUY EXPIRED
+  2006-06-21T23:59:59+00:00, BUY CREATE, exectype Limit, price 3491.57, valid: 2006-06-25
+  2006-06-21T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-06-26T23:59:59+00:00, BUY EXPIRED
+  2006-07-24T23:59:59+00:00, BUY CREATE, exectype Limit, price 3596.60, valid: 2006-07-28
+  2006-07-24T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-07-28T23:59:59+00:00, BUY EXPIRED
+  2006-09-12T23:59:59+00:00, BUY CREATE, exectype Limit, price 3751.07, valid: 2006-09-16
+  2006-09-12T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-09-18T23:59:59+00:00, BUY EXPIRED
+  2006-09-20T23:59:59+00:00, BUY CREATE, exectype Limit, price 3802.90, valid: 2006-09-24
+  2006-09-20T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-09-22T23:59:59+00:00, BUY EXECUTED, Price: 3802.90, Cost: 3802.90, Comm 0.00
+  2006-11-02T23:59:59+00:00, SELL CREATE, 3974.62
+  2006-11-02T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-11-03T23:59:59+00:00, SELL EXECUTED, Price: 3979.73, Cost: 3979.73, Comm 0.00
+  2006-11-06T23:59:59+00:00, BUY CREATE, exectype Limit, price 4004.77, valid: 2006-11-10
+  2006-11-06T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-11-10T23:59:59+00:00, BUY EXPIRED
+  2006-12-11T23:59:59+00:00, BUY CREATE, exectype Limit, price 4012.36, valid: 2006-12-15
+  2006-12-11T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-12-15T23:59:59+00:00, BUY EXPIRED
 
 Execution Type: Stop
 --------------------
 
-A stop price 3% above the signal price is set. That means that the strategy only
+A stop price 1% above the signal price is set. That means that the strategy only
 buys if the signal is generated and the price continues climbing up, which could
 be intrepreted as a signal of strength.
 
@@ -340,46 +458,135 @@ This completely alters the execution panorama.
 
 .. literalinclude:: ./order-execution-samples.py
    :language: python
-   :lines: 21-
+   :lines: 134-145
+
+The output chart.
+
+.. thumbnail:: ./stop-perc1-1.png
+
+The command line and output::
+
+  $ ./order-execution-samples.py --exectype Stop --perc1 1
+  2006-01-26T23:59:59+00:00, BUY CREATE, exectype Stop, price 3677.83
+  2006-01-26T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-01-27T23:59:59+00:00, BUY EXECUTED, Price: 3677.83, Cost: 3677.83, Comm 0.00
+  2006-03-02T23:59:59+00:00, SELL CREATE, 3763.73
+  2006-03-02T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-03-03T23:59:59+00:00, SELL EXECUTED, Price: 3763.95, Cost: 3763.95, Comm 0.00
+  2006-03-10T23:59:59+00:00, BUY CREATE, exectype Stop, price 3836.44
+  2006-03-10T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-03-15T23:59:59+00:00, BUY EXECUTED, Price: 3836.44, Cost: 3836.44, Comm 0.00
+  2006-03-28T23:59:59+00:00, SELL CREATE, 3811.45
+  2006-03-28T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-03-29T23:59:59+00:00, SELL EXECUTED, Price: 3811.85, Cost: 3811.85, Comm 0.00
+  2006-03-30T23:59:59+00:00, BUY CREATE, exectype Stop, price 3913.36
+  2006-03-30T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-09-29T23:59:59+00:00, BUY EXECUTED, Price: 3913.36, Cost: 3913.36, Comm 0.00
+  2006-11-02T23:59:59+00:00, SELL CREATE, 3974.62
+  2006-11-02T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-11-03T23:59:59+00:00, SELL EXECUTED, Price: 3979.73, Cost: 3979.73, Comm 0.00
+  2006-11-06T23:59:59+00:00, BUY CREATE, exectype Stop, price 4085.67
+  2006-11-06T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-11-13T23:59:59+00:00, BUY EXECUTED, Price: 4085.67, Cost: 4085.67, Comm 0.00
+  2006-11-24T23:59:59+00:00, SELL CREATE, 4048.16
+  2006-11-24T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-11-27T23:59:59+00:00, SELL EXECUTED, Price: 4045.05, Cost: 4045.05, Comm 0.00
+  2006-12-11T23:59:59+00:00, BUY CREATE, exectype Stop, price 4093.42
+  2006-12-11T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-12-13T23:59:59+00:00, BUY EXECUTED, Price: 4093.42, Cost: 4093.42, Comm 0.00
 
 
 Execution Type: StopLimit
 -------------------------
 
-A stop price 3% above the signal price is set. But the limit price is set 1%
-above the signal price which could be interpreted as: wait for the strength to
-show up but do not buy the peak. Wait for a dip.
+A stop price 1% above the signal price is set. But the limit price is set 0.5%
+above the signal (close) price which could be interpreted as: wait for the
+strength to show up but do not buy the peak. Wait for a dip.
+
+Validity is capped at 20 (calendar) days
 
 .. literalinclude:: ./order-execution-samples.py
    :language: python
-   :lines: 21-
+   :lines: 146-162
+
+The output chart.
+
+.. thumbnail:: ./stoplimit-perc1-1-perc2-0.5.png
+
+The command line and output::
+
+  $ ./order-execution-samples.py --exectype StopLimit --perc1 1 --perc2 0.5 --valid 20
+  2006-01-26T23:59:59+00:00, BUY CREATE, exectype StopLimit, price 3677.83, valid: 2006-02-15, pricelimit: 3659.63
+  2006-01-26T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-02-03T23:59:59+00:00, BUY EXECUTED, Price: 3659.63, Cost: 3659.63, Comm 0.00
+  2006-03-02T23:59:59+00:00, SELL CREATE, 3763.73
+  2006-03-02T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-03-03T23:59:59+00:00, SELL EXECUTED, Price: 3763.95, Cost: 3763.95, Comm 0.00
+  2006-03-10T23:59:59+00:00, BUY CREATE, exectype StopLimit, price 3836.44, valid: 2006-03-30, pricelimit: 3817.45
+  2006-03-10T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-03-21T23:59:59+00:00, BUY EXECUTED, Price: 3817.45, Cost: 3817.45, Comm 0.00
+  2006-03-28T23:59:59+00:00, SELL CREATE, 3811.45
+  2006-03-28T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-03-29T23:59:59+00:00, SELL EXECUTED, Price: 3811.85, Cost: 3811.85, Comm 0.00
+  2006-03-30T23:59:59+00:00, BUY CREATE, exectype StopLimit, price 3913.36, valid: 2006-04-19, pricelimit: 3893.98
+  2006-03-30T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-04-19T23:59:59+00:00, BUY EXPIRED
+  ...
+  ...
+  2006-12-11T23:59:59+00:00, BUY CREATE, exectype StopLimit, price 4093.42, valid: 2006-12-31, pricelimit: 4073.15
+  2006-12-11T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
+  2006-12-22T23:59:59+00:00, BUY EXECUTED, Price: 4073.15, Cost: 4073.15, Comm 0.00
+
+
+Test Script Execution
+---------------------
+
+Detailed in the command line ``help``::
+
+  $ ./order-execution-samples.py --help
+  usage: order-execution-samples.py [-h] [--infile INFILE]
+                                    [--csvformat {bt,visualchart,sierrachart,yahoo,yahoo_unreversed}]
+                                    [--fromdate FROMDATE] [--todate TODATE]
+                                    [--plot] [--plotstyle {bar,line,candle}]
+                                    [--numfigs NUMFIGS] [--smaperiod SMAPERIOD]
+                                    [--exectype EXECTYPE] [--valid VALID]
+                                    [--perc1 PERC1] [--perc2 PERC2]
+
+  Showcase for Order Execution Types
+
+  optional arguments:
+    -h, --help            show this help message and exit
+    --infile INFILE, -i INFILE
+                          File to be read in
+    --csvformat {bt,visualchart,sierrachart,yahoo,yahoo_unreversed},
+    -c {bt,visualchart,sierrachart,yahoo,yahoo_unreversed}
+                          CSV Format
+    --fromdate FROMDATE, -f FROMDATE
+                          Starting date in YYYY-MM-DD format
+    --todate TODATE, -t TODATE
+                          Ending date in YYYY-MM-DD format
+    --plot, -p            Plot the read data
+    --plotstyle {bar,line,candle}, -ps {bar,line,candle}
+                          Plot the read data
+    --numfigs NUMFIGS, -n NUMFIGS
+                          Plot using n figures
+    --smaperiod SMAPERIOD, -s SMAPERIOD
+                        Simple Moving Average Period
+    --exectype EXECTYPE, -e EXECTYPE
+                          Execution Type: Market (default), Close, Limit,
+			  Stop, StopLimit
+    --valid VALID, -v VALID
+                          Validity for Limit sample: default 0 days
+    --perc1 PERC1, -p1 PERC1
+                          % distance from close price at order creation time for
+                          the limit/trigger price in Limit/Stop orders
+    --perc2 PERC2, -p2 PERC2
+                          % distance from close price at order creation time for
+                          the limit price in StopLimit orders
 
 
 The full code
--------------
-
-To control which price execution is used and the % used, the script below
-accepts the following command line arguments for execution:
-
-  - exectype (default: Market)
-
-    Other options: Close, Limit, Stop, StopLimit
-
-  - valid (default: 4)
-
-    Number of calendar days to wait before canceling the order. Only used in the
-    'Limit with validity' example
-
-  - perc1 (default: 0.03 meaning 3%)
-
-    Used as percentage for the 'Limit', 'Limit with validity', 'Stop' and
-    'StopLimit' examples
-
-  - perc2 (default: 0.01 meaning 1%)
-
-    Used as percentage for the 'StopLimit' example for the limit price.
-
-  - exec_sample
+---------------------
 
 .. literalinclude:: ./order-execution-samples.py
    :language: python
