@@ -2,14 +2,14 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">backtrader Blog</title>
   <id>http://www.backtrader.com/blog/atom.xml</id>
-  <updated>2015-08-08T00:00:00Z</updated>
+  <updated>2015-08-11T00:00:00Z</updated>
   <link href="http://www.backtrader.com" />
   <link href="http://www.backtrader.com/blog/atom.xml" rel="self" />
   <generator uri="http://ablog.readthedocs.org" version="0.7.7">ABlog</generator>
   <entry xml:base="http://www.backtrader.com/blog/atom.xml">
     <title type="text">Order Management and Execution</title>
     <id>http://www.backtrader.com/posts/2015-08-08/order-creation-execution/</id>
-    <updated>2015-08-08T00:00:00Z</updated>
+    <updated>2015-08-11T00:00:00Z</updated>
     <published>2015-08-08T00:00:00Z</published>
     <link href="http://www.backtrader.com/posts/2015-08-08/order-creation-execution/" />
     <author>
@@ -17,7 +17,7 @@
     </author>
     <content type="html">&lt;p&gt;Backtesting, and hence &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt;, would not be complete if orders could not
 be simulated. To do so, the following is available in the platform.&lt;/p&gt;
-&lt;a data-lightbox=&quot;group-c2684bda-5392-44c5-9410-fcf776342096&quot;
+&lt;a data-lightbox=&quot;group-73347270-88d8-40bf-8bbc-805954ab61ab&quot;
                    href=&quot;../_images\market1.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
