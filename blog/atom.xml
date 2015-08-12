@@ -2,10 +2,33 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">backtrader Blog</title>
   <id>http://www.backtrader.com/blog/atom.xml</id>
-  <updated>2015-08-11T00:00:00Z</updated>
+  <updated>2015-08-12T00:00:00Z</updated>
   <link href="http://www.backtrader.com" />
   <link href="http://www.backtrader.com/blog/atom.xml" rel="self" />
   <generator uri="http://ablog.readthedocs.org" version="0.7.7">ABlog</generator>
+  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+    <title type="text">Observers and Statistics</title>
+    <id>http://www.backtrader.com/posts/2015-08-12/observers-and-statistics/</id>
+    <updated>2015-08-12T00:00:00Z</updated>
+    <published>2015-08-12T00:00:00Z</published>
+    <link href="http://www.backtrader.com/posts/2015-08-12/observers-and-statistics/" />
+    <author>
+      <name>mementum</name>
+    </author>
+    <content type="html">&lt;p&gt;Strateties running inside the &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt; do mostly deal with &lt;strong&gt;datas&lt;/strong&gt; and
+&lt;strong&gt;indicators&lt;/strong&gt;.&lt;/p&gt;
+&lt;a data-lightbox=&quot;group-fe4f697b-84b5-4aa5-9489-0d837dd7662d&quot;
+                   href=&quot;../_images\observers-default1.png&quot;
+                   class=&quot;&quot;
+                   title=&quot;&quot;
+                   data-title=&quot;&quot;
+                   &gt;&lt;img src=&quot;../_images\observers-default1.png&quot;
+                    class=&quot;&quot;
+                    width=&quot;100%&quot;
+                    height=&quot;auto&quot;
+                    alt=&quot;&quot;/&gt;
+                    &lt;/a&gt;</content>
+  </entry>
   <entry xml:base="http://www.backtrader.com/blog/atom.xml">
     <title type="text">Datafeed Development</title>
     <id>http://www.backtrader.com/posts/2015-08-11/datafeed-development/</id>
@@ -41,7 +64,7 @@ of the work off the subclasses which in most cases can simply do:&lt;/p&gt;
     </author>
     <content type="html">&lt;p&gt;Backtesting, and hence &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt;, would not be complete if orders could not
 be simulated. To do so, the following is available in the platform.&lt;/p&gt;
-&lt;a data-lightbox=&quot;group-73347270-88d8-40bf-8bbc-805954ab61ab&quot;
+&lt;a data-lightbox=&quot;group-9bdb1cae-7c49-4427-9790-0301cae50495&quot;
                    href=&quot;../_images\market1.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
