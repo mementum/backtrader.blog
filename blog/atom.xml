@@ -2,10 +2,34 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">backtrader Blog</title>
   <id>http://www.backtrader.com/blog/atom.xml</id>
-  <updated>2015-08-12T00:00:00Z</updated>
+  <updated>2015-08-16T00:00:00Z</updated>
   <link href="http://www.backtrader.com" />
   <link href="http://www.backtrader.com/blog/atom.xml" rel="self" />
   <generator uri="http://ablog.readthedocs.org" version="0.7.7">ABlog</generator>
+  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+    <title type="text">Automating backtrader BackTesting</title>
+    <id>http://www.backtrader.com/posts/2015-08-16/backtesting-with-almost-no-programming/</id>
+    <updated>2015-08-16T00:00:00Z</updated>
+    <published>2015-08-16T00:00:00Z</published>
+    <link href="http://www.backtrader.com/posts/2015-08-16/backtesting-with-almost-no-programming/" />
+    <author>
+      <name>mementum</name>
+    </author>
+    <content type="html">&lt;p&gt;So far all &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt; examples and working samples have started from scratch
+creating a main &lt;strong&gt;Python&lt;/strong&gt; module which loads datas, strategies, observers and
+prepares cash and commission schemes.&lt;/p&gt;
+&lt;a data-lightbox=&quot;group-0536a64d-ef18-44e4-b4a9-709cf0d4db50&quot;
+                   href=&quot;../_images\bt-run-mymod-no-params1.png&quot;
+                   class=&quot;&quot;
+                   title=&quot;&quot;
+                   data-title=&quot;&quot;
+                   &gt;&lt;img src=&quot;../_images\bt-run-mymod-no-params1.png&quot;
+                    class=&quot;&quot;
+                    width=&quot;100%&quot;
+                    height=&quot;auto&quot;
+                    alt=&quot;&quot;/&gt;
+                    &lt;/a&gt;</content>
+  </entry>
   <entry xml:base="http://www.backtrader.com/blog/atom.xml">
     <title type="text">Observers and Statistics</title>
     <id>http://www.backtrader.com/posts/2015-08-12/observers-and-statistics/</id>
@@ -17,7 +41,7 @@
     </author>
     <content type="html">&lt;p&gt;Strateties running inside the &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt; do mostly deal with &lt;strong&gt;datas&lt;/strong&gt; and
 &lt;strong&gt;indicators&lt;/strong&gt;.&lt;/p&gt;
-&lt;a data-lightbox=&quot;group-fe4f697b-84b5-4aa5-9489-0d837dd7662d&quot;
+&lt;a data-lightbox=&quot;group-5ecc848d-8ce0-45a7-bc6a-f46a35eeeeef&quot;
                    href=&quot;../_images\observers-default1.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
@@ -41,7 +65,7 @@
     <content type="html">&lt;p&gt;In &lt;a class=&quot;reference internal&quot; href=&quot;../posts/2015-08-06/csv-data-feed-development/#csv-data-feed-development&quot;&gt;&lt;span&gt;CSV Data Feed Development&lt;/span&gt;&lt;/a&gt; it was shown how to add new CSV based data
 feeds. The existing base class &lt;cite&gt;CSVDataBase&lt;/cite&gt; provides the framework taking most
 of the work off the subclasses which in most cases can simply do:&lt;/p&gt;
-&lt;a data-lightbox=&quot;group-08618bcc-aadd-4d83-9e33-43394b487445&quot;
+&lt;a data-lightbox=&quot;group-f9b16536-148c-4994-b386-62e36c1c950d&quot;
                    href=&quot;../_images\vchart-goog-20061.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
@@ -64,7 +88,7 @@ of the work off the subclasses which in most cases can simply do:&lt;/p&gt;
     </author>
     <content type="html">&lt;p&gt;Backtesting, and hence &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt;, would not be complete if orders could not
 be simulated. To do so, the following is available in the platform.&lt;/p&gt;
-&lt;a data-lightbox=&quot;group-9bdb1cae-7c49-4427-9790-0301cae50495&quot;
+&lt;a data-lightbox=&quot;group-09568524-5d95-400d-ae7e-363e81d00039&quot;
                    href=&quot;../_images\market1.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
@@ -141,12 +165,12 @@ need to have something that can actually handle any incoming CSV data feed.&lt;/
     </author>
     <content type="html">&lt;p&gt;Posting &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt; usage examples has given me an insight into things that
 were missing. For starters:&lt;/p&gt;
-&lt;a data-lightbox=&quot;group-90741c77-ae9a-407e-a8a7-0d79b91e615c&quot;
-                   href=&quot;posts\2015-07-31\./commission-futures-updated.png&quot;
+&lt;a data-lightbox=&quot;group-88630c2e-72fc-4b74-9d53-f2ba7e419a0a&quot;
+                   href=&quot;../_images\commission-futures-updated1.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
                    data-title=&quot;&quot;
-                   &gt;&lt;img src=&quot;posts\2015-07-31\./commission-futures-updated.png&quot;
+                   &gt;&lt;img src=&quot;../_images\commission-futures-updated1.png&quot;
                     class=&quot;&quot;
                     width=&quot;100%&quot;
                     height=&quot;auto&quot;
@@ -165,12 +189,12 @@ were missing. For starters:&lt;/p&gt;
     <content type="html">&lt;p&gt;Follow up post with newly added operations/trades notifications, fixing the
 plotting of trades P&amp;amp;L figures and avoiding manual calculation like in the
 example below&lt;/p&gt;
-&lt;a data-lightbox=&quot;group-186c5239-9104-4a2e-a0e8-d05274364668&quot;
-                   href=&quot;posts\2015-07-26\./commission-futures.png&quot;
+&lt;a data-lightbox=&quot;group-41816761-d9e3-4856-af17-238a7efb4ec4&quot;
+                   href=&quot;../_images\commission-futures1.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
                    data-title=&quot;&quot;
-                   &gt;&lt;img src=&quot;posts\2015-07-26\./commission-futures.png&quot;
+                   &gt;&lt;img src=&quot;../_images\commission-futures1.png&quot;
                     class=&quot;&quot;
                     width=&quot;100%&quot;
                     height=&quot;auto&quot;
@@ -190,12 +214,12 @@ example below&lt;/p&gt;
 set of test cases. Given the behavior exhibited by &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;pickle&lt;/span&gt;&lt;/code&gt; some other
 adjustments are expected to ensure all indicators and functions can be passed
 back and forth amongst processes when doing multicore optimization.&lt;/p&gt;
-&lt;a data-lightbox=&quot;group-8483eb5f-3b3e-4c73-9777-122be26327a3&quot;
-                   href=&quot;posts\2015-07-23\./eight-cores-in-use.png&quot;
+&lt;a data-lightbox=&quot;group-52b60974-3e74-4f2e-8fe4-fb2a32e17c2e&quot;
+                   href=&quot;../_images\eight-cores-in-use1.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
                    data-title=&quot;&quot;
-                   &gt;&lt;img src=&quot;posts\2015-07-23\./eight-cores-in-use.png&quot;
+                   &gt;&lt;img src=&quot;../_images\eight-cores-in-use1.png&quot;
                     class=&quot;&quot;
                     width=&quot;100%&quot;
                     height=&quot;auto&quot;
@@ -213,12 +237,12 @@ back and forth amongst processes when doing multicore optimization.&lt;/p&gt;
     </author>
     <content type="html">&lt;p&gt;In Object Oriented Programming, and of course in Python itself, extension of an
 existing class can be achieved in two ways.&lt;/p&gt;
-&lt;a data-lightbox=&quot;group-a3f878e3-c9a1-422c-a50c-af181cdcf8bd&quot;
-                   href=&quot;posts\2015-07-20\./trixsignal-inherited.png&quot;
+&lt;a data-lightbox=&quot;group-131574c4-77b1-4d1c-9782-144f6cb9a783&quot;
+                   href=&quot;../_images\trixsignal-inherited1.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
                    data-title=&quot;&quot;
-                   &gt;&lt;img src=&quot;posts\2015-07-20\./trixsignal-inherited.png&quot;
+                   &gt;&lt;img src=&quot;../_images\trixsignal-inherited1.png&quot;
                     class=&quot;&quot;
                     width=&quot;100%&quot;
                     height=&quot;auto&quot;
@@ -237,12 +261,12 @@ existing class can be achieved in two ways.&lt;/p&gt;
     <content type="html">&lt;p&gt;After much ado in fine tuning &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt; (give it had already been running
 for a while) I decided to not only share it via GitHub but to also tell the
 world it was there and posted about its existence in &amp;#8220;Reddit&amp;#8221;.&lt;/p&gt;
-&lt;a data-lightbox=&quot;group-dda8b119-c40f-4096-8066-679fff24ddaf&quot;
-                   href=&quot;posts\2015-07-18\./trix.png&quot;
+&lt;a data-lightbox=&quot;group-bba53795-2eaa-4f02-8194-0951df7d8b28&quot;
+                   href=&quot;../_images\trix1.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
                    data-title=&quot;&quot;
-                   &gt;&lt;img src=&quot;posts\2015-07-18\./trix.png&quot;
+                   &gt;&lt;img src=&quot;../_images\trix1.png&quot;
                     class=&quot;&quot;
                     width=&quot;100%&quot;
                     height=&quot;auto&quot;

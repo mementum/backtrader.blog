@@ -69,6 +69,53 @@
     
 
     <div class="section">
+      <h2><a href="../../../posts/2015-08-16/backtesting-with-almost-no-programming/">Automating backtrader BackTesting</a></h2>
+
+      <ul class="ablog-archive">
+      <li>
+      <i class="fa fa-calendar"></i>
+        Aug 16, 2015
+      
+      </li>
+        
+
+  
+  <li><i class="fa-fw fa fa-user"></i>
+    
+      
+      <a href="#">mementum</a>
+      
+    </li>
+  
+
+  
+
+  
+
+  
+
+  
+  </ul>
+      <p>So far all <code class="docutils literal"><span class="pre">backtrader</span></code> examples and working samples have started from scratch
+creating a main <strong>Python</strong> module which loads datas, strategies, observers and
+prepares cash and commission schemes.</p>
+<a data-lightbox="group-0536a64d-ef18-44e4-b4a9-709cf0d4db50"
+                   href="../../../_images\bt-run-mymod-no-params1.png"
+                   class=""
+                   title=""
+                   data-title=""
+                   ><img src="../../../_images\bt-run-mymod-no-params1.png"
+                    class=""
+                    width="100%"
+                    height="auto"
+                    alt=""/>
+                    </a>
+      <p><a href="../../../posts/2015-08-16/backtesting-with-almost-no-programming/">Read more ...</a></p>
+      <hr>
+    </div>
+    
+
+    <div class="section">
       <h2><a href="../../../posts/2015-08-12/observers-and-statistics/">Observers and Statistics</a></h2>
 
       <ul class="ablog-archive">
@@ -98,7 +145,7 @@
   </ul>
       <p>Strateties running inside the <code class="docutils literal"><span class="pre">backtrader</span></code> do mostly deal with <strong>datas</strong> and
 <strong>indicators</strong>.</p>
-<a data-lightbox="group-fe4f697b-84b5-4aa5-9489-0d837dd7662d"
+<a data-lightbox="group-5ecc848d-8ce0-45a7-bc6a-f46a35eeeeef"
                    href="../../../_images\observers-default1.png"
                    class=""
                    title=""
@@ -145,7 +192,7 @@
       <p>In <a class="reference internal" href="../../../posts/2015-08-06/csv-data-feed-development/#csv-data-feed-development"><span>CSV Data Feed Development</span></a> it was shown how to add new CSV based data
 feeds. The existing base class <cite>CSVDataBase</cite> provides the framework taking most
 of the work off the subclasses which in most cases can simply do:</p>
-<a data-lightbox="group-08618bcc-aadd-4d83-9e33-43394b487445"
+<a data-lightbox="group-f9b16536-148c-4994-b386-62e36c1c950d"
                    href="../../../_images\vchart-goog-20061.png"
                    class=""
                    title=""
@@ -194,7 +241,7 @@ of the work off the subclasses which in most cases can simply do:</p>
   </ul>
       <p>Backtesting, and hence <code class="docutils literal"><span class="pre">backtrader</span></code>, would not be complete if orders could not
 be simulated. To do so, the following is available in the platform.</p>
-<a data-lightbox="group-9bdb1cae-7c49-4427-9790-0301cae50495"
+<a data-lightbox="group-09568524-5d95-400d-ae7e-363e81d00039"
                    href="../../../_images\market1.png"
                    class=""
                    title=""
@@ -386,12 +433,12 @@ need to have something that can actually handle any incoming CSV data feed.</p>
   </ul>
       <p>Posting <code class="docutils literal"><span class="pre">backtrader</span></code> usage examples has given me an insight into things that
 were missing. For starters:</p>
-<a data-lightbox="group-90741c77-ae9a-407e-a8a7-0d79b91e615c"
-                   href="posts\2015-07-31\./commission-futures-updated.png"
+<a data-lightbox="group-88630c2e-72fc-4b74-9d53-f2ba7e419a0a"
+                   href="../../../_images\commission-futures-updated1.png"
                    class=""
                    title=""
                    data-title=""
-                   ><img src="posts\2015-07-31\./commission-futures-updated.png"
+                   ><img src="../../../_images\commission-futures-updated1.png"
                     class=""
                     width="100%"
                     height="auto"
@@ -436,12 +483,12 @@ were missing. For starters:</p>
       <p>Follow up post with newly added operations/trades notifications, fixing the
 plotting of trades P&amp;L figures and avoiding manual calculation like in the
 example below</p>
-<a data-lightbox="group-186c5239-9104-4a2e-a0e8-d05274364668"
-                   href="posts\2015-07-26\./commission-futures.png"
+<a data-lightbox="group-41816761-d9e3-4856-af17-238a7efb4ec4"
+                   href="../../../_images\commission-futures1.png"
                    class=""
                    title=""
                    data-title=""
-                   ><img src="posts\2015-07-26\./commission-futures.png"
+                   ><img src="../../../_images\commission-futures1.png"
                     class=""
                     width="100%"
                     height="auto"
@@ -487,12 +534,12 @@ example below</p>
 set of test cases. Given the behavior exhibited by <code class="docutils literal"><span class="pre">pickle</span></code> some other
 adjustments are expected to ensure all indicators and functions can be passed
 back and forth amongst processes when doing multicore optimization.</p>
-<a data-lightbox="group-8483eb5f-3b3e-4c73-9777-122be26327a3"
-                   href="posts\2015-07-23\./eight-cores-in-use.png"
+<a data-lightbox="group-52b60974-3e74-4f2e-8fe4-fb2a32e17c2e"
+                   href="../../../_images\eight-cores-in-use1.png"
                    class=""
                    title=""
                    data-title=""
-                   ><img src="posts\2015-07-23\./eight-cores-in-use.png"
+                   ><img src="../../../_images\eight-cores-in-use1.png"
                     class=""
                     width="100%"
                     height="auto"
@@ -533,12 +580,12 @@ back and forth amongst processes when doing multicore optimization.</p>
   </ul>
       <p>In Object Oriented Programming, and of course in Python itself, extension of an
 existing class can be achieved in two ways.</p>
-<a data-lightbox="group-a3f878e3-c9a1-422c-a50c-af181cdcf8bd"
-                   href="posts\2015-07-20\./trixsignal-inherited.png"
+<a data-lightbox="group-131574c4-77b1-4d1c-9782-144f6cb9a783"
+                   href="../../../_images\trixsignal-inherited1.png"
                    class=""
                    title=""
                    data-title=""
-                   ><img src="posts\2015-07-20\./trixsignal-inherited.png"
+                   ><img src="../../../_images\trixsignal-inherited1.png"
                     class=""
                     width="100%"
                     height="auto"
@@ -580,12 +627,12 @@ existing class can be achieved in two ways.</p>
       <p>After much ado in fine tuning <code class="docutils literal"><span class="pre">backtrader</span></code> (give it had already been running
 for a while) I decided to not only share it via GitHub but to also tell the
 world it was there and posted about its existence in &#8220;Reddit&#8221;.</p>
-<a data-lightbox="group-dda8b119-c40f-4096-8066-679fff24ddaf"
-                   href="posts\2015-07-18\./trix.png"
+<a data-lightbox="group-bba53795-2eaa-4f02-8194-0951df7d8b28"
+                   href="../../../_images\trix1.png"
                    class=""
                    title=""
                    data-title=""
-                   ><img src="posts\2015-07-18\./trix.png"
+                   ><img src="../../../_images\trix1.png"
                     class=""
                     width="100%"
                     height="auto"
@@ -640,6 +687,8 @@ world it was there and posted about its existence in &#8220;Reddit&#8221;.</p>
   <ul>
     
     
+      <li><a href="../../../posts/2015-08-16/backtesting-with-almost-no-programming/">Aug 16 - Automating backtrader BackTesting</a></li>
+    
       <li><a href="../../../posts/2015-08-12/observers-and-statistics/">Aug 12 - Observers and Statistics</a></li>
     
       <li><a href="../../../posts/2015-08-11/datafeed-development/">Aug 11 - Datafeed Development</a></li>
@@ -648,15 +697,13 @@ world it was there and posted about its existence in &#8220;Reddit&#8221;.</p>
     
       <li><a href="../../../posts/2015-08-07/extending-a-datafeed/">Aug 07 - Extending a data feed</a></li>
     
-      <li><a href="../../../posts/2015-08-06/csv-data-feed-development/">Aug 06 - CSV Data Feed Development</a></li>
-    
   </ul>
 
   <h3><a href="../../archive/">Archives</a></h3>
   <ul>
   
     
-    <li><a href="../../2015/">2015 (12)</a></li>
+    <li><a href="../../2015/">2015 (13)</a></li>
     
   
   </ul>
