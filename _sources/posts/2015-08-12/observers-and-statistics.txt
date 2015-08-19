@@ -256,7 +256,7 @@ happen to be.
 .. update:: Aug 19, 2015
 
   Starting with commit `1560fa8802
-  <https://github.com/mementum/backtrader/commit/1560fa88021811c85ba94d4b6497d15322cbc1ed>`
+  <https://github.com/mementum/backtrader/commit/1560fa88021811c85ba94d4b6497d15322cbc1ed>`_
   in the ``development`` branch if price is unset at the time of order creation,
   the closing price will be used as the reference price.
 
