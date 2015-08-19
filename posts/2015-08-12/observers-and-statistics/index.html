@@ -111,7 +111,7 @@ portfolio value)</p>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
-<a data-lightbox="group-5ecc848d-8ce0-45a7-bc6a-f46a35eeeeef"
+<a data-lightbox="group-e598694d-ad03-4ada-8940-408d6daac2a2"
                    href="../../../_images\observers-default1.png"
                    class=""
                    title=""
@@ -127,7 +127,7 @@ portfolio value)</p>
 </pre></div>
 </div>
 <p>The chart is different now.</p>
-<a data-lightbox="group-78c0150c-0e8b-441f-8d7a-5f60784c5495"
+<a data-lightbox="group-0b8dc533-4bb2-462a-8614-6c4492c47ec8"
                    href="../../../_images\observers-default-false1.png"
                    class=""
                    title=""
@@ -254,7 +254,7 @@ ecosystem</li>
 </pre></div>
 </div>
 <p>The visual output shows the evolution of the drawdown</p>
-<a data-lightbox="group-79ee740a-d737-493c-bc78-6e4d6673eae9"
+<a data-lightbox="group-40d7f6bb-0bd6-43c6-ac2b-3b25f30353b8"
                    href="../../../_images\observers-default-drawdown1.png"
                    class=""
                    title=""
@@ -394,7 +394,7 @@ of the signal</li>
 </ul>
 </div></blockquote>
 <p>The resulting chart.</p>
-<a data-lightbox="group-ef1ae2c2-c9f1-44bf-a4e5-a1e6259b0839"
+<a data-lightbox="group-521c18c3-916b-4e66-b83c-d48deaf9bdbb"
                    href="../../../_images\observers-orderobserver1.png"
                    class=""
                    title=""
@@ -526,15 +526,15 @@ of observers storing them into files. The best way to do it:</p>
 
     def start(self):
 
-        mystats = open(&#39;mystats.csv&#39;, &#39;wb&#39;)
-        mystats.write(&#39;datetime,drawdown, maxdrawdown\N&#39;)
+        self.mystats = open(&#39;mystats.csv&#39;, &#39;wb&#39;)
+        self.mystats.write(&#39;datetime,drawdown, maxdrawdown\n&#39;)
 
 
     def next(self):
-        mystats.write(self.data.datetime.date(0).strptime(&#39;%Y-%m-%d&#39;))
-        mystats.write(&#39;,%.2f&#39; % self.stats.drawdown.drawdown[-1])
-        mystats.write(&#39;,%.2f&#39; % self.stats.drawdown.maxdrawdown-1])
-        mystats.write(&#39;\n&#39;)
+        self.mystats.write(self.data.datetime.date(0).strftime(&#39;%Y-%m-%d&#39;))
+        self.mystats.write(&#39;,%.2f&#39; % self.stats.drawdown.drawdown[-1])
+        self.mystats.write(&#39;,%.2f&#39; % self.stats.drawdown.maxdrawdown-1])
+        self.mystats.write(&#39;\n&#39;)
 </pre></div>
 </div>
 <p>To save the values of index 0, once all observers have been processed a custom

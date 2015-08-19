@@ -41,7 +41,7 @@ prepares cash and commission schemes.&lt;/p&gt;
     </author>
     <content type="html">&lt;p&gt;Strateties running inside the &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt; do mostly deal with &lt;strong&gt;datas&lt;/strong&gt; and
 &lt;strong&gt;indicators&lt;/strong&gt;.&lt;/p&gt;
-&lt;a data-lightbox=&quot;group-5ecc848d-8ce0-45a7-bc6a-f46a35eeeeef&quot;
+&lt;a data-lightbox=&quot;group-e598694d-ad03-4ada-8940-408d6daac2a2&quot;
                    href=&quot;../_images\observers-default1.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
@@ -166,11 +166,11 @@ need to have something that can actually handle any incoming CSV data feed.&lt;/
     <content type="html">&lt;p&gt;Posting &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt; usage examples has given me an insight into things that
 were missing. For starters:&lt;/p&gt;
 &lt;a data-lightbox=&quot;group-88630c2e-72fc-4b74-9d53-f2ba7e419a0a&quot;
-                   href=&quot;../_images\commission-futures-updated1.png&quot;
+                   href=&quot;posts\2015-07-31\./commission-futures-updated.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
                    data-title=&quot;&quot;
-                   &gt;&lt;img src=&quot;../_images\commission-futures-updated1.png&quot;
+                   &gt;&lt;img src=&quot;posts\2015-07-31\./commission-futures-updated.png&quot;
                     class=&quot;&quot;
                     width=&quot;100%&quot;
                     height=&quot;auto&quot;
@@ -190,11 +190,11 @@ were missing. For starters:&lt;/p&gt;
 plotting of trades P&amp;amp;L figures and avoiding manual calculation like in the
 example below&lt;/p&gt;
 &lt;a data-lightbox=&quot;group-41816761-d9e3-4856-af17-238a7efb4ec4&quot;
-                   href=&quot;../_images\commission-futures1.png&quot;
+                   href=&quot;posts\2015-07-26\./commission-futures.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
                    data-title=&quot;&quot;
-                   &gt;&lt;img src=&quot;../_images\commission-futures1.png&quot;
+                   &gt;&lt;img src=&quot;posts\2015-07-26\./commission-futures.png&quot;
                     class=&quot;&quot;
                     width=&quot;100%&quot;
                     height=&quot;auto&quot;
@@ -215,11 +215,11 @@ set of test cases. Given the behavior exhibited by &lt;code class=&quot;docutils
 adjustments are expected to ensure all indicators and functions can be passed
 back and forth amongst processes when doing multicore optimization.&lt;/p&gt;
 &lt;a data-lightbox=&quot;group-52b60974-3e74-4f2e-8fe4-fb2a32e17c2e&quot;
-                   href=&quot;../_images\eight-cores-in-use1.png&quot;
+                   href=&quot;posts\2015-07-23\./eight-cores-in-use.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
                    data-title=&quot;&quot;
-                   &gt;&lt;img src=&quot;../_images\eight-cores-in-use1.png&quot;
+                   &gt;&lt;img src=&quot;posts\2015-07-23\./eight-cores-in-use.png&quot;
                     class=&quot;&quot;
                     width=&quot;100%&quot;
                     height=&quot;auto&quot;
@@ -238,11 +238,11 @@ back and forth amongst processes when doing multicore optimization.&lt;/p&gt;
     <content type="html">&lt;p&gt;In Object Oriented Programming, and of course in Python itself, extension of an
 existing class can be achieved in two ways.&lt;/p&gt;
 &lt;a data-lightbox=&quot;group-131574c4-77b1-4d1c-9782-144f6cb9a783&quot;
-                   href=&quot;../_images\trixsignal-inherited1.png&quot;
+                   href=&quot;posts\2015-07-20\./trixsignal-inherited.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
                    data-title=&quot;&quot;
-                   &gt;&lt;img src=&quot;../_images\trixsignal-inherited1.png&quot;
+                   &gt;&lt;img src=&quot;posts\2015-07-20\./trixsignal-inherited.png&quot;
                     class=&quot;&quot;
                     width=&quot;100%&quot;
                     height=&quot;auto&quot;
@@ -262,11 +262,11 @@ existing class can be achieved in two ways.&lt;/p&gt;
 for a while) I decided to not only share it via GitHub but to also tell the
 world it was there and posted about its existence in &amp;#8220;Reddit&amp;#8221;.&lt;/p&gt;
 &lt;a data-lightbox=&quot;group-bba53795-2eaa-4f02-8194-0951df7d8b28&quot;
-                   href=&quot;../_images\trix1.png&quot;
+                   href=&quot;posts\2015-07-18\./trix.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
                    data-title=&quot;&quot;
-                   &gt;&lt;img src=&quot;../_images\trix1.png&quot;
+                   &gt;&lt;img src=&quot;posts\2015-07-18\./trix.png&quot;
                     class=&quot;&quot;
                     width=&quot;100%&quot;
                     height=&quot;auto&quot;
