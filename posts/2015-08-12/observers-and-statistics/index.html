@@ -111,7 +111,7 @@ portfolio value)</p>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
-<a data-lightbox="group-e598694d-ad03-4ada-8940-408d6daac2a2"
+<a data-lightbox="group-6ec5c481-27d7-4998-85bb-3065b8ccc0c9"
                    href="../../../_images\observers-default1.png"
                    class=""
                    title=""
@@ -127,7 +127,7 @@ portfolio value)</p>
 </pre></div>
 </div>
 <p>The chart is different now.</p>
-<a data-lightbox="group-0b8dc533-4bb2-462a-8614-6c4492c47ec8"
+<a data-lightbox="group-998ac349-6a78-4602-9088-4912fecc9aab"
                    href="../../../_images\observers-default-false1.png"
                    class=""
                    title=""
@@ -254,7 +254,7 @@ ecosystem</li>
 </pre></div>
 </div>
 <p>The visual output shows the evolution of the drawdown</p>
-<a data-lightbox="group-40d7f6bb-0bd6-43c6-ac2b-3b25f30353b8"
+<a data-lightbox="group-e2745753-b046-4957-8082-8442d96bef75"
                    href="../../../_images\observers-default-drawdown1.png"
                    class=""
                    title=""
@@ -394,7 +394,7 @@ of the signal</li>
 </ul>
 </div></blockquote>
 <p>The resulting chart.</p>
-<a data-lightbox="group-521c18c3-916b-4e66-b83c-d48deaf9bdbb"
+<a data-lightbox="group-f11b6b89-64f3-41c6-8314-c7e2d2bb89ea"
                    href="../../../_images\observers-orderobserver1.png"
                    class=""
                    title=""
@@ -407,6 +407,15 @@ of the signal</li>
                     </a><p>Several orders have expired as can be seen in the new subchart (red squares) and
 we can also appreciate that between &#8220;creation&#8221; and &#8220;execution&#8221; several days
 happen to be.</p>
+<div class="note update admonition">
+<p class="first admonition-title">Updated on Aug 19, 2015</p>
+<p>Starting with commit <cite>1560fa8802
+&lt;https://github.com/mementum/backtrader/commit/1560fa88021811c85ba94d4b6497d15322cbc1ed&gt;</cite>
+in the <code class="docutils literal"><span class="pre">development</span></code> branch if price is unset at the time of order creation,
+the closing price will be used as the reference price.</p>
+<p class="last">This has no impact in Market orders but keeps <code class="docutils literal"><span class="pre">order.create.price</span></code> usable at
+all times and eases up the usage of <code class="docutils literal"><span class="pre">buy</span></code></p>
+</div>
 <p>Finally the code for this strategy which applies the new <strong>observer</strong></p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
@@ -635,6 +644,9 @@ system to save values to a csv file.</p>
 
   <ul>
     
+  <li><i class="fa fa-pencil-square-o"></i>
+    Aug 19, 2015</li>
+  
 
   
   <li><i class="fa-fw fa fa-user"></i>

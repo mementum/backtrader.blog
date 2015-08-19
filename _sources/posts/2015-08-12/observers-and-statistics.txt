@@ -253,6 +253,16 @@ Several orders have expired as can be seen in the new subchart (red squares) and
 we can also appreciate that between "creation" and "execution" several days
 happen to be.
 
+.. update:: Aug 19, 2015
+
+  Starting with commit `1560fa8802
+  <https://github.com/mementum/backtrader/commit/1560fa88021811c85ba94d4b6497d15322cbc1ed>`
+  in the ``development`` branch if price is unset at the time of order creation,
+  the closing price will be used as the reference price.
+
+  This has no impact in Market orders but keeps ``order.create.price`` usable at
+  all times and eases up the usage of ``buy``
+
 Finally the code for this strategy which applies the new **observer**
 
 .. literalinclude:: ./observers-orderobserver.py
