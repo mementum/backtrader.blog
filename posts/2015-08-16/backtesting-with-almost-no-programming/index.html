@@ -56,6 +56,10 @@
             
   <div class="section" id="automating-backtrader-backtesting">
 <h1>Automating <code class="docutils literal"><span class="pre">backtrader</span></code> BackTesting<a class="headerlink" href="#automating-backtrader-backtesting" title="Permalink to this headline">¶</a></h1>
+<div class="note update admonition">
+<p class="first admonition-title">Updated on Aug 22, 2015</p>
+<p class="last"><code class="docutils literal"><span class="pre">Analyzer</span></code> support in <code class="docutils literal"><span class="pre">bt-run.py</span></code> included</p>
+</div>
 <p>So far all <code class="docutils literal"><span class="pre">backtrader</span></code> examples and working samples have started from scratch
 creating a main <strong>Python</strong> module which loads datas, strategies, observers and
 prepares cash and commission schemes.</p>
@@ -132,13 +136,13 @@ data</li>
 </div>
 <p>Executing the strategy with the usual testing sample is easy:
 easy:</p>
-<div class="highlight-python"><div class="highlight"><pre>./bt-run.py --csvformat btscv \
+<div class="highlight-python"><div class="highlight"><pre>./bt-run.py --csvformat btcsv \
             --data ../samples/data/sample/2006-day-001.txt \
             --strategy ./mymod.py
 </pre></div>
 </div>
 <p>The chart output</p>
-<a data-lightbox="group-0536a64d-ef18-44e4-b4a9-709cf0d4db50"
+<a data-lightbox="group-5fc07727-d78c-4228-98fc-b32fdd070558"
                    href="../../../_images\bt-run-mymod-no-params1.png"
                    class=""
                    title=""
@@ -168,14 +172,14 @@ easy:</p>
 </ul>
 </div></blockquote>
 <p>The command line:</p>
-<div class="highlight-python"><div class="highlight"><pre>./bt-run.py --csvformat btscv \
+<div class="highlight-python"><div class="highlight"><pre>./bt-run.py --csvformat btcsv \
             --data ../samples/data/sample/2006-day-001.txt \
             --strategy ./mymod.py \
             period 50
 </pre></div>
 </div>
 <p>The chart output.</p>
-<a data-lightbox="group-ee61aeb1-ee0c-44d0-af2c-d48e14d0bc9f"
+<a data-lightbox="group-b3e9818b-85c5-4d14-9634-b86522a827cd"
                    href="../../../_images\bt-run-mymod-period-501.png"
                    class=""
                    title=""
@@ -234,7 +238,7 @@ moving average.</p>
 </pre></div>
 </div>
 <p>Standard execution:</p>
-<div class="highlight-python"><div class="highlight"><pre>./bt-run.py --csvformat btscv \
+<div class="highlight-python"><div class="highlight"><pre>./bt-run.py --csvformat btcsv \
             --data ../samples/data/sample/2006-day-001.txt \
             --strategy :SMA_CrossOver
 </pre></div>
@@ -258,7 +262,7 @@ the <code class="docutils literal"><span class="pre">backtrader</span></code> pa
 </div></blockquote>
 <p>The latter being our case.</p>
 <p>The output.</p>
-<a data-lightbox="group-4c99eda1-efe2-47ac-baa7-5ead05e3abf8"
+<a data-lightbox="group-6999ad36-3eb2-48ed-9d21-4ccd348884bc"
                    href="../../../_images\bt-run-sma-crossover1.png"
                    class=""
                    title=""
@@ -268,8 +272,8 @@ the <code class="docutils literal"><span class="pre">backtrader</span></code> pa
                     width="100%"
                     height="auto"
                     alt=""/>
-                    </a><p>One last example adding commission schemes, cash and changing the paramters:</p>
-<div class="highlight-python"><div class="highlight"><pre>./bt-run.py --csvformat btscv \
+                    </a><p>One last example adding commission schemes, cash and changing the parameters:</p>
+<div class="highlight-python"><div class="highlight"><pre>./bt-run.py --csvformat btcsv \
             --data ../samples/data/sample/2006-day-001.txt \
             --cash 20000 \
             --commission 2.0 \
@@ -280,7 +284,7 @@ the <code class="docutils literal"><span class="pre">backtrader</span></code> pa
 </pre></div>
 </div>
 <p>The output.</p>
-<a data-lightbox="group-2399bdff-995a-47db-a1d1-88f6c8b14280"
+<a data-lightbox="group-d4fb9961-bff6-4c04-9b3b-7475122eae84"
                    href="../../../_images\bt-run-sma-crossover-params-commission1.png"
                    class=""
                    title=""
@@ -304,17 +308,54 @@ the futures-like instrument daily changes</p>
 </ul>
 </div></blockquote>
 </div>
+<div class="section" id="adding-analyzers">
+<h2>Adding Analyzers<a class="headerlink" href="#adding-analyzers" title="Permalink to this headline">¶</a></h2>
+<div class="note update admonition">
+<p class="first admonition-title">Updated on Aug 22, 2015</p>
+<p class="last">Added Analyzer example</p>
+</div>
+<p><code class="docutils literal"><span class="pre">bt-run.py</span></code> also supports adding <code class="docutils literal"><span class="pre">Analyzers</span></code> with the same syntax used for
+the strategies to choose between internal/external analyzers.</p>
+<p>Example with a <code class="docutils literal"><span class="pre">SharpeRatio</span></code> analysis for the years 2005-2006:</p>
+<div class="highlight-python"><div class="highlight"><pre>./bt-run.py --csvformat btcsv \
+            --data ../samples/data/sample/2005-2006-day-001.txt \
+            --strategy :SMA_CrossOver \
+            --analyzer :SharpeRatio
+</pre></div>
+</div>
+<p>The output:</p>
+<div class="highlight-python"><div class="highlight"><pre>====================
+== Analyzers
+====================
+##  sharperatio
+--  sharperatio : 11.6473326097
+</pre></div>
+</div>
+<p>Good strategy!!! (Pure luck for the example actually which also bears no
+commissions)</p>
+<p>The chart (which simply shows the Analyzer is not in the plot, because Analyzers
+cannot be plotted, they aren&#8217;t lines objects)</p>
+<a data-lightbox="group-b8579930-ca05-4c5b-b67d-0b086d430ccf"
+                   href="../../../_images\bt-run-sma-crossover-sharpe1.png"
+                   class=""
+                   title=""
+                   data-title=""
+                   ><img src="../../../_images\bt-run-sma-crossover-sharpe1.png"
+                    class=""
+                    width="100%"
+                    height="auto"
+                    alt=""/>
+                    </a></div>
 <div class="section" id="usage-of-the-script">
 <h2>Usage of the script<a class="headerlink" href="#usage-of-the-script" title="Permalink to this headline">¶</a></h2>
 <p>Directly from the script:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ ./bt-run.py --help
-
 usage: bt-run.py [-h] --data DATA
                  [--csvformat {yahoocsv_unreversed,vchart,sierracsv,yahoocsv,vchartcsv,btcsv}]
                  [--fromdate FROMDATE] [--todate TODATE] --strategy STRATEGY
-                 [--nostdstats] [--observer OBSERVERS] [--cash CASH]
-                 [--commission COMMISSION] [--margin MARGIN] [--mult MULT]
-                 [--noplot] [--plotstyle {bar,line,candle}]
+                 [--nostdstats] [--observer OBSERVERS] [--analyzer ANALYZERS]
+                 [--cash CASH] [--commission COMMISSION] [--margin MARGIN]
+                 [--mult MULT] [--noplot] [--plotstyle {bar,line,candle}]
                  [--plotfigs PLOTFIGS]
                  ...
 
@@ -357,6 +398,17 @@ Observers and statistics:
                         load the given strategy from the set of built-in
                         strategies
 
+Analyzers:
+  --analyzer ANALYZERS, -an ANALYZERS
+                        This option can be specified multiple times Module and
+                        analyzer to load with format
+                        module_path:analzyer_name. module_path:analyzer_name
+                        will load observer_name from the given module_path
+                        module_path will load the module and return all
+                        available analyzers in the module :anaylzer_name will
+                        load the given strategy from the set of built-in
+                        strategies
+
 Cash and Commission Scheme Args:
   --cash CASH, -cash CASH
                         Cash to set to the broker
@@ -392,6 +444,7 @@ Plotting options:
 <span class="kn">import</span> <span class="nn">backtrader.indicators</span> <span class="kn">as</span> <span class="nn">btinds</span>
 <span class="kn">import</span> <span class="nn">backtrader.observers</span> <span class="kn">as</span> <span class="nn">btobs</span>
 <span class="kn">import</span> <span class="nn">backtrader.strategies</span> <span class="kn">as</span> <span class="nn">btstrats</span>
+<span class="kn">import</span> <span class="nn">backtrader.analyzers</span> <span class="kn">as</span> <span class="nn">btanalyzers</span>
 
 
 <span class="n">DATAFORMATS</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
@@ -434,9 +487,24 @@ Plotting options:
     <span class="k">for</span> <span class="n">ob</span> <span class="ow">in</span> <span class="n">obs</span><span class="p">:</span>
         <span class="n">cerebro</span><span class="o">.</span><span class="n">addobserver</span><span class="p">(</span><span class="n">ob</span><span class="p">)</span>
 
+    <span class="n">ans</span> <span class="o">=</span> <span class="n">getanalyzers</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">an</span> <span class="ow">in</span> <span class="n">ans</span><span class="p">:</span>
+        <span class="n">cerebro</span><span class="o">.</span><span class="n">addanalyzer</span><span class="p">(</span><span class="n">an</span><span class="p">)</span>
+
     <span class="n">setbroker</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">cerebro</span><span class="p">)</span>
 
-    <span class="n">cerebro</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+    <span class="n">runsts</span> <span class="o">=</span> <span class="n">cerebro</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+    <span class="n">runst</span> <span class="o">=</span> <span class="n">runsts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c"># single strategy and no optimization</span>
+
+    <span class="k">if</span> <span class="n">runst</span><span class="o">.</span><span class="n">analyzers</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;====================&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;== Analyzers&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;====================&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">analyzer</span> <span class="ow">in</span> <span class="n">runst</span><span class="o">.</span><span class="n">analyzers</span><span class="o">.</span><span class="n">getitems</span><span class="p">():</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;## &#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+            <span class="n">analysis</span> <span class="o">=</span> <span class="n">analyzer</span><span class="o">.</span><span class="n">get_analysis</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">analysis</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&#39;-- &#39;</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="s">&#39;:&#39;</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">noplot</span><span class="p">:</span>
         <span class="n">cerebro</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">numfigs</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">plotfigs</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">plotstyle</span><span class="p">)</span>
@@ -459,6 +527,7 @@ Plotting options:
     <span class="k">if</span> <span class="n">commkwargs</span><span class="p">:</span>
         <span class="n">broker</span><span class="o">.</span><span class="n">setcommission</span><span class="p">(</span><span class="o">**</span><span class="n">commkwargs</span><span class="p">)</span>
 
+
 <span class="k">def</span> <span class="nf">getdatas</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
     <span class="c"># Get the data feed class from the global dictionary</span>
     <span class="n">dfcls</span> <span class="o">=</span> <span class="n">DATAFORMATS</span><span class="p">[</span><span class="n">args</span><span class="o">.</span><span class="n">csvformat</span><span class="p">]</span>
@@ -473,7 +542,7 @@ Plotting options:
         <span class="n">dtsplit</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">fromdate</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;T&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dtsplit</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">fmtstr</span> <span class="o">+=</span> <span class="s">&#39;T%H:%M:%S&#39;</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&#39;ARGS fromdate is&#39;</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">fromdate</span><span class="p">)</span>
+
         <span class="n">fromdate</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">fromdate</span><span class="p">,</span> <span class="n">fmtstr</span><span class="p">)</span>
         <span class="n">dfkwargs</span><span class="p">[</span><span class="s">&#39;fromdate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fromdate</span>
 
@@ -518,7 +587,7 @@ Plotting options:
         <span class="n">chars</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">ascii_uppercase</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">digits</span>
         <span class="n">modname</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">chars</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 
-    <span class="n">version</span> <span class="o">=</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="o">.</span><span class="n">major</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="o">.</span><span class="n">minor</span><span class="p">)</span>
+    <span class="n">version</span> <span class="o">=</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
     <span class="k">if</span> <span class="n">version</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
         <span class="n">mod</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="n">loadmodule2</span><span class="p">(</span><span class="n">modpath</span><span class="p">,</span> <span class="n">modname</span><span class="p">)</span>
@@ -577,6 +646,39 @@ Plotting options:
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">strats</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">getanalyzers</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">analyzers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">anspec</span> <span class="ow">in</span> <span class="n">args</span><span class="o">.</span><span class="n">analyzers</span> <span class="ow">or</span> <span class="p">[]:</span>
+
+        <span class="n">tokens</span> <span class="o">=</span> <span class="n">anspec</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;:&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">modpath</span> <span class="o">=</span> <span class="n">tokens</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">modpath</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">tokens</span>
+
+        <span class="k">if</span> <span class="n">modpath</span><span class="p">:</span>
+            <span class="n">mod</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="n">loadmodule</span><span class="p">(</span><span class="n">modpath</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">mod</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">)</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&#39;Failed to load module </span><span class="si">%s</span><span class="s">:&#39;</span> <span class="o">%</span> <span class="n">modpath</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">mod</span> <span class="o">=</span> <span class="n">btanalyzers</span>
+
+        <span class="n">loaded</span> <span class="o">=</span> <span class="n">getmodclasses</span><span class="p">(</span><span class="n">mod</span><span class="o">=</span><span class="n">mod</span><span class="p">,</span> <span class="n">clstype</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">Analyzer</span><span class="p">,</span> <span class="n">clsname</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">loaded</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;No analyzer </span><span class="si">%s</span><span class="s"> / module </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">((</span><span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">),</span> <span class="n">modpath</span><span class="p">)))</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">analyzers</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">loaded</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">analyzers</span>
 
 
 <span class="k">def</span> <span class="nf">getobservers</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
@@ -647,7 +749,7 @@ Plotting options:
                              <span class="s">&#39;:strategy_name will load the given strategy &#39;</span>
                              <span class="s">&#39;from the set of built-in strategies&#39;</span><span class="p">))</span>
 
-    <span class="c"># Extra observers</span>
+    <span class="c"># Observers</span>
     <span class="n">group</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">add_argument_group</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&#39;Observers and statistics&#39;</span><span class="p">)</span>
     <span class="n">group</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--nostdstats&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&#39;store_true&#39;</span><span class="p">,</span>
                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Disable the standard statistics observers&#39;</span><span class="p">)</span>
@@ -668,7 +770,25 @@ Plotting options:
                              <span class="s">&#39;:observer_name will load the given strategy &#39;</span>
                              <span class="s">&#39;from the set of built-in strategies&#39;</span><span class="p">))</span>
 
-    <span class="c"># General observers</span>
+    <span class="c"># Anaylzers</span>
+    <span class="n">group</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">add_argument_group</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&#39;Analyzers&#39;</span><span class="p">)</span>
+    <span class="n">group</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--analyzer&#39;</span><span class="p">,</span> <span class="s">&#39;-an&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">&#39;analyzers&#39;</span><span class="p">,</span>
+                       <span class="n">action</span><span class="o">=</span><span class="s">&#39;append&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                       <span class="n">help</span><span class="o">=</span><span class="p">(</span><span class="s">&#39;This option can be specified multiple times</span><span class="se">\n</span><span class="s">&#39;</span>
+                             <span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span>
+                             <span class="s">&#39;Module and analyzer to load with format &#39;</span>
+                             <span class="s">&#39;module_path:analzyer_name.</span><span class="se">\n</span><span class="s">&#39;</span>
+                             <span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span>
+                             <span class="s">&#39;module_path:analyzer_name will load &#39;</span>
+                             <span class="s">&#39;observer_name from the given module_path</span><span class="se">\n</span><span class="s">&#39;</span>
+                             <span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span>
+                             <span class="s">&#39;module_path will load the module and return &#39;</span>
+                             <span class="s">&#39;all available analyzers in the module</span><span class="se">\n</span><span class="s">&#39;</span>
+                             <span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span>
+                             <span class="s">&#39;:anaylzer_name will load the given strategy &#39;</span>
+                             <span class="s">&#39;from the set of built-in strategies&#39;</span><span class="p">))</span>
+
+    <span class="c"># Broker/Commissions</span>
     <span class="n">group</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">add_argument_group</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&#39;Cash and Commission Scheme Args&#39;</span><span class="p">)</span>
     <span class="n">group</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--cash&#39;</span><span class="p">,</span> <span class="s">&#39;-cash&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span>
                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Cash to set to the broker&#39;</span><span class="p">)</span>
@@ -723,6 +843,13 @@ Plotting options:
   </span>
   <span>&nbsp;</span>
   <span style="float: right;">
+  
+  
+  <a href="../../2015-08-21/pandas-datafeed/">
+    Pandas DataFeed Support
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  </span>
   
 </div>
 
@@ -791,6 +918,9 @@ Plotting options:
 
   <ul>
     
+  <li><i class="fa fa-pencil-square-o"></i>
+    Aug 22, 2015</li>
+  
 
   
   <li><i class="fa-fw fa fa-user"></i>
@@ -840,6 +970,8 @@ Plotting options:
   <ul>
     
     
+      <li><a href="../../2015-08-21/pandas-datafeed/">Aug 21 - Pandas DataFeed Support</a></li>
+    
       <li><a href="../../2015-08-12/observers-and-statistics/">Aug 12 - Observers and Statistics</a></li>
     
       <li><a href="../../2015-08-11/datafeed-development/">Aug 11 - Datafeed Development</a></li>
@@ -848,15 +980,13 @@ Plotting options:
     
       <li><a href="../../2015-08-07/extending-a-datafeed/">Aug 07 - Extending a data feed</a></li>
     
-      <li><a href="../../2015-08-06/csv-data-feed-development/">Aug 06 - CSV Data Feed Development</a></li>
-    
   </ul>
 
   <h3><a href="../../../blog/archive/">Archives</a></h3>
   <ul>
   
     
-    <li><a href="../../../blog/2015/">2015 (13)</a></li>
+    <li><a href="../../../blog/2015/">2015 (14)</a></li>
     
   
   </ul>

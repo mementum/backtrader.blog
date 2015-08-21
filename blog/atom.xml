@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">backtrader Blog</title>
   <id>http://www.backtrader.com/blog/atom.xml</id>
-  <updated>2015-08-21T00:00:00Z</updated>
+  <updated>2015-08-22T00:00:00Z</updated>
   <link href="http://www.backtrader.com" />
   <link href="http://www.backtrader.com/blog/atom.xml" rel="self" />
   <generator uri="http://ablog.readthedocs.org" version="0.7.7">ABlog</generator>
@@ -33,16 +33,14 @@ analyzing data from a &lt;a class=&quot;reference external&quot; href=&quot;pand
   <entry xml:base="http://www.backtrader.com/blog/atom.xml">
     <title type="text">Automating backtrader BackTesting</title>
     <id>http://www.backtrader.com/posts/2015-08-16/backtesting-with-almost-no-programming/</id>
-    <updated>2015-08-16T00:00:00Z</updated>
+    <updated>2015-08-22T00:00:00Z</updated>
     <published>2015-08-16T00:00:00Z</published>
     <link href="http://www.backtrader.com/posts/2015-08-16/backtesting-with-almost-no-programming/" />
     <author>
       <name>mementum</name>
     </author>
-    <content type="html">&lt;p&gt;So far all &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt; examples and working samples have started from scratch
-creating a main &lt;strong&gt;Python&lt;/strong&gt; module which loads datas, strategies, observers and
-prepares cash and commission schemes.&lt;/p&gt;
-&lt;a data-lightbox=&quot;group-0536a64d-ef18-44e4-b4a9-709cf0d4db50&quot;
+    <content type="html">&lt;p&gt;&lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;Analyzer&lt;/span&gt;&lt;/code&gt; support in &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;bt-run.py&lt;/span&gt;&lt;/code&gt; included&lt;/p&gt;
+&lt;a data-lightbox=&quot;group-5fc07727-d78c-4228-98fc-b32fdd070558&quot;
                    href=&quot;../_images\bt-run-mymod-no-params1.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
