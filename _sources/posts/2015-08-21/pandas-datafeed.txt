@@ -19,7 +19,7 @@ available parsing code for different data sources (including CSV)
 
 .. literalinclude:: ./pfeed.py
    :language: python
-   :lines: 32-58
+   :lines: 30-56
 
 The above excerpt from the ``PandasData`` class shows the keys:
 

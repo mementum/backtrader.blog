@@ -65,33 +65,32 @@ analyzing data from a <a class="reference external" href="pandas.pydata.org">Pan
 </div>
 <p>This seems to be of concern to lots of people, who rely on the already
 available parsing code for different data sources (including CSV)</p>
-<div class="highlight-python"><div class="highlight"><pre>    <span class="n">The</span> <span class="sb">``</span><span class="n">dataname</span><span class="sb">``</span> <span class="n">parameter</span> <span class="n">inherited</span> <span class="kn">from</span> <span class="sb">``</span><span class="n">feed</span><span class="o">.</span><span class="n">DataBase</span><span class="sb">``</span>  <span class="ow">is</span> <span class="n">the</span> <span class="n">pandas</span>
-    <span class="n">Time</span> <span class="n">Series</span>
-    <span class="s">&#39;&#39;&#39;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">PandasData</span><span class="p">(</span><span class="n">feed</span><span class="o">.</span><span class="n">DataBase</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    The ``dataname`` parameter inherited from ``feed.DataBase``  is the pandas</span>
+<span class="sd">    Time Series</span>
+<span class="sd">    &#39;&#39;&#39;</span>
 
-<span class="s">    params = (</span>
-<span class="s">        # Possible values for datetime (must always be present)</span>
-<span class="s">        #  None : datetime is the &quot;index&quot; in the Pandas Dataframe</span>
-<span class="s">        #  -1 : autodetect position or case-wise equal name</span>
-<span class="s">        #  &gt;= 0 : numeric index to the colum in the pandas dataframe</span>
-<span class="s">        #  string : column name (as index) in the pandas dataframe</span>
-<span class="s">        (&#39;datetime&#39;, None),</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="c"># Possible values for datetime (must always be present)</span>
+        <span class="c">#  None : datetime is the &quot;index&quot; in the Pandas Dataframe</span>
+        <span class="c">#  -1 : autodetect position or case-wise equal name</span>
+        <span class="c">#  &gt;= 0 : numeric index to the colum in the pandas dataframe</span>
+        <span class="c">#  string : column name (as index) in the pandas dataframe</span>
+        <span class="p">(</span><span class="s">&#39;datetime&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span>
 
-<span class="s">        # Possible values below:</span>
-<span class="s">        #  None : column not present</span>
-<span class="s">        #  -1 : autodetect position or case-wise equal name</span>
-<span class="s">        #  &gt;= 0 : numeric index to the colum in the pandas dataframe</span>
-<span class="s">        #  string : column name (as index) in the pandas dataframe</span>
-<span class="s">        (&#39;open&#39;, -1),</span>
-<span class="s">        (&#39;high&#39;, -1),</span>
-<span class="s">        (&#39;low&#39;, -1),</span>
-<span class="s">        (&#39;close&#39;, -1),</span>
-<span class="s">        (&#39;volume&#39;, -1),</span>
-<span class="s">        (&#39;openinterest&#39;, -1),</span>
-<span class="s">    )</span>
-
-<span class="s">    datafields = [</span>
-<span class="s">        &#39;datetime&#39;, &#39;open&#39;, &#39;high&#39;, &#39;low&#39;, &#39;close&#39;, &#39;volume&#39;, &#39;openinterest&#39;</span>
+        <span class="c"># Possible values below:</span>
+        <span class="c">#  None : column not present</span>
+        <span class="c">#  -1 : autodetect position or case-wise equal name</span>
+        <span class="c">#  &gt;= 0 : numeric index to the colum in the pandas dataframe</span>
+        <span class="c">#  string : column name (as index) in the pandas dataframe</span>
+        <span class="p">(</span><span class="s">&#39;open&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+        <span class="p">(</span><span class="s">&#39;high&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+        <span class="p">(</span><span class="s">&#39;low&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+        <span class="p">(</span><span class="s">&#39;close&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+        <span class="p">(</span><span class="s">&#39;volume&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+        <span class="p">(</span><span class="s">&#39;openinterest&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+    <span class="p">)</span>
 </pre></div>
 </div>
 <p>The above excerpt from the <code class="docutils literal"><span class="pre">PandasData</span></code> class shows the keys:</p>
@@ -157,7 +156,7 @@ names have been used or else numeric indices and acts accordingly, trying to
 offer a best match.</p>
 <p>The following chart is the tribute to success. The Pandas Dataframe has been
 correctly loaded (in both cases)</p>
-<a data-lightbox="group-55fd0b3b-e3ea-4661-9933-e47f143e9914"
+<a data-lightbox="group-861c701a-1455-44f7-b9e0-1d66d15a4d90"
                    href="../../../_images\pandas-headers1.png"
                    class=""
                    title=""
