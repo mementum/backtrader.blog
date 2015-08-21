@@ -18,7 +18,7 @@
     <content type="html">&lt;p&gt;Amongst some minor enhancementss and some &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;OrderedDict&lt;/span&gt;&lt;/code&gt; tweaks for better
 Python 2.6 support, the latest release from &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt; adds support for
 analyzing data from a &lt;a class=&quot;reference external&quot; href=&quot;pandas.pydata.org&quot;&gt;Pandas&lt;/a&gt; Dataframe aka Time Series.&lt;/p&gt;
-&lt;a data-lightbox=&quot;group-688afc21-01c2-444a-8754-b783af75f539&quot;
+&lt;a data-lightbox=&quot;group-55fd0b3b-e3ea-4661-9933-e47f143e9914&quot;
                    href=&quot;../_images\pandas-headers1.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
