@@ -88,7 +88,7 @@ be equal or larger than the source</p>
 </pre></div>
 </div>
 <p>The output:</p>
-<a data-lightbox="group-fbc5aa82-975e-4899-ad5e-466eb530f8df"
+<a data-lightbox="group-a503ef0d-b96d-4372-97b2-5c73bb3ab46d"
                    href="../../../_images\resample-daily-weekly1.png"
                    class=""
                    title=""
@@ -103,7 +103,7 @@ be equal or larger than the source</p>
 </pre></div>
 </div>
 <p>The output:</p>
-<a data-lightbox="group-bedf4590-7a6f-4b64-956c-31e1ad75b19e"
+<a data-lightbox="group-8e682bb7-500b-4a4a-bae6-0882b71dd3e0"
                    href="../../../_images\resample-daily-daily1.png"
                    class=""
                    title=""
@@ -125,26 +125,25 @@ be equal or larger than the source</p>
 </ul>
 </div></blockquote>
 <p>The code in the sample (the entire script at the bottom).</p>
-<div class="highlight-python"><div class="highlight"><pre>    <span class="c"># Get a pandas dataframe</span>
+<div class="highlight-python"><div class="highlight"><pre>    <span class="c"># Load the Data</span>
     <span class="n">datapath</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">dataname</span> <span class="ow">or</span> <span class="s">&#39;../datas/sample/2006-day-001.txt&#39;</span>
-
     <span class="n">data</span> <span class="o">=</span> <span class="n">btfeeds</span><span class="o">.</span><span class="n">BacktraderCSVData</span><span class="p">(</span>
         <span class="n">dataname</span><span class="o">=</span><span class="n">datapath</span><span class="p">)</span>
 
+    <span class="c"># Handy dictionary for the argument timeframe conversion</span>
     <span class="n">tframes</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
         <span class="n">daily</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">TimeFrame</span><span class="o">.</span><span class="n">Days</span><span class="p">,</span>
         <span class="n">weekly</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">TimeFrame</span><span class="o">.</span><span class="n">Weeks</span><span class="p">,</span>
         <span class="n">monthly</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">TimeFrame</span><span class="o">.</span><span class="n">Months</span><span class="p">)</span>
 
+    <span class="c"># Resample the data</span>
     <span class="n">data_resampled</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">DataResampler</span><span class="p">(</span>
-        <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+        <span class="n">dataname</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
         <span class="n">timeframe</span><span class="o">=</span><span class="n">tframes</span><span class="p">[</span><span class="n">args</span><span class="o">.</span><span class="n">timeframe</span><span class="p">],</span>
         <span class="n">compression</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">compression</span><span class="p">)</span>
 
+    <span class="c"># Add the resample data instead of the original</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">adddata</span><span class="p">(</span><span class="n">data_resampled</span><span class="p">)</span>
-
-    <span class="c"># Run over everything</span>
-    <span class="n">cerebro</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>A last example in which we first change the time frame from daily to weekly and
@@ -153,7 +152,7 @@ then apply a 3 to 1 compression:</p>
 </pre></div>
 </div>
 <p>The output:</p>
-<a data-lightbox="group-6fd6ac1d-be0a-4466-9496-ea3ce7f77a1f"
+<a data-lightbox="group-92dd7b3d-5a7a-4f47-8abd-6397ec541f95"
                    href="../../../_images\resample-daily-weekly-31.png"
                    class=""
                    title=""
@@ -180,6 +179,7 @@ then apply a 3 to 1 compression:</p>
 <span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
 <span class="kn">import</span> <span class="nn">backtrader.feeds</span> <span class="kn">as</span> <span class="nn">btfeeds</span>
 
+
 <span class="k">def</span> <span class="nf">runstrat</span><span class="p">():</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">parse_args</span><span class="p">()</span>
 
@@ -189,22 +189,24 @@ then apply a 3 to 1 compression:</p>
     <span class="c"># Add a strategy</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">addstrategy</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Strategy</span><span class="p">)</span>
 
-    <span class="c"># Get a pandas dataframe</span>
+    <span class="c"># Load the Data</span>
     <span class="n">datapath</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">dataname</span> <span class="ow">or</span> <span class="s">&#39;../datas/sample/2006-day-001.txt&#39;</span>
-
     <span class="n">data</span> <span class="o">=</span> <span class="n">btfeeds</span><span class="o">.</span><span class="n">BacktraderCSVData</span><span class="p">(</span>
         <span class="n">dataname</span><span class="o">=</span><span class="n">datapath</span><span class="p">)</span>
 
+    <span class="c"># Handy dictionary for the argument timeframe conversion</span>
     <span class="n">tframes</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
         <span class="n">daily</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">TimeFrame</span><span class="o">.</span><span class="n">Days</span><span class="p">,</span>
         <span class="n">weekly</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">TimeFrame</span><span class="o">.</span><span class="n">Weeks</span><span class="p">,</span>
         <span class="n">monthly</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">TimeFrame</span><span class="o">.</span><span class="n">Months</span><span class="p">)</span>
 
+    <span class="c"># Resample the data</span>
     <span class="n">data_resampled</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">DataResampler</span><span class="p">(</span>
-        <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+        <span class="n">dataname</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
         <span class="n">timeframe</span><span class="o">=</span><span class="n">tframes</span><span class="p">[</span><span class="n">args</span><span class="o">.</span><span class="n">timeframe</span><span class="p">],</span>
         <span class="n">compression</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">compression</span><span class="p">)</span>
 
+    <span class="c"># Add the resample data instead of the original</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">adddata</span><span class="p">(</span><span class="n">data_resampled</span><span class="p">)</span>
 
     <span class="c"># Run over everything</span>
