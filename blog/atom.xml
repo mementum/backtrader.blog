@@ -2,10 +2,32 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">backtrader Blog</title>
   <id>http://www.backtrader.com/blog/atom.xml</id>
-  <updated>2015-08-23T00:00:00Z</updated>
+  <updated>2015-08-25T00:00:00Z</updated>
   <link href="http://www.backtrader.com" />
   <link href="http://www.backtrader.com/blog/atom.xml" rel="self" />
   <generator uri="http://ablog.readthedocs.org" version="0.7.7">ABlog</generator>
+  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+    <title type="text">Data - Multiple Timeframes</title>
+    <id>http://www.backtrader.com/posts/2015-08-25/data-multitimeframe/</id>
+    <updated>2015-08-25T00:00:00Z</updated>
+    <published>2015-08-25T00:00:00Z</published>
+    <link href="http://www.backtrader.com/posts/2015-08-25/data-multitimeframe/" />
+    <author>
+      <name>mementum</name>
+    </author>
+    <content type="html">&lt;p&gt;Sometimes investing decisions are taken using different timeframes:&lt;/p&gt;
+&lt;a data-lightbox=&quot;group-7da86afd-4208-40f6-9fe7-046b23adf245&quot;
+                   href=&quot;../_images\multitimeframe-daily-weekly1.png&quot;
+                   class=&quot;&quot;
+                   title=&quot;&quot;
+                   data-title=&quot;&quot;
+                   &gt;&lt;img src=&quot;../_images\multitimeframe-daily-weekly1.png&quot;
+                    class=&quot;&quot;
+                    width=&quot;100%&quot;
+                    height=&quot;auto&quot;
+                    alt=&quot;&quot;/&gt;
+                    &lt;/a&gt;</content>
+  </entry>
   <entry xml:base="http://www.backtrader.com/blog/atom.xml">
     <title type="text">Data Resampling</title>
     <id>http://www.backtrader.com/posts/2015-08-23/data-resampling/</id>
@@ -111,11 +133,11 @@ analyzing data from a &lt;a class=&quot;reference external&quot; href=&quot;pand
 feeds. The existing base class &lt;cite&gt;CSVDataBase&lt;/cite&gt; provides the framework taking most
 of the work off the subclasses which in most cases can simply do:&lt;/p&gt;
 &lt;a data-lightbox=&quot;group-f9b16536-148c-4994-b386-62e36c1c950d&quot;
-                   href=&quot;../_images\vchart-goog-20061.png&quot;
+                   href=&quot;posts\2015-08-11\./vchart-goog-2006.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
                    data-title=&quot;&quot;
-                   &gt;&lt;img src=&quot;../_images\vchart-goog-20061.png&quot;
+                   &gt;&lt;img src=&quot;posts\2015-08-11\./vchart-goog-2006.png&quot;
                     class=&quot;&quot;
                     width=&quot;100%&quot;
                     height=&quot;auto&quot;
