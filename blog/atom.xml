@@ -7,16 +7,39 @@
   <link href="http://www.backtrader.com/blog/atom.xml" rel="self" />
   <generator uri="http://ablog.readthedocs.org" version="0.7.7">ABlog</generator>
   <entry xml:base="http://www.backtrader.com/blog/atom.xml">
-    <title type="text">Data - Multiple Timeframes</title>
-    <id>http://www.backtrader.com/posts/2015-08-25/data-multitimeframe/</id>
+    <title type="text">Data - Replay</title>
+    <id>http://www.backtrader.com/posts/2015-08-25/data-replay/</id>
     <updated>2015-08-25T00:00:00Z</updated>
     <published>2015-08-25T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2015-08-25/data-multitimeframe/" />
+    <link href="http://www.backtrader.com/posts/2015-08-25/data-replay/" />
+    <author>
+      <name>mementum</name>
+    </author>
+    <content type="html">&lt;p&gt;The time is gone and testing a strategy against a fully formed and closed bar is
+good, but it could be better.&lt;/p&gt;
+&lt;a data-lightbox=&quot;group-d21979e9-df18-46d9-a991-53f94d43ff96&quot;
+                   href=&quot;../_images\replay-daily-weekly1.png&quot;
+                   class=&quot;&quot;
+                   title=&quot;&quot;
+                   data-title=&quot;&quot;
+                   &gt;&lt;img src=&quot;../_images\replay-daily-weekly1.png&quot;
+                    class=&quot;&quot;
+                    width=&quot;100%&quot;
+                    height=&quot;auto&quot;
+                    alt=&quot;&quot;/&gt;
+                    &lt;/a&gt;</content>
+  </entry>
+  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+    <title type="text">Data - Multiple Timeframes</title>
+    <id>http://www.backtrader.com/posts/2015-08-24/data-multitimeframe/</id>
+    <updated>2015-08-24T00:00:00Z</updated>
+    <published>2015-08-24T00:00:00Z</published>
+    <link href="http://www.backtrader.com/posts/2015-08-24/data-multitimeframe/" />
     <author>
       <name>mementum</name>
     </author>
     <content type="html">&lt;p&gt;Sometimes investing decisions are taken using different timeframes:&lt;/p&gt;
-&lt;a data-lightbox=&quot;group-7da86afd-4208-40f6-9fe7-046b23adf245&quot;
+&lt;a data-lightbox=&quot;group-9bf1f2ed-abe0-4c7a-9b34-f162c3138ac5&quot;
                    href=&quot;../_images\multitimeframe-daily-weekly1.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
@@ -109,11 +132,11 @@ analyzing data from a &lt;a class=&quot;reference external&quot; href=&quot;pand
     <content type="html">&lt;p&gt;Strateties running inside the &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt; do mostly deal with &lt;strong&gt;datas&lt;/strong&gt; and
 &lt;strong&gt;indicators&lt;/strong&gt;.&lt;/p&gt;
 &lt;a data-lightbox=&quot;group-14c67419-bad7-4cea-864a-294c0cc46edd&quot;
-                   href=&quot;../_images\observers-default1.png&quot;
+                   href=&quot;posts\2015-08-12\./observers-default.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
                    data-title=&quot;&quot;
-                   &gt;&lt;img src=&quot;../_images\observers-default1.png&quot;
+                   &gt;&lt;img src=&quot;posts\2015-08-12\./observers-default.png&quot;
                     class=&quot;&quot;
                     width=&quot;100%&quot;
                     height=&quot;auto&quot;
