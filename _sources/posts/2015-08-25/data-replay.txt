@@ -4,7 +4,7 @@
    :image: 1
 
 Data - Replay
-##########################
+#############
 
 The time is gone and testing a strategy against a fully formed and closed bar is
 good, but it could be better.
