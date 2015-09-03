@@ -1,0 +1,582 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>MultiData Strategy &mdash; backtrader  documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinxcontrib-images\LightBox2\lightbox2\css\lightbox.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/sphinxcontrib-images\LightBox2\lightbox2\js\jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../../_static/sphinxcontrib-images\LightBox2\lightbox2\js\lightbox.min.js"></script>
+    <script type="text/javascript" src="../../../_static/sphinxcontrib-images\LightBox2\lightbox2-customize\jquery-noconflict.js"></script>
+    <link rel="author" title="About these documents" href="../../../about/" />
+    <link rel="top" title="backtrader  documentation" href="../../../" />
+  
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  
+  
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.post-list-style-disc {list-style-type: disc;}
+    ul.post-list-style-none {list-style-type: none;}
+    ul.post-list-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="multidata-strategy">
+<h1>MultiData Strategy<a class="headerlink" href="#multidata-strategy" title="Permalink to this headline">¶</a></h1>
+<p>Because nothing in the world lives in isolation it can well be that the trigger
+to buy an asset is actually another asset.</p>
+<p>Using different analysis techniques a correlation may have been found between
+two different datas.</p>
+<p><code class="docutils literal"><span class="pre">backtrader</span></code> supports using different data sources simultaneously so it can
+possibly be used for the purpose in most cases.</p>
+<p>Let&#8217;s assume that a correlation has been found between the following companies:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">Oracle</span></code></li>
+<li><code class="docutils literal"><span class="pre">Yahoo</span></code></li>
+</ul>
+</div></blockquote>
+<p>One could imagine that when things go well for Yahoo, the company buys more
+servers, more databases and more professional services from Oracle, which in
+turn pushes the stock prices up.</p>
+<p>As such and having run a profound analysis a strategy is devised:</p>
+<blockquote>
+<div><ul class="simple">
+<li>If the close price of <code class="docutils literal"><span class="pre">Yahoo</span></code> goes over the Simple Moving Average (period 15)</li>
+<li>Buy <code class="docutils literal"><span class="pre">Oracle</span></code></li>
+</ul>
+</div></blockquote>
+<p>To exit the position:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Use the crossing downwards of the close price</li>
+</ul>
+</div></blockquote>
+<p>Order Execution Type:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Market</li>
+</ul>
+</div></blockquote>
+<p>In summary what&#8217;s needed to set this up with <code class="docutils literal"><span class="pre">backtrader</span></code>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Create a <code class="docutils literal"><span class="pre">cerebro</span></code></li>
+<li>Load the Data Source 1 (Oracle) and add it to cerebro</li>
+<li>Load the Data Source 2 (Yahoo) and add it to cerebro</li>
+<li>Load the Strategy we have devised</li>
+</ul>
+</div></blockquote>
+<p>The details of the strategy:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Create a Simple Moving Average on Data Source 2 (Yahoo)</li>
+<li>Create a CrossOver indicator using Yahoo&#8217;s close price and the Moving
+Average</li>
+</ul>
+</div></blockquote>
+<p>And then execute the buy/sell orders on Data Source 1 (Oracle) as described
+above.</p>
+<p>The script below uses the following defaults:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Oracle (Data Source 1)</li>
+<li>Yahoo (Data Source 2)</li>
+<li>Cash: 10000 (system default)</li>
+<li>Stake: 10 shares</li>
+<li>Commission: 0.5% for each round (expressed as 0.005)</li>
+<li>Period: 15 trading days</li>
+<li>Period: 2003, 2004 and 2005</li>
+</ul>
+</div></blockquote>
+<p>The script can take arguments to modify the above settings as seen in the help
+text:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ./multidata-strategy.py --help
+usage: multidata-strategy.py [-h] [--data0 DATA0] [--data1 DATA1]
+                             [--fromdate FROMDATE] [--todate TODATE]
+                             [--period PERIOD] [--cash CASH]
+                             [--commperc COMMPERC] [--stake STAKE] [--plot]
+                             [--numfigs NUMFIGS]
+
+MultiData Strategy
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --data0 DATA0, -d0 DATA0
+                        1st data into the system
+  --data1 DATA1, -d1 DATA1
+                        2nd data into the system
+  --fromdate FROMDATE, -f FROMDATE
+                        Starting date in YYYY-MM-DD format
+  --todate TODATE, -t TODATE
+                        Starting date in YYYY-MM-DD format
+  --period PERIOD       Period to apply to the Simple Moving Average
+  --cash CASH           Starting Cash
+  --commperc COMMPERC   Percentage commission for operation (0.005 is 0.5%
+  --stake STAKE         Stake to apply in each operation
+  --plot, -p            Plot the read data
+  --numfigs NUMFIGS, -n NUMFIGS
+                        Plot using numfigs figures
+</pre></div>
+</div>
+<p>The result of a standard execution:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ./multidata-strategy.py
+2003-02-11T23:59:59+00:00, BUY CREATE , 9.14
+2003-02-12T23:59:59+00:00, BUY COMPLETE, 11.14
+2003-02-12T23:59:59+00:00, SELL CREATE , 9.09
+2003-02-13T23:59:59+00:00, SELL COMPLETE, 10.90
+2003-02-14T23:59:59+00:00, BUY CREATE , 9.45
+2003-02-18T23:59:59+00:00, BUY COMPLETE, 11.22
+2003-03-06T23:59:59+00:00, SELL CREATE , 9.72
+2003-03-07T23:59:59+00:00, SELL COMPLETE, 10.32
+...
+...
+2005-12-22T23:59:59+00:00, BUY CREATE , 40.83
+2005-12-23T23:59:59+00:00, BUY COMPLETE, 11.68
+2005-12-23T23:59:59+00:00, SELL CREATE , 40.63
+2005-12-27T23:59:59+00:00, SELL COMPLETE, 11.63
+==================================================
+Starting Value - 100000.00
+Ending   Value - 99959.26
+==================================================
+</pre></div>
+</div>
+<p>After two complete years of execution the Strategy:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Has lost 40.74 monetary units</li>
+</ul>
+</div></blockquote>
+<p><strong>So much for the correlation between Yahoo and Oracle</strong></p>
+<p>The Visual Ouput (add <code class="docutils literal"><span class="pre">--plot</span></code> to produce a chart)</p>
+<a data-lightbox="group-3578f2c0-1a69-4b1b-99b2-8424a180305e"
+                   href="../../../_images\multidata-strategy-defaults1.png"
+                   class=""
+                   title=""
+                   data-title=""
+                   ><img src="../../../_images\multidata-strategy-defaults1.png"
+                    class=""
+                    width="100%"
+                    height="auto"
+                    alt=""/>
+                    </a><p>And the script (which has been added to the source distribution of
+<code class="docutils literal"><span class="pre">backtrader</span></code> under the <code class="docutils literal"><span class="pre">samples/multidata-strategy</span></code> directory.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+                        <span class="n">unicode_literals</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="c"># The above could be sent to an independent module</span>
+<span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
+<span class="kn">import</span> <span class="nn">backtrader.feeds</span> <span class="kn">as</span> <span class="nn">btfeeds</span>
+<span class="kn">import</span> <span class="nn">backtrader.indicators</span> <span class="kn">as</span> <span class="nn">btind</span>
+
+
+<span class="k">class</span> <span class="nc">MultiDataStrategy</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Strategy</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This strategy operates on 2 datas. The expectation is that the 2 datas are</span>
+<span class="sd">    correlated and the 2nd data is used to generate signals on the 1st</span>
+
+<span class="sd">      - Buy/Sell Operationss will be executed on the 1st data</span>
+<span class="sd">      - The signals are generated using a Simple Moving Average on the 2nd data</span>
+<span class="sd">        when the close price crosses upwwards/downwards</span>
+
+<span class="sd">    The strategy is a long-only strategy</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+        <span class="n">period</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+        <span class="n">stake</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">printout</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">txt</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">printout</span><span class="p">:</span>
+            <span class="n">dt</span> <span class="o">=</span> <span class="n">dt</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">datetime</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">dt</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">num2date</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span class="s">, </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span> <span class="n">txt</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">notify_order</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">order</span><span class="o">.</span><span class="n">status</span> <span class="ow">in</span> <span class="p">[</span><span class="n">bt</span><span class="o">.</span><span class="n">Order</span><span class="o">.</span><span class="n">Submitted</span><span class="p">,</span> <span class="n">bt</span><span class="o">.</span><span class="n">Order</span><span class="o">.</span><span class="n">Accepted</span><span class="p">]:</span>
+            <span class="k">return</span>  <span class="c"># Await further notifications</span>
+
+        <span class="k">if</span> <span class="n">order</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">order</span><span class="o">.</span><span class="n">Completed</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">order</span><span class="o">.</span><span class="n">isbuy</span><span class="p">():</span>
+                <span class="n">buytxt</span> <span class="o">=</span> <span class="s">&#39;BUY COMPLETE, </span><span class="si">%.2f</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">order</span><span class="o">.</span><span class="n">executed</span><span class="o">.</span><span class="n">price</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">buytxt</span><span class="p">,</span> <span class="n">order</span><span class="o">.</span><span class="n">executed</span><span class="o">.</span><span class="n">dt</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">selltxt</span> <span class="o">=</span> <span class="s">&#39;SELL COMPLETE, </span><span class="si">%.2f</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">order</span><span class="o">.</span><span class="n">executed</span><span class="o">.</span><span class="n">price</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">selltxt</span><span class="p">,</span> <span class="n">order</span><span class="o">.</span><span class="n">executed</span><span class="o">.</span><span class="n">dt</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">order</span><span class="o">.</span><span class="n">status</span> <span class="ow">in</span> <span class="p">[</span><span class="n">order</span><span class="o">.</span><span class="n">Expired</span><span class="p">,</span> <span class="n">order</span><span class="o">.</span><span class="n">Canceled</span><span class="p">,</span> <span class="n">order</span><span class="o">.</span><span class="n">Margin</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span class="s"> ,&#39;</span> <span class="o">%</span> <span class="n">order</span><span class="o">.</span><span class="n">Status</span><span class="p">[</span><span class="n">order</span><span class="o">.</span><span class="n">status</span><span class="p">])</span>
+            <span class="k">pass</span>  <span class="c"># Simply log</span>
+
+        <span class="c"># Allow new orders</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">orderid</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c"># To control operation entries</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">orderid</span> <span class="o">=</span> <span class="bp">None</span>
+
+        <span class="c"># Create SMA on 2nd data</span>
+        <span class="n">sma</span> <span class="o">=</span> <span class="n">btind</span><span class="o">.</span><span class="n">MovAv</span><span class="o">.</span><span class="n">SMA</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data1</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">period</span><span class="p">)</span>
+        <span class="c"># Create a CrossOver Signal from close an moving average</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">signal</span> <span class="o">=</span> <span class="n">btind</span><span class="o">.</span><span class="n">CrossOver</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data1</span><span class="o">.</span><span class="n">close</span><span class="p">,</span> <span class="n">sma</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">orderid</span><span class="p">:</span>
+            <span class="k">return</span>  <span class="c"># if an order is active, no new orders are allowed</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="p">:</span>  <span class="c"># not yet in market</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">signal</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>  <span class="c"># cross upwards</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#39;BUY CREATE , </span><span class="si">%.2f</span><span class="s">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">data1</span><span class="o">.</span><span class="n">close</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">buy</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">stake</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>  <span class="c"># in the market</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">signal</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>  <span class="c"># crosss downwards</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#39;SELL CREATE , </span><span class="si">%.2f</span><span class="s">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">data1</span><span class="o">.</span><span class="n">close</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">sell</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">stake</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;==================================================&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Starting Value - </span><span class="si">%.2f</span><span class="s">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">startingcash</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Ending   Value - </span><span class="si">%.2f</span><span class="s">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;==================================================&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">runstrategy</span><span class="p">():</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parse_args</span><span class="p">()</span>
+
+    <span class="c"># Create a cerebro</span>
+    <span class="n">cerebro</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">Cerebro</span><span class="p">()</span>
+
+    <span class="c"># Get the dates from the args</span>
+    <span class="n">fromdate</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">fromdate</span><span class="p">,</span> <span class="s">&#39;%Y-%m-</span><span class="si">%d</span><span class="s">&#39;</span><span class="p">)</span>
+    <span class="n">todate</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">todate</span><span class="p">,</span> <span class="s">&#39;%Y-%m-</span><span class="si">%d</span><span class="s">&#39;</span><span class="p">)</span>
+
+    <span class="c"># Create the 1st data</span>
+    <span class="n">data0</span> <span class="o">=</span> <span class="n">btfeeds</span><span class="o">.</span><span class="n">YahooFinanceCSVData</span><span class="p">(</span>
+        <span class="n">dataname</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">data0</span><span class="p">,</span>
+        <span class="n">fromdate</span><span class="o">=</span><span class="n">fromdate</span><span class="p">,</span>
+        <span class="n">todate</span><span class="o">=</span><span class="n">todate</span><span class="p">)</span>
+
+    <span class="c"># Add the 1st data to cerebro</span>
+    <span class="n">cerebro</span><span class="o">.</span><span class="n">adddata</span><span class="p">(</span><span class="n">data0</span><span class="p">)</span>
+
+    <span class="c"># Create the 2nd data</span>
+    <span class="n">data1</span> <span class="o">=</span> <span class="n">btfeeds</span><span class="o">.</span><span class="n">YahooFinanceCSVData</span><span class="p">(</span>
+        <span class="n">dataname</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">data1</span><span class="p">,</span>
+        <span class="n">fromdate</span><span class="o">=</span><span class="n">fromdate</span><span class="p">,</span>
+        <span class="n">todate</span><span class="o">=</span><span class="n">todate</span><span class="p">)</span>
+
+    <span class="c"># Add the 2nd data to cerebro</span>
+    <span class="n">cerebro</span><span class="o">.</span><span class="n">adddata</span><span class="p">(</span><span class="n">data1</span><span class="p">)</span>
+
+    <span class="c"># Add the strategy</span>
+    <span class="n">cerebro</span><span class="o">.</span><span class="n">addstrategy</span><span class="p">(</span><span class="n">MultiDataStrategy</span><span class="p">,</span>
+                        <span class="n">period</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">period</span><span class="p">,</span>
+                        <span class="n">stake</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">stake</span><span class="p">)</span>
+
+    <span class="c"># Add the commission - only stocks like a for each operation</span>
+    <span class="n">cerebro</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">setcash</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">cash</span><span class="p">)</span>
+
+    <span class="c"># Add the commission - only stocks like a for each operation</span>
+    <span class="n">cerebro</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">setcommission</span><span class="p">(</span><span class="n">commission</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">commperc</span><span class="p">)</span>
+
+    <span class="c"># And run it</span>
+    <span class="n">cerebro</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+
+    <span class="c"># Plot if requested</span>
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">plot</span><span class="p">:</span>
+        <span class="n">cerebro</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">numfigs</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">numfigs</span><span class="p">,</span> <span class="n">volume</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">zdown</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">parse_args</span><span class="p">():</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">&#39;MultiData Strategy&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--data0&#39;</span><span class="p">,</span> <span class="s">&#39;-d0&#39;</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="s">&#39;../../datas/orcl-1995-2014.txt&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;1st data into the system&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--data1&#39;</span><span class="p">,</span> <span class="s">&#39;-d1&#39;</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="s">&#39;../../datas/yhoo-1996-2014.txt&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;2nd data into the system&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--fromdate&#39;</span><span class="p">,</span> <span class="s">&#39;-f&#39;</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="s">&#39;2003-01-01&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Starting date in YYYY-MM-DD format&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--todate&#39;</span><span class="p">,</span> <span class="s">&#39;-t&#39;</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="s">&#39;2005-12-31&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Starting date in YYYY-MM-DD format&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--period&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Period to apply to the Simple Moving Average&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--cash&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Starting Cash&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--commperc&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Percentage commission for operation (0.005 is 0.5</span><span class="si">%%</span><span class="s">&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--stake&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Stake to apply in each operation&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--plot&#39;</span><span class="p">,</span> <span class="s">&#39;-p&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&#39;store_true&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Plot the read data&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--numfigs&#39;</span><span class="p">,</span> <span class="s">&#39;-n&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Plot using numfigs figures&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">runstrategy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+
+  <div class="section">
+  
+    
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  
+  <a href="../../2015-08-27/real-world-usage/">
+    <i class="fa fa-arrow-circle-left"></i>
+    Real World Usage
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+</div>
+
+  
+  
+    <div class="section">
+    <h2>Comments</h2>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
+        var disqus_identifier = '/posts/2015-09-03-multidata-strategy/multidata-strategy/';
+        var disqus_title = 'MultiData Strategy';
+        var disqus_url = 'http://www.backtrader.com/posts/2015-09-03-multidata-strategy/multidata-strategy';
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+  
+  </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../">backtrader</a></h1>
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=mementum&repo=backtrader&type=watch&count=true&size=large"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+    
+
+<p>
+<a href="https://travis-ci.org/mementum/backtrader">
+    <img
+        alt="https://secure.travis-ci.org/mementum/backtrader.png?branch=master"
+        src="https://secure.travis-ci.org/mementum/backtrader.png?branch=master"
+    >
+</a>
+</p>
+
+  
+  
+  <h2>
+  
+  <i class="fa fa-calendar"></i>
+    Sep 03, 2015
+  
+  </h2>
+
+  <ul>
+    
+
+  
+  <li><i class="fa-fw fa fa-user"></i>
+    
+      
+      <a href="../../../blog/author/mementum/">mementum</a>
+      
+    </li>
+  
+
+  
+
+  
+
+  
+
+  
+  
+  <li>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+    </script>
+    <i class="fa-fw fa fa-comments"></i>
+    <a href="#disqus_thread" data-disqus-identifier="/posts/2015-09-03-multidata-strategy/multidata-strategy/"> </a>
+  </li>
+  
+  </ul>
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/">About backtrader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/#documentation">Documentation</a></li>
+</ul>
+
+
+  <h3><a href="../../../blog/">Recent Posts</a></h3>
+  <ul>
+    
+    
+      <li><a href="../../2015-08-27/real-world-usage/">Aug 27 - Real World Usage</a></li>
+    
+      <li><a href="../../2015-08-25/data-replay/">Aug 25 - Data - Replay</a></li>
+    
+      <li><a href="../../2015-08-24/data-multitimeframe/">Aug 24 - Data - Multiple Timeframes</a></li>
+    
+      <li><a href="../../2015-08-23/data-resampling/">Aug 23 - Data Resampling</a></li>
+    
+      <li><a href="../../2015-08-21/pandas-datafeed/">Aug 21 - Pandas DataFeed Support</a></li>
+    
+  </ul>
+
+  <h3><a href="../../../blog/archive/">Archives</a></h3>
+  <ul>
+  
+    
+    <li><a href="../../../blog/2015/">2015 (19)</a></li>
+    
+  
+  </ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search/" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, mementum.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="../../../_sources/posts/2015-09-03-multidata-strategy/multidata-strategy.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+    <a href="https://github.com/mementum/backtrader" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-2435868-6']);
+      _gaq.push(['_setDomainName', 'none']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    
+  </body>
+</html>

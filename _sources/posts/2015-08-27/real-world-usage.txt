@@ -127,7 +127,7 @@ Details about the implementation (see the entire module code at the end) of the
     These indicators get automatically registered to the strategy to which the
     analyzer is attached
 
-  - Just like strategies the ``Analyzer`` has ``self.datas`` (and array of
+  - Just like strategies the ``Analyzer`` has ``self.datas`` (an array of
     datas) and aliases to it: ``self.data``, ``self.data0``, ``self.data1`` ...
 
   - Again like strategies: ``nexstart`` and ``stop`` hooks (those are not present

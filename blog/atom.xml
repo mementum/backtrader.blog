@@ -2,10 +2,33 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">backtrader Blog</title>
   <id>http://www.backtrader.com/blog/atom.xml</id>
-  <updated>2015-08-27T00:00:00Z</updated>
+  <updated>2015-09-03T00:00:00Z</updated>
   <link href="http://www.backtrader.com" />
   <link href="http://www.backtrader.com/blog/atom.xml" rel="self" />
   <generator uri="http://ablog.readthedocs.org" version="0.7.7">ABlog</generator>
+  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+    <title type="text">MultiData Strategy</title>
+    <id>http://www.backtrader.com/posts/2015-09-03-multidata-strategy/multidata-strategy/</id>
+    <updated>2015-09-03T00:00:00Z</updated>
+    <published>2015-09-03T00:00:00Z</published>
+    <link href="http://www.backtrader.com/posts/2015-09-03-multidata-strategy/multidata-strategy/" />
+    <author>
+      <name>mementum</name>
+    </author>
+    <content type="html">&lt;p&gt;Because nothing in the world lives in isolation it can well be that the trigger
+to buy an asset is actually another asset.&lt;/p&gt;
+&lt;a data-lightbox=&quot;group-3578f2c0-1a69-4b1b-99b2-8424a180305e&quot;
+                   href=&quot;../_images\multidata-strategy-defaults1.png&quot;
+                   class=&quot;&quot;
+                   title=&quot;&quot;
+                   data-title=&quot;&quot;
+                   &gt;&lt;img src=&quot;../_images\multidata-strategy-defaults1.png&quot;
+                    class=&quot;&quot;
+                    width=&quot;100%&quot;
+                    height=&quot;auto&quot;
+                    alt=&quot;&quot;/&gt;
+                    &lt;/a&gt;</content>
+  </entry>
   <entry xml:base="http://www.backtrader.com/blog/atom.xml">
     <title type="text">Real World Usage</title>
     <id>http://www.backtrader.com/posts/2015-08-27/real-world-usage/</id>
@@ -16,7 +39,7 @@
       <name>mementum</name>
     </author>
     <content type="html">&lt;p&gt;Finally it seems it pays having gotten down to developing &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;
-&lt;a data-lightbox=&quot;group-a1831db9-5465-4fe3-83f4-ce496cc219de&quot;
+&lt;a data-lightbox=&quot;group-da2958ac-b5a8-485a-bb72-66f32e675524&quot;
                    href=&quot;../_images\real-wold-legupdown1.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
@@ -109,11 +132,11 @@ done for a different timeframe, it&amp;#8217;s time to do some resampling.&lt;/p
 Python 2.6 support, the latest release from &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt; adds support for
 analyzing data from a &lt;a class=&quot;reference external&quot; href=&quot;pandas.pydata.org&quot;&gt;Pandas&lt;/a&gt; Dataframe aka Time Series.&lt;/p&gt;
 &lt;a data-lightbox=&quot;group-856c225c-65fc-492f-bfff-43f28170da77&quot;
-                   href=&quot;../_images\pandas-headers1.png&quot;
+                   href=&quot;posts\2015-08-21\./pandas-headers.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
                    data-title=&quot;&quot;
-                   &gt;&lt;img src=&quot;../_images\pandas-headers1.png&quot;
+                   &gt;&lt;img src=&quot;posts\2015-08-21\./pandas-headers.png&quot;
                     class=&quot;&quot;
                     width=&quot;100%&quot;
                     height=&quot;auto&quot;
