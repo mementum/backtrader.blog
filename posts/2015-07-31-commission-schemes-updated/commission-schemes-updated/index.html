@@ -160,7 +160,7 @@ operations and <code class="docutils literal"><span class="pre">stock-like</span
 the evolution of <code class="docutils literal"><span class="pre">cash</span></code> and <code class="docutils literal"><span class="pre">value</span></code>.</p>
 <div class="section" id="commissions-for-futures">
 <h2>Commissions for futures<a class="headerlink" href="#commissions-for-futures" title="Permalink to this headline">¶</a></h2>
-<a data-lightbox="group-08384e64-966a-4ce7-9142-1b1472f2576d"
+<a data-lightbox="group-0574fc8b-8556-4484-97dc-bf4aac8cdfc9"
                    href="../../../_images\commission-futures-updated1.png"
                    class=""
                    title=""
@@ -173,7 +173,7 @@ the evolution of <code class="docutils literal"><span class="pre">cash</span></c
                     </a></div>
 <div class="section" id="commissions-for-stocks">
 <h2>Commissions for stocks<a class="headerlink" href="#commissions-for-stocks" title="Permalink to this headline">¶</a></h2>
-<a data-lightbox="group-de6dde35-364a-45f0-a77e-b0732f4ee49a"
+<a data-lightbox="group-3988d8cb-7090-40b2-ae3c-f4714f593a23"
                    href="../../../_images\commission-stocks-updated1.png"
                    class=""
                    title=""
@@ -228,10 +228,10 @@ the evolution of <code class="docutils literal"><span class="pre">cash</span></c
                           <span class="n">order</span><span class="o">.</span><span class="n">executed</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
                           <span class="n">order</span><span class="o">.</span><span class="n">executed</span><span class="o">.</span><span class="n">comm</span><span class="p">))</span>
 
-    <span class="k">def</span> <span class="nf">notify_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">operation</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">operation</span><span class="o">.</span><span class="n">isclosed</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#39;OPERATION PROFIT, GROSS </span><span class="si">%.2f</span><span class="s">, NET </span><span class="si">%.2f</span><span class="s">&#39;</span> <span class="o">%</span>
-                     <span class="p">(</span><span class="n">operation</span><span class="o">.</span><span class="n">pnl</span><span class="p">,</span> <span class="n">operation</span><span class="o">.</span><span class="n">pnlcomm</span><span class="p">))</span>
+    <span class="k">def</span> <span class="nf">notify_trade</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trade</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">trade</span><span class="o">.</span><span class="n">isclosed</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#39;TRADE PROFIT, GROSS </span><span class="si">%.2f</span><span class="s">, NET </span><span class="si">%.2f</span><span class="s">&#39;</span> <span class="o">%</span>
+                     <span class="p">(</span><span class="n">trade</span><span class="o">.</span><span class="n">pnl</span><span class="p">,</span> <span class="n">trade</span><span class="o">.</span><span class="n">pnlcomm</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">sma</span> <span class="o">=</span> <span class="n">btind</span><span class="o">.</span><span class="n">SMA</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
@@ -417,6 +417,8 @@ the evolution of <code class="docutils literal"><span class="pre">cash</span></c
   <ul>
     
     
+      <li><a href="../../2015-09-14-write-it-down/write-it-down/">Sep 14 - Writers - Write it down</a></li>
+    
       <li><a href="../../2015-09-03-multidata-strategy/multidata-strategy/">Sep 03 - MultiData Strategy</a></li>
     
       <li><a href="../../2015-08-27-real-world-usage/real-world-usage/">Aug 27 - Real World Usage</a></li>
@@ -425,15 +427,13 @@ the evolution of <code class="docutils literal"><span class="pre">cash</span></c
     
       <li><a href="../../2015-08-24-data-multitimeframe/data-multitimeframe/">Aug 24 - Data - Multiple Timeframes</a></li>
     
-      <li><a href="../../2015-08-23-data-resampling/data-resampling/">Aug 23 - Data Resampling</a></li>
-    
   </ul>
 
   <h3><a href="../../../blog/archive/">Archives</a></h3>
   <ul>
   
     
-    <li><a href="../../../blog/2015/">2015 (19)</a></li>
+    <li><a href="../../../blog/2015/">2015 (20)</a></li>
     
   
   </ul>

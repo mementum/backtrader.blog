@@ -32,7 +32,7 @@ Things to do:
 
   - Add any parameters you may need
 
-  - Should initialization be needed, override ``__init__(self)`` and/or ``start(self9``
+  - Should initialization be needed, override ``__init__(self)`` and/or ``start(self)``
 
   - Should any clean-up code be needed, override ``stop(self)``
 
