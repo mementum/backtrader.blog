@@ -2,10 +2,33 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">backtrader Blog</title>
   <id>http://www.backtrader.com/blog/atom.xml</id>
-  <updated>2015-09-14T00:00:00Z</updated>
+  <updated>2015-09-21T00:00:00Z</updated>
   <link href="http://www.backtrader.com" />
   <link href="http://www.backtrader.com/blog/atom.xml" rel="self" />
   <generator uri="http://ablog.readthedocs.org" version="0.7.7">ABlog</generator>
+  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+    <title type="text">Plotting on the same axis</title>
+    <id>http://www.backtrader.com/posts/2015-09-21-plotting-same-axis/plotting-same-axis/</id>
+    <updated>2015-09-21T00:00:00Z</updated>
+    <published>2015-09-21T00:00:00Z</published>
+    <link href="http://www.backtrader.com/posts/2015-09-21-plotting-same-axis/plotting-same-axis/" />
+    <author>
+      <name>mementum</name>
+    </author>
+    <content type="html">&lt;p&gt;Following a comment on the blog a slight addition (luckily just a few lines of
+code) has been made to plotting.&lt;/p&gt;
+&lt;a data-lightbox=&quot;group-312f903b-85b1-45ec-be2f-fc164b87f69a&quot;
+                   href=&quot;../_images\plotting-same-axis-standard1.png&quot;
+                   class=&quot;&quot;
+                   title=&quot;&quot;
+                   data-title=&quot;&quot;
+                   &gt;&lt;img src=&quot;../_images\plotting-same-axis-standard1.png&quot;
+                    class=&quot;&quot;
+                    width=&quot;100%&quot;
+                    height=&quot;auto&quot;
+                    alt=&quot;&quot;/&gt;
+                    &lt;/a&gt;</content>
+  </entry>
   <entry xml:base="http://www.backtrader.com/blog/atom.xml">
     <title type="text">Writers - Write it down</title>
     <id>http://www.backtrader.com/posts/2015-09-14-write-it-down/write-it-down/</id>
@@ -16,7 +39,7 @@
       <name>mementum</name>
     </author>
     <content type="html">&lt;p&gt;With the 1.1.7.88 release &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt; gets a new addition: &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;writers&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;
-&lt;a data-lightbox=&quot;group-4b225ecd-d8ca-4e4d-975e-4f2b3d334bb1&quot;
+&lt;a data-lightbox=&quot;group-567feccc-438f-4345-bbe4-ef3f2d2edb2a&quot;
                    href=&quot;../_images\writer-test1.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
@@ -39,7 +62,7 @@
     </author>
     <content type="html">&lt;p&gt;Because nothing in the world lives in isolation it can well be that the trigger
 to buy an asset is actually another asset.&lt;/p&gt;
-&lt;a data-lightbox=&quot;group-8b932f5c-cdbf-48b1-94d2-90a1115c81f2&quot;
+&lt;a data-lightbox=&quot;group-eeb71c79-991b-4393-85da-2c96d25bd32a&quot;
                    href=&quot;../_images\multidata-strategy-defaults1.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
@@ -61,7 +84,7 @@ to buy an asset is actually another asset.&lt;/p&gt;
       <name>mementum</name>
     </author>
     <content type="html">&lt;p&gt;Finally it seems it pays having gotten down to developing &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;
-&lt;a data-lightbox=&quot;group-014352ca-e586-4584-9e3b-e8b4926bbbc3&quot;
+&lt;a data-lightbox=&quot;group-e44cbf83-4b5d-47bc-bd94-3d11403b8ddf&quot;
                    href=&quot;../_images\real-wold-legupdown1.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
@@ -84,7 +107,7 @@ to buy an asset is actually another asset.&lt;/p&gt;
     </author>
     <content type="html">&lt;p&gt;The time is gone and testing a strategy against a fully formed and closed bar is
 good, but it could be better.&lt;/p&gt;
-&lt;a data-lightbox=&quot;group-ab7334f2-7c18-4d9d-aabd-2897f0853f66&quot;
+&lt;a data-lightbox=&quot;group-c6598131-c96d-48c3-83e9-73d992cb1fb3&quot;
                    href=&quot;../_images\replay-daily-weekly1.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
@@ -106,7 +129,7 @@ good, but it could be better.&lt;/p&gt;
       <name>mementum</name>
     </author>
     <content type="html">&lt;p&gt;Sometimes investing decisions are taken using different timeframes:&lt;/p&gt;
-&lt;a data-lightbox=&quot;group-48eaa815-b4d1-45bb-9f7b-968c8bd88c8a&quot;
+&lt;a data-lightbox=&quot;group-788d0574-935c-4dc6-85e0-b7ce37f96f78&quot;
                    href=&quot;../_images\multitimeframe-daily-weekly1.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
@@ -129,12 +152,12 @@ good, but it could be better.&lt;/p&gt;
     </author>
     <content type="html">&lt;p&gt;When data is only available in a single timeframe and the analysis has to be
 done for a different timeframe, it&amp;#8217;s time to do some resampling.&lt;/p&gt;
-&lt;a data-lightbox=&quot;group-2061a33f-fcaf-404e-a110-7a424be57bdc&quot;
-                   href=&quot;posts\2015-08-23-data-resampling\./resample-daily-weekly.png&quot;
+&lt;a data-lightbox=&quot;group-a1e41dc0-24da-4844-a9f7-99d72085441a&quot;
+                   href=&quot;../_images\resample-daily-weekly1.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
                    data-title=&quot;&quot;
-                   &gt;&lt;img src=&quot;posts\2015-08-23-data-resampling\./resample-daily-weekly.png&quot;
+                   &gt;&lt;img src=&quot;../_images\resample-daily-weekly1.png&quot;
                     class=&quot;&quot;
                     width=&quot;100%&quot;
                     height=&quot;auto&quot;
@@ -153,12 +176,12 @@ done for a different timeframe, it&amp;#8217;s time to do some resampling.&lt;/p
     <content type="html">&lt;p&gt;Amongst some minor enhancementss and some &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;OrderedDict&lt;/span&gt;&lt;/code&gt; tweaks for better
 Python 2.6 support, the latest release from &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt; adds support for
 analyzing data from a &lt;a class=&quot;reference external&quot; href=&quot;pandas.pydata.org&quot;&gt;Pandas&lt;/a&gt; Dataframe aka Time Series.&lt;/p&gt;
-&lt;a data-lightbox=&quot;group-c2022ef9-cc55-491f-ab81-c079cd89d836&quot;
-                   href=&quot;posts\2015-08-21-pandas-datafeed\./pandas-headers.png&quot;
+&lt;a data-lightbox=&quot;group-22163f2e-f2f7-4c23-999e-d42c6376b801&quot;
+                   href=&quot;../_images\pandas-headers1.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
                    data-title=&quot;&quot;
-                   &gt;&lt;img src=&quot;posts\2015-08-21-pandas-datafeed\./pandas-headers.png&quot;
+                   &gt;&lt;img src=&quot;../_images\pandas-headers1.png&quot;
                     class=&quot;&quot;
                     width=&quot;100%&quot;
                     height=&quot;auto&quot;
@@ -175,12 +198,12 @@ analyzing data from a &lt;a class=&quot;reference external&quot; href=&quot;pand
       <name>mementum</name>
     </author>
     <content type="html">&lt;p&gt;&lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;Analyzer&lt;/span&gt;&lt;/code&gt; support in &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;bt-run.py&lt;/span&gt;&lt;/code&gt; included&lt;/p&gt;
-&lt;a data-lightbox=&quot;group-bb1932d1-9031-4095-990b-4063658dd227&quot;
-                   href=&quot;posts\2015-08-16-backtesting-with-almost-no-programming\./bt-run-mymod-no-params.png&quot;
+&lt;a data-lightbox=&quot;group-3b8b5da9-f88e-4357-a035-f0a5799a3847&quot;
+                   href=&quot;../_images\bt-run-mymod-no-params1.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
                    data-title=&quot;&quot;
-                   &gt;&lt;img src=&quot;posts\2015-08-16-backtesting-with-almost-no-programming\./bt-run-mymod-no-params.png&quot;
+                   &gt;&lt;img src=&quot;../_images\bt-run-mymod-no-params1.png&quot;
                     class=&quot;&quot;
                     width=&quot;100%&quot;
                     height=&quot;auto&quot;
@@ -198,12 +221,12 @@ analyzing data from a &lt;a class=&quot;reference external&quot; href=&quot;pand
     </author>
     <content type="html">&lt;p&gt;Strateties running inside the &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt; do mostly deal with &lt;strong&gt;datas&lt;/strong&gt; and
 &lt;strong&gt;indicators&lt;/strong&gt;.&lt;/p&gt;
-&lt;a data-lightbox=&quot;group-d4f5446f-4b87-4c9e-935e-2f72e27d24f7&quot;
-                   href=&quot;posts\2015-08-12-observers-and-statistics\./observers-default.png&quot;
+&lt;a data-lightbox=&quot;group-63849924-9bad-4749-ba1e-c0d6cb08d24f&quot;
+                   href=&quot;../_images\observers-default1.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
                    data-title=&quot;&quot;
-                   &gt;&lt;img src=&quot;posts\2015-08-12-observers-and-statistics\./observers-default.png&quot;
+                   &gt;&lt;img src=&quot;../_images\observers-default1.png&quot;
                     class=&quot;&quot;
                     width=&quot;100%&quot;
                     height=&quot;auto&quot;
@@ -222,12 +245,12 @@ analyzing data from a &lt;a class=&quot;reference external&quot; href=&quot;pand
     <content type="html">&lt;p&gt;In &lt;a class=&quot;reference internal&quot; href=&quot;../posts/2015-08-06-csv-data-feed-development/csv-data-feed-development/#csv-data-feed-development&quot;&gt;&lt;span&gt;CSV Data Feed Development&lt;/span&gt;&lt;/a&gt; it was shown how to add new CSV based data
 feeds. The existing base class &lt;cite&gt;CSVDataBase&lt;/cite&gt; provides the framework taking most
 of the work off the subclasses which in most cases can simply do:&lt;/p&gt;
-&lt;a data-lightbox=&quot;group-1f2c60f1-cb16-4478-8267-ab5a23c79729&quot;
-                   href=&quot;posts\2015-08-11-datafeed-development\./vchart-goog-2006.png&quot;
+&lt;a data-lightbox=&quot;group-1e978140-5a46-447a-b38b-67e07f599c00&quot;
+                   href=&quot;../_images\vchart-goog-20061.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
                    data-title=&quot;&quot;
-                   &gt;&lt;img src=&quot;posts\2015-08-11-datafeed-development\./vchart-goog-2006.png&quot;
+                   &gt;&lt;img src=&quot;../_images\vchart-goog-20061.png&quot;
                     class=&quot;&quot;
                     width=&quot;100%&quot;
                     height=&quot;auto&quot;
@@ -245,12 +268,12 @@ of the work off the subclasses which in most cases can simply do:&lt;/p&gt;
     </author>
     <content type="html">&lt;p&gt;Backtesting, and hence &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt;, would not be complete if orders could not
 be simulated. To do so, the following is available in the platform.&lt;/p&gt;
-&lt;a data-lightbox=&quot;group-504a6c9e-af55-41e2-970d-62af0edba413&quot;
-                   href=&quot;posts\2015-08-08-order-creation-execution\./market.png&quot;
+&lt;a data-lightbox=&quot;group-c791328a-198a-471b-9d07-465ca9504e30&quot;
+                   href=&quot;../_images\market1.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
                    data-title=&quot;&quot;
-                   &gt;&lt;img src=&quot;posts\2015-08-08-order-creation-execution\./market.png&quot;
+                   &gt;&lt;img src=&quot;../_images\market1.png&quot;
                     class=&quot;&quot;
                     width=&quot;100%&quot;
                     height=&quot;auto&quot;
@@ -322,12 +345,12 @@ need to have something that can actually handle any incoming CSV data feed.&lt;/
     </author>
     <content type="html">&lt;p&gt;Posting &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt; usage examples has given me an insight into things that
 were missing. For starters:&lt;/p&gt;
-&lt;a data-lightbox=&quot;group-0574fc8b-8556-4484-97dc-bf4aac8cdfc9&quot;
-                   href=&quot;posts\2015-07-31-commission-schemes-updated\./commission-futures-updated.png&quot;
+&lt;a data-lightbox=&quot;group-66ea39fa-3d12-42ac-85e0-2fb698b27fdd&quot;
+                   href=&quot;../_images\commission-futures-updated1.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
                    data-title=&quot;&quot;
-                   &gt;&lt;img src=&quot;posts\2015-07-31-commission-schemes-updated\./commission-futures-updated.png&quot;
+                   &gt;&lt;img src=&quot;../_images\commission-futures-updated1.png&quot;
                     class=&quot;&quot;
                     width=&quot;100%&quot;
                     height=&quot;auto&quot;
@@ -346,12 +369,12 @@ were missing. For starters:&lt;/p&gt;
     <content type="html">&lt;p&gt;Follow up post with newly added operations/trades notifications, fixing the
 plotting of trades P&amp;amp;L figures and avoiding manual calculation like in the
 example below&lt;/p&gt;
-&lt;a data-lightbox=&quot;group-461c5584-95d9-4402-94c7-0afa349b6244&quot;
-                   href=&quot;posts\2015-07-26-commission-schemes\./commission-futures.png&quot;
+&lt;a data-lightbox=&quot;group-43c180c8-898c-46c3-8652-a299a57363a4&quot;
+                   href=&quot;../_images\commission-futures1.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
                    data-title=&quot;&quot;
-                   &gt;&lt;img src=&quot;posts\2015-07-26-commission-schemes\./commission-futures.png&quot;
+                   &gt;&lt;img src=&quot;../_images\commission-futures1.png&quot;
                     class=&quot;&quot;
                     width=&quot;100%&quot;
                     height=&quot;auto&quot;
@@ -371,12 +394,12 @@ example below&lt;/p&gt;
 set of test cases. Given the behavior exhibited by &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;pickle&lt;/span&gt;&lt;/code&gt; some other
 adjustments are expected to ensure all indicators and functions can be passed
 back and forth amongst processes when doing multicore optimization.&lt;/p&gt;
-&lt;a data-lightbox=&quot;group-0d155d22-ff4a-4917-900e-6fc1e761df10&quot;
-                   href=&quot;posts\2015-07-23-multicore-optimization\./eight-cores-in-use.png&quot;
+&lt;a data-lightbox=&quot;group-3cfaba16-b751-4d67-bebf-bc5cfe6662f6&quot;
+                   href=&quot;../_images\eight-cores-in-use1.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
                    data-title=&quot;&quot;
-                   &gt;&lt;img src=&quot;posts\2015-07-23-multicore-optimization\./eight-cores-in-use.png&quot;
+                   &gt;&lt;img src=&quot;../_images\eight-cores-in-use1.png&quot;
                     class=&quot;&quot;
                     width=&quot;100%&quot;
                     height=&quot;auto&quot;
@@ -394,12 +417,12 @@ back and forth amongst processes when doing multicore optimization.&lt;/p&gt;
     </author>
     <content type="html">&lt;p&gt;In Object Oriented Programming, and of course in Python itself, extension of an
 existing class can be achieved in two ways.&lt;/p&gt;
-&lt;a data-lightbox=&quot;group-f408e6ce-94c0-40ff-b75b-5c44842df8bd&quot;
-                   href=&quot;posts\2015-07-20-extending-an-indicator\./trixsignal-inherited.png&quot;
+&lt;a data-lightbox=&quot;group-6c7bc5d5-ecea-4860-a1ee-fa2b6ee2dd56&quot;
+                   href=&quot;../_images\trixsignal-inherited1.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
                    data-title=&quot;&quot;
-                   &gt;&lt;img src=&quot;posts\2015-07-20-extending-an-indicator\./trixsignal-inherited.png&quot;
+                   &gt;&lt;img src=&quot;../_images\trixsignal-inherited1.png&quot;
                     class=&quot;&quot;
                     width=&quot;100%&quot;
                     height=&quot;auto&quot;
@@ -418,12 +441,12 @@ existing class can be achieved in two ways.&lt;/p&gt;
     <content type="html">&lt;p&gt;After much ado in fine tuning &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt; (give it had already been running
 for a while) I decided to not only share it via GitHub but to also tell the
 world it was there and posted about its existence in &amp;#8220;Reddit&amp;#8221;.&lt;/p&gt;
-&lt;a data-lightbox=&quot;group-58aa8cd8-0314-4a97-baee-f39965a1eba2&quot;
-                   href=&quot;posts\2015-07-18-developing-an-indicator\./trix.png&quot;
+&lt;a data-lightbox=&quot;group-3ccecb30-a4bb-4e4a-afc7-704796b4216f&quot;
+                   href=&quot;../_images\trix1.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
                    data-title=&quot;&quot;
-                   &gt;&lt;img src=&quot;posts\2015-07-18-developing-an-indicator\./trix.png&quot;
+                   &gt;&lt;img src=&quot;../_images\trix1.png&quot;
                     class=&quot;&quot;
                     width=&quot;100%&quot;
                     height=&quot;auto&quot;

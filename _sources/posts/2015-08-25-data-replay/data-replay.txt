@@ -67,7 +67,7 @@ Some examples below, but first the sauce of the test script in which the data is
 loaded and passed to a replayer ... and ``run`` with ``preload=False`` to
 disable preloading (COMPULSORY)
 
-.. literalinclude:: ./replay-example.py
+.. literalinclude:: ./data-replay.py
    :language: python
    :lines: 67-86
 
@@ -77,7 +77,7 @@ Example - Replay Daily to Weekly
 
 The invocation of the script::
 
-  $ ./replay-example.py --timeframe weekly --compression 1
+  $ ./data-replay.py --timeframe weekly --compression 1
 
 The chart cannot unfortunately show us the real thing happening in the
 background, so let's have a look at the console output::
@@ -143,7 +143,7 @@ compression.
 
 The console::
 
-  $ ./replay-example.py --timeframe daily --compression 2
+  $ ./data-replay.py --timeframe daily --compression 2
   prenext len 1 - counter 1
   prenext len 1 - counter 2
   prenext len 2 - counter 3
@@ -176,6 +176,6 @@ timeframe which the system operates on.
 
 The test script.
 
-.. literalinclude:: ./replay-example.py
+.. literalinclude:: ./data-replay.py
    :language: python
    :lines: 21-

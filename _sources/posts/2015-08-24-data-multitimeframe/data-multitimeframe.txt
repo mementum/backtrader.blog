@@ -44,7 +44,7 @@ The built-in ``DataResampler`` is going to be used to create a larger timeframe.
 
 Some examples below, but first the sauce of the test script.
 
-.. literalinclude:: ./multitimeframe-example.py
+.. literalinclude:: ./data-multitimeframe.py
    :language: python
    :lines: 68-89
 
@@ -67,7 +67,7 @@ Example 1 - Daily and Weekly
 
 The invocation of the script::
 
-  $ ./multitimeframe-example.py --timeframe weekly --compression 1
+  $ ./data-multitimeframe.py --timeframe weekly --compression 1
 
 And the output chart:
 
@@ -79,7 +79,7 @@ Example 2 - Daily and Daily Compression (2 bars to 1)
 
 The invocation of the script::
 
-  $ ./multitimeframe-example.py --timeframe daily --compression 2
+  $ ./data-multitimeframe.py --timeframe daily --compression 2
 
 And the output chart:
 
@@ -122,7 +122,7 @@ Only the smaller timeframe, daily, gets a Simple Moving Average
 
 The command line and output ::
 
-  $ ./multitimeframe-example.py --timeframe weekly --compression 1 --indicators --onlydaily
+  $ ./data-multitimeframe.py --timeframe weekly --compression 1 --indicators --onlydaily
   --------------------------------------------------
   nextstart called with len 10
   --------------------------------------------------
@@ -138,7 +138,7 @@ Both timeframes get a Simple Moving Average
 
 The command line::
 
-  $ ./multitimeframe-example.py --timeframe weekly --compression 1 --indicators
+  $ ./data-multitimeframe.py --timeframe weekly --compression 1 --indicators
   --------------------------------------------------
   nextstart called with len 50
   --------------------------------------------------
@@ -187,6 +187,6 @@ or tweaking: just add the smaller timeframes first.
 
 The test script.
 
-.. literalinclude:: ./multitimeframe-example.py
+.. literalinclude:: ./data-multitimeframe.py
    :language: python
    :lines: 21-

@@ -38,7 +38,7 @@ construction:
 
 Let's see an example from Daily to weekly with a handcrafted script::
 
-  $ ./resampling-example.py --timeframe weekly --compression 1
+  $ ./data-resampling.py --timeframe weekly --compression 1
 
 The output:
 
@@ -46,7 +46,7 @@ The output:
 
 We can compare it to the original daily data::
 
-  $ ./resampling-example.py --timeframe daily --compression 1
+  $ ./data-resampling.py --timeframe daily --compression 1
 
 The output:
 
@@ -63,14 +63,14 @@ The magic is done by executing the following steps:
 
 The code in the sample (the entire script at the bottom).
 
-.. literalinclude:: ./resampling-example.py
+.. literalinclude:: ./data-resampling.py
    :language: python
    :lines: 38-57
 
 A last example in which we first change the time frame from daily to weekly and
 then apply a 3 to 1 compression::
 
-  $ ./resampling-example.py --timeframe weekly --compression 3
+  $ ./data-resampling.py --timeframe weekly --compression 3
 
 The output:
 
@@ -86,6 +86,6 @@ It doesn't take much more. Of course intraday data can also be resampled.
 
 The sample code for the resampling test script.
 
-.. literalinclude:: ./resampling-example.py
+.. literalinclude:: ./data-resampling.py
    :language: python
    :lines: 21-
