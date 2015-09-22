@@ -77,7 +77,7 @@ having more room to appreciate the OHLC bars</p>
 <div><ul>
 <li><p class="first">If the scaling of the indicators is too different, some of the indicators
 would not be visible.</p>
-<p>Example: a MACD oscillating around 0.0 plus/minu 0.5 plotted over a
+<p>Example: a MACD oscillating around 0.0 plus/minus 0.5 plotted over a
 Stochastic which moves across the 0-100 range.</p>
 </li>
 </ul>
@@ -101,7 +101,7 @@ removed unless activated via a command line switch.</p>
 </pre></div>
 </div>
 <p>And the chart.</p>
-<a data-lightbox="group-312f903b-85b1-45ec-be2f-fc164b87f69a"
+<a data-lightbox="group-891ff645-e0e9-407a-a7ec-9a2b43186588"
                    href="../../../_images\plotting-same-axis-standard1.png"
                    class=""
                    title=""
@@ -113,10 +113,21 @@ removed unless activated via a command line switch.</p>
                     alt=""/>
                     </a><p>The second execution changes the panorama:</p>
 <blockquote>
-<div><ul class="simple">
-<li>The Simple Moving Average is moved to a subplot</li>
-<li>The MACD is hidden</li>
-<li>The RSI is plotted over the Stochastic (the y-axis range is compatible: 0-100)</li>
+<div><ul>
+<li><p class="first">The Simple Moving Average is moved to a subplot</p>
+</li>
+<li><p class="first">The MACD is hidden</p>
+</li>
+<li><p class="first">The RSI is plotted over the Stochastic (the y-axis range is compatible:
+0-100)</p>
+<p>This is achieved by setting the <code class="docutils literal"><span class="pre">plotinfo.plotmaster</span></code> value of the
+indicator to the other indicator to be plotted onto.</p>
+<p>In this case and because the local variables in <code class="docutils literal"><span class="pre">__init__</span></code> are named
+<code class="docutils literal"><span class="pre">stoc</span></code> for Stochastic and <code class="docutils literal"><span class="pre">rsi</span></code> for RSI, it looks like:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">rsi</span><span class="o">.</span><span class="n">plotinfo</span><span class="o">.</span><span class="n">plotmaster</span> <span class="o">=</span> <span class="n">stoc</span>
+</pre></div>
+</div>
+</li>
 </ul>
 </div></blockquote>
 <p>Execution:</p>
@@ -124,7 +135,7 @@ removed unless activated via a command line switch.</p>
 </pre></div>
 </div>
 <p>The chart.</p>
-<a data-lightbox="group-a26d54e2-b281-4b71-807f-d3f382a81126"
+<a data-lightbox="group-bd67ab24-17ba-4ef5-8d54-0d9513f12546"
                    href="../../../_images\plotting-same-axis-new-panorama1.png"
                    class=""
                    title=""
@@ -139,7 +150,7 @@ removed unless activated via a command line switch.</p>
 </pre></div>
 </div>
 <p>The chart.</p>
-<a data-lightbox="group-13de4a53-8aeb-49aa-9039-2d1983e364a5"
+<a data-lightbox="group-7b01161e-88fe-4c2f-8844-cbcb2a7aea50"
                    href="../../../_images\plotting-same-axis-rsi-over-sma1.png"
                    class=""
                    title=""
@@ -156,7 +167,7 @@ on the SMA</p>
 <blockquote>
 <div>$ ./plot-same-axis.py &#8211;rsiovermacd &#8211;smasubplot</div></blockquote>
 <p>The chart.</p>
-<a data-lightbox="group-80e8e649-b157-43b0-9ee7-18a637e845bc"
+<a data-lightbox="group-fbf04e75-f2f7-4619-813f-399219b8b424"
                    href="../../../_images\plotting-same-axis-rsi-over-sma-subplot1.png"
                    class=""
                    title=""
@@ -168,11 +179,60 @@ on the SMA</p>
                     alt=""/>
                     </a><p>The label is clear but all that remains from the RSI is a faint blue line at the
 bottom of the SMA plot.</p>
-<p>The script usage:</p>
-<div class="highlight-python"><div class="highlight"><pre>usage: plot-same-axis.py [-h] [--data DATA] [--fromdate FROMDATE]
+<div class="note update admonition">
+<p class="first admonition-title">Updated on Sep 22, 2015</p>
+<p class="last">Added multi-line indicator plotted over another indicator</p>
+</div>
+<p>Going in the other direction, let&#8217;s plot a multi-line indicator on another
+indicator. Let&#8217;s plot the Stochastic on the RSI:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ./plot-same-axis.py --stocrsi
+</pre></div>
+</div>
+<a data-lightbox="group-b6c9a895-7600-4007-af50-18000acf5af0"
+                   href="../../../_images\plotting-same-axis-stoc-over-rsi1.png"
+                   class=""
+                   title=""
+                   data-title=""
+                   ><img src="../../../_images\plotting-same-axis-stoc-over-rsi1.png"
+                    class=""
+                    width="100%"
+                    height="auto"
+                    alt=""/>
+                    </a><p>It works. The <code class="docutils literal"><span class="pre">Stochastic</span></code> label shows up and the 2 lines <code class="docutils literal"><span class="pre">K%</span></code> and <code class="docutils literal"><span class="pre">D%</span></code>
+too. But the lines are not &#8220;named&#8221; because we have got the name of the
+indicator.</p>
+<p>In the code, the current setting would be:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">stoc</span><span class="o">.</span><span class="n">plotinfo</span><span class="o">.</span><span class="n">plotmaster</span> <span class="o">=</span> <span class="n">rsi</span>
+</pre></div>
+</div>
+<p>To have the names of the Stochastic lines displayed instead of the name, we
+would additionally need:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">stoc</span><span class="o">.</span><span class="n">plotinfo</span><span class="o">.</span><span class="n">plotlinelabels</span> <span class="o">=</span> <span class="bp">True</span>
+</pre></div>
+</div>
+<p>This has been parametrized and a new execution shows it:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ./plot-same-axis.py --stocrsi --stocrsilabels
+</pre></div>
+</div>
+<p>With the chart now showing the name of the Stochasti lines below the name of the
+RSI line.</p>
+<a data-lightbox="group-1becb34c-3960-41fd-8496-656fff1a78ac"
+                   href="../../../_images\plotting-same-axis-stoc-over-rsi-lines1.png"
+                   class=""
+                   title=""
+                   data-title=""
+                   ><img src="../../../_images\plotting-same-axis-stoc-over-rsi-lines1.png"
+                    class=""
+                    width="100%"
+                    height="auto"
+                    alt=""/>
+                    </a><p>The script usage:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ./plot-same-axis.py --help
+usage: plot-same-axis.py [-h] [--data DATA] [--fromdate FROMDATE]
                          [--todate TODATE] [--stdstats] [--smasubplot]
-                         [--nomacdplot] [--rsioverstoc | --rsioversma]
-                         [--numfigs NUMFIGS]
+                         [--nomacdplot]
+                         [--rsioverstoc | --rsioversma | --stocrsi]
+                         [--stocrsilabels] [--numfigs NUMFIGS]
 
 Plotting Example
 
@@ -188,6 +248,8 @@ optional arguments:
   --nomacdplot, -nm     Hide the indicator from the plot
   --rsioverstoc, -ros   Plot the RSI indicator on the Stochastic axis
   --rsioversma, -rom    Plot the RSI indicator on the SMA axis
+  --stocrsi, -strsi     Plot the Stochastic indicator on the RSI axis
+  --stocrsilabels       Plot line names instead of indicator name
   --numfigs NUMFIGS, -n NUMFIGS
                         Plot using numfigs figures
 </pre></div>
@@ -214,6 +276,8 @@ optional arguments:
         <span class="n">nomacdplot</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
         <span class="n">rsioverstoc</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
         <span class="n">rsioversma</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+        <span class="n">stocrsi</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+        <span class="n">stocrsilabels</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
     <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -224,14 +288,15 @@ optional arguments:
         <span class="c"># attribute is changed - same effect</span>
         <span class="n">macd</span><span class="o">.</span><span class="n">plotinfo</span><span class="o">.</span><span class="n">plot</span> <span class="o">=</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">nomacdplot</span>
 
-        <span class="c"># Let&#39;s put if requested a RSI over a Stochastic</span>
+        <span class="c"># Let&#39;s put rsi on stochastic/sma or the other way round</span>
         <span class="n">stoc</span> <span class="o">=</span> <span class="n">btind</span><span class="o">.</span><span class="n">Stochastic</span><span class="p">()</span>
         <span class="n">rsi</span> <span class="o">=</span> <span class="n">btind</span><span class="o">.</span><span class="n">RSI</span><span class="p">()</span>
-        <span class="c"># Rsi can be (according to param) plotted over Stochastic</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">rsioverstoc</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">stocrsi</span><span class="p">:</span>
+            <span class="n">stoc</span><span class="o">.</span><span class="n">plotinfo</span><span class="o">.</span><span class="n">plotmaster</span> <span class="o">=</span> <span class="n">rsi</span>
+            <span class="n">stoc</span><span class="o">.</span><span class="n">plotinfo</span><span class="o">.</span><span class="n">plotlinelabels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">stocrsilabels</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">rsioverstoc</span><span class="p">:</span>
             <span class="n">rsi</span><span class="o">.</span><span class="n">plotinfo</span><span class="o">.</span><span class="n">plotmaster</span> <span class="o">=</span> <span class="n">stoc</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">rsioversma</span><span class="p">:</span>
-            <span class="c"># sma.plotinfo.subplot = True</span>
             <span class="n">rsi</span><span class="o">.</span><span class="n">plotinfo</span><span class="o">.</span><span class="n">plotmaster</span> <span class="o">=</span> <span class="n">sma</span>
 
 
@@ -259,7 +324,9 @@ optional arguments:
                         <span class="n">smasubplot</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">smasubplot</span><span class="p">,</span>
                         <span class="n">nomacdplot</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">nomacdplot</span><span class="p">,</span>
                         <span class="n">rsioverstoc</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">rsioverstoc</span><span class="p">,</span>
-                        <span class="n">rsioversma</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">rsioversma</span><span class="p">)</span>
+                        <span class="n">rsioversma</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">rsioversma</span><span class="p">,</span>
+                        <span class="n">stocrsi</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">stocrsi</span><span class="p">,</span>
+                        <span class="n">stocrsilabels</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">stocrsilabels</span><span class="p">)</span>
 
     <span class="c"># And run it</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">stdstats</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">stdstats</span><span class="p">)</span>
@@ -299,6 +366,12 @@ optional arguments:
 
     <span class="n">group</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--rsioversma&#39;</span><span class="p">,</span> <span class="s">&#39;-rom&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&#39;store_true&#39;</span><span class="p">,</span>
                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Plot the RSI indicator on the SMA axis&#39;</span><span class="p">)</span>
+
+    <span class="n">group</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--stocrsi&#39;</span><span class="p">,</span> <span class="s">&#39;-strsi&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&#39;store_true&#39;</span><span class="p">,</span>
+                       <span class="n">help</span><span class="o">=</span><span class="s">&#39;Plot the Stochastic indicator on the RSI axis&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--stocrsilabels&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&#39;store_true&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Plot line names instead of indicator name&#39;</span><span class="p">)</span>
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--numfigs&#39;</span><span class="p">,</span> <span class="s">&#39;-n&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
                         <span class="n">help</span><span class="o">=</span><span class="s">&#39;Plot using numfigs figures&#39;</span><span class="p">)</span>
@@ -397,6 +470,9 @@ optional arguments:
 
   <ul>
     
+  <li><i class="fa fa-pencil-square-o"></i>
+    Sep 22, 2015</li>
+  
 
   
   <li><i class="fa-fw fa fa-user"></i>

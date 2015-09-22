@@ -23,7 +23,7 @@ Of course something has to be taken into account:
   - If the scaling of the indicators is too different, some of the indicators
     would not be visible.
 
-    Example: a MACD oscillating around 0.0 plus/minu 0.5 plotted over a
+    Example: a MACD oscillating around 0.0 plus/minus 0.5 plotted over a
     Stochastic which moves across the 0-100 range.
 
 The first implementation is in the development branch on commit `...14252c6
@@ -51,7 +51,16 @@ The second execution changes the panorama:
 
   - The Simple Moving Average is moved to a subplot
   - The MACD is hidden
-  - The RSI is plotted over the Stochastic (the y-axis range is compatible: 0-100)
+  - The RSI is plotted over the Stochastic (the y-axis range is compatible:
+    0-100)
+
+    This is achieved by setting the ``plotinfo.plotmaster`` value of the
+    indicator to the other indicator to be plotted onto.
+
+    In this case and because the local variables in ``__init__`` are named
+    ``stoc`` for Stochastic and ``rsi`` for RSI, it looks like::
+
+      rsi.plotinfo.plotmaster = stoc
 
 Execution::
 
@@ -84,12 +93,47 @@ The chart.
 The label is clear but all that remains from the RSI is a faint blue line at the
 bottom of the SMA plot.
 
+.. update:: Sep 22, 2015
+
+   Added multi-line indicator plotted over another indicator
+
+Going in the other direction, let's plot a multi-line indicator on another
+indicator. Let's plot the Stochastic on the RSI::
+
+  $ ./plot-same-axis.py --stocrsi
+
+.. thumbnail:: ./plotting-same-axis-stoc-over-rsi.png
+
+It works. The ``Stochastic`` label shows up and the 2 lines ``K%`` and ``D%``
+too. But the lines are not "named" because we have got the name of the
+indicator.
+
+In the code, the current setting would be::
+
+  stoc.plotinfo.plotmaster = rsi
+
+To have the names of the Stochastic lines displayed instead of the name, we
+would additionally need::
+
+  stoc.plotinfo.plotlinelabels = True
+
+This has been parametrized and a new execution shows it::
+
+  $ ./plot-same-axis.py --stocrsi --stocrsilabels
+
+With the chart now showing the name of the Stochasti lines below the name of the
+RSI line.
+
+.. thumbnail:: ./plotting-same-axis-stoc-over-rsi-lines.png
+
 The script usage::
 
+  $ ./plot-same-axis.py --help
   usage: plot-same-axis.py [-h] [--data DATA] [--fromdate FROMDATE]
                            [--todate TODATE] [--stdstats] [--smasubplot]
-                           [--nomacdplot] [--rsioverstoc | --rsioversma]
-                           [--numfigs NUMFIGS]
+                           [--nomacdplot]
+                           [--rsioverstoc | --rsioversma | --stocrsi]
+                           [--stocrsilabels] [--numfigs NUMFIGS]
 
   Plotting Example
 
@@ -105,9 +149,10 @@ The script usage::
     --nomacdplot, -nm     Hide the indicator from the plot
     --rsioverstoc, -ros   Plot the RSI indicator on the Stochastic axis
     --rsioversma, -rom    Plot the RSI indicator on the SMA axis
+    --stocrsi, -strsi     Plot the Stochastic indicator on the RSI axis
+    --stocrsilabels       Plot line names instead of indicator name
     --numfigs NUMFIGS, -n NUMFIGS
                           Plot using numfigs figures
-
 
 And the code.
 
