@@ -2,10 +2,34 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">backtrader Blog</title>
   <id>http://www.backtrader.com/blog/atom.xml</id>
-  <updated>2015-09-22T00:00:00Z</updated>
+  <updated>2015-09-25T00:00:00Z</updated>
   <link href="http://www.backtrader.com" />
   <link href="http://www.backtrader.com/blog/atom.xml" rel="self" />
   <generator uri="http://ablog.readthedocs.org" version="0.7.7">ABlog</generator>
+  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+    <title type="text">Tick Data and Resampling</title>
+    <id>http://www.backtrader.com/posts/2015-09-25-tickdata-resample/resample-tickdata/</id>
+    <updated>2015-09-25T00:00:00Z</updated>
+    <published>2015-09-25T00:00:00Z</published>
+    <link href="http://www.backtrader.com/posts/2015-09-25-tickdata-resample/resample-tickdata/" />
+    <author>
+      <name>mementum</name>
+    </author>
+    <content type="html">&lt;p&gt;&lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt; could already do resampling up from minute data. Accepting tick
+data was not a problem, by simply setting the 4 usual fields (open, high, low,
+close) to the tick value.&lt;/p&gt;
+&lt;a data-lightbox=&quot;group-e05d2068-30f9-43af-aca7-9a7028b05b89&quot;
+                   href=&quot;../_images\tickdata-default1.png&quot;
+                   class=&quot;&quot;
+                   title=&quot;&quot;
+                   data-title=&quot;&quot;
+                   &gt;&lt;img src=&quot;../_images\tickdata-default1.png&quot;
+                    class=&quot;&quot;
+                    width=&quot;100%&quot;
+                    height=&quot;auto&quot;
+                    alt=&quot;&quot;/&gt;
+                    &lt;/a&gt;</content>
+  </entry>
   <entry xml:base="http://www.backtrader.com/blog/atom.xml">
     <title type="text">Plotting on the same axis</title>
     <id>http://www.backtrader.com/posts/2015-09-21-plotting-same-axis/plotting-same-axis/</id>
@@ -108,11 +132,11 @@ to buy an asset is actually another asset.&lt;/p&gt;
     <content type="html">&lt;p&gt;The time is gone and testing a strategy against a fully formed and closed bar is
 good, but it could be better.&lt;/p&gt;
 &lt;a data-lightbox=&quot;group-c6598131-c96d-48c3-83e9-73d992cb1fb3&quot;
-                   href=&quot;../_images\replay-daily-weekly1.png&quot;
+                   href=&quot;posts\2015-08-25-data-replay\replay-daily-weekly.png&quot;
                    class=&quot;&quot;
                    title=&quot;&quot;
                    data-title=&quot;&quot;
-                   &gt;&lt;img src=&quot;../_images\replay-daily-weekly1.png&quot;
+                   &gt;&lt;img src=&quot;posts\2015-08-25-data-replay\replay-daily-weekly.png&quot;
                     class=&quot;&quot;
                     width=&quot;100%&quot;
                     height=&quot;auto&quot;
