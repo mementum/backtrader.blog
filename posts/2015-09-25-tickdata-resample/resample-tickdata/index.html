@@ -76,12 +76,17 @@ timeframe.</p>
 </div>
 <p>The new release contains a small <code class="docutils literal"><span class="pre">tickdata.csv</span></code> sample added to the sources
 data a new sample script <code class="docutils literal"><span class="pre">resample-tickdata.py</span></code> to play with it.</p>
+<div class="note update admonition">
+<p class="first admonition-title">Updated on Oct 06, 2015</p>
+<p class="last">Updated the script to use the new <code class="docutils literal"><span class="pre">Cerebro.resampledata</span></code> method which
+avoids the need to manually instantiate a <code class="docutils literal"><span class="pre">backtrader.DataResampler</span></code></p>
+</div>
 <p>The default execution doesn&#8217;t touch the data:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ ./resample-tickdata.py
 </pre></div>
 </div>
 <p>Producing this chart:</p>
-<a data-lightbox="group-e05d2068-30f9-43af-aca7-9a7028b05b89"
+<a data-lightbox="group-50284570-fe75-46f8-a794-099ebbd4d4a4"
                    href="../../../_images\tickdata-default1.png"
                    class=""
                    title=""
@@ -96,7 +101,7 @@ data a new sample script <code class="docutils literal"><span class="pre">resamp
 </pre></div>
 </div>
 <p>Producing this chart:</p>
-<a data-lightbox="group-3ff1502b-a51b-481d-a96b-9a9b6cb67656"
+<a data-lightbox="group-5b06340d-94d7-40bc-93dc-6a454f713eb0"
                    href="../../../_images\tickdata-tickdata-compression-31.png"
                    class=""
                    title=""
@@ -112,7 +117,7 @@ data a new sample script <code class="docutils literal"><span class="pre">resamp
 </pre></div>
 </div>
 <p>With a new chart:</p>
-<a data-lightbox="group-effc5855-ab3f-48de-8dd7-8ccdd002eedf"
+<a data-lightbox="group-6edd03b6-14a4-4ad0-9f51-fde12d956e37"
                    href="../../../_images\tickdata-seconds-compression-51.png"
                    class=""
                    title=""
@@ -129,7 +134,7 @@ minutes (the last tick in the file is the only tick for the 4th minute):</p>
 </div>
 <p>With a 4 bars (at the top it can be seen the final price was 3069). The 4th bar
 is a single point given for this minute a single tick is present in the file.</p>
-<a data-lightbox="group-d88399c1-b369-486d-89ce-054a192a56b4"
+<a data-lightbox="group-2b8048b5-71e0-47a8-b596-a31da93991b5"
                    href="../../../_images\tickdata-minutes1.png"
                    class=""
                    title=""
@@ -142,7 +147,7 @@ is a single point given for this minute a single tick is present in the file.</p
                     </a><p>The script usage:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ ./resample-tickdata.py --help
 usage: resample-tickdata.py [-h] [--dataname DATANAME]
-                            [--timeframe {none,ticks,microseconds,seconds,minutes,daily,weekly,monthly}]
+                            [--timeframe {ticks,microseconds,seconds,minutes,daily,weekly,monthly}]
                             [--compression COMPRESSION]
 
 Resampling script down to tick data
@@ -150,11 +155,10 @@ Resampling script down to tick data
 optional arguments:
   -h, --help            show this help message and exit
   --dataname DATANAME   File Data to Load
-  --timeframe {none,ticks,microseconds,seconds,minutes,daily,weekly,monthly}
+  --timeframe {ticks,microseconds,seconds,minutes,daily,weekly,monthly}
                         Timeframe to resample to
   --compression COMPRESSION
-                        Compress n bars into 1 (not applicable if timeframe is
-                        &quot;none&quot;)
+                        Compress n bars into 1
 </pre></div>
 </div>
 <p>And the code.</p>
@@ -186,7 +190,6 @@ optional arguments:
 
     <span class="c"># Handy dictionary for the argument timeframe conversion</span>
     <span class="n">tframes</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-        <span class="n">none</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
         <span class="n">ticks</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">TimeFrame</span><span class="o">.</span><span class="n">Ticks</span><span class="p">,</span>
         <span class="n">microseconds</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">TimeFrame</span><span class="o">.</span><span class="n">MicroSeconds</span><span class="p">,</span>
         <span class="n">seconds</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">TimeFrame</span><span class="o">.</span><span class="n">Seconds</span><span class="p">,</span>
@@ -195,17 +198,13 @@ optional arguments:
         <span class="n">weekly</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">TimeFrame</span><span class="o">.</span><span class="n">Weeks</span><span class="p">,</span>
         <span class="n">monthly</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">TimeFrame</span><span class="o">.</span><span class="n">Months</span><span class="p">)</span>
 
-    <span class="n">timeframe</span> <span class="o">=</span> <span class="n">tframes</span><span class="p">[</span><span class="n">args</span><span class="o">.</span><span class="n">timeframe</span><span class="p">]</span>
+    <span class="c"># Resample the data</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">cerebro</span><span class="o">.</span><span class="n">resampledata</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
+                                <span class="n">timeframe</span><span class="o">=</span><span class="n">tframes</span><span class="p">[</span><span class="n">args</span><span class="o">.</span><span class="n">timeframe</span><span class="p">],</span>
+                                <span class="n">compression</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">compression</span><span class="p">,</span> <span class="n">limitpast</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">timeframe</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="c"># Resample the data</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">DataResampler</span><span class="p">(</span>
-            <span class="n">dataname</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
-            <span class="n">timeframe</span><span class="o">=</span><span class="n">timeframe</span><span class="p">,</span>
-            <span class="n">compression</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">compression</span><span class="p">)</span>
-
-    <span class="c"># Add the resample data instead of the original</span>
-    <span class="n">cerebro</span><span class="o">.</span><span class="n">adddata</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="c"># add a writer</span>
+    <span class="n">cerebro</span><span class="o">.</span><span class="n">addwriter</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">WriterFile</span><span class="p">,</span> <span class="n">csv</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
     <span class="c"># Run over everything</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
@@ -221,14 +220,13 @@ optional arguments:
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--dataname&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
                         <span class="n">help</span><span class="o">=</span><span class="s">&#39;File Data to Load&#39;</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--timeframe&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">&#39;none&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
-                        <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;none&#39;</span><span class="p">,</span> <span class="s">&#39;ticks&#39;</span><span class="p">,</span> <span class="s">&#39;microseconds&#39;</span><span class="p">,</span> <span class="s">&#39;seconds&#39;</span><span class="p">,</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--timeframe&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">&#39;ticks&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                        <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;ticks&#39;</span><span class="p">,</span> <span class="s">&#39;microseconds&#39;</span><span class="p">,</span> <span class="s">&#39;seconds&#39;</span><span class="p">,</span>
                                  <span class="s">&#39;minutes&#39;</span><span class="p">,</span> <span class="s">&#39;daily&#39;</span><span class="p">,</span> <span class="s">&#39;weekly&#39;</span><span class="p">,</span> <span class="s">&#39;monthly&#39;</span><span class="p">],</span>
                         <span class="n">help</span><span class="o">=</span><span class="s">&#39;Timeframe to resample to&#39;</span><span class="p">)</span>
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--compression&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="p">(</span><span class="s">&#39;Compress n bars into 1&#39;</span>
-                              <span class="s">&#39; (not applicable if timeframe is &quot;none&quot;)&#39;</span><span class="p">))</span>
+                        <span class="n">help</span><span class="o">=</span><span class="p">(</span><span class="s">&#39;Compress n bars into 1&#39;</span><span class="p">))</span>
 
     <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 
@@ -256,6 +254,13 @@ optional arguments:
   </span>
   <span>&nbsp;</span>
   <span style="float: right;">
+  
+  
+  <a href="../../2015-10-04-bar-synchronization/bar-synchronization/">
+    Bar Synchronization
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  </span>
   
 </div>
 
@@ -324,6 +329,9 @@ optional arguments:
 
   <ul>
     
+  <li><i class="fa fa-pencil-square-o"></i>
+    Oct 06, 2015</li>
+  
 
   
   <li><i class="fa-fw fa fa-user"></i>
@@ -373,15 +381,15 @@ optional arguments:
   <ul>
     
     
+      <li><a href="../../2015-10-05-multitrades/multitrades/">Oct 05 - MultiTrades</a></li>
+    
+      <li><a href="../../2015-10-04-bar-synchronization/bar-synchronization/">Oct 04 - Bar Synchronization</a></li>
+    
       <li><a href="../../2015-09-21-plotting-same-axis/plotting-same-axis/">Sep 21 - Plotting on the same axis</a></li>
     
       <li><a href="../../2015-09-14-write-it-down/write-it-down/">Sep 14 - Writers - Write it down</a></li>
     
       <li><a href="../../2015-09-03-multidata-strategy/multidata-strategy/">Sep 03 - MultiData Strategy</a></li>
-    
-      <li><a href="../../2015-08-27-real-world-usage/real-world-usage/">Aug 27 - Real World Usage</a></li>
-    
-      <li><a href="../../2015-08-25-data-replay/data-replay/">Aug 25 - Data - Replay</a></li>
     
   </ul>
 
@@ -389,7 +397,7 @@ optional arguments:
   <ul>
   
     
-    <li><a href="../../../blog/2015/">2015 (22)</a></li>
+    <li><a href="../../../blog/2015/">2015 (24)</a></li>
     
   
   </ul>

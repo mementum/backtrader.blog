@@ -25,6 +25,11 @@ release 1.1.11.88 this is no longer so. Now
 The new release contains a small ``tickdata.csv`` sample added to the sources
 data a new sample script ``resample-tickdata.py`` to play with it.
 
+.. update:: Oct 06, 2015
+
+   Updated the script to use the new ``Cerebro.resampledata`` method which
+   avoids the need to manually instantiate a ``backtrader.DataResampler``
+
 The default execution doesn't touch the data::
 
   $ ./resample-tickdata.py
@@ -65,7 +70,7 @@ The script usage::
 
   $ ./resample-tickdata.py --help
   usage: resample-tickdata.py [-h] [--dataname DATANAME]
-                              [--timeframe {none,ticks,microseconds,seconds,minutes,daily,weekly,monthly}]
+                              [--timeframe {ticks,microseconds,seconds,minutes,daily,weekly,monthly}]
                               [--compression COMPRESSION]
 
   Resampling script down to tick data
@@ -73,11 +78,10 @@ The script usage::
   optional arguments:
     -h, --help            show this help message and exit
     --dataname DATANAME   File Data to Load
-    --timeframe {none,ticks,microseconds,seconds,minutes,daily,weekly,monthly}
+    --timeframe {ticks,microseconds,seconds,minutes,daily,weekly,monthly}
                           Timeframe to resample to
     --compression COMPRESSION
-                          Compress n bars into 1 (not applicable if timeframe is
-                          "none")
+                          Compress n bars into 1
 
 And the code.
 

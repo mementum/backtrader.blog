@@ -42,7 +42,7 @@ be diferentiated.
 
 A second execution enables multitrades by cycling amongs 0, 1 and 2::
 
-  $ ./multitrades.py --plot
+  $ ./multitrades.py --plot --mtrade
 
 And now 3 different markers alternate showing each Trade can be distinguished
 using the ``tradeid`` member.
