@@ -86,7 +86,7 @@ avoids the need to manually instantiate a <code class="docutils literal"><span c
 </pre></div>
 </div>
 <p>Producing this chart:</p>
-<a data-lightbox="group-50284570-fe75-46f8-a794-099ebbd4d4a4"
+<a data-lightbox="group-3c8c0c08-8756-4be0-93c3-a0a55613fe5d"
                    href="../../../_images\tickdata-default1.png"
                    class=""
                    title=""
@@ -101,7 +101,7 @@ avoids the need to manually instantiate a <code class="docutils literal"><span c
 </pre></div>
 </div>
 <p>Producing this chart:</p>
-<a data-lightbox="group-5b06340d-94d7-40bc-93dc-6a454f713eb0"
+<a data-lightbox="group-1581131b-038d-40da-b638-f520b3d4a04d"
                    href="../../../_images\tickdata-tickdata-compression-31.png"
                    class=""
                    title=""
@@ -117,7 +117,7 @@ avoids the need to manually instantiate a <code class="docutils literal"><span c
 </pre></div>
 </div>
 <p>With a new chart:</p>
-<a data-lightbox="group-6edd03b6-14a4-4ad0-9f51-fde12d956e37"
+<a data-lightbox="group-c8a9970e-e274-4cc1-9bc2-1fef046ba0e4"
                    href="../../../_images\tickdata-seconds-compression-51.png"
                    class=""
                    title=""
@@ -134,7 +134,7 @@ minutes (the last tick in the file is the only tick for the 4th minute):</p>
 </div>
 <p>With a 4 bars (at the top it can be seen the final price was 3069). The 4th bar
 is a single point given for this minute a single tick is present in the file.</p>
-<a data-lightbox="group-2b8048b5-71e0-47a8-b596-a31da93991b5"
+<a data-lightbox="group-135a690a-bcdd-4977-ac2c-36d6e5ee6305"
                    href="../../../_images\tickdata-minutes1.png"
                    class=""
                    title=""
@@ -201,7 +201,7 @@ optional arguments:
     <span class="c"># Resample the data</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">cerebro</span><span class="o">.</span><span class="n">resampledata</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
                                 <span class="n">timeframe</span><span class="o">=</span><span class="n">tframes</span><span class="p">[</span><span class="n">args</span><span class="o">.</span><span class="n">timeframe</span><span class="p">],</span>
-                                <span class="n">compression</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">compression</span><span class="p">,</span> <span class="n">limitpast</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+                                <span class="n">compression</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">compression</span><span class="p">)</span>
 
     <span class="c"># add a writer</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">addwriter</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">WriterFile</span><span class="p">,</span> <span class="n">csv</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
