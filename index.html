@@ -88,14 +88,29 @@ time</li>
 </div></blockquote>
 <div class="section" id="the-blog-entries">
 <h2>The Blog Entries<a class="headerlink" href="#the-blog-entries" title="Permalink to this headline">¶</a></h2>
-<ul class="post-list-style-circle">
-<li><p class="first"><a class="reference internal" href="posts/2015-10-05-multitrades/multitrades/"><em>MultiTrades</em></a> by <a class="reference internal" href="blog/author/mementum/" title="mementum"><em>mementum</em></a> on Oct 05</p>
+<ul class="postlist-style-circle postlist">
+<li><p class="first"><a class="reference internal" href="posts/2015-11-05-commission-schemes-extended/commission-schemes-extended/">Extending Commissions</a> by <a class="reference internal" href="blog/author/mementum/" title="mementum"><em>mementum</em></a> on Nov 05</p>
+<p>Commissions and asociated functionality were managed by a single class
+<code class="docutils literal"><span class="pre">CommissionInfo</span></code> which was mostly instantiated by calling
+<code class="docutils literal"><span class="pre">broker.setcommission</span></code>.</p>
+<a data-lightbox="group-c009c5b7-9c13-41f6-87e4-f9123075e982"
+                   href="_images\commission-futures-extended1.png"
+                   class=""
+                   title=""
+                   data-title=""
+                   ><img src="_images\commission-futures-extended1.png"
+                    class=""
+                    width="100%"
+                    height="auto"
+                    alt=""/>
+                    </a></li>
+<li><p class="first"><a class="reference internal" href="posts/2015-10-05-multitrades/multitrades/">MultiTrades</a> by <a class="reference internal" href="blog/author/mementum/" title="mementum"><em>mementum</em></a> on Oct 05</p>
 <p>Following a request at <a class="reference external" href="https://disqus.com/home/discussion/backtrader/tick_data_and_resampling/?utm_source=digest&amp;utm_medium=email&amp;utm_content=replies">Tick Data and Resampling</a>
 release 1.1.12.88 of <code class="docutils literal"><span class="pre">backtrader</span></code> support &#8220;MultiTrades&#8221;, ie: the ability to
 assign a <code class="docutils literal"><span class="pre">tradeid</span></code> to orders. This id is passed on to <code class="docutils literal"><span class="pre">Trades</span></code> which makes
 it possible to have different categories of trades and have them simultaneously
 open.</p>
-<a data-lightbox="group-72de2009-ce28-440d-b8f0-d251e37bdfe0"
+<a data-lightbox="group-b7d84408-6289-4f5c-9621-45ac127aacf6"
                    href="_images\multitrades-disabled1.png"
                    class=""
                    title=""
@@ -105,13 +120,12 @@ open.</p>
                     width="100%"
                     height="auto"
                     alt=""/>
-                    </a><div class="line"><br /></div>
-</li>
-<li><p class="first"><a class="reference internal" href="posts/2015-10-04-bar-synchronization/bar-synchronization/"><em>Bar Synchronization</em></a> by <a class="reference internal" href="blog/author/mementum/" title="mementum"><em>mementum</em></a> on Oct 04</p>
+                    </a></li>
+<li><p class="first"><a class="reference internal" href="posts/2015-10-04-bar-synchronization/bar-synchronization/">Bar Synchronization</a> by <a class="reference internal" href="blog/author/mementum/" title="mementum"><em>mementum</em></a> on Oct 04</p>
 <p><a class="reference external" href="https://github.com/mementum/backtrader/issues/23">Ticket #23</a> raises some
 questions as to whether <code class="docutils literal"><span class="pre">backtrader</span></code> can look into calculating
 a <strong>RelativeVolume</strong> indicator.</p>
-<a data-lightbox="group-8e7ad53c-b4e3-4d2d-ae90-936711e9f912"
+<a data-lightbox="group-5d5eafe9-1325-432f-a091-a17666ee160f"
                    href="_images\bar-synchronization1.png"
                    class=""
                    title=""
@@ -121,13 +135,12 @@ a <strong>RelativeVolume</strong> indicator.</p>
                     width="100%"
                     height="auto"
                     alt=""/>
-                    </a><div class="line"><br /></div>
-</li>
-<li><p class="first"><a class="reference internal" href="posts/2015-09-25-tickdata-resample/resample-tickdata/"><em>Tick Data and Resampling</em></a> by <a class="reference internal" href="blog/author/mementum/" title="mementum"><em>mementum</em></a> on Sep 25</p>
+                    </a></li>
+<li><p class="first"><a class="reference internal" href="posts/2015-09-25-tickdata-resample/resample-tickdata/">Tick Data and Resampling</a> by <a class="reference internal" href="blog/author/mementum/" title="mementum"><em>mementum</em></a> on Sep 25</p>
 <p><code class="docutils literal"><span class="pre">backtrader</span></code> could already do resampling up from minute data. Accepting tick
 data was not a problem, by simply setting the 4 usual fields (open, high, low,
 close) to the tick value.</p>
-<a data-lightbox="group-3c8c0c08-8756-4be0-93c3-a0a55613fe5d"
+<a data-lightbox="group-0395a3df-a3fe-46d6-9e25-8577e2f9ece1"
                    href="_images\tickdata-default1.png"
                    class=""
                    title=""
@@ -137,12 +150,11 @@ close) to the tick value.</p>
                     width="100%"
                     height="auto"
                     alt=""/>
-                    </a><div class="line"><br /></div>
-</li>
-<li><p class="first"><a class="reference internal" href="posts/2015-09-21-plotting-same-axis/plotting-same-axis/"><em>Plotting on the same axis</em></a> by <a class="reference internal" href="blog/author/mementum/" title="mementum"><em>mementum</em></a> on Sep 21</p>
+                    </a></li>
+<li><p class="first"><a class="reference internal" href="posts/2015-09-21-plotting-same-axis/plotting-same-axis/">Plotting on the same axis</a> by <a class="reference internal" href="blog/author/mementum/" title="mementum"><em>mementum</em></a> on Sep 21</p>
 <p>Following a comment on the blog a slight addition (luckily just a few lines of
 code) has been made to plotting.</p>
-<a data-lightbox="group-891ff645-e0e9-407a-a7ec-9a2b43186588"
+<a data-lightbox="group-ed7909d1-8ade-40c1-ac35-12f16da1d059"
                    href="_images\plotting-same-axis-standard1.png"
                    class=""
                    title=""
@@ -152,22 +164,7 @@ code) has been made to plotting.</p>
                     width="100%"
                     height="auto"
                     alt=""/>
-                    </a><div class="line"><br /></div>
-</li>
-<li><p class="first"><a class="reference internal" href="posts/2015-09-14-write-it-down/write-it-down/"><em>Writers - Write it down</em></a> by <a class="reference internal" href="blog/author/mementum/" title="mementum"><em>mementum</em></a> on Sep 14</p>
-<p>With the 1.1.7.88 release <code class="docutils literal"><span class="pre">backtrader</span></code> gets a new addition: <code class="docutils literal"><span class="pre">writers</span></code></p>
-<a data-lightbox="group-567feccc-438f-4345-bbe4-ef3f2d2edb2a"
-                   href="_images\writer-test1.png"
-                   class=""
-                   title=""
-                   data-title=""
-                   ><img src="_images\writer-test1.png"
-                    class=""
-                    width="100%"
-                    height="auto"
-                    alt=""/>
-                    </a><div class="line"><br /></div>
-</li>
+                    </a></li>
 </ul>
 <div class="toctree-wrapper compound">
 </div>
@@ -221,6 +218,8 @@ code) has been made to plotting.</p>
   <ul>
     
     
+      <li><a href="posts/2015-11-05-commission-schemes-extended/commission-schemes-extended/">Nov 05 - Extending Commissions</a></li>
+    
       <li><a href="posts/2015-10-05-multitrades/multitrades/">Oct 05 - MultiTrades</a></li>
     
       <li><a href="posts/2015-10-04-bar-synchronization/bar-synchronization/">Oct 04 - Bar Synchronization</a></li>
@@ -229,15 +228,13 @@ code) has been made to plotting.</p>
     
       <li><a href="posts/2015-09-21-plotting-same-axis/plotting-same-axis/">Sep 21 - Plotting on the same axis</a></li>
     
-      <li><a href="posts/2015-09-14-write-it-down/write-it-down/">Sep 14 - Writers - Write it down</a></li>
-    
   </ul>
 
   <h3><a href="blog/archive/">Archives</a></h3>
   <ul>
   
     
-    <li><a href="blog/2015/">2015 (24)</a></li>
+    <li><a href="blog/2015/">2015 (25)</a></li>
     
   
   </ul>

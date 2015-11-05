@@ -69,6 +69,53 @@
     
 
     <div class="section">
+      <h2><a href="../posts/2015-11-05-commission-schemes-extended/commission-schemes-extended/">Extending Commissions</a></h2>
+
+      <ul class="ablog-archive">
+      <li>
+      <i class="fa fa-calendar"></i>
+        Nov 05, 2015
+      
+      </li>
+        
+
+  
+  <li><i class="fa-fw fa fa-user"></i>
+    
+      
+      <a href="author/mementum/">mementum</a>
+      
+    </li>
+  
+
+  
+
+  
+
+  
+
+  
+  </ul>
+      <p>Commissions and asociated functionality were managed by a single class
+<code class="docutils literal"><span class="pre">CommissionInfo</span></code> which was mostly instantiated by calling
+<code class="docutils literal"><span class="pre">broker.setcommission</span></code>.</p>
+<a data-lightbox="group-c009c5b7-9c13-41f6-87e4-f9123075e982"
+                   href="../_images\commission-futures-extended1.png"
+                   class=""
+                   title=""
+                   data-title=""
+                   ><img src="../_images\commission-futures-extended1.png"
+                    class=""
+                    width="100%"
+                    height="auto"
+                    alt=""/>
+                    </a>
+      <p><a href="../posts/2015-11-05-commission-schemes-extended/commission-schemes-extended/">Read more ...</a></p>
+      <hr>
+    </div>
+    
+
+    <div class="section">
       <h2><a href="../posts/2015-10-05-multitrades/multitrades/">MultiTrades</a></h2>
 
       <ul class="ablog-archive">
@@ -101,7 +148,7 @@ release 1.1.12.88 of <code class="docutils literal"><span class="pre">backtrader
 assign a <code class="docutils literal"><span class="pre">tradeid</span></code> to orders. This id is passed on to <code class="docutils literal"><span class="pre">Trades</span></code> which makes
 it possible to have different categories of trades and have them simultaneously
 open.</p>
-<a data-lightbox="group-72de2009-ce28-440d-b8f0-d251e37bdfe0"
+<a data-lightbox="group-b7d84408-6289-4f5c-9621-45ac127aacf6"
                    href="../_images\multitrades-disabled1.png"
                    class=""
                    title=""
@@ -148,7 +195,7 @@ open.</p>
       <p><a class="reference external" href="https://github.com/mementum/backtrader/issues/23">Ticket #23</a> raises some
 questions as to whether <code class="docutils literal"><span class="pre">backtrader</span></code> can look into calculating
 a <strong>RelativeVolume</strong> indicator.</p>
-<a data-lightbox="group-8e7ad53c-b4e3-4d2d-ae90-936711e9f912"
+<a data-lightbox="group-5d5eafe9-1325-432f-a091-a17666ee160f"
                    href="../_images\bar-synchronization1.png"
                    class=""
                    title=""
@@ -198,7 +245,7 @@ a <strong>RelativeVolume</strong> indicator.</p>
       <p><code class="docutils literal"><span class="pre">backtrader</span></code> could already do resampling up from minute data. Accepting tick
 data was not a problem, by simply setting the 4 usual fields (open, high, low,
 close) to the tick value.</p>
-<a data-lightbox="group-3c8c0c08-8756-4be0-93c3-a0a55613fe5d"
+<a data-lightbox="group-0395a3df-a3fe-46d6-9e25-8577e2f9ece1"
                    href="../_images\tickdata-default1.png"
                    class=""
                    title=""
@@ -247,7 +294,7 @@ close) to the tick value.</p>
   </ul>
       <p>Following a comment on the blog a slight addition (luckily just a few lines of
 code) has been made to plotting.</p>
-<a data-lightbox="group-891ff645-e0e9-407a-a7ec-9a2b43186588"
+<a data-lightbox="group-ed7909d1-8ade-40c1-ac35-12f16da1d059"
                    href="../_images\plotting-same-axis-standard1.png"
                    class=""
                    title=""
@@ -292,12 +339,12 @@ code) has been made to plotting.</p>
   
   </ul>
       <p>With the 1.1.7.88 release <code class="docutils literal"><span class="pre">backtrader</span></code> gets a new addition: <code class="docutils literal"><span class="pre">writers</span></code></p>
-<a data-lightbox="group-567feccc-438f-4345-bbe4-ef3f2d2edb2a"
-                   href="../_images\writer-test1.png"
+<a data-lightbox="group-a739f107-7b33-49e3-b92e-15b157ada7c1"
+                   href="posts\2015-09-14-write-it-down\./writer-test.png"
                    class=""
                    title=""
                    data-title=""
-                   ><img src="../_images\writer-test1.png"
+                   ><img src="posts\2015-09-14-write-it-down\./writer-test.png"
                     class=""
                     width="100%"
                     height="auto"
@@ -338,7 +385,7 @@ code) has been made to plotting.</p>
   </ul>
       <p>Because nothing in the world lives in isolation it can well be that the trigger
 to buy an asset is actually another asset.</p>
-<a data-lightbox="group-eeb71c79-991b-4393-85da-2c96d25bd32a"
+<a data-lightbox="group-4f81d292-8c22-4829-8736-ad4bccfcc4e3"
                    href="posts\2015-09-03-multidata-strategy\./multidata-strategy-defaults.png"
                    class=""
                    title=""
@@ -383,7 +430,7 @@ to buy an asset is actually another asset.</p>
   
   </ul>
       <p>Finally it seems it pays having gotten down to developing <code class="docutils literal"><span class="pre">backtrader</span></code>.</p>
-<a data-lightbox="group-e44cbf83-4b5d-47bc-bd94-3d11403b8ddf"
+<a data-lightbox="group-0bc5a86e-42cf-475e-8b67-c0f9ca4f41a9"
                    href="posts\2015-08-27-real-world-usage\real-wold-legupdown.png"
                    class=""
                    title=""
@@ -429,7 +476,7 @@ to buy an asset is actually another asset.</p>
   </ul>
       <p>The time is gone and testing a strategy against a fully formed and closed bar is
 good, but it could be better.</p>
-<a data-lightbox="group-c6598131-c96d-48c3-83e9-73d992cb1fb3"
+<a data-lightbox="group-0c37a730-3a72-4c4d-ad3f-9be70af23d08"
                    href="posts\2015-08-25-data-replay\replay-daily-weekly.png"
                    class=""
                    title=""
@@ -474,7 +521,7 @@ good, but it could be better.</p>
   
   </ul>
       <p>Sometimes investing decisions are taken using different timeframes:</p>
-<a data-lightbox="group-788d0574-935c-4dc6-85e0-b7ce37f96f78"
+<a data-lightbox="group-1c5f3184-fe82-4f4c-8947-3a9044d8fd4f"
                    href="posts\2015-08-24-data-multitimeframe\multitimeframe-daily-weekly.png"
                    class=""
                    title=""
@@ -520,7 +567,7 @@ good, but it could be better.</p>
   </ul>
       <p>When data is only available in a single timeframe and the analysis has to be
 done for a different timeframe, it&#8217;s time to do some resampling.</p>
-<a data-lightbox="group-a1e41dc0-24da-4844-a9f7-99d72085441a"
+<a data-lightbox="group-03c3b3ec-3452-4cba-8769-b3b0b2b89ef4"
                    href="posts\2015-08-23-data-resampling\./resample-daily-weekly.png"
                    class=""
                    title=""
@@ -567,7 +614,7 @@ done for a different timeframe, it&#8217;s time to do some resampling.</p>
       <p>Amongst some minor enhancementss and some <code class="docutils literal"><span class="pre">OrderedDict</span></code> tweaks for better
 Python 2.6 support, the latest release from <code class="docutils literal"><span class="pre">backtrader</span></code> adds support for
 analyzing data from a <a class="reference external" href="pandas.pydata.org">Pandas</a> Dataframe aka Time Series.</p>
-<a data-lightbox="group-22163f2e-f2f7-4c23-999e-d42c6376b801"
+<a data-lightbox="group-983c60b8-6fae-4f88-8549-da06cedf8570"
                    href="posts\2015-08-21-pandas-datafeed\./pandas-headers.png"
                    class=""
                    title=""
@@ -615,7 +662,7 @@ analyzing data from a <a class="reference external" href="pandas.pydata.org">Pan
   
   </ul>
       <p><code class="docutils literal"><span class="pre">Analyzer</span></code> support in <code class="docutils literal"><span class="pre">bt-run.py</span></code> included</p>
-<a data-lightbox="group-3b8b5da9-f88e-4357-a035-f0a5799a3847"
+<a data-lightbox="group-47405cd3-f564-4b1f-923a-a39b2a3bc30e"
                    href="posts\2015-08-16-backtesting-with-almost-no-programming\./bt-run-mymod-no-params.png"
                    class=""
                    title=""
@@ -664,7 +711,7 @@ analyzing data from a <a class="reference external" href="pandas.pydata.org">Pan
   </ul>
       <p>Strateties running inside the <code class="docutils literal"><span class="pre">backtrader</span></code> do mostly deal with <strong>datas</strong> and
 <strong>indicators</strong>.</p>
-<a data-lightbox="group-63849924-9bad-4749-ba1e-c0d6cb08d24f"
+<a data-lightbox="group-5c52609d-bc6b-4c97-bed7-9b220522f583"
                    href="posts\2015-08-12-observers-and-statistics\./observers-default.png"
                    class=""
                    title=""
@@ -711,7 +758,7 @@ analyzing data from a <a class="reference external" href="pandas.pydata.org">Pan
       <p>In <a class="reference internal" href="../posts/2015-08-06-csv-data-feed-development/csv-data-feed-development/#csv-data-feed-development"><span>CSV Data Feed Development</span></a> it was shown how to add new CSV based data
 feeds. The existing base class <cite>CSVDataBase</cite> provides the framework taking most
 of the work off the subclasses which in most cases can simply do:</p>
-<a data-lightbox="group-1e978140-5a46-447a-b38b-67e07f599c00"
+<a data-lightbox="group-72abd09e-33e9-4121-86a7-2d40973a88dc"
                    href="posts\2015-08-11-datafeed-development\./vchart-goog-2006.png"
                    class=""
                    title=""
@@ -760,7 +807,7 @@ of the work off the subclasses which in most cases can simply do:</p>
   </ul>
       <p>Backtesting, and hence <code class="docutils literal"><span class="pre">backtrader</span></code>, would not be complete if orders could not
 be simulated. To do so, the following is available in the platform.</p>
-<a data-lightbox="group-c791328a-198a-471b-9d07-465ca9504e30"
+<a data-lightbox="group-142b0bfa-76f6-4b47-9b85-2a9351197aa4"
                    href="posts\2015-08-08-order-creation-execution\./market.png"
                    class=""
                    title=""
@@ -952,7 +999,7 @@ need to have something that can actually handle any incoming CSV data feed.</p>
   </ul>
       <p>Posting <code class="docutils literal"><span class="pre">backtrader</span></code> usage examples has given me an insight into things that
 were missing. For starters:</p>
-<a data-lightbox="group-66ea39fa-3d12-42ac-85e0-2fb698b27fdd"
+<a data-lightbox="group-e545f960-198a-4127-853a-a38ef4626e6e"
                    href="posts\2015-07-31-commission-schemes-updated\./commission-futures-updated.png"
                    class=""
                    title=""
@@ -1002,7 +1049,7 @@ were missing. For starters:</p>
       <p>Follow up post with newly added operations/trades notifications, fixing the
 plotting of trades P&amp;L figures and avoiding manual calculation like in the
 example below</p>
-<a data-lightbox="group-43c180c8-898c-46c3-8652-a299a57363a4"
+<a data-lightbox="group-0378715a-1190-4b99-9e6e-068801ca54c7"
                    href="posts\2015-07-26-commission-schemes\./commission-futures.png"
                    class=""
                    title=""
@@ -1053,7 +1100,7 @@ example below</p>
 set of test cases. Given the behavior exhibited by <code class="docutils literal"><span class="pre">pickle</span></code> some other
 adjustments are expected to ensure all indicators and functions can be passed
 back and forth amongst processes when doing multicore optimization.</p>
-<a data-lightbox="group-3cfaba16-b751-4d67-bebf-bc5cfe6662f6"
+<a data-lightbox="group-a8abd290-1b00-4177-9dc9-141d782810f3"
                    href="posts\2015-07-23-multicore-optimization\./eight-cores-in-use.png"
                    class=""
                    title=""
@@ -1099,7 +1146,7 @@ back and forth amongst processes when doing multicore optimization.</p>
   </ul>
       <p>In Object Oriented Programming, and of course in Python itself, extension of an
 existing class can be achieved in two ways.</p>
-<a data-lightbox="group-6c7bc5d5-ecea-4860-a1ee-fa2b6ee2dd56"
+<a data-lightbox="group-1aa18964-f8e9-450a-b96c-d3d38b3a6f14"
                    href="posts\2015-07-20-extending-an-indicator\./trixsignal-inherited.png"
                    class=""
                    title=""
@@ -1146,7 +1193,7 @@ existing class can be achieved in two ways.</p>
       <p>After much ado in fine tuning <code class="docutils literal"><span class="pre">backtrader</span></code> (give it had already been running
 for a while) I decided to not only share it via GitHub but to also tell the
 world it was there and posted about its existence in &#8220;Reddit&#8221;.</p>
-<a data-lightbox="group-3ccecb30-a4bb-4e4a-afc7-704796b4216f"
+<a data-lightbox="group-96646735-bd1a-4884-b6ef-89d95db2f8c4"
                    href="posts\2015-07-18-developing-an-indicator\./trix.png"
                    class=""
                    title=""
@@ -1206,6 +1253,8 @@ world it was there and posted about its existence in &#8220;Reddit&#8221;.</p>
   <ul>
     
     
+      <li><a href="../posts/2015-11-05-commission-schemes-extended/commission-schemes-extended/">Nov 05 - Extending Commissions</a></li>
+    
       <li><a href="../posts/2015-10-05-multitrades/multitrades/">Oct 05 - MultiTrades</a></li>
     
       <li><a href="../posts/2015-10-04-bar-synchronization/bar-synchronization/">Oct 04 - Bar Synchronization</a></li>
@@ -1214,15 +1263,13 @@ world it was there and posted about its existence in &#8220;Reddit&#8221;.</p>
     
       <li><a href="../posts/2015-09-21-plotting-same-axis/plotting-same-axis/">Sep 21 - Plotting on the same axis</a></li>
     
-      <li><a href="../posts/2015-09-14-write-it-down/write-it-down/">Sep 14 - Writers - Write it down</a></li>
-    
   </ul>
 
   <h3><a href="archive/">Archives</a></h3>
   <ul>
   
     
-    <li><a href="2015/">2015 (24)</a></li>
+    <li><a href="2015/">2015 (25)</a></li>
     
   
   </ul>
