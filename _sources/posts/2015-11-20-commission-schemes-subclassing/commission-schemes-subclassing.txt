@@ -190,7 +190,7 @@ Putting the scenario to work::
       negotiated_volume = 0  # attribute to keep track of the actual volume
 
       def _getcommission(self, size, price, pseudoexec):
-          if self.negotiated_volume > self.negotiated_volume:
+          if self.negotiated_volume > self.p.discount_volume:
 	     actual_discount = self.p.discount_perc / 100.0
 	  else:
 	     actual_discount = 0.0
