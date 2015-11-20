@@ -396,6 +396,7 @@ optional arguments:
 <span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
 <span class="kn">import</span> <span class="nn">backtrader.feeds</span> <span class="kn">as</span> <span class="nn">btfeeds</span>
 <span class="kn">import</span> <span class="nn">backtrader.utils.flushfile</span>
+<span class="kn">import</span> <span class="nn">backtrader.filters</span> <span class="kn">as</span> <span class="nn">btfilters</span>
 
 <span class="kn">from</span> <span class="nn">relativevolume</span> <span class="kn">import</span> <span class="n">RelativeVolume</span>
 
@@ -427,10 +428,10 @@ optional arguments:
     <span class="p">)</span>
 
     <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">filter</span><span class="p">:</span>
-        <span class="n">data</span><span class="o">.</span><span class="n">addfilter</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">SessionFilter</span><span class="p">)</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">addfilter</span><span class="p">(</span><span class="n">btfilters</span><span class="o">.</span><span class="n">SessionFilter</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">filler</span><span class="p">:</span>
-        <span class="n">data</span><span class="o">.</span><span class="n">addfilter</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">SessionFiller</span><span class="p">,</span> <span class="n">fill_vol</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">fvol</span><span class="p">)</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">addfilter</span><span class="p">(</span><span class="n">btfilters</span><span class="o">.</span><span class="n">SessionFiller</span><span class="p">,</span> <span class="n">fill_vol</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">fvol</span><span class="p">)</span>
 
     <span class="c"># Add the data to cerebro</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">adddata</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
