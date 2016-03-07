@@ -32,7 +32,7 @@
   
    
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   
   
@@ -328,25 +328,26 @@ simultaneous order at most in the system.</p>
 <h3>Execution Type: Market<a class="headerlink" href="#execution-type-market" title="Permalink to this headline">¶</a></h3>
 <p>See in the chart how how the orders are executed one bar after the signal is
 generated with the opening price.</p>
-<div class="highlight-python"><div class="highlight"><pre>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">exectype</span> <span class="o">==</span> <span class="s">&#39;Market&#39;</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">buy</span><span class="p">(</span><span class="n">exectype</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">Order</span><span class="o">.</span><span class="n">Market</span><span class="p">)</span>  <span class="c"># default if not given</span>
+<div class="highlight-python"><div class="highlight"><pre>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">exectype</span> <span class="o">==</span> <span class="s1">&#39;Market&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">buy</span><span class="p">(</span><span class="n">exectype</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">Order</span><span class="o">.</span><span class="n">Market</span><span class="p">)</span>  <span class="c1"># default if not given</span>
 
-                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#39;BUY CREATE, exectype Market, price </span><span class="si">%.2f</span><span class="s">&#39;</span> <span class="o">%</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;BUY CREATE, exectype Market, price </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span>
                          <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">close</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
 </pre></div>
 </div>
 <p>The output chart.</p>
-<a data-lightbox="group-142b0bfa-76f6-4b47-9b85-2a9351197aa4"
-                   href="../../../_images\market1.png"
-                   class=""
-                   title=""
-                   data-title=""
-                   ><img src="../../../_images\market1.png"
-                    class=""
-                    width="100%"
-                    height="auto"
-                    alt=""/>
-                    </a><p>The command line and output:</p>
+<a class=""
+               data-lightbox="group-f38d0dcb-5249-4696-acde-82472c945e6c"
+               href="../../../_images/market1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/market1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>The command line and output:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ ./order-execution-samples.py --exectype Market
 2006-01-26T23:59:59+00:00, BUY CREATE, exectype Market, price 3641.42
 2006-01-26T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
@@ -373,25 +374,26 @@ being used.</p>
 </div>
 <p>Now the orders are also executed one bar after the signal but with the closing
 price.</p>
-<div class="highlight-python"><div class="highlight"><pre>            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">exectype</span> <span class="o">==</span> <span class="s">&#39;Close&#39;</span><span class="p">:</span>
+<div class="highlight-python"><div class="highlight"><pre>            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">exectype</span> <span class="o">==</span> <span class="s1">&#39;Close&#39;</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">buy</span><span class="p">(</span><span class="n">exectype</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">Order</span><span class="o">.</span><span class="n">Close</span><span class="p">)</span>
 
-                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#39;BUY CREATE, exectype Close, price </span><span class="si">%.2f</span><span class="s">&#39;</span> <span class="o">%</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;BUY CREATE, exectype Close, price </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span>
                          <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">close</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
 </pre></div>
 </div>
 <p>The output chart.</p>
-<a data-lightbox="group-9fa019d2-56ea-4a11-833c-cd7775a6b325"
-                   href="../../../_images\close1.png"
-                   class=""
-                   title=""
-                   data-title=""
-                   ><img src="../../../_images\close1.png"
-                    class=""
-                    width="100%"
-                    height="auto"
-                    alt=""/>
-                    </a><p>The command line and output:</p>
+<a class=""
+               data-lightbox="group-725ce51f-6a0b-4b1d-9ab4-8207c721b1ad"
+               href="../../../_images/close1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/close1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>The command line and output:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ ./order-execution-samples.py --exectype Close
 2006-01-26T23:59:59+00:00, BUY CREATE, exectype Close, price 3641.42
 2006-01-26T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
@@ -422,35 +424,36 @@ argument.</p>
                         <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">valid</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">valid</span> <span class="o">=</span> <span class="bp">None</span>
+
 </pre></div>
 </div>
 <p>A limit price 1% below the signal generation price (the close at the signal
 bar) is set. Notice how this prevents many from the orders above from being executed.</p>
-<div class="highlight-python"><div class="highlight"><pre>            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">exectype</span> <span class="o">==</span> <span class="s">&#39;Limit&#39;</span><span class="p">:</span>
+<div class="highlight-python"><div class="highlight"><pre>            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">exectype</span> <span class="o">==</span> <span class="s1">&#39;Limit&#39;</span><span class="p">:</span>
                 <span class="n">price</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">close</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">perc1</span> <span class="o">/</span> <span class="mf">100.0</span><span class="p">)</span>
 
                 <span class="bp">self</span><span class="o">.</span><span class="n">buy</span><span class="p">(</span><span class="n">exectype</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">Order</span><span class="o">.</span><span class="n">Limit</span><span class="p">,</span> <span class="n">price</span><span class="o">=</span><span class="n">price</span><span class="p">,</span> <span class="n">valid</span><span class="o">=</span><span class="n">valid</span><span class="p">)</span>
 
                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">valid</span><span class="p">:</span>
-                    <span class="n">txt</span> <span class="o">=</span> <span class="s">&#39;BUY CREATE, exectype Limit, price </span><span class="si">%.2f</span><span class="s">, valid: </span><span class="si">%s</span><span class="s">&#39;</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">txt</span> <span class="o">%</span> <span class="p">(</span><span class="n">price</span><span class="p">,</span> <span class="n">valid</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&#39;%Y-%m-</span><span class="si">%d</span><span class="s">&#39;</span><span class="p">)))</span>
+                    <span class="n">txt</span> <span class="o">=</span> <span class="s1">&#39;BUY CREATE, exectype Limit, price </span><span class="si">%.2f</span><span class="s1">, valid: </span><span class="si">%s</span><span class="s1">&#39;</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">txt</span> <span class="o">%</span> <span class="p">(</span><span class="n">price</span><span class="p">,</span> <span class="n">valid</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)))</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">txt</span> <span class="o">=</span> <span class="s">&#39;BUY CREATE, exectype Limit, price </span><span class="si">%.2f</span><span class="s">&#39;</span>
+                    <span class="n">txt</span> <span class="o">=</span> <span class="s1">&#39;BUY CREATE, exectype Limit, price </span><span class="si">%.2f</span><span class="s1">&#39;</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">txt</span> <span class="o">%</span> <span class="n">price</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The output chart.</p>
-<a data-lightbox="group-a193c410-d87f-47d0-9da4-3af125648ba0"
-                   href="../../../_images\limit-perc1-11.png"
-                   class=""
-                   title=""
-                   data-title=""
-                   ><img src="../../../_images\limit-perc1-11.png"
-                    class=""
-                    width="100%"
-                    height="auto"
-                    alt=""/>
-                    </a><p>Just 4 orders have been issued. Limiting the price trying to catch a small dip
+<a class=""
+               data-lightbox="group-f4de211e-26ae-45cd-9b49-98e1cd4f84d3"
+               href="../../../_images/limit-perc1-11.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/limit-perc1-11.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>Just 4 orders have been issued. Limiting the price trying to catch a small dip
 has completly changed the output.</p>
 <p>The command line and output:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ ./order-execution-samples.py --exectype Limit --perc1 1
@@ -476,17 +479,17 @@ has completly changed the output.</p>
 <p>To not wait forever on a limit order which may only execute when the price is
 moving against the &#8220;buy&#8221; order, the order will only be valid 4 (calendar) days.</p>
 <p>The output chart.</p>
-<a data-lightbox="group-fed3dd44-6930-40d3-b84a-0def38bd9739"
-                   href="../../../_images\limit-perc1-1-valid-41.png"
-                   class=""
-                   title=""
-                   data-title=""
-                   ><img src="../../../_images\limit-perc1-1-valid-41.png"
-                    class=""
-                    width="100%"
-                    height="auto"
-                    alt=""/>
-                    </a><p>More orders have been generated, but all but one &#8220;buy&#8221; order expired, further
+<a class=""
+               data-lightbox="group-70fa6065-b45a-4991-afa8-b3d40d72b282"
+               href="../../../_images/limit-perc1-1-valid-41.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/limit-perc1-1-valid-41.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>More orders have been generated, but all but one &#8220;buy&#8221; order expired, further
 limiting the amount of operations.</p>
 <p>The command line and output:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ ./order-execution-samples.py --exectype Limit --perc1 1 --valid 4
@@ -538,31 +541,32 @@ limiting the amount of operations.</p>
 buys if the signal is generated and the price continues climbing up, which could
 be intrepreted as a signal of strength.</p>
 <p>This completely alters the execution panorama.</p>
-<div class="highlight-python"><div class="highlight"><pre>            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">exectype</span> <span class="o">==</span> <span class="s">&#39;Stop&#39;</span><span class="p">:</span>
+<div class="highlight-python"><div class="highlight"><pre>            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">exectype</span> <span class="o">==</span> <span class="s1">&#39;Stop&#39;</span><span class="p">:</span>
                 <span class="n">price</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">close</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">perc1</span> <span class="o">/</span> <span class="mf">100.0</span><span class="p">)</span>
 
                 <span class="bp">self</span><span class="o">.</span><span class="n">buy</span><span class="p">(</span><span class="n">exectype</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">Order</span><span class="o">.</span><span class="n">Stop</span><span class="p">,</span> <span class="n">price</span><span class="o">=</span><span class="n">price</span><span class="p">,</span> <span class="n">valid</span><span class="o">=</span><span class="n">valid</span><span class="p">)</span>
 
                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">valid</span><span class="p">:</span>
-                    <span class="n">txt</span> <span class="o">=</span> <span class="s">&#39;BUY CREATE, exectype Stop, price </span><span class="si">%.2f</span><span class="s">, valid: </span><span class="si">%s</span><span class="s">&#39;</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">txt</span> <span class="o">%</span> <span class="p">(</span><span class="n">price</span><span class="p">,</span> <span class="n">valid</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&#39;%Y-%m-</span><span class="si">%d</span><span class="s">&#39;</span><span class="p">)))</span>
+                    <span class="n">txt</span> <span class="o">=</span> <span class="s1">&#39;BUY CREATE, exectype Stop, price </span><span class="si">%.2f</span><span class="s1">, valid: </span><span class="si">%s</span><span class="s1">&#39;</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">txt</span> <span class="o">%</span> <span class="p">(</span><span class="n">price</span><span class="p">,</span> <span class="n">valid</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)))</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">txt</span> <span class="o">=</span> <span class="s">&#39;BUY CREATE, exectype Stop, price </span><span class="si">%.2f</span><span class="s">&#39;</span>
+                    <span class="n">txt</span> <span class="o">=</span> <span class="s1">&#39;BUY CREATE, exectype Stop, price </span><span class="si">%.2f</span><span class="s1">&#39;</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">txt</span> <span class="o">%</span> <span class="n">price</span><span class="p">)</span>
+
 </pre></div>
 </div>
 <p>The output chart.</p>
-<a data-lightbox="group-bd87a4ee-19bf-4c79-b61e-26b30e0e5e13"
-                   href="../../../_images\stop-perc1-11.png"
-                   class=""
-                   title=""
-                   data-title=""
-                   ><img src="../../../_images\stop-perc1-11.png"
-                    class=""
-                    width="100%"
-                    height="auto"
-                    alt=""/>
-                    </a><p>The command line and output:</p>
+<a class=""
+               data-lightbox="group-063fbcfe-1109-4749-9587-5661f4ff225b"
+               href="../../../_images/stop-perc1-11.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/stop-perc1-11.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>The command line and output:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ ./order-execution-samples.py --exectype Stop --perc1 1
 2006-01-26T23:59:59+00:00, BUY CREATE, exectype Stop, price 3677.83
 2006-01-26T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
@@ -600,7 +604,7 @@ be intrepreted as a signal of strength.</p>
 above the signal (close) price which could be interpreted as: wait for the
 strength to show up but do not buy the peak. Wait for a dip.</p>
 <p>Validity is capped at 20 (calendar) days</p>
-<div class="highlight-python"><div class="highlight"><pre>            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">exectype</span> <span class="o">==</span> <span class="s">&#39;StopLimit&#39;</span><span class="p">:</span>
+<div class="highlight-python"><div class="highlight"><pre>            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">exectype</span> <span class="o">==</span> <span class="s1">&#39;StopLimit&#39;</span><span class="p">:</span>
                 <span class="n">price</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">close</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">perc1</span> <span class="o">/</span> <span class="mf">100.0</span><span class="p">)</span>
 
                 <span class="n">plimit</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">close</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">perc2</span> <span class="o">/</span> <span class="mf">100.0</span><span class="p">)</span>
@@ -609,27 +613,28 @@ strength to show up but do not buy the peak. Wait for a dip.</p>
                          <span class="n">plimit</span><span class="o">=</span><span class="n">plimit</span><span class="p">)</span>
 
                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">valid</span><span class="p">:</span>
-                    <span class="n">txt</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;BUY CREATE, exectype StopLimit, price </span><span class="si">%.2f</span><span class="s">,&#39;</span>
-                           <span class="s">&#39; valid: </span><span class="si">%s</span><span class="s">, pricelimit: </span><span class="si">%.2f</span><span class="s">&#39;</span><span class="p">)</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">txt</span> <span class="o">%</span> <span class="p">(</span><span class="n">price</span><span class="p">,</span> <span class="n">valid</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&#39;%Y-%m-</span><span class="si">%d</span><span class="s">&#39;</span><span class="p">),</span> <span class="n">plimit</span><span class="p">))</span>
+                    <span class="n">txt</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;BUY CREATE, exectype StopLimit, price </span><span class="si">%.2f</span><span class="s1">,&#39;</span>
+                           <span class="s1">&#39; valid: </span><span class="si">%s</span><span class="s1">, pricelimit: </span><span class="si">%.2f</span><span class="s1">&#39;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">txt</span> <span class="o">%</span> <span class="p">(</span><span class="n">price</span><span class="p">,</span> <span class="n">valid</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">),</span> <span class="n">plimit</span><span class="p">))</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">txt</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;BUY CREATE, exectype StopLimit, price </span><span class="si">%.2f</span><span class="s">,&#39;</span>
-                           <span class="s">&#39; pricelimit: </span><span class="si">%.2f</span><span class="s">&#39;</span><span class="p">)</span>
+                    <span class="n">txt</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;BUY CREATE, exectype StopLimit, price </span><span class="si">%.2f</span><span class="s1">,&#39;</span>
+                           <span class="s1">&#39; pricelimit: </span><span class="si">%.2f</span><span class="s1">&#39;</span><span class="p">)</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">txt</span> <span class="o">%</span> <span class="p">(</span><span class="n">price</span><span class="p">,</span> <span class="n">plimit</span><span class="p">))</span>
+
 </pre></div>
 </div>
 <p>The output chart.</p>
-<a data-lightbox="group-7a790e02-3911-48ef-8da9-9e24a7944936"
-                   href="../../../_images\stoplimit-perc1-1-perc2-0.51.png"
-                   class=""
-                   title=""
-                   data-title=""
-                   ><img src="../../../_images\stoplimit-perc1-1-perc2-0.51.png"
-                    class=""
-                    width="100%"
-                    height="auto"
-                    alt=""/>
-                    </a><p>The command line and output:</p>
+<a class=""
+               data-lightbox="group-1801863d-5fac-4b7c-8f38-09a65d3a0a72"
+               href="../../../_images/stoplimit-perc1-1-perc2-0.51.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/stoplimit-perc1-1-perc2-0.51.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>The command line and output:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ ./order-execution-samples.py --exectype StopLimit --perc1 1 --perc2 0.5 --valid 20
 2006-01-26T23:59:59+00:00, BUY CREATE, exectype StopLimit, price 3677.83, valid: 2006-02-15, pricelimit: 3659.63
 2006-01-26T23:59:59+00:00, ORDER ACCEPTED/SUBMITTED
@@ -719,11 +724,11 @@ optional arguments:
 
 <span class="k">class</span> <span class="nc">OrderExecutionStrategy</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Strategy</span><span class="p">):</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="p">(</span><span class="s">&#39;smaperiod&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span>
-        <span class="p">(</span><span class="s">&#39;exectype&#39;</span><span class="p">,</span> <span class="s">&#39;Market&#39;</span><span class="p">),</span>
-        <span class="p">(</span><span class="s">&#39;perc1&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
-        <span class="p">(</span><span class="s">&#39;perc2&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-        <span class="p">(</span><span class="s">&#39;valid&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;smaperiod&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;exectype&#39;</span><span class="p">,</span> <span class="s1">&#39;Market&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;perc1&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;perc2&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;valid&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
     <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">txt</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
@@ -731,56 +736,56 @@ optional arguments:
         <span class="n">dt</span> <span class="o">=</span> <span class="n">dt</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">datetime</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
             <span class="n">dt</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">num2date</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span class="s">, </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span> <span class="n">txt</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span> <span class="n">txt</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">notify_order</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">order</span><span class="o">.</span><span class="n">status</span> <span class="ow">in</span> <span class="p">[</span><span class="n">order</span><span class="o">.</span><span class="n">Submitted</span><span class="p">,</span> <span class="n">order</span><span class="o">.</span><span class="n">Accepted</span><span class="p">]:</span>
-            <span class="c"># Buy/Sell order submitted/accepted to/by broker - Nothing to do</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#39;ORDER ACCEPTED/SUBMITTED&#39;</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">order</span><span class="o">.</span><span class="n">created</span><span class="o">.</span><span class="n">dt</span><span class="p">)</span>
+            <span class="c1"># Buy/Sell order submitted/accepted to/by broker - Nothing to do</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;ORDER ACCEPTED/SUBMITTED&#39;</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">order</span><span class="o">.</span><span class="n">created</span><span class="o">.</span><span class="n">dt</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">order</span> <span class="o">=</span> <span class="n">order</span>
             <span class="k">return</span>
 
         <span class="k">if</span> <span class="n">order</span><span class="o">.</span><span class="n">status</span> <span class="ow">in</span> <span class="p">[</span><span class="n">order</span><span class="o">.</span><span class="n">Expired</span><span class="p">]:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#39;BUY EXPIRED&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;BUY EXPIRED&#39;</span><span class="p">)</span>
 
         <span class="k">elif</span> <span class="n">order</span><span class="o">.</span><span class="n">status</span> <span class="ow">in</span> <span class="p">[</span><span class="n">order</span><span class="o">.</span><span class="n">Completed</span><span class="p">]:</span>
             <span class="k">if</span> <span class="n">order</span><span class="o">.</span><span class="n">isbuy</span><span class="p">():</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span>
-                    <span class="s">&#39;BUY EXECUTED, Price: </span><span class="si">%.2f</span><span class="s">, Cost: </span><span class="si">%.2f</span><span class="s">, Comm </span><span class="si">%.2f</span><span class="s">&#39;</span> <span class="o">%</span>
+                    <span class="s1">&#39;BUY EXECUTED, Price: </span><span class="si">%.2f</span><span class="s1">, Cost: </span><span class="si">%.2f</span><span class="s1">, Comm </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span>
                     <span class="p">(</span><span class="n">order</span><span class="o">.</span><span class="n">executed</span><span class="o">.</span><span class="n">price</span><span class="p">,</span>
                      <span class="n">order</span><span class="o">.</span><span class="n">executed</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
                      <span class="n">order</span><span class="o">.</span><span class="n">executed</span><span class="o">.</span><span class="n">comm</span><span class="p">))</span>
 
-            <span class="k">else</span><span class="p">:</span>  <span class="c"># Sell</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#39;SELL EXECUTED, Price: </span><span class="si">%.2f</span><span class="s">, Cost: </span><span class="si">%.2f</span><span class="s">, Comm </span><span class="si">%.2f</span><span class="s">&#39;</span> <span class="o">%</span>
+            <span class="k">else</span><span class="p">:</span>  <span class="c1"># Sell</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;SELL EXECUTED, Price: </span><span class="si">%.2f</span><span class="s1">, Cost: </span><span class="si">%.2f</span><span class="s1">, Comm </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span>
                          <span class="p">(</span><span class="n">order</span><span class="o">.</span><span class="n">executed</span><span class="o">.</span><span class="n">price</span><span class="p">,</span>
                           <span class="n">order</span><span class="o">.</span><span class="n">executed</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
                           <span class="n">order</span><span class="o">.</span><span class="n">executed</span><span class="o">.</span><span class="n">comm</span><span class="p">))</span>
 
-        <span class="c"># Sentinel to None: new orders allowed</span>
+        <span class="c1"># Sentinel to None: new orders allowed</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">order</span> <span class="o">=</span> <span class="bp">None</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c"># SimpleMovingAverage on main data</span>
-        <span class="c"># Equivalent to -&gt; sma = btind.SMA(self.data, period=self.p.smaperiod)</span>
+        <span class="c1"># SimpleMovingAverage on main data</span>
+        <span class="c1"># Equivalent to -&gt; sma = btind.SMA(self.data, period=self.p.smaperiod)</span>
         <span class="n">sma</span> <span class="o">=</span> <span class="n">btind</span><span class="o">.</span><span class="n">SMA</span><span class="p">(</span><span class="n">period</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">smaperiod</span><span class="p">)</span>
 
-        <span class="c"># CrossOver (1: up, -1: down) close / sma</span>
+        <span class="c1"># CrossOver (1: up, -1: down) close / sma</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">buysell</span> <span class="o">=</span> <span class="n">btind</span><span class="o">.</span><span class="n">CrossOver</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">close</span><span class="p">,</span> <span class="n">sma</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
-        <span class="c"># Sentinel to None: new ordersa allowed</span>
+        <span class="c1"># Sentinel to None: new ordersa allowed</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">order</span> <span class="o">=</span> <span class="bp">None</span>
 
     <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">:</span>
-            <span class="c"># An order is pending ... nothing can be done</span>
+            <span class="c1"># An order is pending ... nothing can be done</span>
             <span class="k">return</span>
 
-        <span class="c"># Check if we are in the market</span>
+        <span class="c1"># Check if we are in the market</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="p">:</span>
-            <span class="c"># In the maerket - check if it&#39;s the time to sell</span>
+            <span class="c1"># In the maerket - check if it&#39;s the time to sell</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">buysell</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#39;SELL CREATE, </span><span class="si">%.2f</span><span class="s">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">close</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;SELL CREATE, </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">close</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">sell</span><span class="p">()</span>
 
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">buysell</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -790,44 +795,44 @@ optional arguments:
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">valid</span> <span class="o">=</span> <span class="bp">None</span>
 
-            <span class="c"># Not in the market and signal to buy</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">exectype</span> <span class="o">==</span> <span class="s">&#39;Market&#39;</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">buy</span><span class="p">(</span><span class="n">exectype</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">Order</span><span class="o">.</span><span class="n">Market</span><span class="p">)</span>  <span class="c"># default if not given</span>
+            <span class="c1"># Not in the market and signal to buy</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">exectype</span> <span class="o">==</span> <span class="s1">&#39;Market&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">buy</span><span class="p">(</span><span class="n">exectype</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">Order</span><span class="o">.</span><span class="n">Market</span><span class="p">)</span>  <span class="c1"># default if not given</span>
 
-                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#39;BUY CREATE, exectype Market, price </span><span class="si">%.2f</span><span class="s">&#39;</span> <span class="o">%</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;BUY CREATE, exectype Market, price </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span>
                          <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">close</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
-            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">exectype</span> <span class="o">==</span> <span class="s">&#39;Close&#39;</span><span class="p">:</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">exectype</span> <span class="o">==</span> <span class="s1">&#39;Close&#39;</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">buy</span><span class="p">(</span><span class="n">exectype</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">Order</span><span class="o">.</span><span class="n">Close</span><span class="p">)</span>
 
-                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#39;BUY CREATE, exectype Close, price </span><span class="si">%.2f</span><span class="s">&#39;</span> <span class="o">%</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;BUY CREATE, exectype Close, price </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span>
                          <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">close</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
-            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">exectype</span> <span class="o">==</span> <span class="s">&#39;Limit&#39;</span><span class="p">:</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">exectype</span> <span class="o">==</span> <span class="s1">&#39;Limit&#39;</span><span class="p">:</span>
                 <span class="n">price</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">close</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">perc1</span> <span class="o">/</span> <span class="mf">100.0</span><span class="p">)</span>
 
                 <span class="bp">self</span><span class="o">.</span><span class="n">buy</span><span class="p">(</span><span class="n">exectype</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">Order</span><span class="o">.</span><span class="n">Limit</span><span class="p">,</span> <span class="n">price</span><span class="o">=</span><span class="n">price</span><span class="p">,</span> <span class="n">valid</span><span class="o">=</span><span class="n">valid</span><span class="p">)</span>
 
                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">valid</span><span class="p">:</span>
-                    <span class="n">txt</span> <span class="o">=</span> <span class="s">&#39;BUY CREATE, exectype Limit, price </span><span class="si">%.2f</span><span class="s">, valid: </span><span class="si">%s</span><span class="s">&#39;</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">txt</span> <span class="o">%</span> <span class="p">(</span><span class="n">price</span><span class="p">,</span> <span class="n">valid</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&#39;%Y-%m-</span><span class="si">%d</span><span class="s">&#39;</span><span class="p">)))</span>
+                    <span class="n">txt</span> <span class="o">=</span> <span class="s1">&#39;BUY CREATE, exectype Limit, price </span><span class="si">%.2f</span><span class="s1">, valid: </span><span class="si">%s</span><span class="s1">&#39;</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">txt</span> <span class="o">%</span> <span class="p">(</span><span class="n">price</span><span class="p">,</span> <span class="n">valid</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)))</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">txt</span> <span class="o">=</span> <span class="s">&#39;BUY CREATE, exectype Limit, price </span><span class="si">%.2f</span><span class="s">&#39;</span>
+                    <span class="n">txt</span> <span class="o">=</span> <span class="s1">&#39;BUY CREATE, exectype Limit, price </span><span class="si">%.2f</span><span class="s1">&#39;</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">txt</span> <span class="o">%</span> <span class="n">price</span><span class="p">)</span>
 
-            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">exectype</span> <span class="o">==</span> <span class="s">&#39;Stop&#39;</span><span class="p">:</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">exectype</span> <span class="o">==</span> <span class="s1">&#39;Stop&#39;</span><span class="p">:</span>
                 <span class="n">price</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">close</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">perc1</span> <span class="o">/</span> <span class="mf">100.0</span><span class="p">)</span>
 
                 <span class="bp">self</span><span class="o">.</span><span class="n">buy</span><span class="p">(</span><span class="n">exectype</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">Order</span><span class="o">.</span><span class="n">Stop</span><span class="p">,</span> <span class="n">price</span><span class="o">=</span><span class="n">price</span><span class="p">,</span> <span class="n">valid</span><span class="o">=</span><span class="n">valid</span><span class="p">)</span>
 
                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">valid</span><span class="p">:</span>
-                    <span class="n">txt</span> <span class="o">=</span> <span class="s">&#39;BUY CREATE, exectype Stop, price </span><span class="si">%.2f</span><span class="s">, valid: </span><span class="si">%s</span><span class="s">&#39;</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">txt</span> <span class="o">%</span> <span class="p">(</span><span class="n">price</span><span class="p">,</span> <span class="n">valid</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&#39;%Y-%m-</span><span class="si">%d</span><span class="s">&#39;</span><span class="p">)))</span>
+                    <span class="n">txt</span> <span class="o">=</span> <span class="s1">&#39;BUY CREATE, exectype Stop, price </span><span class="si">%.2f</span><span class="s1">, valid: </span><span class="si">%s</span><span class="s1">&#39;</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">txt</span> <span class="o">%</span> <span class="p">(</span><span class="n">price</span><span class="p">,</span> <span class="n">valid</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)))</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">txt</span> <span class="o">=</span> <span class="s">&#39;BUY CREATE, exectype Stop, price </span><span class="si">%.2f</span><span class="s">&#39;</span>
+                    <span class="n">txt</span> <span class="o">=</span> <span class="s1">&#39;BUY CREATE, exectype Stop, price </span><span class="si">%.2f</span><span class="s1">&#39;</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">txt</span> <span class="o">%</span> <span class="n">price</span><span class="p">)</span>
 
-            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">exectype</span> <span class="o">==</span> <span class="s">&#39;StopLimit&#39;</span><span class="p">:</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">exectype</span> <span class="o">==</span> <span class="s1">&#39;StopLimit&#39;</span><span class="p">:</span>
                 <span class="n">price</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">close</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">perc1</span> <span class="o">/</span> <span class="mf">100.0</span><span class="p">)</span>
 
                 <span class="n">plimit</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">close</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">perc2</span> <span class="o">/</span> <span class="mf">100.0</span><span class="p">)</span>
@@ -836,12 +841,12 @@ optional arguments:
                          <span class="n">plimit</span><span class="o">=</span><span class="n">plimit</span><span class="p">)</span>
 
                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">valid</span><span class="p">:</span>
-                    <span class="n">txt</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;BUY CREATE, exectype StopLimit, price </span><span class="si">%.2f</span><span class="s">,&#39;</span>
-                           <span class="s">&#39; valid: </span><span class="si">%s</span><span class="s">, pricelimit: </span><span class="si">%.2f</span><span class="s">&#39;</span><span class="p">)</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">txt</span> <span class="o">%</span> <span class="p">(</span><span class="n">price</span><span class="p">,</span> <span class="n">valid</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&#39;%Y-%m-</span><span class="si">%d</span><span class="s">&#39;</span><span class="p">),</span> <span class="n">plimit</span><span class="p">))</span>
+                    <span class="n">txt</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;BUY CREATE, exectype StopLimit, price </span><span class="si">%.2f</span><span class="s1">,&#39;</span>
+                           <span class="s1">&#39; valid: </span><span class="si">%s</span><span class="s1">, pricelimit: </span><span class="si">%.2f</span><span class="s1">&#39;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">txt</span> <span class="o">%</span> <span class="p">(</span><span class="n">price</span><span class="p">,</span> <span class="n">valid</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">),</span> <span class="n">plimit</span><span class="p">))</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">txt</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;BUY CREATE, exectype StopLimit, price </span><span class="si">%.2f</span><span class="s">,&#39;</span>
-                           <span class="s">&#39; pricelimit: </span><span class="si">%.2f</span><span class="s">&#39;</span><span class="p">)</span>
+                    <span class="n">txt</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;BUY CREATE, exectype StopLimit, price </span><span class="si">%.2f</span><span class="s1">,&#39;</span>
+                           <span class="s1">&#39; pricelimit: </span><span class="si">%.2f</span><span class="s1">&#39;</span><span class="p">)</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">txt</span> <span class="o">%</span> <span class="p">(</span><span class="n">price</span><span class="p">,</span> <span class="n">plimit</span><span class="p">))</span>
 
 
@@ -878,18 +883,18 @@ optional arguments:
     <span class="p">)</span>
 
     <span class="n">dfkwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">csvformat</span> <span class="o">==</span> <span class="s">&#39;yahoo_unreversed&#39;</span><span class="p">:</span>
-        <span class="n">dfkwargs</span><span class="p">[</span><span class="s">&#39;reverse&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">csvformat</span> <span class="o">==</span> <span class="s1">&#39;yahoo_unreversed&#39;</span><span class="p">:</span>
+        <span class="n">dfkwargs</span><span class="p">[</span><span class="s1">&#39;reverse&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
 
     <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">fromdate</span><span class="p">:</span>
-        <span class="n">fromdate</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">fromdate</span><span class="p">,</span> <span class="s">&#39;%Y-%m-</span><span class="si">%d</span><span class="s">&#39;</span><span class="p">)</span>
-        <span class="n">dfkwargs</span><span class="p">[</span><span class="s">&#39;fromdate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fromdate</span>
+        <span class="n">fromdate</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">fromdate</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">dfkwargs</span><span class="p">[</span><span class="s1">&#39;fromdate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fromdate</span>
 
     <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">todate</span><span class="p">:</span>
-        <span class="n">fromdate</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">todate</span><span class="p">,</span> <span class="s">&#39;%Y-%m-</span><span class="si">%d</span><span class="s">&#39;</span><span class="p">)</span>
-        <span class="n">dfkwargs</span><span class="p">[</span><span class="s">&#39;todate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">todate</span>
+        <span class="n">fromdate</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">todate</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">dfkwargs</span><span class="p">[</span><span class="s1">&#39;todate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">todate</span>
 
-    <span class="n">dfkwargs</span><span class="p">[</span><span class="s">&#39;dataname&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">infile</span>
+    <span class="n">dfkwargs</span><span class="p">[</span><span class="s1">&#39;dataname&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">infile</span>
 
     <span class="n">dfcls</span> <span class="o">=</span> <span class="n">dataformat</span><span class="p">[</span><span class="n">args</span><span class="o">.</span><span class="n">csvformat</span><span class="p">]</span>
 
@@ -898,58 +903,58 @@ optional arguments:
 
 <span class="k">def</span> <span class="nf">parse_args</span><span class="p">():</span>
     <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span>
-        <span class="n">description</span><span class="o">=</span><span class="s">&#39;Showcase for Order Execution Types&#39;</span><span class="p">)</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Showcase for Order Execution Types&#39;</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--infile&#39;</span><span class="p">,</span> <span class="s">&#39;-i&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="s">&#39;../datas/2006-day-001.txt&#39;</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;File to be read in&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--infile&#39;</span><span class="p">,</span> <span class="s1">&#39;-i&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="s1">&#39;../datas/2006-day-001.txt&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;File to be read in&#39;</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--csvformat&#39;</span><span class="p">,</span> <span class="s">&#39;-c&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">&#39;bt&#39;</span><span class="p">,</span>
-                        <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;bt&#39;</span><span class="p">,</span> <span class="s">&#39;visualchart&#39;</span><span class="p">,</span> <span class="s">&#39;sierrachart&#39;</span><span class="p">,</span>
-                                 <span class="s">&#39;yahoo&#39;</span><span class="p">,</span> <span class="s">&#39;yahoo_unreversed&#39;</span><span class="p">],</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;CSV Format&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--csvformat&#39;</span><span class="p">,</span> <span class="s1">&#39;-c&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;bt&#39;</span><span class="p">,</span>
+                        <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;bt&#39;</span><span class="p">,</span> <span class="s1">&#39;visualchart&#39;</span><span class="p">,</span> <span class="s1">&#39;sierrachart&#39;</span><span class="p">,</span>
+                                 <span class="s1">&#39;yahoo&#39;</span><span class="p">,</span> <span class="s1">&#39;yahoo_unreversed&#39;</span><span class="p">],</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;CSV Format&#39;</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--fromdate&#39;</span><span class="p">,</span> <span class="s">&#39;-f&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Starting date in YYYY-MM-DD format&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--fromdate&#39;</span><span class="p">,</span> <span class="s1">&#39;-f&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Starting date in YYYY-MM-DD format&#39;</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--todate&#39;</span><span class="p">,</span> <span class="s">&#39;-t&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Ending date in YYYY-MM-DD format&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--todate&#39;</span><span class="p">,</span> <span class="s1">&#39;-t&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Ending date in YYYY-MM-DD format&#39;</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--plot&#39;</span><span class="p">,</span> <span class="s">&#39;-p&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&#39;store_false&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Plot the read data&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--plot&#39;</span><span class="p">,</span> <span class="s1">&#39;-p&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_false&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Plot the read data&#39;</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--plotstyle&#39;</span><span class="p">,</span> <span class="s">&#39;-ps&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">&#39;bar&#39;</span><span class="p">,</span>
-                        <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;bar&#39;</span><span class="p">,</span> <span class="s">&#39;line&#39;</span><span class="p">,</span> <span class="s">&#39;candle&#39;</span><span class="p">],</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Plot the read data&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--plotstyle&#39;</span><span class="p">,</span> <span class="s1">&#39;-ps&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span>
+                        <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="s1">&#39;candle&#39;</span><span class="p">],</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Plot the read data&#39;</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--numfigs&#39;</span><span class="p">,</span> <span class="s">&#39;-n&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Plot using n figures&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--numfigs&#39;</span><span class="p">,</span> <span class="s1">&#39;-n&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Plot using n figures&#39;</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--smaperiod&#39;</span><span class="p">,</span> <span class="s">&#39;-s&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Simple Moving Average Period&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--smaperiod&#39;</span><span class="p">,</span> <span class="s1">&#39;-s&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Simple Moving Average Period&#39;</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--exectype&#39;</span><span class="p">,</span> <span class="s">&#39;-e&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">&#39;Market&#39;</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="p">(</span><span class="s">&#39;Execution Type: Market (default), Close, Limit,&#39;</span>
-                              <span class="s">&#39; Stop, StopLimit&#39;</span><span class="p">))</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--exectype&#39;</span><span class="p">,</span> <span class="s1">&#39;-e&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;Market&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Execution Type: Market (default), Close, Limit,&#39;</span>
+                              <span class="s1">&#39; Stop, StopLimit&#39;</span><span class="p">))</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--valid&#39;</span><span class="p">,</span> <span class="s">&#39;-v&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Validity for Limit sample: default 0 days&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--valid&#39;</span><span class="p">,</span> <span class="s1">&#39;-v&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Validity for Limit sample: default 0 days&#39;</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--perc1&#39;</span><span class="p">,</span> <span class="s">&#39;-p1&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--perc1&#39;</span><span class="p">,</span> <span class="s1">&#39;-p1&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
                         <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%%</span><span class="s"> distance from close price at order creation&#39;</span>
-                              <span class="s">&#39; time for the limit/trigger price in Limit/Stop&#39;</span>
-                              <span class="s">&#39; orders&#39;</span><span class="p">))</span>
+                        <span class="n">help</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%%</span><span class="s1"> distance from close price at order creation&#39;</span>
+                              <span class="s1">&#39; time for the limit/trigger price in Limit/Stop&#39;</span>
+                              <span class="s1">&#39; orders&#39;</span><span class="p">))</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--perc2&#39;</span><span class="p">,</span> <span class="s">&#39;-p2&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--perc2&#39;</span><span class="p">,</span> <span class="s1">&#39;-p2&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
                         <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%%</span><span class="s"> distance from close price at order creation&#39;</span>
-                              <span class="s">&#39; time for the limit price in StopLimit orders&#39;</span><span class="p">))</span>
+                        <span class="n">help</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%%</span><span class="s1"> distance from close price at order creation&#39;</span>
+                              <span class="s1">&#39; time for the limit price in StopLimit orders&#39;</span><span class="p">))</span>
 
     <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">runstrat</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1034,9 +1039,11 @@ optional arguments:
     <img
         alt="https://secure.travis-ci.org/mementum/backtrader.png?branch=master"
         src="https://secure.travis-ci.org/mementum/backtrader.png?branch=master"
-    >
+    />
 </a>
 </p>
+
+
 
   
   
@@ -1101,15 +1108,15 @@ optional arguments:
   <ul>
     
     
+      <li><a href="../../2016-03-07-release-1.2.1.88/release-1.2.1.88/">Mar 07 - Release 1.2.1.88</a></li>
+    
+      <li><a href="../../2015-11-21-data-filters/data-filling-filtering/">Nov 21 - Data Filters</a></li>
+    
+      <li><a href="../../2015-11-20-commission-schemes-subclassing/commission-schemes-subclassing/">Nov 20 - User Defined Commissions</a></li>
+    
       <li><a href="../../2015-11-05-commission-schemes-extended/commission-schemes-extended/">Nov 05 - Extending Commissions</a></li>
     
       <li><a href="../../2015-10-05-multitrades/multitrades/">Oct 05 - MultiTrades</a></li>
-    
-      <li><a href="../../2015-10-04-bar-synchronization/bar-synchronization/">Oct 04 - Bar Synchronization</a></li>
-    
-      <li><a href="../../2015-09-25-tickdata-resample/resample-tickdata/">Sep 25 - Tick Data and Resampling</a></li>
-    
-      <li><a href="../../2015-09-21-plotting-same-axis/plotting-same-axis/">Sep 21 - Plotting on the same axis</a></li>
     
   </ul>
 
@@ -1117,7 +1124,11 @@ optional arguments:
   <ul>
   
     
-    <li><a href="../../../blog/2015/">2015 (25)</a></li>
+    <li><a href="../../../blog/2016/">2016 (1)</a></li>
+    
+  
+    
+    <li><a href="../../../blog/2015/">2015 (27)</a></li>
     
   
   </ul>
@@ -1143,8 +1154,8 @@ optional arguments:
       &copy;2015, mementum.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
       
       |
       <a href="../../../_sources/posts/2015-08-08-order-creation-execution/order-creation-execution.txt"

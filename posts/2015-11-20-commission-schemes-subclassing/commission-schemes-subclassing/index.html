@@ -32,7 +32,7 @@
   
    
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   
   
@@ -83,16 +83,16 @@ already does this with some definitions present in the module
 fixed amount per contract and per round. The definition can be done as:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">CommInfo_Futures_Fixed</span><span class="p">(</span><span class="n">CommInfoBase</span><span class="p">):</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="p">(</span><span class="s">&#39;stocklike&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">),</span>
-        <span class="p">(</span><span class="s">&#39;commtype&#39;</span><span class="p">,</span> <span class="n">CommInfoBase</span><span class="o">.</span><span class="n">COMM_FIXED</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;stocklike&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;commtype&#39;</span><span class="p">,</span> <span class="n">CommInfoBase</span><span class="o">.</span><span class="n">COMM_FIXED</span><span class="p">),</span>
     <span class="p">)</span>
 </pre></div>
 </div>
 <p>For stocks and perc-wise commissions:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">CommInfo_Stocks_Perc</span><span class="p">(</span><span class="n">CommInfoBase</span><span class="p">):</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="p">(</span><span class="s">&#39;stocklike&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">),</span>
-        <span class="p">(</span><span class="s">&#39;commtype&#39;</span><span class="p">,</span> <span class="n">CommInfoBase</span><span class="o">.</span><span class="n">COMM_PERC</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;stocklike&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;commtype&#39;</span><span class="p">,</span> <span class="n">CommInfoBase</span><span class="o">.</span><span class="n">COMM_PERC</span><span class="p">),</span>
     <span class="p">)</span>
 </pre></div>
 </div>
@@ -101,9 +101,9 @@ fixed amount per contract and per round. The definition can be done as:</p>
 old/other behavior be wished <strong>0.xx</strong>, it can be easily done:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">CommInfo_Stocks_PercAbs</span><span class="p">(</span><span class="n">CommInfoBase</span><span class="p">):</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="p">(</span><span class="s">&#39;stocklike&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">),</span>
-        <span class="p">(</span><span class="s">&#39;commtype&#39;</span><span class="p">,</span> <span class="n">CommInfoBase</span><span class="o">.</span><span class="n">COMM_PERC</span><span class="p">),</span>
-        <span class="p">(</span><span class="s">&#39;percabs&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;stocklike&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;commtype&#39;</span><span class="p">,</span> <span class="n">CommInfoBase</span><span class="o">.</span><span class="n">COMM_PERC</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;percabs&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">),</span>
     <span class="p">)</span>
 </pre></div>
 </div>
@@ -130,7 +130,7 @@ latter will internally use the legacy <code class="docutils literal"><span class
 <p>Easier done than said:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="o">...</span>
 
-<span class="n">comminfo</span> <span class="o">=</span> <span class="n">CommInfo_Stocks_PercAbs</span><span class="p">(</span><span class="n">commission</span><span class="o">=</span><span class="mf">0.005</span><span class="p">)</span>  <span class="c"># 0.5%</span>
+<span class="n">comminfo</span> <span class="o">=</span> <span class="n">CommInfo_Stocks_PercAbs</span><span class="p">(</span><span class="n">commission</span><span class="o">=</span><span class="mf">0.005</span><span class="p">)</span>  <span class="c1"># 0.5%</span>
 <span class="n">cerebro</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">addcommission</span><span class="p">(</span><span class="n">comminfo</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -154,9 +154,9 @@ includes the future multiplier in the commission calculation.</p>
 
 <span class="k">class</span> <span class="nc">CommInfo_Fut_Perc_Mult</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">CommInfoBase</span><span class="p">):</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">(</span>
-      <span class="p">(</span><span class="s">&#39;stocklike&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">),</span>  <span class="c"># Futures</span>
-      <span class="p">(</span><span class="s">&#39;commtype&#39;</span><span class="p">,</span> <span class="n">bt</span><span class="o">.</span><span class="n">CommInfoBase</span><span class="o">.</span><span class="n">COMM_PERC</span><span class="p">),</span>  <span class="c"># Apply % Commission</span>
-    <span class="c"># (&#39;percabs&#39;, False),  # pass perc as xx% which is the default</span>
+      <span class="p">(</span><span class="s1">&#39;stocklike&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">),</span>  <span class="c1"># Futures</span>
+      <span class="p">(</span><span class="s1">&#39;commtype&#39;</span><span class="p">,</span> <span class="n">bt</span><span class="o">.</span><span class="n">CommInfoBase</span><span class="o">.</span><span class="n">COMM_PERC</span><span class="p">),</span>  <span class="c1"># Apply % Commission</span>
+    <span class="c1"># (&#39;percabs&#39;, False),  # pass perc as xx% which is the default</span>
     <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_getcommission</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">pseudoexec</span><span class="p">):</span>
@@ -165,9 +165,9 @@ includes the future multiplier in the commission calculation.</p>
 </div>
 <p>Putting it into the system:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">comminfo</span> <span class="o">=</span> <span class="n">CommInfo_Fut_Perc_Mult</span><span class="p">(</span>
-    <span class="n">commission</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>  <span class="c"># 0.1%</span>
+    <span class="n">commission</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>  <span class="c1"># 0.1%</span>
     <span class="n">mult</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-    <span class="n">margin</span><span class="o">=</span><span class="mi">2000</span>  <span class="c"># Margin is needed for futures-like instruments</span>
+    <span class="n">margin</span><span class="o">=</span><span class="mi">2000</span>  <span class="c1"># Margin is needed for futures-like instruments</span>
 <span class="p">)</span>
 
 <span class="n">cerebro</span><span class="o">.</span><span class="n">addcommission</span><span class="p">(</span><span class="n">comminfo</span><span class="p">)</span>
@@ -177,15 +177,15 @@ includes the future multiplier in the commission calculation.</p>
 to <code class="docutils literal"><span class="pre">True</span></code>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">CommInfo_Fut_Perc_Mult</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">CommInfoBase</span><span class="p">):</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">(</span>
-      <span class="p">(</span><span class="s">&#39;stocklike&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">),</span>  <span class="c"># Futures</span>
-      <span class="p">(</span><span class="s">&#39;commtype&#39;</span><span class="p">,</span> <span class="n">bt</span><span class="o">.</span><span class="n">CommInfoBase</span><span class="o">.</span><span class="n">COMM_PERC</span><span class="p">),</span>  <span class="c"># Apply % Commission</span>
-      <span class="p">(</span><span class="s">&#39;percabs&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">),</span>  <span class="c"># pass perc as 0.xx</span>
+      <span class="p">(</span><span class="s1">&#39;stocklike&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">),</span>  <span class="c1"># Futures</span>
+      <span class="p">(</span><span class="s1">&#39;commtype&#39;</span><span class="p">,</span> <span class="n">bt</span><span class="o">.</span><span class="n">CommInfoBase</span><span class="o">.</span><span class="n">COMM_PERC</span><span class="p">),</span>  <span class="c1"># Apply % Commission</span>
+      <span class="p">(</span><span class="s1">&#39;percabs&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">),</span>  <span class="c1"># pass perc as 0.xx</span>
     <span class="p">)</span>
 
 <span class="n">comminfo</span> <span class="o">=</span> <span class="n">CommInfo_Fut_Perc_Mult</span><span class="p">(</span>
-    <span class="n">commission</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span>  <span class="c"># 0.1%</span>
+    <span class="n">commission</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span>  <span class="c1"># 0.1%</span>
     <span class="n">mult</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-    <span class="n">margin</span><span class="o">=</span><span class="mi">2000</span>  <span class="c"># Margin is needed for futures-like instruments</span>
+    <span class="n">margin</span><span class="o">=</span><span class="mi">2000</span>  <span class="c1"># Margin is needed for futures-like instruments</span>
 <span class="p">)</span>
 
 <span class="n">cerebro</span><span class="o">.</span><span class="n">addcommission</span><span class="p">(</span><span class="n">comminfo</span><span class="p">)</span>
@@ -230,15 +230,15 @@ is in place.</p>
 
 <span class="k">class</span> <span class="nc">CommInfo_Fut_Discount</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">CommInfoBase</span><span class="p">):</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">(</span>
-      <span class="p">(</span><span class="s">&#39;stocklike&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">),</span>  <span class="c"># Futures</span>
-      <span class="p">(</span><span class="s">&#39;commtype&#39;</span><span class="p">,</span> <span class="n">bt</span><span class="o">.</span><span class="n">CommInfoBase</span><span class="o">.</span><span class="n">COMM_FIXED</span><span class="p">),</span>  <span class="c"># Apply Commission</span>
+      <span class="p">(</span><span class="s1">&#39;stocklike&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">),</span>  <span class="c1"># Futures</span>
+      <span class="p">(</span><span class="s1">&#39;commtype&#39;</span><span class="p">,</span> <span class="n">bt</span><span class="o">.</span><span class="n">CommInfoBase</span><span class="o">.</span><span class="n">COMM_FIXED</span><span class="p">),</span>  <span class="c1"># Apply Commission</span>
 
-      <span class="c"># Custom params for the discount</span>
-      <span class="p">(</span><span class="s">&#39;discount_volume&#39;</span><span class="p">,</span> <span class="mi">5000</span><span class="p">),</span>  <span class="c"># minimum contracts to achieve discount</span>
-      <span class="p">(</span><span class="s">&#39;discount_perc&#39;</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">),</span>  <span class="c"># 50.0% discount</span>
+      <span class="c1"># Custom params for the discount</span>
+      <span class="p">(</span><span class="s1">&#39;discount_volume&#39;</span><span class="p">,</span> <span class="mi">5000</span><span class="p">),</span>  <span class="c1"># minimum contracts to achieve discount</span>
+      <span class="p">(</span><span class="s1">&#39;discount_perc&#39;</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">),</span>  <span class="c1"># 50.0% discount</span>
     <span class="p">)</span>
 
-    <span class="n">negotiated_volume</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c"># attribute to keep track of the actual volume</span>
+    <span class="n">negotiated_volume</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># attribute to keep track of the actual volume</span>
 
     <span class="k">def</span> <span class="nf">_getcommission</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">pseudoexec</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">negotiated_volume</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">discount_volume</span><span class="p">:</span>
@@ -250,7 +250,7 @@ is in place.</p>
         <span class="n">commvalue</span> <span class="o">=</span> <span class="n">size</span> <span class="o">*</span> <span class="n">price</span> <span class="o">*</span> <span class="n">commission</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">pseudoexec</span><span class="p">:</span>
-           <span class="c"># keep track of actual real executed size for future discounts</span>
+           <span class="c1"># keep track of actual real executed size for future discounts</span>
            <span class="bp">self</span><span class="o">.</span><span class="n">negotiated_volume</span> <span class="o">+=</span> <span class="n">size</span>
 
         <span class="k">return</span> <span class="n">commvalue</span>
@@ -316,10 +316,10 @@ is in place.</p>
     <span class="n">COMM_PERC</span><span class="p">,</span> <span class="n">COMM_FIXED</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
     <span class="n">params</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="p">(</span><span class="s">&#39;commission&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;mult&#39;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;margin&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span>
-        <span class="p">(</span><span class="s">&#39;commtype&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span>
-        <span class="p">(</span><span class="s">&#39;stocklike&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">),</span>
-        <span class="p">(</span><span class="s">&#39;percabs&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;commission&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;mult&#39;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;margin&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;commtype&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;stocklike&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;percabs&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">),</span>
     <span class="p">)</span>
 </pre></div>
 </div>
@@ -343,6 +343,13 @@ is in place.</p>
   </span>
   <span>&nbsp;</span>
   <span style="float: right;">
+  
+  
+  <a href="../../2015-11-21-data-filters/data-filling-filtering/">
+    Data Filters
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  </span>
   
 </div>
 
@@ -396,9 +403,11 @@ is in place.</p>
     <img
         alt="https://secure.travis-ci.org/mementum/backtrader.png?branch=master"
         src="https://secure.travis-ci.org/mementum/backtrader.png?branch=master"
-    >
+    />
 </a>
 </p>
+
+
 
   
   
@@ -460,15 +469,15 @@ is in place.</p>
   <ul>
     
     
+      <li><a href="../../2016-03-07-release-1.2.1.88/release-1.2.1.88/">Mar 07 - Release 1.2.1.88</a></li>
+    
+      <li><a href="../../2015-11-21-data-filters/data-filling-filtering/">Nov 21 - Data Filters</a></li>
+    
       <li><a href="../../2015-11-05-commission-schemes-extended/commission-schemes-extended/">Nov 05 - Extending Commissions</a></li>
     
       <li><a href="../../2015-10-05-multitrades/multitrades/">Oct 05 - MultiTrades</a></li>
     
       <li><a href="../../2015-10-04-bar-synchronization/bar-synchronization/">Oct 04 - Bar Synchronization</a></li>
-    
-      <li><a href="../../2015-09-25-tickdata-resample/resample-tickdata/">Sep 25 - Tick Data and Resampling</a></li>
-    
-      <li><a href="../../2015-09-21-plotting-same-axis/plotting-same-axis/">Sep 21 - Plotting on the same axis</a></li>
     
   </ul>
 
@@ -476,7 +485,11 @@ is in place.</p>
   <ul>
   
     
-    <li><a href="../../../blog/2015/">2015 (26)</a></li>
+    <li><a href="../../../blog/2016/">2016 (1)</a></li>
+    
+  
+    
+    <li><a href="../../../blog/2015/">2015 (27)</a></li>
     
   
   </ul>
@@ -502,8 +515,8 @@ is in place.</p>
       &copy;2015, mementum.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
       
       |
       <a href="../../../_sources/posts/2015-11-20-commission-schemes-subclassing/commission-schemes-subclassing.txt"

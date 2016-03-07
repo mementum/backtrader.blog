@@ -32,7 +32,7 @@
   
    
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   
   
@@ -61,10 +61,10 @@ feeds. The existing base class <cite>CSVDataBase</cite> provides the framework t
 of the work off the subclasses which in most cases can simply do:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">_loadline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">linetokens</span><span class="p">):</span>
 
-  <span class="c"># parse the linetokens here and put them in self.lines.close,</span>
-  <span class="c"># self.lines.high, etc</span>
+  <span class="c1"># parse the linetokens here and put them in self.lines.close,</span>
+  <span class="c1"># self.lines.high, etc</span>
 
-  <span class="k">return</span> <span class="bp">True</span> <span class="c"># if data was parsed, else ... return False</span>
+  <span class="k">return</span> <span class="bp">True</span> <span class="c1"># if data was parsed, else ... return False</span>
 </pre></div>
 </div>
 <p>The base class takes care of the parameters, initialization, opening of files,
@@ -86,13 +86,13 @@ already splitted line tokens.</p>
 <p>Let&#8217;s the parameters already provided by <code class="docutils literal"><span class="pre">backtrader.feed.DataBase</span></code>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">DataBase</span><span class="p">(</span><span class="n">six</span><span class="o">.</span><span class="n">with_metaclass</span><span class="p">(</span><span class="n">MetaDataBase</span><span class="p">,</span> <span class="n">dataseries</span><span class="o">.</span><span class="n">OHLCDateTime</span><span class="p">)):</span>
 
-    <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s">&#39;dataname&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span>
-        <span class="p">(</span><span class="s">&#39;fromdate&#39;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">min</span><span class="p">),</span>
-        <span class="p">(</span><span class="s">&#39;todate&#39;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">max</span><span class="p">),</span>
-        <span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">),</span>
-        <span class="p">(</span><span class="s">&#39;compression&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-        <span class="p">(</span><span class="s">&#39;timeframe&#39;</span><span class="p">,</span> <span class="n">TimeFrame</span><span class="o">.</span><span class="n">Days</span><span class="p">),</span>
-        <span class="p">(</span><span class="s">&#39;sessionend&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">))</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;dataname&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;fromdate&#39;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">min</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;todate&#39;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">max</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;compression&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;timeframe&#39;</span><span class="p">,</span> <span class="n">TimeFrame</span><span class="o">.</span><span class="n">Days</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;sessionend&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Having the following meanings:</p>
@@ -126,16 +126,17 @@ will be used to distinguish which type of file is being read.</p>
 <div class="highlight-python"><div class="highlight"><pre>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">VChartData</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
 
-        <span class="c"># Use the informative &quot;timeframe&quot; parameter to understand if the</span>
-        <span class="c"># code passed as &quot;dataname&quot; refers to an intraday or daily feed</span>
+        <span class="c1"># Use the informative &quot;timeframe&quot; parameter to understand if the</span>
+        <span class="c1"># code passed as &quot;dataname&quot; refers to an intraday or daily feed</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">timeframe</span> <span class="o">&gt;=</span> <span class="n">TimeFrame</span><span class="o">.</span><span class="n">Days</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">barsize</span> <span class="o">=</span> <span class="mi">28</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">dtsize</span> <span class="o">=</span> <span class="mi">1</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">barfmt</span> <span class="o">=</span> <span class="s">&#39;IffffII&#39;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">barfmt</span> <span class="o">=</span> <span class="s1">&#39;IffffII&#39;</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">dtsize</span> <span class="o">=</span> <span class="mi">2</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">barsize</span> <span class="o">=</span> <span class="mi">32</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">barfmt</span> <span class="o">=</span> <span class="s">&#39;IIffffII&#39;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">barfmt</span> <span class="o">=</span> <span class="s1">&#39;IIffffII&#39;</span>
+
 </pre></div>
 </div>
 </div>
@@ -146,14 +147,15 @@ started several times during optimizations)</p>
 <p>In the <code class="docutils literal"><span class="pre">start</span></code> method the binary file is open unless a file-like object has
 been passed.</p>
 <div class="highlight-python"><div class="highlight"><pre>    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c"># the feed must start ... get the file open (or see if it was open)</span>
+        <span class="c1"># the feed must start ... get the file open (or see if it was open)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="o">=</span> <span class="bp">None</span>
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">dataname</span><span class="p">,</span> <span class="s">&#39;read&#39;</span><span class="p">):</span>
-            <span class="c"># A file has been passed in (ex: from a GUI)</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">dataname</span><span class="p">,</span> <span class="s1">&#39;read&#39;</span><span class="p">):</span>
+            <span class="c1"># A file has been passed in (ex: from a GUI)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">dataname</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="c"># Let an exception propagate</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">dataname</span><span class="p">,</span> <span class="s">&#39;rb&#39;</span><span class="p">)</span>
+            <span class="c1"># Let an exception propagate</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">dataname</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+
 </pre></div>
 </div>
 </div>
@@ -162,10 +164,11 @@ been passed.</p>
 <p>Called when backtesting is finished.</p>
 <p>If a file was open, it will be closed</p>
 <div class="highlight-python"><div class="highlight"><pre>    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c"># Close the file if any</span>
+        <span class="c1"># Close the file if any</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="o">=</span> <span class="bp">None</span>
+
 </pre></div>
 </div>
 </div>
@@ -194,35 +197,35 @@ has been reached</p>
 </div></blockquote>
 <div class="highlight-python"><div class="highlight"><pre>    <span class="k">def</span> <span class="nf">_load</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="c"># if no file ... no parsing</span>
+            <span class="c1"># if no file ... no parsing</span>
             <span class="k">return</span> <span class="bp">False</span>
 
-        <span class="c"># Read the needed amount of binary data</span>
+        <span class="c1"># Read the needed amount of binary data</span>
         <span class="n">bardata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">barsize</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">bardata</span><span class="p">:</span>
-            <span class="c"># if no data was read ... game over say &quot;False&quot;</span>
+            <span class="c1"># if no data was read ... game over say &quot;False&quot;</span>
             <span class="k">return</span> <span class="bp">False</span>
 
-        <span class="c"># use struct to unpack the data</span>
+        <span class="c1"># use struct to unpack the data</span>
         <span class="n">bdata</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">barfmt</span><span class="p">,</span> <span class="n">bardata</span><span class="p">)</span>
 
-        <span class="c"># Years are stored as if they had 500 days</span>
+        <span class="c1"># Years are stored as if they had 500 days</span>
         <span class="n">y</span><span class="p">,</span> <span class="n">md</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">bdata</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">500</span><span class="p">)</span>
-        <span class="c"># Months are stored as if they had 32 days</span>
+        <span class="c1"># Months are stored as if they had 32 days</span>
         <span class="n">m</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
-        <span class="c"># put y, m, d in a datetime</span>
+        <span class="c1"># put y, m, d in a datetime</span>
         <span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtsize</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>  <span class="c"># Minute Bars</span>
-            <span class="c"># Daily Time is stored in seconds</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtsize</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># Minute Bars</span>
+            <span class="c1"># Daily Time is stored in seconds</span>
             <span class="n">hhmm</span><span class="p">,</span> <span class="n">ss</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">bdata</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">60</span><span class="p">)</span>
             <span class="n">hh</span><span class="p">,</span> <span class="n">mm</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">hhmm</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
-            <span class="c"># add the time to the existing atetime</span>
+            <span class="c1"># add the time to the existing atetime</span>
             <span class="n">dt</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">hour</span><span class="o">=</span><span class="n">hh</span><span class="p">,</span> <span class="n">minute</span><span class="o">=</span><span class="n">mm</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="n">ss</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">datetime</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">date2num</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
 
-        <span class="c"># Get the rest of the unpacked data</span>
+        <span class="c1"># Get the rest of the unpacked data</span>
         <span class="n">o</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">oi</span> <span class="o">=</span> <span class="n">bdata</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">dtsize</span><span class="p">:]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">open</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">o</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">high</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">h</span>
@@ -231,7 +234,7 @@ has been reached</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">volume</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">openinterest</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">oi</span>
 
-        <span class="c"># Say success</span>
+        <span class="c1"># Say success</span>
         <span class="k">return</span> <span class="bp">True</span>
 </pre></div>
 </div>
@@ -281,15 +284,15 @@ needed.</p>
 <span class="kn">from</span> <span class="nn">vchart</span> <span class="kn">import</span> <span class="n">VChartData</span>
 
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="c"># Create a cerebro entity</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c1"># Create a cerebro entity</span>
     <span class="n">cerebro</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">Cerebro</span><span class="p">(</span><span class="n">stdstats</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 
-    <span class="c"># Add a strategy</span>
+    <span class="c1"># Add a strategy</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">addstrategy</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Strategy</span><span class="p">)</span>
 
-    <span class="c"># Create a Data Feed</span>
-    <span class="n">datapath</span> <span class="o">=</span> <span class="s">&#39;../datas/goog.fd&#39;</span>
+    <span class="c1"># Create a Data Feed</span>
+    <span class="n">datapath</span> <span class="o">=</span> <span class="s1">&#39;../datas/goog.fd&#39;</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">VChartData</span><span class="p">(</span>
         <span class="n">dataname</span><span class="o">=</span><span class="n">datapath</span><span class="p">,</span>
         <span class="n">fromdate</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2006</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
@@ -297,27 +300,27 @@ needed.</p>
         <span class="n">timeframe</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">TimeFrame</span><span class="o">.</span><span class="n">Days</span>
     <span class="p">)</span>
 
-    <span class="c"># Add the Data Feed to Cerebro</span>
+    <span class="c1"># Add the Data Feed to Cerebro</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">adddata</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-    <span class="c"># Run over everything</span>
+    <span class="c1"># Run over everything</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 
-    <span class="c"># Plot the result</span>
-    <span class="n">cerebro</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s">&#39;bar&#39;</span><span class="p">)</span>
+    <span class="c1"># Plot the result</span>
+    <span class="n">cerebro</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<a data-lightbox="group-72abd09e-33e9-4121-86a7-2d40973a88dc"
-                   href="../../../_images\vchart-goog-20061.png"
-                   class=""
-                   title=""
-                   data-title=""
-                   ><img src="../../../_images\vchart-goog-20061.png"
-                    class=""
-                    width="100%"
-                    height="auto"
-                    alt=""/>
-                    </a></div>
+<a class=""
+               data-lightbox="group-fc6517ee-9823-43c5-8958-7a3ec507e081"
+               href="../../../_images/vchart-goog-20061.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/vchart-goog-20061.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a></div>
 <div class="section" id="vchartdata-full-code">
 <h2>VChartData Full Code<a class="headerlink" href="#vchartdata-full-code" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
@@ -335,64 +338,64 @@ needed.</p>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">VChartData</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
 
-        <span class="c"># Use the informative &quot;timeframe&quot; parameter to understand if the</span>
-        <span class="c"># code passed as &quot;dataname&quot; refers to an intraday or daily feed</span>
+        <span class="c1"># Use the informative &quot;timeframe&quot; parameter to understand if the</span>
+        <span class="c1"># code passed as &quot;dataname&quot; refers to an intraday or daily feed</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">timeframe</span> <span class="o">&gt;=</span> <span class="n">TimeFrame</span><span class="o">.</span><span class="n">Days</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">barsize</span> <span class="o">=</span> <span class="mi">28</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">dtsize</span> <span class="o">=</span> <span class="mi">1</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">barfmt</span> <span class="o">=</span> <span class="s">&#39;IffffII&#39;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">barfmt</span> <span class="o">=</span> <span class="s1">&#39;IffffII&#39;</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">dtsize</span> <span class="o">=</span> <span class="mi">2</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">barsize</span> <span class="o">=</span> <span class="mi">32</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">barfmt</span> <span class="o">=</span> <span class="s">&#39;IIffffII&#39;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">barfmt</span> <span class="o">=</span> <span class="s1">&#39;IIffffII&#39;</span>
 
     <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c"># the feed must start ... get the file open (or see if it was open)</span>
+        <span class="c1"># the feed must start ... get the file open (or see if it was open)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="o">=</span> <span class="bp">None</span>
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">dataname</span><span class="p">,</span> <span class="s">&#39;read&#39;</span><span class="p">):</span>
-            <span class="c"># A file has been passed in (ex: from a GUI)</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">dataname</span><span class="p">,</span> <span class="s1">&#39;read&#39;</span><span class="p">):</span>
+            <span class="c1"># A file has been passed in (ex: from a GUI)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">dataname</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="c"># Let an exception propagate</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">dataname</span><span class="p">,</span> <span class="s">&#39;rb&#39;</span><span class="p">)</span>
+            <span class="c1"># Let an exception propagate</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">dataname</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c"># Close the file if any</span>
+        <span class="c1"># Close the file if any</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="o">=</span> <span class="bp">None</span>
 
     <span class="k">def</span> <span class="nf">_load</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="c"># if no file ... no parsing</span>
+            <span class="c1"># if no file ... no parsing</span>
             <span class="k">return</span> <span class="bp">False</span>
 
-        <span class="c"># Read the needed amount of binary data</span>
+        <span class="c1"># Read the needed amount of binary data</span>
         <span class="n">bardata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">barsize</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">bardata</span><span class="p">:</span>
-            <span class="c"># if no data was read ... game over say &quot;False&quot;</span>
+            <span class="c1"># if no data was read ... game over say &quot;False&quot;</span>
             <span class="k">return</span> <span class="bp">False</span>
 
-        <span class="c"># use struct to unpack the data</span>
+        <span class="c1"># use struct to unpack the data</span>
         <span class="n">bdata</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">barfmt</span><span class="p">,</span> <span class="n">bardata</span><span class="p">)</span>
 
-        <span class="c"># Years are stored as if they had 500 days</span>
+        <span class="c1"># Years are stored as if they had 500 days</span>
         <span class="n">y</span><span class="p">,</span> <span class="n">md</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">bdata</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">500</span><span class="p">)</span>
-        <span class="c"># Months are stored as if they had 32 days</span>
+        <span class="c1"># Months are stored as if they had 32 days</span>
         <span class="n">m</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
-        <span class="c"># put y, m, d in a datetime</span>
+        <span class="c1"># put y, m, d in a datetime</span>
         <span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtsize</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>  <span class="c"># Minute Bars</span>
-            <span class="c"># Daily Time is stored in seconds</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtsize</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># Minute Bars</span>
+            <span class="c1"># Daily Time is stored in seconds</span>
             <span class="n">hhmm</span><span class="p">,</span> <span class="n">ss</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">bdata</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">60</span><span class="p">)</span>
             <span class="n">hh</span><span class="p">,</span> <span class="n">mm</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">hhmm</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
-            <span class="c"># add the time to the existing atetime</span>
+            <span class="c1"># add the time to the existing atetime</span>
             <span class="n">dt</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">hour</span><span class="o">=</span><span class="n">hh</span><span class="p">,</span> <span class="n">minute</span><span class="o">=</span><span class="n">mm</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="n">ss</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">datetime</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">date2num</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
 
-        <span class="c"># Get the rest of the unpacked data</span>
+        <span class="c1"># Get the rest of the unpacked data</span>
         <span class="n">o</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">oi</span> <span class="o">=</span> <span class="n">bdata</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">dtsize</span><span class="p">:]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">open</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">o</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">high</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">h</span>
@@ -401,7 +404,7 @@ needed.</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">volume</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">openinterest</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">oi</span>
 
-        <span class="c"># Say success</span>
+        <span class="c1"># Say success</span>
         <span class="k">return</span> <span class="bp">True</span>
 </pre></div>
 </div>
@@ -485,9 +488,11 @@ needed.</p>
     <img
         alt="https://secure.travis-ci.org/mementum/backtrader.png?branch=master"
         src="https://secure.travis-ci.org/mementum/backtrader.png?branch=master"
-    >
+    />
 </a>
 </p>
+
+
 
   
   
@@ -549,15 +554,15 @@ needed.</p>
   <ul>
     
     
+      <li><a href="../../2016-03-07-release-1.2.1.88/release-1.2.1.88/">Mar 07 - Release 1.2.1.88</a></li>
+    
+      <li><a href="../../2015-11-21-data-filters/data-filling-filtering/">Nov 21 - Data Filters</a></li>
+    
+      <li><a href="../../2015-11-20-commission-schemes-subclassing/commission-schemes-subclassing/">Nov 20 - User Defined Commissions</a></li>
+    
       <li><a href="../../2015-11-05-commission-schemes-extended/commission-schemes-extended/">Nov 05 - Extending Commissions</a></li>
     
       <li><a href="../../2015-10-05-multitrades/multitrades/">Oct 05 - MultiTrades</a></li>
-    
-      <li><a href="../../2015-10-04-bar-synchronization/bar-synchronization/">Oct 04 - Bar Synchronization</a></li>
-    
-      <li><a href="../../2015-09-25-tickdata-resample/resample-tickdata/">Sep 25 - Tick Data and Resampling</a></li>
-    
-      <li><a href="../../2015-09-21-plotting-same-axis/plotting-same-axis/">Sep 21 - Plotting on the same axis</a></li>
     
   </ul>
 
@@ -565,7 +570,11 @@ needed.</p>
   <ul>
   
     
-    <li><a href="../../../blog/2015/">2015 (25)</a></li>
+    <li><a href="../../../blog/2016/">2016 (1)</a></li>
+    
+  
+    
+    <li><a href="../../../blog/2015/">2015 (27)</a></li>
     
   
   </ul>
@@ -591,8 +600,8 @@ needed.</p>
       &copy;2015, mementum.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
       
       |
       <a href="../../../_sources/posts/2015-08-11-datafeed-development/datafeed-development.txt"

@@ -32,7 +32,7 @@
   
    
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   
   
@@ -102,14 +102,14 @@ make sure our new field gets parsed.</li>
 
 <span class="k">class</span> <span class="nc">GenericCSV_PE</span><span class="p">(</span><span class="n">GenericCSVData</span><span class="p">):</span>
 
-    <span class="c"># Add a &#39;pe&#39; line to the inherited ones from the base class</span>
-    <span class="n">lines</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;pe&#39;</span><span class="p">,)</span>
+    <span class="c1"># Add a &#39;pe&#39; line to the inherited ones from the base class</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;pe&#39;</span><span class="p">,)</span>
 
-    <span class="c"># openinterest in GenericCSVData has index 7 ... add 1</span>
-    <span class="c"># add the parameter to the parameters inherited from the base class</span>
-    <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s">&#39;pe&#39;</span><span class="p">,</span> <span class="mi">8</span><span class="p">),)</span>
+    <span class="c1"># openinterest in GenericCSVData has index 7 ... add 1</span>
+    <span class="c1"># add the parameter to the parameters inherited from the base class</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;pe&#39;</span><span class="p">,</span> <span class="mi">8</span><span class="p">),)</span>
 
-    <span class="n">linefields</span> <span class="o">=</span> <span class="n">GenericCSVData</span><span class="o">.</span><span class="n">linefields</span> <span class="o">+</span> <span class="p">[</span><span class="s">&#39;pe&#39;</span><span class="p">]</span>
+    <span class="n">linefields</span> <span class="o">=</span> <span class="n">GenericCSVData</span><span class="o">.</span><span class="n">linefields</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;pe&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>And the job is done ...</p>
@@ -125,7 +125,7 @@ make sure our new field gets parsed.</li>
     <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">close</span> <span class="o">&gt;</span> <span class="mi">2000</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">pe</span> <span class="o">&lt;</span> <span class="mi">12</span><span class="p">:</span>
-            <span class="c"># TORA TORA TORA --- Get off this market</span>
+            <span class="c1"># TORA TORA TORA --- Get off this market</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">sell</span><span class="p">(</span><span class="n">stake</span><span class="o">=</span><span class="mi">1000000</span><span class="p">,</span> <span class="n">price</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">exectype</span><span class="o">=</span><span class="n">Order</span><span class="o">.</span><span class="n">Limit</span><span class="p">)</span>
     <span class="o">...</span>
 </pre></div>
@@ -145,8 +145,8 @@ plot it in a separate axis:</p>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
-        <span class="c"># The indicator autoregisters and will plot even if no obvious</span>
-        <span class="c"># reference is kept to it in the class</span>
+        <span class="c1"># The indicator autoregisters and will plot even if no obvious</span>
+        <span class="c1"># reference is kept to it in the class</span>
         <span class="n">btind</span><span class="o">.</span><span class="n">SMA</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">pe</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">subplot</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 
     <span class="o">...</span>
@@ -154,7 +154,7 @@ plot it in a separate axis:</p>
     <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">close</span> <span class="o">&gt;</span> <span class="mi">2000</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">pe</span> <span class="o">&lt;</span> <span class="mi">12</span><span class="p">:</span>
-            <span class="c"># TORA TORA TORA --- Get off this market</span>
+            <span class="c1"># TORA TORA TORA --- Get off this market</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">sell</span><span class="p">(</span><span class="n">stake</span><span class="o">=</span><span class="mi">1000000</span><span class="p">,</span> <span class="n">price</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">exectype</span><span class="o">=</span><span class="n">Order</span><span class="o">.</span><span class="n">Limit</span><span class="p">)</span>
     <span class="o">...</span>
 </pre></div>
@@ -239,9 +239,11 @@ plot it in a separate axis:</p>
     <img
         alt="https://secure.travis-ci.org/mementum/backtrader.png?branch=master"
         src="https://secure.travis-ci.org/mementum/backtrader.png?branch=master"
-    >
+    />
 </a>
 </p>
+
+
 
   
   
@@ -303,15 +305,15 @@ plot it in a separate axis:</p>
   <ul>
     
     
+      <li><a href="../../2016-03-07-release-1.2.1.88/release-1.2.1.88/">Mar 07 - Release 1.2.1.88</a></li>
+    
+      <li><a href="../../2015-11-21-data-filters/data-filling-filtering/">Nov 21 - Data Filters</a></li>
+    
+      <li><a href="../../2015-11-20-commission-schemes-subclassing/commission-schemes-subclassing/">Nov 20 - User Defined Commissions</a></li>
+    
       <li><a href="../../2015-11-05-commission-schemes-extended/commission-schemes-extended/">Nov 05 - Extending Commissions</a></li>
     
       <li><a href="../../2015-10-05-multitrades/multitrades/">Oct 05 - MultiTrades</a></li>
-    
-      <li><a href="../../2015-10-04-bar-synchronization/bar-synchronization/">Oct 04 - Bar Synchronization</a></li>
-    
-      <li><a href="../../2015-09-25-tickdata-resample/resample-tickdata/">Sep 25 - Tick Data and Resampling</a></li>
-    
-      <li><a href="../../2015-09-21-plotting-same-axis/plotting-same-axis/">Sep 21 - Plotting on the same axis</a></li>
     
   </ul>
 
@@ -319,7 +321,11 @@ plot it in a separate axis:</p>
   <ul>
   
     
-    <li><a href="../../../blog/2015/">2015 (25)</a></li>
+    <li><a href="../../../blog/2016/">2016 (1)</a></li>
+    
+  
+    
+    <li><a href="../../../blog/2015/">2015 (27)</a></li>
     
   
   </ul>
@@ -345,8 +351,8 @@ plot it in a separate axis:</p>
       &copy;2015, mementum.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
       
       |
       <a href="../../../_sources/posts/2015-08-07-extending-a-datafeed/extending-a-datafeed.txt"

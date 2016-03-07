@@ -32,7 +32,7 @@
   
    
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   
   
@@ -196,17 +196,17 @@ machine with 16 GBytes of RAM, running Windows 8.1 and Python 64bit 2.7.9</p>
 <p>Unluckily the creation/destruction of processes and the pickling of objects back
 and forth takes on the potential benefits but the speedup is still significant.</p>
 <p>The image shows the 8 cores being used.</p>
-<a data-lightbox="group-a8abd290-1b00-4177-9dc9-141d782810f3"
-                   href="../../../_images\eight-cores-in-use1.png"
-                   class=""
-                   title=""
-                   data-title=""
-                   ><img src="../../../_images\eight-cores-in-use1.png"
-                    class=""
-                    width="100%"
-                    height="auto"
-                    alt=""/>
-                    </a><p>The code is below. Just change the <code class="docutils literal"><span class="pre">maxcpus</span></code> parameter <code class="docutils literal"><span class="pre">1</span></code> to limit the test to 1
+<a class=""
+               data-lightbox="group-c0231308-9a02-4173-a51b-d0ce81357da4"
+               href="../../../_images/eight-cores-in-use1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/eight-cores-in-use1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>The code is below. Just change the <code class="docutils literal"><span class="pre">maxcpus</span></code> parameter <code class="docutils literal"><span class="pre">1</span></code> to limit the test to 1
 core.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
@@ -221,14 +221,14 @@ core.</p>
 
 
 <span class="k">class</span> <span class="nc">OptimizeStrategy</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Strategy</span><span class="p">):</span>
-    <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s">&#39;smaperiod&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span>
-              <span class="p">(</span><span class="s">&#39;macdperiod1&#39;</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
-              <span class="p">(</span><span class="s">&#39;macdperiod2&#39;</span><span class="p">,</span> <span class="mi">26</span><span class="p">),</span>
-              <span class="p">(</span><span class="s">&#39;macdperiod3&#39;</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;smaperiod&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span>
+              <span class="p">(</span><span class="s1">&#39;macdperiod1&#39;</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
+              <span class="p">(</span><span class="s1">&#39;macdperiod2&#39;</span><span class="p">,</span> <span class="mi">26</span><span class="p">),</span>
+              <span class="p">(</span><span class="s1">&#39;macdperiod3&#39;</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span>
               <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c"># Add indicators to add load</span>
+        <span class="c1"># Add indicators to add load</span>
 
         <span class="n">btind</span><span class="o">.</span><span class="n">SMA</span><span class="p">(</span><span class="n">period</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">smaperiod</span><span class="p">)</span>
         <span class="n">btind</span><span class="o">.</span><span class="n">MACD</span><span class="p">(</span><span class="n">period_me1</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">macdperiod1</span><span class="p">,</span>
@@ -236,11 +236,11 @@ core.</p>
                    <span class="n">period_signal</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">macdperiod3</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="c"># Create a cerebro entity</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c1"># Create a cerebro entity</span>
     <span class="n">cerebro</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">Cerebro</span><span class="p">(</span><span class="n">maxcpus</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
 
-    <span class="c"># Add a strategy</span>
+    <span class="c1"># Add a strategy</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">optstrategy</span><span class="p">(</span>
         <span class="n">OptimizeStrategy</span><span class="p">,</span>
         <span class="n">smaperiod</span><span class="o">=</span><span class="nb">xrange</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span>
@@ -249,32 +249,32 @@ core.</p>
         <span class="n">macdperiod3</span><span class="o">=</span><span class="nb">xrange</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span>
     <span class="p">)</span>
 
-    <span class="c"># Create a Data Feed</span>
-    <span class="n">datapath</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;../datas/2006-day-001.txt&#39;</span><span class="p">)</span>
+    <span class="c1"># Create a Data Feed</span>
+    <span class="n">datapath</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;../datas/2006-day-001.txt&#39;</span><span class="p">)</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">feeds</span><span class="o">.</span><span class="n">BacktraderCSVData</span><span class="p">(</span><span class="n">dataname</span><span class="o">=</span><span class="n">datapath</span><span class="p">)</span>
 
-    <span class="c"># Add the Data Feed to Cerebro</span>
+    <span class="c1"># Add the Data Feed to Cerebro</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">adddata</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-    <span class="c"># clock the start of the process</span>
+    <span class="c1"># clock the start of the process</span>
     <span class="n">tstart</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span>
 
-    <span class="c"># Run over everything</span>
+    <span class="c1"># Run over everything</span>
     <span class="n">stratruns</span> <span class="o">=</span> <span class="n">cerebro</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 
-    <span class="c"># clock the end of the process</span>
+    <span class="c1"># clock the end of the process</span>
     <span class="n">tend</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span>
 
-    <span class="k">print</span><span class="p">(</span><span class="s">&#39;==================================================&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;==================================================&#39;</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">stratrun</span> <span class="ow">in</span> <span class="n">stratruns</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&#39;**************************************************&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;**************************************************&#39;</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">strat</span> <span class="ow">in</span> <span class="n">stratrun</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="s">&#39;--------------------------------------------------&#39;</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;--------------------------------------------------&#39;</span><span class="p">)</span>
             <span class="k">print</span><span class="p">(</span><span class="n">strat</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">_getkwargs</span><span class="p">())</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">&#39;==================================================&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;==================================================&#39;</span><span class="p">)</span>
 
-    <span class="c"># print out the result</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">&#39;Time used:&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">tend</span> <span class="o">-</span> <span class="n">tstart</span><span class="p">))</span>
+    <span class="c1"># print out the result</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Time used:&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">tend</span> <span class="o">-</span> <span class="n">tstart</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -356,9 +356,11 @@ core.</p>
     <img
         alt="https://secure.travis-ci.org/mementum/backtrader.png?branch=master"
         src="https://secure.travis-ci.org/mementum/backtrader.png?branch=master"
-    >
+    />
 </a>
 </p>
+
+
 
   
   
@@ -423,15 +425,15 @@ core.</p>
   <ul>
     
     
+      <li><a href="../../2016-03-07-release-1.2.1.88/release-1.2.1.88/">Mar 07 - Release 1.2.1.88</a></li>
+    
+      <li><a href="../../2015-11-21-data-filters/data-filling-filtering/">Nov 21 - Data Filters</a></li>
+    
+      <li><a href="../../2015-11-20-commission-schemes-subclassing/commission-schemes-subclassing/">Nov 20 - User Defined Commissions</a></li>
+    
       <li><a href="../../2015-11-05-commission-schemes-extended/commission-schemes-extended/">Nov 05 - Extending Commissions</a></li>
     
       <li><a href="../../2015-10-05-multitrades/multitrades/">Oct 05 - MultiTrades</a></li>
-    
-      <li><a href="../../2015-10-04-bar-synchronization/bar-synchronization/">Oct 04 - Bar Synchronization</a></li>
-    
-      <li><a href="../../2015-09-25-tickdata-resample/resample-tickdata/">Sep 25 - Tick Data and Resampling</a></li>
-    
-      <li><a href="../../2015-09-21-plotting-same-axis/plotting-same-axis/">Sep 21 - Plotting on the same axis</a></li>
     
   </ul>
 
@@ -439,7 +441,11 @@ core.</p>
   <ul>
   
     
-    <li><a href="../../../blog/2015/">2015 (25)</a></li>
+    <li><a href="../../../blog/2016/">2016 (1)</a></li>
+    
+  
+    
+    <li><a href="../../../blog/2015/">2015 (27)</a></li>
     
   
   </ul>
@@ -465,8 +471,8 @@ core.</p>
       &copy;2015, mementum.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
       
       |
       <a href="../../../_sources/posts/2015-07-23-multicore-optimization/multicore-optimization.txt"

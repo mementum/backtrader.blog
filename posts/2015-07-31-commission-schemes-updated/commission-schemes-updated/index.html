@@ -32,7 +32,7 @@
   
    
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   
   
@@ -160,30 +160,30 @@ operations and <code class="docutils literal"><span class="pre">stock-like</span
 the evolution of <code class="docutils literal"><span class="pre">cash</span></code> and <code class="docutils literal"><span class="pre">value</span></code>.</p>
 <div class="section" id="commissions-for-futures">
 <h2>Commissions for futures<a class="headerlink" href="#commissions-for-futures" title="Permalink to this headline">¶</a></h2>
-<a data-lightbox="group-e545f960-198a-4127-853a-a38ef4626e6e"
-                   href="../../../_images\commission-futures-updated1.png"
-                   class=""
-                   title=""
-                   data-title=""
-                   ><img src="../../../_images\commission-futures-updated1.png"
-                    class=""
-                    width="100%"
-                    height="auto"
-                    alt=""/>
-                    </a></div>
+<a class=""
+               data-lightbox="group-31d89922-ef0a-46eb-b023-31335dc5e17a"
+               href="../../../_images/commission-futures-updated1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/commission-futures-updated1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a></div>
 <div class="section" id="commissions-for-stocks">
 <h2>Commissions for stocks<a class="headerlink" href="#commissions-for-stocks" title="Permalink to this headline">¶</a></h2>
-<a data-lightbox="group-115f0d9f-192d-400c-85ef-c1fe7b8b03bc"
-                   href="../../../_images\commission-stocks-updated1.png"
-                   class=""
-                   title=""
-                   data-title=""
-                   ><img src="../../../_images\commission-stocks-updated1.png"
-                    class=""
-                    width="100%"
-                    height="auto"
-                    alt=""/>
-                    </a></div>
+<a class=""
+               data-lightbox="group-f5b27cff-4c6b-49ca-afd3-41e41538afda"
+               href="../../../_images/commission-stocks-updated1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/commission-stocks-updated1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a></div>
 <div class="section" id="the-code">
 <h2>The code<a class="headerlink" href="#the-code" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
@@ -206,70 +206,70 @@ the evolution of <code class="docutils literal"><span class="pre">cash</span></c
     <span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">txt</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39; Logging function fot this strategy&#39;&#39;&#39;</span>
         <span class="n">dt</span> <span class="o">=</span> <span class="n">dt</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">datas</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span class="s">, </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span> <span class="n">txt</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span> <span class="n">txt</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">notify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">order</span><span class="o">.</span><span class="n">status</span> <span class="ow">in</span> <span class="p">[</span><span class="n">order</span><span class="o">.</span><span class="n">Submitted</span><span class="p">,</span> <span class="n">order</span><span class="o">.</span><span class="n">Accepted</span><span class="p">]:</span>
-            <span class="c"># Buy/Sell order submitted/accepted to/by broker - Nothing to do</span>
+            <span class="c1"># Buy/Sell order submitted/accepted to/by broker - Nothing to do</span>
             <span class="k">return</span>
 
-        <span class="c"># Check if an order has been completed</span>
-        <span class="c"># Attention: broker could reject order if not enougth cash</span>
+        <span class="c1"># Check if an order has been completed</span>
+        <span class="c1"># Attention: broker could reject order if not enougth cash</span>
         <span class="k">if</span> <span class="n">order</span><span class="o">.</span><span class="n">status</span> <span class="ow">in</span> <span class="p">[</span><span class="n">order</span><span class="o">.</span><span class="n">Completed</span><span class="p">,</span> <span class="n">order</span><span class="o">.</span><span class="n">Canceled</span><span class="p">,</span> <span class="n">order</span><span class="o">.</span><span class="n">Margin</span><span class="p">]:</span>
             <span class="k">if</span> <span class="n">order</span><span class="o">.</span><span class="n">isbuy</span><span class="p">():</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span>
-                    <span class="s">&#39;BUY EXECUTED, Price: </span><span class="si">%.2f</span><span class="s">, Cost: </span><span class="si">%.2f</span><span class="s">, Comm </span><span class="si">%.2f</span><span class="s">&#39;</span> <span class="o">%</span>
+                    <span class="s1">&#39;BUY EXECUTED, Price: </span><span class="si">%.2f</span><span class="s1">, Cost: </span><span class="si">%.2f</span><span class="s1">, Comm </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span>
                     <span class="p">(</span><span class="n">order</span><span class="o">.</span><span class="n">executed</span><span class="o">.</span><span class="n">price</span><span class="p">,</span>
                      <span class="n">order</span><span class="o">.</span><span class="n">executed</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
                      <span class="n">order</span><span class="o">.</span><span class="n">executed</span><span class="o">.</span><span class="n">comm</span><span class="p">))</span>
-            <span class="k">else</span><span class="p">:</span>  <span class="c"># Sell</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#39;SELL EXECUTED, Price: </span><span class="si">%.2f</span><span class="s">, Cost: </span><span class="si">%.2f</span><span class="s">, Comm </span><span class="si">%.2f</span><span class="s">&#39;</span> <span class="o">%</span>
+            <span class="k">else</span><span class="p">:</span>  <span class="c1"># Sell</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;SELL EXECUTED, Price: </span><span class="si">%.2f</span><span class="s1">, Cost: </span><span class="si">%.2f</span><span class="s1">, Comm </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span>
                          <span class="p">(</span><span class="n">order</span><span class="o">.</span><span class="n">executed</span><span class="o">.</span><span class="n">price</span><span class="p">,</span>
                           <span class="n">order</span><span class="o">.</span><span class="n">executed</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
                           <span class="n">order</span><span class="o">.</span><span class="n">executed</span><span class="o">.</span><span class="n">comm</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">notify_trade</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trade</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">trade</span><span class="o">.</span><span class="n">isclosed</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#39;TRADE PROFIT, GROSS </span><span class="si">%.2f</span><span class="s">, NET </span><span class="si">%.2f</span><span class="s">&#39;</span> <span class="o">%</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;TRADE PROFIT, GROSS </span><span class="si">%.2f</span><span class="s1">, NET </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span>
                      <span class="p">(</span><span class="n">trade</span><span class="o">.</span><span class="n">pnl</span><span class="p">,</span> <span class="n">trade</span><span class="o">.</span><span class="n">pnlcomm</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">sma</span> <span class="o">=</span> <span class="n">btind</span><span class="o">.</span><span class="n">SMA</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-        <span class="c"># &gt; 0 crossing up / &lt; 0 crossing down</span>
+        <span class="c1"># &gt; 0 crossing up / &lt; 0 crossing down</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">buysell_sig</span> <span class="o">=</span> <span class="n">btind</span><span class="o">.</span><span class="n">CrossOver</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">sma</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">buysell_sig</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#39;BUY CREATE, </span><span class="si">%.2f</span><span class="s">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">close</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">buy</span><span class="p">()</span>  <span class="c"># keep order ref to avoid 2nd orders</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;BUY CREATE, </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">close</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">buy</span><span class="p">()</span>  <span class="c1"># keep order ref to avoid 2nd orders</span>
 
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">buysell_sig</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#39;SELL CREATE, </span><span class="si">%.2f</span><span class="s">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">close</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;SELL CREATE, </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">close</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">sell</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="c"># Create a cerebro entity</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c1"># Create a cerebro entity</span>
     <span class="n">cerebro</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">Cerebro</span><span class="p">()</span>
 
-    <span class="c"># Add a strategy</span>
+    <span class="c1"># Add a strategy</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">addstrategy</span><span class="p">(</span><span class="n">SMACrossOver</span><span class="p">)</span>
 
-    <span class="c"># Create a Data Feed</span>
-    <span class="n">datapath</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;../../datas/2006-day-001.txt&#39;</span><span class="p">)</span>
+    <span class="c1"># Create a Data Feed</span>
+    <span class="n">datapath</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;../../datas/2006-day-001.txt&#39;</span><span class="p">)</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">feeds</span><span class="o">.</span><span class="n">BacktraderCSVData</span><span class="p">(</span><span class="n">dataname</span><span class="o">=</span><span class="n">datapath</span><span class="p">)</span>
 
-    <span class="c"># Add the Data Feed to Cerebro</span>
+    <span class="c1"># Add the Data Feed to Cerebro</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">adddata</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-    <span class="c"># set commission scheme -- CHANGE HERE TO PLAY</span>
+    <span class="c1"># set commission scheme -- CHANGE HERE TO PLAY</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">setcommission</span><span class="p">(</span>
         <span class="n">commission</span><span class="o">=</span><span class="n">commission</span><span class="p">,</span> <span class="n">margin</span><span class="o">=</span><span class="n">margin</span><span class="p">,</span> <span class="n">mult</span><span class="o">=</span><span class="n">mult</span><span class="p">)</span>
 
-    <span class="c"># Run over everything</span>
+    <span class="c1"># Run over everything</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 
-    <span class="c"># Plot the result</span>
+    <span class="c1"># Plot the result</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -353,9 +353,11 @@ the evolution of <code class="docutils literal"><span class="pre">cash</span></c
     <img
         alt="https://secure.travis-ci.org/mementum/backtrader.png?branch=master"
         src="https://secure.travis-ci.org/mementum/backtrader.png?branch=master"
-    >
+    />
 </a>
 </p>
+
+
 
   
   
@@ -417,15 +419,15 @@ the evolution of <code class="docutils literal"><span class="pre">cash</span></c
   <ul>
     
     
+      <li><a href="../../2016-03-07-release-1.2.1.88/release-1.2.1.88/">Mar 07 - Release 1.2.1.88</a></li>
+    
+      <li><a href="../../2015-11-21-data-filters/data-filling-filtering/">Nov 21 - Data Filters</a></li>
+    
+      <li><a href="../../2015-11-20-commission-schemes-subclassing/commission-schemes-subclassing/">Nov 20 - User Defined Commissions</a></li>
+    
       <li><a href="../../2015-11-05-commission-schemes-extended/commission-schemes-extended/">Nov 05 - Extending Commissions</a></li>
     
       <li><a href="../../2015-10-05-multitrades/multitrades/">Oct 05 - MultiTrades</a></li>
-    
-      <li><a href="../../2015-10-04-bar-synchronization/bar-synchronization/">Oct 04 - Bar Synchronization</a></li>
-    
-      <li><a href="../../2015-09-25-tickdata-resample/resample-tickdata/">Sep 25 - Tick Data and Resampling</a></li>
-    
-      <li><a href="../../2015-09-21-plotting-same-axis/plotting-same-axis/">Sep 21 - Plotting on the same axis</a></li>
     
   </ul>
 
@@ -433,7 +435,11 @@ the evolution of <code class="docutils literal"><span class="pre">cash</span></c
   <ul>
   
     
-    <li><a href="../../../blog/2015/">2015 (25)</a></li>
+    <li><a href="../../../blog/2016/">2016 (1)</a></li>
+    
+  
+    
+    <li><a href="../../../blog/2015/">2015 (27)</a></li>
     
   
   </ul>
@@ -459,8 +465,8 @@ the evolution of <code class="docutils literal"><span class="pre">cash</span></c
       &copy;2015, mementum.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
       
       |
       <a href="../../../_sources/posts/2015-07-31-commission-schemes-updated/commission-schemes-updated.txt"

@@ -32,7 +32,7 @@
   
    
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   
   
@@ -71,12 +71,13 @@ with MACD.</p>
 <p>Let&#8217;s &#8220;compose&#8221; <code class="docutils literal"><span class="pre">MyTrixSignal</span></code> using the already developed <code class="docutils literal"><span class="pre">Trix</span></code></p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MyTrixSignalComposed</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Indicator</span><span class="p">):</span>
 
-    <span class="n">lines</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;trix&#39;</span><span class="p">,</span> <span class="s">&#39;signal&#39;</span><span class="p">)</span>
-    <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s">&#39;period&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;sigperiod&#39;</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;trix&#39;</span><span class="p">,</span> <span class="s1">&#39;signal&#39;</span><span class="p">)</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;sigperiod&#39;</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">trix</span> <span class="o">=</span> <span class="n">MyTrix</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">period</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">signal</span> <span class="o">=</span> <span class="n">btind</span><span class="o">.</span><span class="n">EMA</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">trix</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">sigperiod</span><span class="p">)</span>
+
 </pre></div>
 </div>
 <p>Some things had to be repeated in the definition such as the name of the
@@ -86,8 +87,8 @@ and the corresponding <code class="docutils literal"><span class="pre">sigperiod
 <p>Now let&#8217;s go for <em>inheritance</em>, but first recalling how <code class="docutils literal"><span class="pre">Trix</span></code> looks like:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MyTrix</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Indicator</span><span class="p">):</span>
 
-    <span class="n">lines</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;trix&#39;</span><span class="p">,)</span>
-    <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s">&#39;period&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">),)</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;trix&#39;</span><span class="p">,)</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">),)</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">ema1</span> <span class="o">=</span> <span class="n">btind</span><span class="o">.</span><span class="n">EMA</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">period</span><span class="p">)</span>
@@ -95,13 +96,14 @@ and the corresponding <code class="docutils literal"><span class="pre">sigperiod
         <span class="n">ema3</span> <span class="o">=</span> <span class="n">btind</span><span class="o">.</span><span class="n">EMA</span><span class="p">(</span><span class="n">ema2</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">period</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">trix</span> <span class="o">=</span> <span class="mf">100.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">ema3</span> <span class="o">-</span> <span class="n">ema3</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="n">ema3</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
 </pre></div>
 </div>
 <p>Using <code class="docutils literal"><span class="pre">Trix</span></code> as the base class, this is the aspect of <code class="docutils literal"><span class="pre">TrixSignal</span></code></p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MyTrixSignalInherited</span><span class="p">(</span><span class="n">MyTrix</span><span class="p">):</span>
 
-    <span class="n">lines</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;signal&#39;</span><span class="p">,)</span>
-    <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s">&#39;sigperiod&#39;</span><span class="p">,</span> <span class="mi">9</span><span class="p">),)</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;signal&#39;</span><span class="p">,)</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;sigperiod&#39;</span><span class="p">,</span> <span class="mi">9</span><span class="p">),)</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">MyTrixSignalInherited</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
@@ -144,45 +146,45 @@ of the base class</p>
 
 
 <span class="k">class</span> <span class="nc">NoStrategy</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Strategy</span><span class="p">):</span>
-    <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s">&#39;trixperiod&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span>
-              <span class="p">(</span><span class="s">&#39;analyzer&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">),)</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;trixperiod&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span>
+              <span class="p">(</span><span class="s1">&#39;analyzer&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">),)</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">MyTrixSignalInherited</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">trixperiod</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="c"># Create a cerebro entity</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c1"># Create a cerebro entity</span>
     <span class="n">cerebro</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">Cerebro</span><span class="p">()</span>
 
-    <span class="c"># Add a strategy</span>
+    <span class="c1"># Add a strategy</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">addstrategy</span><span class="p">(</span><span class="n">NoStrategy</span><span class="p">,</span> <span class="n">trixperiod</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 
-    <span class="c"># Create a Data Feed</span>
-    <span class="n">datapath</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;../datas/2006-day-001.txt&#39;</span><span class="p">)</span>
+    <span class="c1"># Create a Data Feed</span>
+    <span class="n">datapath</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;../datas/2006-day-001.txt&#39;</span><span class="p">)</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">feeds</span><span class="o">.</span><span class="n">BacktraderCSVData</span><span class="p">(</span><span class="n">dataname</span><span class="o">=</span><span class="n">datapath</span><span class="p">)</span>
 
-    <span class="c"># Add the Data Feed to Cerebro</span>
+    <span class="c1"># Add the Data Feed to Cerebro</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">adddata</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-    <span class="c"># Run over everything</span>
+    <span class="c1"># Run over everything</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 
-    <span class="c"># Plot the result</span>
+    <span class="c1"># Plot the result</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
-<a data-lightbox="group-1aa18964-f8e9-450a-b96c-d3d38b3a6f14"
-                   href="../../../_images\trixsignal-inherited1.png"
-                   class=""
-                   title=""
-                   data-title=""
-                   ><img src="../../../_images\trixsignal-inherited1.png"
-                    class=""
-                    width="100%"
-                    height="auto"
-                    alt=""/>
-                    </a><ol class="arabic simple" start="2">
+<a class=""
+               data-lightbox="group-fdf6d7e4-2503-4e4c-99be-e8f0f81c2302"
+               href="../../../_images/trixsignal-inherited1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/trixsignal-inherited1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><ol class="arabic simple" start="2">
 <li>The first one shows the <strong>composed</strong> version</li>
 </ol>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
@@ -195,45 +197,45 @@ of the base class</p>
 
 
 <span class="k">class</span> <span class="nc">NoStrategy</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Strategy</span><span class="p">):</span>
-    <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s">&#39;trixperiod&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span>
-              <span class="p">(</span><span class="s">&#39;analyzer&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">),)</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;trixperiod&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span>
+              <span class="p">(</span><span class="s1">&#39;analyzer&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">),)</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">MyTrixSignalComposed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">trixperiod</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="c"># Create a cerebro entity</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c1"># Create a cerebro entity</span>
     <span class="n">cerebro</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">Cerebro</span><span class="p">()</span>
 
-    <span class="c"># Add a strategy</span>
+    <span class="c1"># Add a strategy</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">addstrategy</span><span class="p">(</span><span class="n">NoStrategy</span><span class="p">,</span> <span class="n">trixperiod</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 
-    <span class="c"># Create a Data Feed</span>
-    <span class="n">datapath</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;../datas/2006-day-001.txt&#39;</span><span class="p">)</span>
+    <span class="c1"># Create a Data Feed</span>
+    <span class="n">datapath</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;../datas/2006-day-001.txt&#39;</span><span class="p">)</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">feeds</span><span class="o">.</span><span class="n">BacktraderCSVData</span><span class="p">(</span><span class="n">dataname</span><span class="o">=</span><span class="n">datapath</span><span class="p">)</span>
 
-    <span class="c"># Add the Data Feed to Cerebro</span>
+    <span class="c1"># Add the Data Feed to Cerebro</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">adddata</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-    <span class="c"># Run over everything</span>
+    <span class="c1"># Run over everything</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 
-    <span class="c"># Plot the result</span>
+    <span class="c1"># Plot the result</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
-<a data-lightbox="group-9d882de6-4504-4ab7-a78b-8d3758d26e9d"
-                   href="../../../_images\trixsignal-composed1.png"
-                   class=""
-                   title=""
-                   data-title=""
-                   ><img src="../../../_images\trixsignal-composed1.png"
-                    class=""
-                    width="100%"
-                    height="auto"
-                    alt=""/>
-                    </a></div>
+<a class=""
+               data-lightbox="group-923c478e-b2a3-46be-84f8-b92f2dbff9d6"
+               href="../../../_images/trixsignal-composed1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/trixsignal-composed1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a></div>
 
   <div class="section">
   
@@ -312,9 +314,11 @@ of the base class</p>
     <img
         alt="https://secure.travis-ci.org/mementum/backtrader.png?branch=master"
         src="https://secure.travis-ci.org/mementum/backtrader.png?branch=master"
-    >
+    />
 </a>
 </p>
+
+
 
   
   
@@ -376,15 +380,15 @@ of the base class</p>
   <ul>
     
     
+      <li><a href="../../2016-03-07-release-1.2.1.88/release-1.2.1.88/">Mar 07 - Release 1.2.1.88</a></li>
+    
+      <li><a href="../../2015-11-21-data-filters/data-filling-filtering/">Nov 21 - Data Filters</a></li>
+    
+      <li><a href="../../2015-11-20-commission-schemes-subclassing/commission-schemes-subclassing/">Nov 20 - User Defined Commissions</a></li>
+    
       <li><a href="../../2015-11-05-commission-schemes-extended/commission-schemes-extended/">Nov 05 - Extending Commissions</a></li>
     
       <li><a href="../../2015-10-05-multitrades/multitrades/">Oct 05 - MultiTrades</a></li>
-    
-      <li><a href="../../2015-10-04-bar-synchronization/bar-synchronization/">Oct 04 - Bar Synchronization</a></li>
-    
-      <li><a href="../../2015-09-25-tickdata-resample/resample-tickdata/">Sep 25 - Tick Data and Resampling</a></li>
-    
-      <li><a href="../../2015-09-21-plotting-same-axis/plotting-same-axis/">Sep 21 - Plotting on the same axis</a></li>
     
   </ul>
 
@@ -392,7 +396,11 @@ of the base class</p>
   <ul>
   
     
-    <li><a href="../../../blog/2015/">2015 (25)</a></li>
+    <li><a href="../../../blog/2016/">2016 (1)</a></li>
+    
+  
+    
+    <li><a href="../../../blog/2015/">2015 (27)</a></li>
     
   
   </ul>
@@ -418,8 +426,8 @@ of the base class</p>
       &copy;2015, mementum.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
       
       |
       <a href="../../../_sources/posts/2015-07-20-extending-an-indicator/extending-an-indicator.txt"

@@ -32,7 +32,7 @@
   
    
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   
   
@@ -201,17 +201,17 @@ call the <code class="docutils literal"><span class="pre">pprint</span></code> m
 </ul>
 </div></blockquote>
 <p>After much talk and since we added <code class="docutils literal"><span class="pre">--plot</span></code> to the mix ... the chart.</p>
-<a data-lightbox="group-0bc5a86e-42cf-475e-8b67-c0f9ca4f41a9"
-                   href="../../../_images\real-wold-legupdown1.png"
-                   class=""
-                   title=""
-                   data-title=""
-                   ><img src="../../../_images\real-wold-legupdown1.png"
-                    class=""
-                    width="100%"
-                    height="auto"
-                    alt=""/>
-                    </a><p>Finally the <code class="docutils literal"><span class="pre">legupdown</span></code> module which is being loaded by <code class="docutils literal"><span class="pre">bt-run</span></code>.</p>
+<a class=""
+               data-lightbox="group-d043642a-2183-4a1f-bb82-ad20980011c1"
+               href="../../../_images/real-wold-legupdown1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/real-wold-legupdown1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>Finally the <code class="docutils literal"><span class="pre">legupdown</span></code> module which is being loaded by <code class="docutils literal"><span class="pre">bt-run</span></code>.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
@@ -232,8 +232,8 @@ call the <code class="docutils literal"><span class="pre">pprint</span></code> m
 <span class="sd">      - Current low</span>
 <span class="sd">      - High from ``period`` bars ago</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">lines</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;legdown&#39;</span><span class="p">,)</span>
-    <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s">&#39;period&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">),)</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;legdown&#39;</span><span class="p">,)</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">),)</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">legdown</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">high</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">period</span><span class="p">)</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">low</span>
@@ -248,8 +248,8 @@ call the <code class="docutils literal"><span class="pre">pprint</span></code> m
 <span class="sd">    If param ``writeback`` is True the value will be written</span>
 <span class="sd">    backwards ``period`` bars ago</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">lines</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;legup&#39;</span><span class="p">,)</span>
-    <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s">&#39;period&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;writeback&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">),)</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;legup&#39;</span><span class="p">,)</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;writeback&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">),)</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">lu</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">high</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">low</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">period</span><span class="p">)</span>
@@ -258,26 +258,26 @@ call the <code class="docutils literal"><span class="pre">pprint</span></code> m
 
 <span class="k">class</span> <span class="nc">LegDownUpAnalyzer</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Analyzer</span><span class="p">):</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="c"># If created indicators have to be plotteda along the data</span>
-        <span class="p">(</span><span class="s">&#39;plotind&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">),</span>
-        <span class="c"># period to consider for a legdown</span>
-        <span class="p">(</span><span class="s">&#39;ldown&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
-        <span class="c"># periods for the following legups after a legdown</span>
-        <span class="p">(</span><span class="s">&#39;lups&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">]),</span>
-        <span class="c"># How to sort: date-asc, date-desc, legdown-asc, legdown-desc</span>
-        <span class="p">(</span><span class="s">&#39;sort&#39;</span><span class="p">,</span> <span class="s">&#39;legdown-desc&#39;</span><span class="p">),</span>
+        <span class="c1"># If created indicators have to be plotteda along the data</span>
+        <span class="p">(</span><span class="s1">&#39;plotind&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">),</span>
+        <span class="c1"># period to consider for a legdown</span>
+        <span class="p">(</span><span class="s1">&#39;ldown&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+        <span class="c1"># periods for the following legups after a legdown</span>
+        <span class="p">(</span><span class="s1">&#39;lups&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">]),</span>
+        <span class="c1"># How to sort: date-asc, date-desc, legdown-asc, legdown-desc</span>
+        <span class="p">(</span><span class="s1">&#39;sort&#39;</span><span class="p">,</span> <span class="s1">&#39;legdown-desc&#39;</span><span class="p">),</span>
     <span class="p">)</span>
 
-    <span class="n">sort_options</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;date-asc&#39;</span><span class="p">,</span> <span class="s">&#39;date-des&#39;</span><span class="p">,</span> <span class="s">&#39;legdown-desc&#39;</span><span class="p">,</span> <span class="s">&#39;legdown-asc&#39;</span><span class="p">]</span>
+    <span class="n">sort_options</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;date-asc&#39;</span><span class="p">,</span> <span class="s1">&#39;date-des&#39;</span><span class="p">,</span> <span class="s1">&#39;legdown-desc&#39;</span><span class="p">,</span> <span class="s1">&#39;legdown-asc&#39;</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c"># Create the legdown indicator</span>
+        <span class="c1"># Create the legdown indicator</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ldown</span> <span class="o">=</span> <span class="n">LegDown</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">ldown</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ldown</span><span class="o">.</span><span class="n">plotinfo</span><span class="o">.</span><span class="n">plot</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">plotind</span>
 
-        <span class="c"># Create the legup indicators indicator - writeback is not touched</span>
-        <span class="c"># so the values will be written back the selected period and therefore</span>
-        <span class="c"># be aligned with the end of the legdown</span>
+        <span class="c1"># Create the legup indicators indicator - writeback is not touched</span>
+        <span class="c1"># so the values will be written back the selected period and therefore</span>
+        <span class="c1"># be aligned with the end of the legdown</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">lups</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">lup</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">lups</span><span class="p">:</span>
             <span class="n">legup</span> <span class="o">=</span> <span class="n">LegUp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="n">lup</span><span class="p">)</span>
@@ -288,61 +288,61 @@ call the <code class="docutils literal"><span class="pre">pprint</span></code> m
         <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
 
     <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c"># Calculate start and ending points with values</span>
+        <span class="c1"># Calculate start and ending points with values</span>
         <span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span>
         <span class="n">end</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
         <span class="n">size</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span>
 
-        <span class="c"># Prepare dates (key in the returned dictionary)</span>
+        <span class="c1"># Prepare dates (key in the returned dictionary)</span>
         <span class="n">dtnumslice</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">strategy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">getzero</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
         <span class="n">dtslice</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">bt</span><span class="o">.</span><span class="n">num2date</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">(),</span> <span class="n">dtnumslice</span><span class="p">)</span>
         <span class="n">keys</span> <span class="o">=</span> <span class="n">dtslice</span>
 
-        <span class="c"># Prepare the values, a list for each key item</span>
-        <span class="c"># leg down</span>
+        <span class="c1"># Prepare the values, a list for each key item</span>
+        <span class="c1"># leg down</span>
         <span class="n">ldown</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ldown</span><span class="o">.</span><span class="n">legdown</span><span class="o">.</span><span class="n">getzero</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
-        <span class="c"># as many legs up as requested</span>
+        <span class="c1"># as many legs up as requested</span>
         <span class="n">lups</span> <span class="o">=</span> <span class="p">[</span><span class="n">up</span><span class="o">.</span><span class="n">legup</span><span class="o">.</span><span class="n">getzero</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span> <span class="k">for</span> <span class="n">up</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">lups</span><span class="p">]</span>
 
-        <span class="c"># put legs down/up together and interleave (zip)</span>
+        <span class="c1"># put legs down/up together and interleave (zip)</span>
         <span class="n">vals</span> <span class="o">=</span> <span class="p">[</span><span class="n">ldown</span><span class="p">]</span> <span class="o">+</span> <span class="n">lups</span>
         <span class="n">zvals</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">vals</span><span class="p">)</span>
 
-        <span class="c"># Prepare sorting options</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">sort</span> <span class="o">==</span> <span class="s">&#39;date-asc&#39;</span><span class="p">:</span>
+        <span class="c1"># Prepare sorting options</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">sort</span> <span class="o">==</span> <span class="s1">&#39;date-asc&#39;</span><span class="p">:</span>
             <span class="n">reverse</span><span class="p">,</span> <span class="n">item</span> <span class="o">=</span> <span class="bp">False</span><span class="p">,</span> <span class="mi">0</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">sort</span> <span class="o">==</span> <span class="s">&#39;date-desc&#39;</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">sort</span> <span class="o">==</span> <span class="s1">&#39;date-desc&#39;</span><span class="p">:</span>
             <span class="n">reverse</span><span class="p">,</span> <span class="n">item</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span> <span class="mi">0</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">sort</span> <span class="o">==</span> <span class="s">&#39;legdown-asc&#39;</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">sort</span> <span class="o">==</span> <span class="s1">&#39;legdown-asc&#39;</span><span class="p">:</span>
             <span class="n">reverse</span><span class="p">,</span> <span class="n">item</span> <span class="o">=</span> <span class="bp">False</span><span class="p">,</span> <span class="mi">1</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">sort</span> <span class="o">==</span> <span class="s">&#39;legdown-desc&#39;</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">sort</span> <span class="o">==</span> <span class="s1">&#39;legdown-desc&#39;</span><span class="p">:</span>
             <span class="n">reverse</span><span class="p">,</span> <span class="n">item</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span> <span class="mi">1</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="c"># Default ordering - date-asc</span>
+            <span class="c1"># Default ordering - date-asc</span>
             <span class="n">reverse</span><span class="p">,</span> <span class="n">item</span> <span class="o">=</span> <span class="bp">False</span><span class="p">,</span> <span class="mi">0</span>
 
-        <span class="c"># Prepare a sorted array of 2-tuples</span>
+        <span class="c1"># Prepare a sorted array of 2-tuples</span>
         <span class="n">keyvals_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="n">zvals</span><span class="p">),</span>
                                 <span class="n">reverse</span><span class="o">=</span><span class="n">reverse</span><span class="p">,</span>
                                 <span class="n">key</span><span class="o">=</span><span class="n">operator</span><span class="o">.</span><span class="n">itemgetter</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
 
-        <span class="c"># Use it to build an ordereddict</span>
+        <span class="c1"># Use it to build an ordereddict</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ret</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">(</span><span class="n">keyvals_sorted</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">get_analysis</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ret</span>
 
     <span class="k">def</span> <span class="nf">print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="c"># Overriden to change default behavior (call pprint)</span>
-        <span class="c"># provides a CSV printout of the legs down/up</span>
-        <span class="n">header_items</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;Date&#39;</span><span class="p">,</span> <span class="s">&#39;LegDown&#39;</span><span class="p">]</span>
-        <span class="n">header_items</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="s">&#39;LegUp_</span><span class="si">%d</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">lups</span><span class="p">])</span>
-        <span class="n">header_txt</span> <span class="o">=</span> <span class="s">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">header_items</span><span class="p">)</span>
+        <span class="c1"># Overriden to change default behavior (call pprint)</span>
+        <span class="c1"># provides a CSV printout of the legs down/up</span>
+        <span class="n">header_items</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="s1">&#39;LegDown&#39;</span><span class="p">]</span>
+        <span class="n">header_items</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="s1">&#39;LegUp_</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">lups</span><span class="p">])</span>
+        <span class="n">header_txt</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">header_items</span><span class="p">)</span>
         <span class="k">print</span><span class="p">(</span><span class="n">header_txt</span><span class="p">)</span>
 
         <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">vals</span> <span class="ow">in</span> <span class="n">six</span><span class="o">.</span><span class="n">iteritems</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ret</span><span class="p">):</span>
-            <span class="n">keytxt</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&#39;%Y-%m-</span><span class="si">%d</span><span class="s">&#39;</span><span class="p">)</span>
-            <span class="n">txt</span> <span class="o">=</span> <span class="s">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">([</span><span class="n">keytxt</span><span class="p">],</span> <span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">vals</span><span class="p">)))</span>
+            <span class="n">keytxt</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">txt</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">([</span><span class="n">keytxt</span><span class="p">],</span> <span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">vals</span><span class="p">)))</span>
             <span class="k">print</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -425,9 +425,11 @@ call the <code class="docutils literal"><span class="pre">pprint</span></code> m
     <img
         alt="https://secure.travis-ci.org/mementum/backtrader.png?branch=master"
         src="https://secure.travis-ci.org/mementum/backtrader.png?branch=master"
-    >
+    />
 </a>
 </p>
+
+
 
   
   
@@ -489,15 +491,15 @@ call the <code class="docutils literal"><span class="pre">pprint</span></code> m
   <ul>
     
     
+      <li><a href="../../2016-03-07-release-1.2.1.88/release-1.2.1.88/">Mar 07 - Release 1.2.1.88</a></li>
+    
+      <li><a href="../../2015-11-21-data-filters/data-filling-filtering/">Nov 21 - Data Filters</a></li>
+    
+      <li><a href="../../2015-11-20-commission-schemes-subclassing/commission-schemes-subclassing/">Nov 20 - User Defined Commissions</a></li>
+    
       <li><a href="../../2015-11-05-commission-schemes-extended/commission-schemes-extended/">Nov 05 - Extending Commissions</a></li>
     
       <li><a href="../../2015-10-05-multitrades/multitrades/">Oct 05 - MultiTrades</a></li>
-    
-      <li><a href="../../2015-10-04-bar-synchronization/bar-synchronization/">Oct 04 - Bar Synchronization</a></li>
-    
-      <li><a href="../../2015-09-25-tickdata-resample/resample-tickdata/">Sep 25 - Tick Data and Resampling</a></li>
-    
-      <li><a href="../../2015-09-21-plotting-same-axis/plotting-same-axis/">Sep 21 - Plotting on the same axis</a></li>
     
   </ul>
 
@@ -505,7 +507,11 @@ call the <code class="docutils literal"><span class="pre">pprint</span></code> m
   <ul>
   
     
-    <li><a href="../../../blog/2015/">2015 (25)</a></li>
+    <li><a href="../../../blog/2016/">2016 (1)</a></li>
+    
+  
+    
+    <li><a href="../../../blog/2015/">2015 (27)</a></li>
     
   
   </ul>
@@ -531,8 +537,8 @@ call the <code class="docutils literal"><span class="pre">pprint</span></code> m
       &copy;2015, mementum.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
       
       |
       <a href="../../../_sources/posts/2015-08-27-real-world-usage/real-world-usage.txt"

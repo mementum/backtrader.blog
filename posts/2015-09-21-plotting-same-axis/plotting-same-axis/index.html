@@ -32,7 +32,7 @@
   
    
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   
   
@@ -101,17 +101,17 @@ removed unless activated via a command line switch.</p>
 </pre></div>
 </div>
 <p>And the chart.</p>
-<a data-lightbox="group-ed7909d1-8ade-40c1-ac35-12f16da1d059"
-                   href="../../../_images\plotting-same-axis-standard1.png"
-                   class=""
-                   title=""
-                   data-title=""
-                   ><img src="../../../_images\plotting-same-axis-standard1.png"
-                    class=""
-                    width="100%"
-                    height="auto"
-                    alt=""/>
-                    </a><p>The second execution changes the panorama:</p>
+<a class=""
+               data-lightbox="group-1fce207b-4e3a-4cbf-93fe-17d5715d6b47"
+               href="../../../_images/plotting-same-axis-standard1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/plotting-same-axis-standard1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>The second execution changes the panorama:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">The Simple Moving Average is moved to a subplot</p>
@@ -135,49 +135,49 @@ indicator to the other indicator to be plotted onto.</p>
 </pre></div>
 </div>
 <p>The chart.</p>
-<a data-lightbox="group-9ebe16fa-83e6-471d-b0d7-64c2eac7e313"
-                   href="../../../_images\plotting-same-axis-new-panorama1.png"
-                   class=""
-                   title=""
-                   data-title=""
-                   ><img src="../../../_images\plotting-same-axis-new-panorama1.png"
-                    class=""
-                    width="100%"
-                    height="auto"
-                    alt=""/>
-                    </a><p>And to check the incompatibility of scales, let&#8217;s try plotting the rsi over the SMA:</p>
+<a class=""
+               data-lightbox="group-c551bd8f-a2b0-4449-988b-1ec2184b0b29"
+               href="../../../_images/plotting-same-axis-new-panorama1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/plotting-same-axis-new-panorama1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>And to check the incompatibility of scales, let&#8217;s try plotting the rsi over the SMA:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ ./plot-same-axis.py --rsiovermacd
 </pre></div>
 </div>
 <p>The chart.</p>
-<a data-lightbox="group-4df0b738-dff9-444c-a078-21824a74e3f7"
-                   href="../../../_images\plotting-same-axis-rsi-over-sma1.png"
-                   class=""
-                   title=""
-                   data-title=""
-                   ><img src="../../../_images\plotting-same-axis-rsi-over-sma1.png"
-                    class=""
-                    width="100%"
-                    height="auto"
-                    alt=""/>
-                    </a><p>The RSI label shows up with the data and the SMA, but the scale is in the
+<a class=""
+               data-lightbox="group-5b3e4803-860a-4deb-810b-6f07227744de"
+               href="../../../_images/plotting-same-axis-rsi-over-sma1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/plotting-same-axis-rsi-over-sma1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>The RSI label shows up with the data and the SMA, but the scale is in the
 3400-4200 range and hence ... no traces of the RSI.</p>
 <p>A further futile attempt is to place the SMA on a subplot and again plot the RSI
 on the SMA</p>
 <blockquote>
 <div>$ ./plot-same-axis.py &#8211;rsiovermacd &#8211;smasubplot</div></blockquote>
 <p>The chart.</p>
-<a data-lightbox="group-1145dba2-78bc-4e6a-8096-594cdab08959"
-                   href="../../../_images\plotting-same-axis-rsi-over-sma-subplot1.png"
-                   class=""
-                   title=""
-                   data-title=""
-                   ><img src="../../../_images\plotting-same-axis-rsi-over-sma-subplot1.png"
-                    class=""
-                    width="100%"
-                    height="auto"
-                    alt=""/>
-                    </a><p>The label is clear but all that remains from the RSI is a faint blue line at the
+<a class=""
+               data-lightbox="group-82a57a19-1aa2-43f6-bdd2-107549fb6c8b"
+               href="../../../_images/plotting-same-axis-rsi-over-sma-subplot1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/plotting-same-axis-rsi-over-sma-subplot1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>The label is clear but all that remains from the RSI is a faint blue line at the
 bottom of the SMA plot.</p>
 <div class="note update admonition">
 <p class="first admonition-title">Updated on Sep 22, 2015</p>
@@ -188,17 +188,17 @@ indicator. Let&#8217;s plot the Stochastic on the RSI:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ ./plot-same-axis.py --stocrsi
 </pre></div>
 </div>
-<a data-lightbox="group-079a1e1d-ecb1-4dac-b4e6-f89678bfb568"
-                   href="../../../_images\plotting-same-axis-stoc-over-rsi1.png"
-                   class=""
-                   title=""
-                   data-title=""
-                   ><img src="../../../_images\plotting-same-axis-stoc-over-rsi1.png"
-                    class=""
-                    width="100%"
-                    height="auto"
-                    alt=""/>
-                    </a><p>It works. The <code class="docutils literal"><span class="pre">Stochastic</span></code> label shows up and the 2 lines <code class="docutils literal"><span class="pre">K%</span></code> and <code class="docutils literal"><span class="pre">D%</span></code>
+<a class=""
+               data-lightbox="group-8a414cf3-f861-4bcb-982d-d8d94d86acfc"
+               href="../../../_images/plotting-same-axis-stoc-over-rsi1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/plotting-same-axis-stoc-over-rsi1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>It works. The <code class="docutils literal"><span class="pre">Stochastic</span></code> label shows up and the 2 lines <code class="docutils literal"><span class="pre">K%</span></code> and <code class="docutils literal"><span class="pre">D%</span></code>
 too. But the lines are not &#8220;named&#8221; because we have got the name of the
 indicator.</p>
 <p>In the code, the current setting would be:</p>
@@ -216,17 +216,17 @@ would additionally need:</p>
 </div>
 <p>With the chart now showing the name of the Stochasti lines below the name of the
 RSI line.</p>
-<a data-lightbox="group-e7d1442f-343d-433c-b95e-6e27ecee1cdc"
-                   href="../../../_images\plotting-same-axis-stoc-over-rsi-lines1.png"
-                   class=""
-                   title=""
-                   data-title=""
-                   ><img src="../../../_images\plotting-same-axis-stoc-over-rsi-lines1.png"
-                    class=""
-                    width="100%"
-                    height="auto"
-                    alt=""/>
-                    </a><p>The script usage:</p>
+<a class=""
+               data-lightbox="group-57c3a2a2-0e9f-415c-8d98-64bca2e29f0c"
+               href="../../../_images/plotting-same-axis-stoc-over-rsi-lines1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/plotting-same-axis-stoc-over-rsi-lines1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>The script usage:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ ./plot-same-axis.py --help
 usage: plot-same-axis.py [-h] [--data DATA] [--fromdate FROMDATE]
                          [--todate TODATE] [--stdstats] [--smasubplot]
@@ -261,7 +261,7 @@ optional arguments:
 <span class="kn">import</span> <span class="nn">argparse</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
 
-<span class="c"># The above could be sent to an independent module</span>
+<span class="c1"># The above could be sent to an independent module</span>
 <span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
 <span class="kn">import</span> <span class="nn">backtrader.feeds</span> <span class="kn">as</span> <span class="nn">btfeeds</span>
 <span class="kn">import</span> <span class="nn">backtrader.indicators</span> <span class="kn">as</span> <span class="nn">btind</span>
@@ -272,7 +272,7 @@ optional arguments:
 <span class="sd">    The strategy does nothing but create indicators for plotting purposes</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">params</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-        <span class="n">smasubplot</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>  <span class="c"># default for Moving averages</span>
+        <span class="n">smasubplot</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>  <span class="c1"># default for Moving averages</span>
         <span class="n">nomacdplot</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
         <span class="n">rsioverstoc</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
         <span class="n">rsioversma</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
@@ -284,11 +284,11 @@ optional arguments:
         <span class="n">sma</span> <span class="o">=</span> <span class="n">btind</span><span class="o">.</span><span class="n">SMA</span><span class="p">(</span><span class="n">subplot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">smasubplot</span><span class="p">)</span>
 
         <span class="n">macd</span> <span class="o">=</span> <span class="n">btind</span><span class="o">.</span><span class="n">MACD</span><span class="p">()</span>
-        <span class="c"># In SMA we passed plot directly as kwarg, here the plotinfo.plot</span>
-        <span class="c"># attribute is changed - same effect</span>
+        <span class="c1"># In SMA we passed plot directly as kwarg, here the plotinfo.plot</span>
+        <span class="c1"># attribute is changed - same effect</span>
         <span class="n">macd</span><span class="o">.</span><span class="n">plotinfo</span><span class="o">.</span><span class="n">plot</span> <span class="o">=</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">nomacdplot</span>
 
-        <span class="c"># Let&#39;s put rsi on stochastic/sma or the other way round</span>
+        <span class="c1"># Let&#39;s put rsi on stochastic/sma or the other way round</span>
         <span class="n">stoc</span> <span class="o">=</span> <span class="n">btind</span><span class="o">.</span><span class="n">Stochastic</span><span class="p">()</span>
         <span class="n">rsi</span> <span class="o">=</span> <span class="n">btind</span><span class="o">.</span><span class="n">RSI</span><span class="p">()</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">stocrsi</span><span class="p">:</span>
@@ -303,23 +303,23 @@ optional arguments:
 <span class="k">def</span> <span class="nf">runstrategy</span><span class="p">():</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">parse_args</span><span class="p">()</span>
 
-    <span class="c"># Create a cerebro</span>
+    <span class="c1"># Create a cerebro</span>
     <span class="n">cerebro</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">Cerebro</span><span class="p">()</span>
 
-    <span class="c"># Get the dates from the args</span>
-    <span class="n">fromdate</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">fromdate</span><span class="p">,</span> <span class="s">&#39;%Y-%m-</span><span class="si">%d</span><span class="s">&#39;</span><span class="p">)</span>
-    <span class="n">todate</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">todate</span><span class="p">,</span> <span class="s">&#39;%Y-%m-</span><span class="si">%d</span><span class="s">&#39;</span><span class="p">)</span>
+    <span class="c1"># Get the dates from the args</span>
+    <span class="n">fromdate</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">fromdate</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">todate</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">todate</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
 
-    <span class="c"># Create the 1st data</span>
+    <span class="c1"># Create the 1st data</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">btfeeds</span><span class="o">.</span><span class="n">BacktraderCSVData</span><span class="p">(</span>
         <span class="n">dataname</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
         <span class="n">fromdate</span><span class="o">=</span><span class="n">fromdate</span><span class="p">,</span>
         <span class="n">todate</span><span class="o">=</span><span class="n">todate</span><span class="p">)</span>
 
-    <span class="c"># Add the 1st data to cerebro</span>
+    <span class="c1"># Add the 1st data to cerebro</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">adddata</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-    <span class="c"># Add the strategy</span>
+    <span class="c1"># Add the strategy</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">addstrategy</span><span class="p">(</span><span class="n">PlotStrategy</span><span class="p">,</span>
                         <span class="n">smasubplot</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">smasubplot</span><span class="p">,</span>
                         <span class="n">nomacdplot</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">nomacdplot</span><span class="p">,</span>
@@ -328,58 +328,58 @@ optional arguments:
                         <span class="n">stocrsi</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">stocrsi</span><span class="p">,</span>
                         <span class="n">stocrsilabels</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">stocrsilabels</span><span class="p">)</span>
 
-    <span class="c"># And run it</span>
+    <span class="c1"># And run it</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">stdstats</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">stdstats</span><span class="p">)</span>
 
-    <span class="c"># Plot</span>
+    <span class="c1"># Plot</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">numfigs</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">numfigs</span><span class="p">,</span> <span class="n">volume</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">parse_args</span><span class="p">():</span>
-    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">&#39;Plotting Example&#39;</span><span class="p">)</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Plotting Example&#39;</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--data&#39;</span><span class="p">,</span> <span class="s">&#39;-d&#39;</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="s">&#39;../../datas/2006-day-001.txt&#39;</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;data to add to the system&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--data&#39;</span><span class="p">,</span> <span class="s1">&#39;-d&#39;</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="s1">&#39;../../datas/2006-day-001.txt&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;data to add to the system&#39;</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--fromdate&#39;</span><span class="p">,</span> <span class="s">&#39;-f&#39;</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="s">&#39;2006-01-01&#39;</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Starting date in YYYY-MM-DD format&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--fromdate&#39;</span><span class="p">,</span> <span class="s1">&#39;-f&#39;</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="s1">&#39;2006-01-01&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Starting date in YYYY-MM-DD format&#39;</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--todate&#39;</span><span class="p">,</span> <span class="s">&#39;-t&#39;</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="s">&#39;2006-12-31&#39;</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Starting date in YYYY-MM-DD format&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--todate&#39;</span><span class="p">,</span> <span class="s1">&#39;-t&#39;</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="s1">&#39;2006-12-31&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Starting date in YYYY-MM-DD format&#39;</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--stdstats&#39;</span><span class="p">,</span> <span class="s">&#39;-st&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&#39;store_true&#39;</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Show standard observers&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--stdstats&#39;</span><span class="p">,</span> <span class="s1">&#39;-st&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Show standard observers&#39;</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--smasubplot&#39;</span><span class="p">,</span> <span class="s">&#39;-ss&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&#39;store_true&#39;</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Put SMA on own subplot/axis&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--smasubplot&#39;</span><span class="p">,</span> <span class="s1">&#39;-ss&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Put SMA on own subplot/axis&#39;</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--nomacdplot&#39;</span><span class="p">,</span> <span class="s">&#39;-nm&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&#39;store_true&#39;</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Hide the indicator from the plot&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--nomacdplot&#39;</span><span class="p">,</span> <span class="s1">&#39;-nm&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Hide the indicator from the plot&#39;</span><span class="p">)</span>
 
     <span class="n">group</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">add_mutually_exclusive_group</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 
-    <span class="n">group</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--rsioverstoc&#39;</span><span class="p">,</span> <span class="s">&#39;-ros&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&#39;store_true&#39;</span><span class="p">,</span>
-                       <span class="n">help</span><span class="o">=</span><span class="s">&#39;Plot the RSI indicator on the Stochastic axis&#39;</span><span class="p">)</span>
+    <span class="n">group</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--rsioverstoc&#39;</span><span class="p">,</span> <span class="s1">&#39;-ros&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                       <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Plot the RSI indicator on the Stochastic axis&#39;</span><span class="p">)</span>
 
-    <span class="n">group</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--rsioversma&#39;</span><span class="p">,</span> <span class="s">&#39;-rom&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&#39;store_true&#39;</span><span class="p">,</span>
-                       <span class="n">help</span><span class="o">=</span><span class="s">&#39;Plot the RSI indicator on the SMA axis&#39;</span><span class="p">)</span>
+    <span class="n">group</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--rsioversma&#39;</span><span class="p">,</span> <span class="s1">&#39;-rom&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                       <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Plot the RSI indicator on the SMA axis&#39;</span><span class="p">)</span>
 
-    <span class="n">group</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--stocrsi&#39;</span><span class="p">,</span> <span class="s">&#39;-strsi&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&#39;store_true&#39;</span><span class="p">,</span>
-                       <span class="n">help</span><span class="o">=</span><span class="s">&#39;Plot the Stochastic indicator on the RSI axis&#39;</span><span class="p">)</span>
+    <span class="n">group</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--stocrsi&#39;</span><span class="p">,</span> <span class="s1">&#39;-strsi&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                       <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Plot the Stochastic indicator on the RSI axis&#39;</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--stocrsilabels&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&#39;store_true&#39;</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Plot line names instead of indicator name&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--stocrsilabels&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Plot line names instead of indicator name&#39;</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--numfigs&#39;</span><span class="p">,</span> <span class="s">&#39;-n&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Plot using numfigs figures&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--numfigs&#39;</span><span class="p">,</span> <span class="s1">&#39;-n&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Plot using numfigs figures&#39;</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">runstrategy</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -462,9 +462,11 @@ optional arguments:
     <img
         alt="https://secure.travis-ci.org/mementum/backtrader.png?branch=master"
         src="https://secure.travis-ci.org/mementum/backtrader.png?branch=master"
-    >
+    />
 </a>
 </p>
+
+
 
   
   
@@ -529,15 +531,15 @@ optional arguments:
   <ul>
     
     
+      <li><a href="../../2016-03-07-release-1.2.1.88/release-1.2.1.88/">Mar 07 - Release 1.2.1.88</a></li>
+    
+      <li><a href="../../2015-11-21-data-filters/data-filling-filtering/">Nov 21 - Data Filters</a></li>
+    
+      <li><a href="../../2015-11-20-commission-schemes-subclassing/commission-schemes-subclassing/">Nov 20 - User Defined Commissions</a></li>
+    
       <li><a href="../../2015-11-05-commission-schemes-extended/commission-schemes-extended/">Nov 05 - Extending Commissions</a></li>
     
       <li><a href="../../2015-10-05-multitrades/multitrades/">Oct 05 - MultiTrades</a></li>
-    
-      <li><a href="../../2015-10-04-bar-synchronization/bar-synchronization/">Oct 04 - Bar Synchronization</a></li>
-    
-      <li><a href="../../2015-09-25-tickdata-resample/resample-tickdata/">Sep 25 - Tick Data and Resampling</a></li>
-    
-      <li><a href="../../2015-09-14-write-it-down/write-it-down/">Sep 14 - Writers - Write it down</a></li>
     
   </ul>
 
@@ -545,7 +547,11 @@ optional arguments:
   <ul>
   
     
-    <li><a href="../../../blog/2015/">2015 (25)</a></li>
+    <li><a href="../../../blog/2016/">2016 (1)</a></li>
+    
+  
+    
+    <li><a href="../../../blog/2015/">2015 (27)</a></li>
     
   
   </ul>
@@ -571,8 +577,8 @@ optional arguments:
       &copy;2015, mementum.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
       
       |
       <a href="../../../_sources/posts/2015-09-21-plotting-same-axis/plotting-same-axis.txt"

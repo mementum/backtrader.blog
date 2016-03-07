@@ -32,7 +32,7 @@
   
    
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   
   
@@ -125,18 +125,19 @@ disable preloading (COMPULSORY)</p>
         <span class="n">weekly</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">TimeFrame</span><span class="o">.</span><span class="n">Weeks</span><span class="p">,</span>
         <span class="n">monthly</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">TimeFrame</span><span class="o">.</span><span class="n">Months</span><span class="p">)</span>
 
-    <span class="c"># Handy dictionary for the argument timeframe conversion</span>
-    <span class="c"># Resample the data</span>
+    <span class="c1"># Handy dictionary for the argument timeframe conversion</span>
+    <span class="c1"># Resample the data</span>
     <span class="n">data_replayed</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">DataReplayer</span><span class="p">(</span>
         <span class="n">dataname</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
         <span class="n">timeframe</span><span class="o">=</span><span class="n">tframes</span><span class="p">[</span><span class="n">args</span><span class="o">.</span><span class="n">timeframe</span><span class="p">],</span>
         <span class="n">compression</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">compression</span><span class="p">)</span>
 
-    <span class="c"># First add the original data - smaller timeframe</span>
+    <span class="c1"># First add the original data - smaller timeframe</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">adddata</span><span class="p">(</span><span class="n">data_replayed</span><span class="p">)</span>
 
-    <span class="c"># Run over everything</span>
+    <span class="c1"># Run over everything</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">preload</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
 </pre></div>
 </div>
 <div class="section" id="example-replay-daily-to-weekly">
@@ -200,17 +201,17 @@ bar.</p>
 </div></blockquote>
 <p>The visual output is that of the weekly chart which is the final outcome the
 system is being tested again.</p>
-<a data-lightbox="group-0c37a730-3a72-4c4d-ad3f-9be70af23d08"
-                   href="../../../_images\replay-daily-weekly1.png"
-                   class=""
-                   title=""
-                   data-title=""
-                   ><img src="../../../_images\replay-daily-weekly1.png"
-                    class=""
-                    width="100%"
-                    height="auto"
-                    alt=""/>
-                    </a></div>
+<a class=""
+               data-lightbox="group-97a3addf-7b94-4ce2-91ff-d8951ab875d7"
+               href="../../../_images/replay-daily-weekly1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/replay-daily-weekly1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a></div>
 <div class="section" id="example-2-daily-to-daily-with-compression">
 <h2>Example 2 - Daily to Daily with Compression<a class="headerlink" href="#example-2-daily-to-daily-with-compression" title="Permalink to this headline">¶</a></h2>
 <p>Of course &#8220;Replaying&#8221; can be applied to the same timeframe but with a
@@ -236,17 +237,17 @@ prenext len 4 - counter 7
 </div>
 <p>This time we got half the bars as expected because of the factor 2 requested compression.</p>
 <p>The chart:</p>
-<a data-lightbox="group-6813814c-defd-4584-b8ff-844d8909bab1"
-                   href="../../../_images\replay-daily-daily-compression-21.png"
-                   class=""
-                   title=""
-                   data-title=""
-                   ><img src="../../../_images\replay-daily-daily-compression-21.png"
-                    class=""
-                    width="100%"
-                    height="auto"
-                    alt=""/>
-                    </a></div>
+<a class=""
+               data-lightbox="group-63a3642e-0fd6-415b-88f0-7817f9312468"
+               href="../../../_images/replay-daily-daily-compression-21.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/replay-daily-daily-compression-21.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a></div>
 <div class="section" id="conclusion">
 <h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
 <p>A reconstruction of the market development is possible. Usually a smaller
@@ -265,8 +266,8 @@ timeframe which the system operates on.</p>
 
 <span class="k">class</span> <span class="nc">SMAStrategy</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Strategy</span><span class="p">):</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="p">(</span><span class="s">&#39;period&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
-        <span class="p">(</span><span class="s">&#39;onlydaily&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;onlydaily&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">),</span>
     <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -277,27 +278,27 @@ timeframe which the system operates on.</p>
 
     <span class="k">def</span> <span class="nf">prenext</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&#39;prenext len </span><span class="si">%d</span><span class="s"> - counter </span><span class="si">%d</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;prenext len </span><span class="si">%d</span><span class="s1"> - counter </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&#39;---next len </span><span class="si">%d</span><span class="s"> - counter </span><span class="si">%d</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;---next len </span><span class="si">%d</span><span class="s1"> - counter </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="p">))</span>
 
 
 <span class="k">def</span> <span class="nf">runstrat</span><span class="p">():</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">parse_args</span><span class="p">()</span>
 
-    <span class="c"># Create a cerebro entity</span>
+    <span class="c1"># Create a cerebro entity</span>
     <span class="n">cerebro</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">Cerebro</span><span class="p">(</span><span class="n">stdstats</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 
     <span class="n">cerebro</span><span class="o">.</span><span class="n">addstrategy</span><span class="p">(</span>
         <span class="n">SMAStrategy</span><span class="p">,</span>
-        <span class="c"># args for the strategy</span>
+        <span class="c1"># args for the strategy</span>
         <span class="n">period</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">period</span><span class="p">,</span>
     <span class="p">)</span>
 
-    <span class="c"># Load the Data</span>
-    <span class="n">datapath</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">dataname</span> <span class="ow">or</span> <span class="s">&#39;../datas/sample/2006-day-001.txt&#39;</span>
+    <span class="c1"># Load the Data</span>
+    <span class="n">datapath</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">dataname</span> <span class="ow">or</span> <span class="s1">&#39;../datas/sample/2006-day-001.txt&#39;</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">btfeeds</span><span class="o">.</span><span class="n">BacktraderCSVData</span><span class="p">(</span>
         <span class="n">dataname</span><span class="o">=</span><span class="n">datapath</span><span class="p">)</span>
 
@@ -306,44 +307,44 @@ timeframe which the system operates on.</p>
         <span class="n">weekly</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">TimeFrame</span><span class="o">.</span><span class="n">Weeks</span><span class="p">,</span>
         <span class="n">monthly</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">TimeFrame</span><span class="o">.</span><span class="n">Months</span><span class="p">)</span>
 
-    <span class="c"># Handy dictionary for the argument timeframe conversion</span>
-    <span class="c"># Resample the data</span>
+    <span class="c1"># Handy dictionary for the argument timeframe conversion</span>
+    <span class="c1"># Resample the data</span>
     <span class="n">data_replayed</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">DataReplayer</span><span class="p">(</span>
         <span class="n">dataname</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
         <span class="n">timeframe</span><span class="o">=</span><span class="n">tframes</span><span class="p">[</span><span class="n">args</span><span class="o">.</span><span class="n">timeframe</span><span class="p">],</span>
         <span class="n">compression</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">compression</span><span class="p">)</span>
 
-    <span class="c"># First add the original data - smaller timeframe</span>
+    <span class="c1"># First add the original data - smaller timeframe</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">adddata</span><span class="p">(</span><span class="n">data_replayed</span><span class="p">)</span>
 
-    <span class="c"># Run over everything</span>
+    <span class="c1"># Run over everything</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">preload</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 
-    <span class="c"># Plot the result</span>
-    <span class="n">cerebro</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s">&#39;bar&#39;</span><span class="p">)</span>
+    <span class="c1"># Plot the result</span>
+    <span class="n">cerebro</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">parse_args</span><span class="p">():</span>
     <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span>
-        <span class="n">description</span><span class="o">=</span><span class="s">&#39;Pandas test script&#39;</span><span class="p">)</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Pandas test script&#39;</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--dataname&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;File Data to Load&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--dataname&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;File Data to Load&#39;</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--timeframe&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">&#39;weekly&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
-                        <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;daily&#39;</span><span class="p">,</span> <span class="s">&#39;weekly&#39;</span><span class="p">,</span> <span class="s">&#39;monhtly&#39;</span><span class="p">],</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Timeframe to resample to&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--timeframe&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;weekly&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                        <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;daily&#39;</span><span class="p">,</span> <span class="s1">&#39;weekly&#39;</span><span class="p">,</span> <span class="s1">&#39;monhtly&#39;</span><span class="p">],</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Timeframe to resample to&#39;</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--compression&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Compress n bars into 1&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--compression&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Compress n bars into 1&#39;</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--period&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Period to apply to indicator&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--period&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Period to apply to indicator&#39;</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">runstrat</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -427,9 +428,11 @@ timeframe which the system operates on.</p>
     <img
         alt="https://secure.travis-ci.org/mementum/backtrader.png?branch=master"
         src="https://secure.travis-ci.org/mementum/backtrader.png?branch=master"
-    >
+    />
 </a>
 </p>
+
+
 
   
   
@@ -491,15 +494,15 @@ timeframe which the system operates on.</p>
   <ul>
     
     
+      <li><a href="../../2016-03-07-release-1.2.1.88/release-1.2.1.88/">Mar 07 - Release 1.2.1.88</a></li>
+    
+      <li><a href="../../2015-11-21-data-filters/data-filling-filtering/">Nov 21 - Data Filters</a></li>
+    
+      <li><a href="../../2015-11-20-commission-schemes-subclassing/commission-schemes-subclassing/">Nov 20 - User Defined Commissions</a></li>
+    
       <li><a href="../../2015-11-05-commission-schemes-extended/commission-schemes-extended/">Nov 05 - Extending Commissions</a></li>
     
       <li><a href="../../2015-10-05-multitrades/multitrades/">Oct 05 - MultiTrades</a></li>
-    
-      <li><a href="../../2015-10-04-bar-synchronization/bar-synchronization/">Oct 04 - Bar Synchronization</a></li>
-    
-      <li><a href="../../2015-09-25-tickdata-resample/resample-tickdata/">Sep 25 - Tick Data and Resampling</a></li>
-    
-      <li><a href="../../2015-09-21-plotting-same-axis/plotting-same-axis/">Sep 21 - Plotting on the same axis</a></li>
     
   </ul>
 
@@ -507,7 +510,11 @@ timeframe which the system operates on.</p>
   <ul>
   
     
-    <li><a href="../../../blog/2015/">2015 (25)</a></li>
+    <li><a href="../../../blog/2016/">2016 (1)</a></li>
+    
+  
+    
+    <li><a href="../../../blog/2015/">2015 (27)</a></li>
     
   
   </ul>
@@ -533,8 +540,8 @@ timeframe which the system operates on.</p>
       &copy;2015, mementum.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
       
       |
       <a href="../../../_sources/posts/2015-08-25-data-replay/data-replay.txt"

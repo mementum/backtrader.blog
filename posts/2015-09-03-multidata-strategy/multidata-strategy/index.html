@@ -32,7 +32,7 @@
   
    
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   
   
@@ -182,17 +182,17 @@ Ending   Value - 99959.26
 </div></blockquote>
 <p><strong>So much for the correlation between Yahoo and Oracle</strong></p>
 <p>The Visual Ouput (add <code class="docutils literal"><span class="pre">--plot</span></code> to produce a chart)</p>
-<a data-lightbox="group-4f81d292-8c22-4829-8736-ad4bccfcc4e3"
-                   href="../../../_images\multidata-strategy-defaults1.png"
-                   class=""
-                   title=""
-                   data-title=""
-                   ><img src="../../../_images\multidata-strategy-defaults1.png"
-                    class=""
-                    width="100%"
-                    height="auto"
-                    alt=""/>
-                    </a><p>And the script (which has been added to the source distribution of
+<a class=""
+               data-lightbox="group-9f39fca3-b63e-4def-aa0b-fa924b661567"
+               href="../../../_images/multidata-strategy-defaults1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/multidata-strategy-defaults1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>And the script (which has been added to the source distribution of
 <code class="docutils literal"><span class="pre">backtrader</span></code> under the <code class="docutils literal"><span class="pre">samples/multidata-strategy</span></code> directory.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
@@ -200,7 +200,7 @@ Ending   Value - 99959.26
 <span class="kn">import</span> <span class="nn">argparse</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
 
-<span class="c"># The above could be sent to an independent module</span>
+<span class="c1"># The above could be sent to an independent module</span>
 <span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
 <span class="kn">import</span> <span class="nn">backtrader.feeds</span> <span class="kn">as</span> <span class="nn">btfeeds</span>
 <span class="kn">import</span> <span class="nn">backtrader.indicators</span> <span class="kn">as</span> <span class="nn">btind</span>
@@ -227,145 +227,145 @@ Ending   Value - 99959.26
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">printout</span><span class="p">:</span>
             <span class="n">dt</span> <span class="o">=</span> <span class="n">dt</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">datetime</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
             <span class="n">dt</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">num2date</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
-            <span class="k">print</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span class="s">, </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span> <span class="n">txt</span><span class="p">))</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span> <span class="n">txt</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">notify_order</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">order</span><span class="o">.</span><span class="n">status</span> <span class="ow">in</span> <span class="p">[</span><span class="n">bt</span><span class="o">.</span><span class="n">Order</span><span class="o">.</span><span class="n">Submitted</span><span class="p">,</span> <span class="n">bt</span><span class="o">.</span><span class="n">Order</span><span class="o">.</span><span class="n">Accepted</span><span class="p">]:</span>
-            <span class="k">return</span>  <span class="c"># Await further notifications</span>
+            <span class="k">return</span>  <span class="c1"># Await further notifications</span>
 
         <span class="k">if</span> <span class="n">order</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">order</span><span class="o">.</span><span class="n">Completed</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">order</span><span class="o">.</span><span class="n">isbuy</span><span class="p">():</span>
-                <span class="n">buytxt</span> <span class="o">=</span> <span class="s">&#39;BUY COMPLETE, </span><span class="si">%.2f</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">order</span><span class="o">.</span><span class="n">executed</span><span class="o">.</span><span class="n">price</span>
+                <span class="n">buytxt</span> <span class="o">=</span> <span class="s1">&#39;BUY COMPLETE, </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">order</span><span class="o">.</span><span class="n">executed</span><span class="o">.</span><span class="n">price</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">buytxt</span><span class="p">,</span> <span class="n">order</span><span class="o">.</span><span class="n">executed</span><span class="o">.</span><span class="n">dt</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">selltxt</span> <span class="o">=</span> <span class="s">&#39;SELL COMPLETE, </span><span class="si">%.2f</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">order</span><span class="o">.</span><span class="n">executed</span><span class="o">.</span><span class="n">price</span>
+                <span class="n">selltxt</span> <span class="o">=</span> <span class="s1">&#39;SELL COMPLETE, </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">order</span><span class="o">.</span><span class="n">executed</span><span class="o">.</span><span class="n">price</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">selltxt</span><span class="p">,</span> <span class="n">order</span><span class="o">.</span><span class="n">executed</span><span class="o">.</span><span class="n">dt</span><span class="p">)</span>
 
         <span class="k">elif</span> <span class="n">order</span><span class="o">.</span><span class="n">status</span> <span class="ow">in</span> <span class="p">[</span><span class="n">order</span><span class="o">.</span><span class="n">Expired</span><span class="p">,</span> <span class="n">order</span><span class="o">.</span><span class="n">Canceled</span><span class="p">,</span> <span class="n">order</span><span class="o">.</span><span class="n">Margin</span><span class="p">]:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span class="s"> ,&#39;</span> <span class="o">%</span> <span class="n">order</span><span class="o">.</span><span class="n">Status</span><span class="p">[</span><span class="n">order</span><span class="o">.</span><span class="n">status</span><span class="p">])</span>
-            <span class="k">pass</span>  <span class="c"># Simply log</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> ,&#39;</span> <span class="o">%</span> <span class="n">order</span><span class="o">.</span><span class="n">Status</span><span class="p">[</span><span class="n">order</span><span class="o">.</span><span class="n">status</span><span class="p">])</span>
+            <span class="k">pass</span>  <span class="c1"># Simply log</span>
 
-        <span class="c"># Allow new orders</span>
+        <span class="c1"># Allow new orders</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">orderid</span> <span class="o">=</span> <span class="bp">None</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c"># To control operation entries</span>
+        <span class="c1"># To control operation entries</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">orderid</span> <span class="o">=</span> <span class="bp">None</span>
 
-        <span class="c"># Create SMA on 2nd data</span>
+        <span class="c1"># Create SMA on 2nd data</span>
         <span class="n">sma</span> <span class="o">=</span> <span class="n">btind</span><span class="o">.</span><span class="n">MovAv</span><span class="o">.</span><span class="n">SMA</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data1</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">period</span><span class="p">)</span>
-        <span class="c"># Create a CrossOver Signal from close an moving average</span>
+        <span class="c1"># Create a CrossOver Signal from close an moving average</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">signal</span> <span class="o">=</span> <span class="n">btind</span><span class="o">.</span><span class="n">CrossOver</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data1</span><span class="o">.</span><span class="n">close</span><span class="p">,</span> <span class="n">sma</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">orderid</span><span class="p">:</span>
-            <span class="k">return</span>  <span class="c"># if an order is active, no new orders are allowed</span>
+            <span class="k">return</span>  <span class="c1"># if an order is active, no new orders are allowed</span>
 
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="p">:</span>  <span class="c"># not yet in market</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">signal</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>  <span class="c"># cross upwards</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#39;BUY CREATE , </span><span class="si">%.2f</span><span class="s">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">data1</span><span class="o">.</span><span class="n">close</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="p">:</span>  <span class="c1"># not yet in market</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">signal</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>  <span class="c1"># cross upwards</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;BUY CREATE , </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">data1</span><span class="o">.</span><span class="n">close</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">buy</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">stake</span><span class="p">)</span>
 
-        <span class="k">else</span><span class="p">:</span>  <span class="c"># in the market</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">signal</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>  <span class="c"># crosss downwards</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#39;SELL CREATE , </span><span class="si">%.2f</span><span class="s">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">data1</span><span class="o">.</span><span class="n">close</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># in the market</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">signal</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>  <span class="c1"># crosss downwards</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;SELL CREATE , </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">data1</span><span class="o">.</span><span class="n">close</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">sell</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">stake</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&#39;==================================================&#39;</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Starting Value - </span><span class="si">%.2f</span><span class="s">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">startingcash</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Ending   Value - </span><span class="si">%.2f</span><span class="s">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&#39;==================================================&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;==================================================&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Starting Value - </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">startingcash</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Ending   Value - </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;==================================================&#39;</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">runstrategy</span><span class="p">():</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">parse_args</span><span class="p">()</span>
 
-    <span class="c"># Create a cerebro</span>
+    <span class="c1"># Create a cerebro</span>
     <span class="n">cerebro</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">Cerebro</span><span class="p">()</span>
 
-    <span class="c"># Get the dates from the args</span>
-    <span class="n">fromdate</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">fromdate</span><span class="p">,</span> <span class="s">&#39;%Y-%m-</span><span class="si">%d</span><span class="s">&#39;</span><span class="p">)</span>
-    <span class="n">todate</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">todate</span><span class="p">,</span> <span class="s">&#39;%Y-%m-</span><span class="si">%d</span><span class="s">&#39;</span><span class="p">)</span>
+    <span class="c1"># Get the dates from the args</span>
+    <span class="n">fromdate</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">fromdate</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">todate</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">todate</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
 
-    <span class="c"># Create the 1st data</span>
+    <span class="c1"># Create the 1st data</span>
     <span class="n">data0</span> <span class="o">=</span> <span class="n">btfeeds</span><span class="o">.</span><span class="n">YahooFinanceCSVData</span><span class="p">(</span>
         <span class="n">dataname</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">data0</span><span class="p">,</span>
         <span class="n">fromdate</span><span class="o">=</span><span class="n">fromdate</span><span class="p">,</span>
         <span class="n">todate</span><span class="o">=</span><span class="n">todate</span><span class="p">)</span>
 
-    <span class="c"># Add the 1st data to cerebro</span>
+    <span class="c1"># Add the 1st data to cerebro</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">adddata</span><span class="p">(</span><span class="n">data0</span><span class="p">)</span>
 
-    <span class="c"># Create the 2nd data</span>
+    <span class="c1"># Create the 2nd data</span>
     <span class="n">data1</span> <span class="o">=</span> <span class="n">btfeeds</span><span class="o">.</span><span class="n">YahooFinanceCSVData</span><span class="p">(</span>
         <span class="n">dataname</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">data1</span><span class="p">,</span>
         <span class="n">fromdate</span><span class="o">=</span><span class="n">fromdate</span><span class="p">,</span>
         <span class="n">todate</span><span class="o">=</span><span class="n">todate</span><span class="p">)</span>
 
-    <span class="c"># Add the 2nd data to cerebro</span>
+    <span class="c1"># Add the 2nd data to cerebro</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">adddata</span><span class="p">(</span><span class="n">data1</span><span class="p">)</span>
 
-    <span class="c"># Add the strategy</span>
+    <span class="c1"># Add the strategy</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">addstrategy</span><span class="p">(</span><span class="n">MultiDataStrategy</span><span class="p">,</span>
                         <span class="n">period</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">period</span><span class="p">,</span>
                         <span class="n">stake</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">stake</span><span class="p">)</span>
 
-    <span class="c"># Add the commission - only stocks like a for each operation</span>
+    <span class="c1"># Add the commission - only stocks like a for each operation</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">setcash</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">cash</span><span class="p">)</span>
 
-    <span class="c"># Add the commission - only stocks like a for each operation</span>
+    <span class="c1"># Add the commission - only stocks like a for each operation</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">setcommission</span><span class="p">(</span><span class="n">commission</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">commperc</span><span class="p">)</span>
 
-    <span class="c"># And run it</span>
+    <span class="c1"># And run it</span>
     <span class="n">cerebro</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 
-    <span class="c"># Plot if requested</span>
+    <span class="c1"># Plot if requested</span>
     <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">plot</span><span class="p">:</span>
         <span class="n">cerebro</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">numfigs</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">numfigs</span><span class="p">,</span> <span class="n">volume</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">zdown</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">parse_args</span><span class="p">():</span>
-    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">&#39;MultiData Strategy&#39;</span><span class="p">)</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;MultiData Strategy&#39;</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--data0&#39;</span><span class="p">,</span> <span class="s">&#39;-d0&#39;</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="s">&#39;../../datas/orcl-1995-2014.txt&#39;</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;1st data into the system&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--data0&#39;</span><span class="p">,</span> <span class="s1">&#39;-d0&#39;</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="s1">&#39;../../datas/orcl-1995-2014.txt&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;1st data into the system&#39;</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--data1&#39;</span><span class="p">,</span> <span class="s">&#39;-d1&#39;</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="s">&#39;../../datas/yhoo-1996-2014.txt&#39;</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;2nd data into the system&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--data1&#39;</span><span class="p">,</span> <span class="s1">&#39;-d1&#39;</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="s1">&#39;../../datas/yhoo-1996-2014.txt&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;2nd data into the system&#39;</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--fromdate&#39;</span><span class="p">,</span> <span class="s">&#39;-f&#39;</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="s">&#39;2003-01-01&#39;</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Starting date in YYYY-MM-DD format&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--fromdate&#39;</span><span class="p">,</span> <span class="s1">&#39;-f&#39;</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="s1">&#39;2003-01-01&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Starting date in YYYY-MM-DD format&#39;</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--todate&#39;</span><span class="p">,</span> <span class="s">&#39;-t&#39;</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="s">&#39;2005-12-31&#39;</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Starting date in YYYY-MM-DD format&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--todate&#39;</span><span class="p">,</span> <span class="s1">&#39;-t&#39;</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="s1">&#39;2005-12-31&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Starting date in YYYY-MM-DD format&#39;</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--period&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Period to apply to the Simple Moving Average&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--period&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Period to apply to the Simple Moving Average&#39;</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--cash&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Starting Cash&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--cash&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Starting Cash&#39;</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--commperc&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Percentage commission for operation (0.005 is 0.5</span><span class="si">%%</span><span class="s">&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--commperc&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Percentage commission for operation (0.005 is 0.5</span><span class="si">%%</span><span class="s1">&#39;</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--stake&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Stake to apply in each operation&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--stake&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Stake to apply in each operation&#39;</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--plot&#39;</span><span class="p">,</span> <span class="s">&#39;-p&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&#39;store_true&#39;</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Plot the read data&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--plot&#39;</span><span class="p">,</span> <span class="s1">&#39;-p&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Plot the read data&#39;</span><span class="p">)</span>
 
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--numfigs&#39;</span><span class="p">,</span> <span class="s">&#39;-n&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Plot using numfigs figures&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--numfigs&#39;</span><span class="p">,</span> <span class="s1">&#39;-n&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Plot using numfigs figures&#39;</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">runstrategy</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -448,9 +448,11 @@ Ending   Value - 99959.26
     <img
         alt="https://secure.travis-ci.org/mementum/backtrader.png?branch=master"
         src="https://secure.travis-ci.org/mementum/backtrader.png?branch=master"
-    >
+    />
 </a>
 </p>
+
+
 
   
   
@@ -512,15 +514,15 @@ Ending   Value - 99959.26
   <ul>
     
     
+      <li><a href="../../2016-03-07-release-1.2.1.88/release-1.2.1.88/">Mar 07 - Release 1.2.1.88</a></li>
+    
+      <li><a href="../../2015-11-21-data-filters/data-filling-filtering/">Nov 21 - Data Filters</a></li>
+    
+      <li><a href="../../2015-11-20-commission-schemes-subclassing/commission-schemes-subclassing/">Nov 20 - User Defined Commissions</a></li>
+    
       <li><a href="../../2015-11-05-commission-schemes-extended/commission-schemes-extended/">Nov 05 - Extending Commissions</a></li>
     
       <li><a href="../../2015-10-05-multitrades/multitrades/">Oct 05 - MultiTrades</a></li>
-    
-      <li><a href="../../2015-10-04-bar-synchronization/bar-synchronization/">Oct 04 - Bar Synchronization</a></li>
-    
-      <li><a href="../../2015-09-25-tickdata-resample/resample-tickdata/">Sep 25 - Tick Data and Resampling</a></li>
-    
-      <li><a href="../../2015-09-21-plotting-same-axis/plotting-same-axis/">Sep 21 - Plotting on the same axis</a></li>
     
   </ul>
 
@@ -528,7 +530,11 @@ Ending   Value - 99959.26
   <ul>
   
     
-    <li><a href="../../../blog/2015/">2015 (25)</a></li>
+    <li><a href="../../../blog/2016/">2016 (1)</a></li>
+    
+  
+    
+    <li><a href="../../../blog/2015/">2015 (27)</a></li>
     
   
   </ul>
@@ -554,8 +560,8 @@ Ending   Value - 99959.26
       &copy;2015, mementum.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
       
       |
       <a href="../../../_sources/posts/2015-09-03-multidata-strategy/multidata-strategy.txt"
