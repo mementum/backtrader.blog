@@ -11,7 +11,7 @@ One of the key concepts applied during the conception and development of
 capabilities of Python were (and still are) the basis to keep many things
 flexible whilst still being able to deliver.
 
-An old post shows that:
+An old post shows the extension concept.
 
   - `Extending a datafeed
     <http://www.backtrader.com/posts/2015-08-07/extending-a-datafeed/>`_
