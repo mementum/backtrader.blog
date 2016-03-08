@@ -64,8 +64,6 @@ The result::
       # add the parameter to the parameters inherited from the base class
       params = (('pe', 8),)
 
-      linefields = GenericCSVData.linefields + ['pe']
-
 And the job is done ...
 
 Later and when using this data feed inside a strategy::
