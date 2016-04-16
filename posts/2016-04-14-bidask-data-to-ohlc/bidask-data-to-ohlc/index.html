@@ -56,11 +56,11 @@
             
   <div class="section" id="bid-ask-data-to-ohlc">
 <h1>Bid-Ask Data to OHLC<a class="headerlink" href="#bid-ask-data-to-ohlc" title="Permalink to this headline">¶</a></h1>
-<p>Lately <code class="docutils literal"><span class="pre">backtrader</span></code> escaped from <a class="reference internal" href="../../2016-03-08-escape-from-ohlc-land/escape-from-ohlc-land/#escape-from-ohlc-land"><span>Escape from OHLC Land</span></a> by implementing
+<p>Lately <code class="docutils literal"><span class="pre">backtrader</span></code> executed an <a class="reference internal" href="../../2016-03-08-escape-from-ohlc-land/escape-from-ohlc-land/#escape-from-ohlc-land"><span>Escape from OHLC Land</span></a> by implementing
 line overriding, which allows to redefine the entire hierarchy and for example
 have data feeds which only feature <code class="docutils literal"><span class="pre">bid</span></code>, <code class="docutils literal"><span class="pre">ask</span></code> and <code class="docutils literal"><span class="pre">datetime</span></code> lines.</p>
 <p>This opens the question as to how to visualize such data and this is most
-effectively done in <code class="docutils literal"><span class="pre">OHLC`</span> <span class="pre">format</span> <span class="pre">(be</span> <span class="pre">it</span> <span class="pre">a</span> <span class="pre">``bar</span></code> or a <code class="docutils literal"><span class="pre">candlestick</span></code>)</p>
+effectively done in <code class="docutils literal"><span class="pre">OHLC</span></code> format (be it a <code class="docutils literal"><span class="pre">bar</span></code> or a <code class="docutils literal"><span class="pre">candlestick</span></code>)</p>
 <p>Steps needed:</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -175,7 +175,7 @@ original rows it will deliver <code class="docutils literal"><span class="pre">r
 is not really nice due to the low amount of data and the low variance of the
 data and how <code class="docutils literal"><span class="pre">matplotlib</span></code> internally handles this situation.</p>
 <a class=""
-               data-lightbox="group-b20cb644-e425-4b53-a000-fc20c59140b0"
+               data-lightbox="group-51e9488b-3dc5-4e9c-8799-f26bee449d48"
                href="../../../_images/bidask-data-to-ohlc1.png"
                title=""
                data-title=""

@@ -15,11 +15,11 @@
     <author>
       <name>mementum</name>
     </author>
-    <content type="html">&lt;p&gt;Lately &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt; escaped from &lt;a class=&quot;reference internal&quot; href=&quot;../posts/2016-03-08-escape-from-ohlc-land/escape-from-ohlc-land/#escape-from-ohlc-land&quot;&gt;&lt;span&gt;Escape from OHLC Land&lt;/span&gt;&lt;/a&gt; by implementing
+    <content type="html">&lt;p&gt;Lately &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt; executed an &lt;a class=&quot;reference internal&quot; href=&quot;../posts/2016-03-08-escape-from-ohlc-land/escape-from-ohlc-land/#escape-from-ohlc-land&quot;&gt;&lt;span&gt;Escape from OHLC Land&lt;/span&gt;&lt;/a&gt; by implementing
 line overriding, which allows to redefine the entire hierarchy and for example
 have data feeds which only feature &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;bid&lt;/span&gt;&lt;/code&gt;, &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;ask&lt;/span&gt;&lt;/code&gt; and &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;datetime&lt;/span&gt;&lt;/code&gt; lines.&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-b20cb644-e425-4b53-a000-fc20c59140b0&quot;
+               data-lightbox=&quot;group-51e9488b-3dc5-4e9c-8799-f26bee449d48&quot;
                href=&quot;../_images/bidask-data-to-ohlc1.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
