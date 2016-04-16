@@ -89,6 +89,21 @@ time</li>
 <div class="section" id="the-blog-entries">
 <h2>The Blog Entries<a class="headerlink" href="#the-blog-entries" title="Permalink to this headline">¶</a></h2>
 <ul class="postlist-style-circle postlist">
+<li><p class="first"><a class="reference internal" href="posts/2016-04-14-bidask-data-to-ohlc/bidask-data-to-ohlc/">Bid-Ask Data to OHLC</a> by <a class="reference internal" href="blog/author/mementum/" title="mementum"><em>mementum</em></a> on Apr 16</p>
+<p>Lately <code class="docutils literal"><span class="pre">backtrader</span></code> escaped from <a class="reference internal" href="posts/2016-03-08-escape-from-ohlc-land/escape-from-ohlc-land/#escape-from-ohlc-land"><span>Escape from OHLC Land</span></a> by implementing
+line overriding, which allows to redefine the entire hierarchy and for example
+have data feeds which only feature <code class="docutils literal"><span class="pre">bid</span></code>, <code class="docutils literal"><span class="pre">ask</span></code> and <code class="docutils literal"><span class="pre">datetime</span></code> lines.</p>
+<a class=""
+               data-lightbox="group-b20cb644-e425-4b53-a000-fc20c59140b0"
+               href="_images/bidask-data-to-ohlc1.png"
+               title=""
+               data-title=""
+               ><img src="_images/bidask-data-to-ohlc1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a></li>
 <li><p class="first"><a class="reference internal" href="posts/2016-03-08-escape-from-ohlc-land/escape-from-ohlc-land/">Escape from OHLC Land</a> by <a class="reference internal" href="blog/author/mementum/" title="mementum"><em>mementum</em></a> on Mar 08</p>
 <p>One of the key concepts applied during the conception and development of
 <code class="docutils literal"><span class="pre">backtrader</span></code> was <strong>flexibility</strong>. The <em>metaprogramming</em> and <em>introspection</em>
@@ -110,21 +125,6 @@ in the context of that ticket.</p>
 basics were outlined in <a class="reference internal" href="posts/2015-11-05-commission-schemes-extended/commission-schemes-extended/#commission-schemes-extended"><span>Extending Commissions</span></a>. The most important
 part of the rework involved:</p>
 </li>
-<li><p class="first"><a class="reference internal" href="posts/2015-11-05-commission-schemes-extended/commission-schemes-extended/">Extending Commissions</a> by <a class="reference internal" href="blog/author/mementum/" title="mementum"><em>mementum</em></a> on Nov 05</p>
-<p>Commissions and asociated functionality were managed by a single class
-<code class="docutils literal"><span class="pre">CommissionInfo</span></code> which was mostly instantiated by calling
-<code class="docutils literal"><span class="pre">broker.setcommission</span></code>.</p>
-<a class=""
-               data-lightbox="group-e7cb2539-c45e-4c8b-8f27-6ab2a68338a4"
-               href="_images/commission-futures-extended1.png"
-               title=""
-               data-title=""
-               ><img src="_images/commission-futures-extended1.png"
-                     class=""
-                     width="100%"
-                     height="auto"
-                     alt=""/>
-                </a></li>
 </ul>
 <div class="toctree-wrapper compound">
 </div>
@@ -180,6 +180,8 @@ part of the rework involved:</p>
   <ul>
     
     
+      <li><a href="posts/2016-04-14-bidask-data-to-ohlc/bidask-data-to-ohlc/">Apr 16 - Bid-Ask Data to OHLC</a></li>
+    
       <li><a href="posts/2016-03-08-escape-from-ohlc-land/escape-from-ohlc-land/">Mar 08 - Escape from OHLC Land</a></li>
     
       <li><a href="posts/2016-03-07-release-1.2.1.88/release-1.2.1.88/">Mar 07 - Release 1.2.1.88</a></li>
@@ -188,15 +190,13 @@ part of the rework involved:</p>
     
       <li><a href="posts/2015-11-20-commission-schemes-subclassing/commission-schemes-subclassing/">Nov 20 - User Defined Commissions</a></li>
     
-      <li><a href="posts/2015-11-05-commission-schemes-extended/commission-schemes-extended/">Nov 05 - Extending Commissions</a></li>
-    
   </ul>
 
   <h3><a href="blog/archive/">Archives</a></h3>
   <ul>
   
     
-    <li><a href="blog/2016/">2016 (2)</a></li>
+    <li><a href="blog/2016/">2016 (3)</a></li>
     
   
     
