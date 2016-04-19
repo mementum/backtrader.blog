@@ -2,10 +2,36 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">backtrader Blog</title>
   <id>http://www.backtrader.com/blog/atom.xml</id>
-  <updated>2016-04-16T00:00:00Z</updated>
+  <updated>2016-04-19T00:00:00Z</updated>
   <link href="http://www.backtrader.com" />
   <link href="http://www.backtrader.com/blog/atom.xml" rel="self" />
   <generator uri="http://ablog.readthedocs.org" version="0.8.2">ABlog</generator>
+  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+    <title type="text">Synchronizing different markets</title>
+    <id>http://www.backtrader.com/posts/2016-04-19-sync-different-markets/sync-different-markets/</id>
+    <updated>2016-04-19T00:00:00Z</updated>
+    <published>2016-04-19T00:00:00Z</published>
+    <link href="http://www.backtrader.com/posts/2016-04-19-sync-different-markets/sync-different-markets/" />
+    <author>
+      <name>mementum</name>
+    </author>
+    <content type="html">&lt;p&gt;The more the usage the more the mix of ideas and unexpected scenarios that
+&lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt; has to face. And with each new one, a challenge to see if the
+platform can live up to the expectations set forth when development started,
+flexibility and ease of use were the targets and &lt;em&gt;Python&lt;/em&gt; was chosen as the
+cornerstone.&lt;/p&gt;
+&lt;a class=&quot;&quot;
+               data-lightbox=&quot;group-cec79244-258e-4848-906d-fc41f0ad249c&quot;
+               href=&quot;../_images/gspc-gdaxi-synced1.png&quot;
+               title=&quot;&quot;
+               data-title=&quot;&quot;
+               &gt;&lt;img src=&quot;../_images/gspc-gdaxi-synced1.png&quot;
+                     class=&quot;&quot;
+                     width=&quot;100%&quot;
+                     height=&quot;auto&quot;
+                     alt=&quot;&quot;/&gt;
+                &lt;/a&gt;</content>
+  </entry>
   <entry xml:base="http://www.backtrader.com/blog/atom.xml">
     <title type="text">Bid-Ask Data to OHLC</title>
     <id>http://www.backtrader.com/posts/2016-04-14-bidask-data-to-ohlc/bidask-data-to-ohlc/</id>
