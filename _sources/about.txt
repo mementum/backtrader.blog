@@ -43,4 +43,4 @@ Documentation
 
 A somehow complete (probably with errors) documentation is available at:
 
-  - <http://backtrader.readthedocs.org/en/latest/introduction.html>
+  - <http://backtrader.readthedocs.io/>
