@@ -1,0 +1,1145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Live Data/Live Trading &mdash; backtrader  documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinxcontrib-images\LightBox2\lightbox2\css\lightbox.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/sphinxcontrib-images\LightBox2\lightbox2\js\jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../../_static/sphinxcontrib-images\LightBox2\lightbox2\js\lightbox.min.js"></script>
+    <script type="text/javascript" src="../../../_static/sphinxcontrib-images\LightBox2\lightbox2-customize\jquery-noconflict.js"></script>
+    <link rel="author" title="About these documents" href="../../../about/" />
+    <link rel="top" title="backtrader  documentation" href="../../../" />
+  
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  
+  
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.post-list-style-disc {list-style-type: disc;}
+    ul.post-list-style-none {list-style-type: none;}
+    ul.post-list-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="live-data-live-trading">
+<h1>Live Data/Live Trading<a class="headerlink" href="#live-data-live-trading" title="Permalink to this headline">¶</a></h1>
+<p>Starting with release <em>1.5.0</em>, <code class="docutils literal"><span class="pre">backtrader</span></code> supports Live Data Feeds and Live
+Trading. The first integrated entity is:</p>
+<blockquote>
+<div><ul class="simple">
+<li><em>Interactive Brokers</em></li>
+</ul>
+</div></blockquote>
+<p>This was long sought goal since the inception of the platform as a small
+idea. The design ideas have proven to be flexible enough to accommodate the
+needed changes. All whilst keeping the same interface which means: <em>backtest
+once, trade many times</em>. The same code/api/primitives/notifications are meant
+for <em>backtesting</em> and <em>live data feeding/trading</em>.</p>
+<p>Naming the platform <code class="docutils literal"><span class="pre">back</span></code> + <code class="docutils literal"><span class="pre">trader</span></code> was intentional, although it could
+have well been that it had remained as a pure backtester. But no longer.</p>
+<p>What&#8217;s new changed:</p>
+<blockquote>
+<div><ul class="simple">
+<li><em>Store</em> concept to have a integrated concept for entities like <em>Interactive
+Brokers</em> which provide <em>data</em> and <em>brokering</em> facilities in one go</li>
+<li>New notifications to the <em>strategy</em> and/or <em>cerebro</em> from the <em>store</em>
+and/or <em>data feeds</em></li>
+<li>Time management support ... as one could be trading New York baed products
+from anywhere else and time has to be kept consistent</li>
+<li>Work on Resampling/Replaying to deliver bars as soon as possible or not too
+late if the market is not trading (nobody wants a 5 second resampled bar
+received 30 seconds later, because there were no intervening ticks)</li>
+<li>Of course many small internal changes</li>
+</ul>
+</div></blockquote>
+<p>A great deal of testing has gone into the integration and a large sample called
+<code class="docutils literal"><span class="pre">ibtest</span></code> is integrated in the sources, but being this the 1st release there
+could still be some edges. Should you decide to give this a try, execute 1st
+against <strong>Paper Trading</strong> account provided by <em>Interactive Brokers</em> (usually
+running at port <code class="docutils literal"><span class="pre">7497</span></code> rather than <code class="docutils literal"><span class="pre">7496</span></code>)</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Be sure to be comfortable with the inherent risks associated with data
+disconnection, bugs present in the software (<em>TWS</em> and <em>backtrader</em>), bugs
+in your own software and monitor your activities.</p>
+<p class="last"><code class="docutils literal"><span class="pre">backtrader</span></code> cannot take any responsibility or be held responsible for any
+losses a trader may incur (it will also not take any of the winnings)</p>
+</div>
+<p>What&#8217;s supported from <em>Interactive Brokers</em>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Indices (obviously not for trading), Stocks, Futures, Options, Futures
+Options and Forex</li>
+<li>Backfilling at the start of a connection and after a reconnection</li>
+<li>Notifications on change from live to backfilling and viceversa</li>
+<li>The order types already existing in <em>backtrader</em>: <code class="docutils literal"><span class="pre">Market</span></code>, <code class="docutils literal"><span class="pre">Limit</span></code>,
+<code class="docutils literal"><span class="pre">StopLimit</span></code> and <code class="docutils literal"><span class="pre">Close</span></code> (aka <em>Market on Close*</em>)</li>
+</ul>
+</div></blockquote>
+<p>It is not the intention of the platform to reinvent the wheel, so the following
+is needed/optional to use the <em>Interactive Brokers</em> facilities:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Required: <code class="docutils literal"><span class="pre">IbPy</span></code> to interface with <em>Interative Brokers&#8217; TWS</em></p>
+<p>The documentation for <em>IB</em> indicates how to install it if not already part
+of your arsenal</p>
+</li>
+<li><p class="first">Optional: <code class="docutils literal"><span class="pre">pytz</span></code> to automatically set the timezone for the products.</p>
+<p>The end-user may provide other <code class="docutils literal"><span class="pre">tzinfo</span></code> -compatible  instances (from
+<code class="docutils literal"><span class="pre">pytz</span></code> or home-cooked) directly as a parameter to the data source rather
+than relying on automatic determination. See <em>Time Management</em> in the docs
+and the <em>IB</em> specific part of the documents.</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If no <code class="docutils literal"><span class="pre">pytz</span></code> is detected and no <code class="docutils literal"><span class="pre">tzinfo</span></code> compatible instance is
+supplied to the <em>data feed</em>, the time delivered by the platform will be
+<code class="docutils literal"><span class="pre">UTC</span></code></p>
+</div>
+</div></blockquote>
+<p>As much as possible has been documented and is available at the usual
+documentation link:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="http://backtrader.readthedocs.io/en/latest/">Read The Docs</a></li>
+</ul>
+</div></blockquote>
+<p>A couple of runs from the sample <code class="docutils literal"><span class="pre">ibtest</span></code> against the <em>TWS Demo</em></p>
+<p>First: <code class="docutils literal"><span class="pre">TWTR</span></code> with resampling to 5 seconds:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ./ibtest.py --port 7497 --data0 TWTR --resample --timeframe Seconds --compression 5
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-python"><div class="highlight"><pre>Server Version: 76
+TWS Time at connection:20160620 22:37:37 CET
+--------------------------------------------------
+Strategy Created
+--------------------------------------------------
+Timezone from ContractDetails: EST5EDT
+Datetime, Open, High, Low, Close, Volume, OpenInterest, SMA
+***** STORE NOTIF: &lt;error id=-1, errorCode=2104, errorMsg=Market data farm connection is OK:ibdemo&gt;
+***** STORE NOTIF: &lt;error id=-1, errorCode=2106, errorMsg=HMDS data farm connection is OK:demohmds&gt;
+***** DATA NOTIF: CONNECTED
+0001, 2016-06-20T14:37:35.000000, 15.96, 15.97, 15.96, 15.96, 0.0, 0, nan
+***** DATA NOTIF: DELAYED
+0002, 2016-06-20T14:37:40.000000, 15.96, 15.97, 15.96, 15.96, 0.0, 0, nan
+0003, 2016-06-20T14:37:45.000000, 15.96, 15.97, 15.96, 15.97, 0.0, 0, nan
+0004, 2016-06-20T14:37:50.000000, 15.96, 15.98, 15.94, 15.94, 0.0, 0, nan
+0005, 2016-06-20T14:37:55.000000, 15.97, 15.97, 15.96, 15.97, 0.0, 0, 15.96
+...
+1441, 2016-06-20T16:37:35.000000, 16.03, 16.03, 16.02, 16.03, 0.0, 0, 16.026
+1442, 2016-06-20T16:37:40.000000, 16.11, 16.11, 16.11, 16.11, 2.0, 0, 16.044
+***** DATA NOTIF: LIVE
+1443, 2016-06-20T16:37:45.000000, 16.1, 16.11, 16.1, 16.11, 5.0, 0, 16.06
+1444, 2016-06-20T16:37:50.000000, 16.11, 16.11, 16.1, 16.1, 14.0, 0, 16.076
+...
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The execution environment has <code class="docutils literal"><span class="pre">pytz</span></code> installed</p>
+</div>
+<p>The following can be observed:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">The 1st lines (from <code class="docutils literal"><span class="pre">IbPy</span></code> itself) show the connection to the server has
+succeeded and the data feed has found out the operating timezone of the
+asset: <code class="docutils literal"><span class="pre">EST5EDT</span></code> (aka <code class="docutils literal"><span class="pre">EST</span></code> aka <code class="docutils literal"><span class="pre">US/Eastern</span></code>)</p>
+<p>Notice how the local time (in timezone <code class="docutils literal"><span class="pre">CET</span></code> aka <code class="docutils literal"><span class="pre">Europe/Berlin</span></code>) is
+reported by <em>TWS</em> at the beginning, but the asset is <code class="docutils literal"><span class="pre">6</span></code> hours behind.</p>
+<p>The asset is reported in the time of the trading venue. Check the docs if
+you thing you really want to change this and the reasoning for this behavior.</p>
+</li>
+<li><p class="first">Some notifications from the <em>Store</em>, in this case <em>TWS</em> indicates that the
+connections to the different data farms is ok. This is being printed out by
+methods overriden in the <em>Strategy</em></p>
+</li>
+<li><p class="first"><strong>DATA NOTIFICATIONS</strong> like</p>
+<blockquote>
+<div><ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">CONNECTED</span></code>: to tell the strategy connection to <em>TWS</em> is available</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">DELAYED</span></code>: the data to be received is NOT live data. Backfilling
+(historical data) is taking place.</p>
+<p>Because the resampling parameters are <em>Seconds/5</em> the maximum number of
+5 seconds bar fitting in a single request is downloaded, roughly 1440.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">LIVE</span></code>: as soon as the platform catches up with backfilling and the
+queue is reduced to live data, the notification tells the strategy
+about it.</p>
+<p>From bar 1443 onwards the data is real-time data.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">because resampling is taking place this data is NOT tick-data
+and is delivered at the end of the 5 second period. Please
+check the docs for the <code class="docutils literal"><span class="pre">qcheck</span></code> parameter docs in
+<code class="docutils literal"><span class="pre">IBData</span></code> to understand how quickly a resampled bar will be
+delayed if no new ticks are being sent by the platform
+(because with no new ticks, the platform cannot understand if
+the currently resampled bar is yet over or not)</p>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p>Let&#8217;s do the same but forcing a disconnection (the network interface is
+disabled 20 seconds):</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ./ibtest.py --port 7497 --data0 TWTR --resample --timeframe Seconds --compression 5
+</pre></div>
+</div>
+<p>Output (skipping the initial known part):</p>
+<div class="highlight-python"><div class="highlight"><pre>...
+1440, 2016-06-20T18:16:20.000000, 16.05, 16.05, 16.04, 16.04, 0.0, 0, 16.048
+1441, 2016-06-20T18:16:25.000000, 16.05, 16.05, 16.05, 16.05, 0.0, 0, 16.05
+***** DATA NOTIF: LIVE
+1442, 2016-06-20T18:16:30.000000, 15.9, 15.9, 15.89, 15.9, 11.0, 0, 16.02
+***** STORE NOTIF: &lt;error id=-1, errorCode=1100, errorMsg=Connectivity between IB and TWS has been lost.&gt;
+***** STORE NOTIF: &lt;error id=-1, errorCode=2105, errorMsg=HMDS data farm connection is broken:demohmds&gt;
+***** STORE NOTIF: &lt;error id=-1, errorCode=2103, errorMsg=Market data farm connection is broken:ibdemo&gt;
+1443, 2016-06-20T18:16:35.000000, 15.9, 15.9, 15.89, 15.9, 28.0, 0, 15.988
+***** STORE NOTIF: &lt;error id=-1, errorCode=1102, errorMsg=Connectivity between IB and TWS has been restored - data maintained.&gt;
+***** STORE NOTIF: &lt;error id=-1, errorCode=2106, errorMsg=HMDS data farm connection is OK:demohmds&gt;
+***** STORE NOTIF: &lt;error id=-1, errorCode=2104, errorMsg=Market data farm connection is OK:ibdemo&gt;
+***** DATA NOTIF: DELAYED
+1444, 2016-06-20T18:16:40.000000, 16.04, 16.04, 16.03, 16.04, 0.0, 0, 15.986
+1445, 2016-06-20T18:16:45.000000, 16.03, 16.04, 16.03, 16.04, 0.0, 0, 15.986
+1446, 2016-06-20T18:16:50.000000, 16.04, 16.04, 16.03, 16.03, 0.0, 0, 15.982
+1447, 2016-06-20T18:16:55.000000, 16.04, 16.04, 16.03, 16.04, 0.0, 0, 16.01
+1448, 2016-06-20T18:17:00.000000, 16.03, 16.04, 16.03, 16.04, 0.0, 0, 16.038
+1449, 2016-06-20T18:17:05.000000, 16.03, 16.04, 16.02, 16.03, 0.0, 0, 16.036
+1450, 2016-06-20T18:17:10.000000, 15.9, 15.91, 15.9, 15.91, 3.0, 0, 16.01
+***** DATA NOTIF: LIVE
+1451, 2016-06-20T18:17:15.000000, 15.92, 15.92, 15.9, 15.92, 9.0, 0, 15.988
+1452, 2016-06-20T18:17:20.000000, 15.91, 15.91, 15.89, 15.89, 18.0, 0, 15.958
+1453, 2016-06-20T18:17:25.000000, 15.89, 15.92, 15.89, 15.89, 24.0, 0, 15.928
+...
+</pre></div>
+</div>
+<p>The narrative:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">After bar 1442, the WLAN interface has been disabled</p>
+</li>
+<li><p class="first">TWS notifications arrive indicating the situation</p>
+</li>
+<li><p class="first">Bar 1443 is delivered from the resampler, because the platform had some
+ticks in between <code class="docutils literal"><span class="pre">18:16:30.000000</span></code> and <code class="docutils literal"><span class="pre">18:16:35.000000</span></code></p>
+</li>
+<li><p class="first">Connectivity is restored at around <code class="docutils literal"><span class="pre">18:17:15</span></code>, but this data is not
+delivered at once</p>
+</li>
+<li><p class="first">The situation is identified and <em>backfilling</em> is attempted between
+<code class="docutils literal"><span class="pre">18:16:35</span></code> and <code class="docutils literal"><span class="pre">18:17:15</span></code>.</p>
+<p>This can be seen with the notification <code class="docutils literal"><span class="pre">DELAYED</span></code>. The data is no longer <code class="docutils literal"><span class="pre">LIVE</span></code></p>
+</li>
+<li><p class="first">Bars 1444 to 1450 (both incl.) deliver the missing time</p>
+</li>
+<li><p class="first">The notification <code class="docutils literal"><span class="pre">LIVE</span></code> is received and bar 1451 contains a real-time
+packet</p>
+</li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>There are some situations which <code class="docutils literal"><span class="pre">backtrader</span></code> cannot overcome, because
+<strong>TWS</strong> does not oblige. If TCP/IP packets are somehow lost and the <em>IB</em>
+Server is slow to react, it will take <em>TWS</em> a long time to react and notify
+the loss of connectivity.</p>
+<p class="last"><em>TWS</em> will even deliver packets clearly received late from the server with
+current timestamps (identified through a sudden burst of packets)</p>
+</div>
+<p>And finally some trading, buying <em>20K</em> shares of <code class="docutils literal"><span class="pre">TWTR</span></code> with a single
+<code class="docutils literal"><span class="pre">Market</span></code> order and selling them in 2 orders of <em>10K</em> each.</p>
+<p>Execution:</p>
+<div class="highlight-python"><div class="highlight"><pre>./ibtest.py --port 7497 --data0 TWTR --resample --timeframe Seconds --compression 5 --broker --trade --stake 20000
+</pre></div>
+</div>
+<p>The output is rather verbose, showing all parts of the order
+exeuction. Summarising a bit:</p>
+<div class="highlight-python"><div class="highlight"><pre>...
+***** DATA NOTIF: LIVE
+1442, 2016-06-20T18:28:05.000000, 15.92, 15.93, 15.92, 15.93, 1748.0, 0, 16.03
+-------------------------------------------------- ORDER BEGIN 2016-06-20 23:28:11.343000
+Ref: 1
+OrdType: 0
+OrdType: Buy
+Status: 1
+Status: Submitted
+Size: 20000
+Price: 14.34
+Price Limit: None
+ExecType: 0
+ExecType: Market
+CommInfo: &lt;backtrader.brokers.ibbroker.IBCommInfo object at 0x00000000040B9278&gt;
+End of Session: 736136.166655
+Info: AutoOrderedDict()
+Broker: &lt;backtrader.brokers.ibbroker.IBBroker object at 0x0000000003E23470&gt;
+Alive: True
+Ref: 1
+orderId: 1
+Action: BUY
+Size (ib): 20000
+Lmt Price: 0.0
+Aux Price: 0.0
+OrderType: MKT
+Tif (Time in Force): GTC
+GoodTillDate:
+-------------------------------------------------- ORDER END
+...
+1443, 2016-06-20T18:28:10.000000, 15.93, 15.93, 15.92, 15.92, 10.0, 0, 16.004
+-------------------------------------------------- ORDER BEGIN 2016-06-20 23:28:15.924000
+Ref: 1
+OrdType: 0
+OrdType: Buy
+Status: 3
+Status: Partial
+Size: 20000
+Price: 14.34
+Price Limit: None
+ExecType: 0
+ExecType: Market
+CommInfo: &lt;backtrader.brokers.ibbroker.IBCommInfo object at 0x00000000040B9278&gt;
+End of Session: 736136.166655
+Info: AutoOrderedDict()
+Broker: &lt;backtrader.brokers.ibbroker.IBBroker object at 0x0000000003E23470&gt;
+Alive: True
+Ref: 1
+orderId: 1
+Action: BUY
+Size (ib): 20000
+Lmt Price: 0.0
+Aux Price: 0.0
+OrderType: MKT
+Tif (Time in Force): GTC
+GoodTillDate:
+-------------------------------------------------- ORDER END
+...
+-------------------------------------------------- ORDER BEGIN 2016-06-20 23:28:20.972000
+Ref: 1
+OrdType: 0
+OrdType: Buy
+Status: 4
+Status: Completed
+Size: 20000
+Price: 14.34
+Price Limit: None
+ExecType: 0
+ExecType: Market
+CommInfo: &lt;backtrader.brokers.ibbroker.IBCommInfo object at 0x00000000040B9278&gt;
+End of Session: 736136.166655
+Info: AutoOrderedDict()
+Broker: &lt;backtrader.brokers.ibbroker.IBBroker object at 0x0000000003E23470&gt;
+Alive: False
+Ref: 1
+orderId: 1
+Action: BUY
+Size (ib): 20000
+Lmt Price: 0.0
+Aux Price: 0.0
+OrderType: MKT
+Tif (Time in Force): GTC
+GoodTillDate:
+-------------------------------------------------- ORDER END
+1445, 2016-06-20T18:28:20.000000, 15.92, 15.93, 15.92, 15.93, 21.0, 0, 15.954
+...
+</pre></div>
+</div>
+<p>The following happens:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Data is received as normal</p>
+</li>
+<li><p class="first">A <code class="docutils literal"><span class="pre">BUY</span></code> for <code class="docutils literal"><span class="pre">20K</span></code> with execution type <code class="docutils literal"><span class="pre">Market</span></code> is issued</p>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">Submitted</span></code> and <code class="docutils literal"><span class="pre">Accepted</span></code> notifications are received (only
+<code class="docutils literal"><span class="pre">Submitted</span></code> is shown above)</p>
+</li>
+<li><p class="first">A streak of <code class="docutils literal"><span class="pre">Partial</span></code> executions (only 1 shown) until <code class="docutils literal"><span class="pre">Completed</span></code> is
+received.</p>
+<p>The actual execution is not shown, but is available in the <code class="docutils literal"><span class="pre">order</span></code>
+instance received under <code class="docutils literal"><span class="pre">order.executed</span></code></p>
+</li>
+</ul>
+</li>
+<li><p class="first">Although not shown, 2 x <code class="docutils literal"><span class="pre">Market</span></code> <code class="docutils literal"><span class="pre">SELL</span></code> orders are issued to undo the
+operation</p>
+<p>The screenshot shows the logs in <em>TWS</em> after two different runs across an
+evening</p>
+</li>
+</ul>
+</div></blockquote>
+<a class=""
+               data-lightbox="group-6fee251c-e114-4f2e-8bee-d36c79748d65"
+               href="../../../_images/ibtest-twtr-execution1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/ibtest-twtr-execution1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>The sample can do much more and is intended as a thorough test of the
+facilities and if possible to uncover any rough edges.</p>
+<p>The usage:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ./ibtest.py --help
+usage: ibtest.py [-h] [--exactbars EXACTBARS] [--plot] [--stopafter STOPAFTER]
+                 [--usestore] [--notifyall] [--debug] [--host HOST]
+                 [--qcheck QCHECK] [--port PORT] [--clientId CLIENTID]
+                 [--no-timeoffset] [--reconnect RECONNECT] [--timeout TIMEOUT]
+                 --data0 DATA0 [--data1 DATA1] [--timezone TIMEZONE]
+                 [--what WHAT] [--no-backfill_start] [--latethrough]
+                 [--no-backfill] [--rtbar] [--historical]
+                 [--fromdate FROMDATE] [--smaperiod SMAPERIOD]
+                 [--replay | --resample]
+                 [--timeframe {Ticks,MicroSeconds,Seconds,Minutes,Days,Weeks,Months,Years}]
+                 [--compression COMPRESSION] [--no-takelate] [--no-bar2edge]
+                 [--no-adjbartime] [--no-rightedge] [--broker] [--trade]
+                 [--donotsell]
+                 [--exectype {Market,Close,Limit,Stop,StopLimit}]
+                 [--stake STAKE] [--valid VALID] [--cancel CANCEL]
+
+Test Interactive Brokers integration
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --exactbars EXACTBARS
+                        exactbars level, use 0/-1/-2 to enable plotting
+                        (default: 1)
+  --plot                Plot if possible (default: False)
+  --stopafter STOPAFTER
+                        Stop after x lines of LIVE data (default: 0)
+  --usestore            Use the store pattern (default: False)
+  --notifyall           Notify all messages to strategy as store notifs
+                        (default: False)
+  --debug               Display all info received form IB (default: False)
+  --host HOST           Host for the Interactive Brokers TWS Connection
+                        (default: 127.0.0.1)
+  --qcheck QCHECK       Timeout for periodic notification/resampling/replaying
+                        check (default: 0.5)
+  --port PORT           Port for the Interactive Brokers TWS Connection
+                        (default: 7496)
+  --clientId CLIENTID   Client Id to connect to TWS (default: random)
+                        (default: None)
+  --no-timeoffset       Do not Use TWS/System time offset for non timestamped
+                        prices and to align resampling (default: False)
+  --reconnect RECONNECT
+                        Number of recconnection attempts to TWS (default: 3)
+  --timeout TIMEOUT     Timeout between reconnection attempts to TWS (default:
+                        3.0)
+  --data0 DATA0         data 0 into the system (default: None)
+  --data1 DATA1         data 1 into the system (default: None)
+  --timezone TIMEZONE   timezone to get time output into (pytz names)
+                        (default: None)
+  --what WHAT           specific price type for historical requests (default:
+                        None)
+  --no-backfill_start   Disable backfilling at the start (default: False)
+  --latethrough         if resampling replaying, adjusting time and disabling
+                        time offset, let late samples through (default: False)
+  --no-backfill         Disable backfilling after a disconnection (default:
+                        False)
+  --rtbar               Use 5 seconds real time bar updates if possible
+                        (default: False)
+  --historical          do only historical download (default: False)
+  --fromdate FROMDATE   Starting date for historical download with format:
+                        YYYY-MM-DD[THH:MM:SS] (default: None)
+  --smaperiod SMAPERIOD
+                        Period to apply to the Simple Moving Average (default:
+                        5)
+  --replay              replay to chosen timeframe (default: False)
+  --resample            resample to chosen timeframe (default: False)
+  --timeframe {Ticks,MicroSeconds,Seconds,Minutes,Days,Weeks,Months,Years}
+                        TimeFrame for Resample/Replay (default: Ticks)
+  --compression COMPRESSION
+                        Compression for Resample/Replay (default: 1)
+  --no-takelate         resample/replay, do not accept late samples in new bar
+                        if the data source let them through (latethrough)
+                        (default: False)
+  --no-bar2edge         no bar2edge for resample/replay (default: False)
+  --no-adjbartime       no adjbartime for resample/replay (default: False)
+  --no-rightedge        no rightedge for resample/replay (default: False)
+  --broker              Use IB as broker (default: False)
+  --trade               Do Sample Buy/Sell operations (default: False)
+  --donotsell           Do not sell after a buy (default: False)
+  --exectype {Market,Close,Limit,Stop,StopLimit}
+                        Execution to Use when opening position (default:
+                        Market)
+  --stake STAKE         Stake to use in buy operations (default: 10)
+  --valid VALID         Seconds to keep the order alive (0 means DAY)
+                        (default: None)
+  --cancel CANCEL       Cancel a buy order after n bars in operation, to be
+                        combined with orders like Limit (default: 0)
+</pre></div>
+</div>
+<p>The code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+                        <span class="n">unicode_literals</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="c1"># The above could be sent to an independent module</span>
+<span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
+<span class="kn">from</span> <span class="nn">backtrader.utils</span> <span class="kn">import</span> <span class="n">flushfile</span>  <span class="c1"># win32 quick stdout flushing</span>
+
+
+<span class="k">class</span> <span class="nc">TestStrategy</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Strategy</span><span class="p">):</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+        <span class="n">smaperiod</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+        <span class="n">trade</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+        <span class="n">stake</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">exectype</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">Order</span><span class="o">.</span><span class="n">Market</span><span class="p">,</span>
+        <span class="n">stopafter</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">valid</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+        <span class="n">cancel</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">donotsell</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># To control operation entries</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">orderid</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">order</span> <span class="o">=</span> <span class="bp">None</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">counttostop</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">datastatus</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1"># Create SMA on 2nd data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sma</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">indicators</span><span class="o">.</span><span class="n">MovAv</span><span class="o">.</span><span class="n">SMA</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">smaperiod</span><span class="p">)</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;--------------------------------------------------&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Strategy Created&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;--------------------------------------------------&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">notify_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;*&#39;</span> <span class="o">*</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;DATA NOTIF:&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">_getstatusname</span><span class="p">(</span><span class="n">status</span><span class="p">),</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="n">data</span><span class="o">.</span><span class="n">LIVE</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">counttostop</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">stopafter</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">datastatus</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="nf">notify_store</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;*&#39;</span> <span class="o">*</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;STORE NOTIF:&#39;</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">notify_order</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">order</span><span class="o">.</span><span class="n">status</span> <span class="ow">in</span> <span class="p">[</span><span class="n">order</span><span class="o">.</span><span class="n">Completed</span><span class="p">,</span> <span class="n">order</span><span class="o">.</span><span class="n">Cancelled</span><span class="p">,</span> <span class="n">order</span><span class="o">.</span><span class="n">Rejected</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">order</span> <span class="o">=</span> <span class="bp">None</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;ORDER BEGIN&#39;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">order</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;ORDER END&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">notify_trade</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trade</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;TRADE BEGIN&#39;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">trade</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;TRADE END&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">prenext</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">next</span><span class="p">(</span><span class="n">frompre</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frompre</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="n">txt</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+        <span class="n">txt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%04d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+        <span class="n">dtfmt</span> <span class="o">=</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M:%S.</span><span class="si">%f</span><span class="s1">&#39;</span>
+        <span class="n">txt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">dtfmt</span><span class="p">))</span>
+        <span class="n">txt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">open</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="n">txt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">high</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="n">txt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">low</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="n">txt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">close</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="n">txt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">volume</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="n">txt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">openinterest</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="n">txt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sma</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">txt</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">datas</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">txt</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+            <span class="n">txt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%04d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+            <span class="n">dtfmt</span> <span class="o">=</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M:%S.</span><span class="si">%f</span><span class="s1">&#39;</span>
+            <span class="n">txt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">data1</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">dtfmt</span><span class="p">))</span>
+            <span class="n">txt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data1</span><span class="o">.</span><span class="n">open</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+            <span class="n">txt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data1</span><span class="o">.</span><span class="n">high</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+            <span class="n">txt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data1</span><span class="o">.</span><span class="n">low</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+            <span class="n">txt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data1</span><span class="o">.</span><span class="n">close</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+            <span class="n">txt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data1</span><span class="o">.</span><span class="n">volume</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+            <span class="n">txt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data1</span><span class="o">.</span><span class="n">openinterest</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+            <span class="n">txt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="s1">&#39;NaN&#39;</span><span class="p">)))</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">txt</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">counttostop</span><span class="p">:</span>  <span class="c1"># stop after x live lines</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">counttostop</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">counttostop</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">runstop</span><span class="p">()</span>
+                <span class="k">return</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">trade</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">datastatus</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">orderid</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">order</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">buy</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">stake</span><span class="p">,</span>
+                                  <span class="n">exectype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">exectype</span><span class="p">,</span>
+                                  <span class="n">price</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data0</span><span class="o">.</span><span class="n">close</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.90</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+                                  <span class="n">valid</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">valid</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">orderid</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">donotsell</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">order</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">order</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sell</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">stake</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span>
+                                       <span class="n">exectype</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">Order</span><span class="o">.</span><span class="n">Market</span><span class="p">,</span>
+                                       <span class="n">price</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data0</span><span class="o">.</span><span class="n">close</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">order</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">cancel</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">datastatus</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">cancel</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">cancel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">datastatus</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">datastatus</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data0</span><span class="o">.</span><span class="n">contractdetails</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Timezone from ContractDetails: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                  <span class="bp">self</span><span class="o">.</span><span class="n">data0</span><span class="o">.</span><span class="n">contractdetails</span><span class="o">.</span><span class="n">m_timeZoneId</span><span class="p">))</span>
+
+        <span class="n">header</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Datetime&#39;</span><span class="p">,</span> <span class="s1">&#39;Open&#39;</span><span class="p">,</span> <span class="s1">&#39;High&#39;</span><span class="p">,</span> <span class="s1">&#39;Low&#39;</span><span class="p">,</span> <span class="s1">&#39;Close&#39;</span><span class="p">,</span> <span class="s1">&#39;Volume&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;OpenInterest&#39;</span><span class="p">,</span> <span class="s1">&#39;SMA&#39;</span><span class="p">]</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">header</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">done</span> <span class="o">=</span> <span class="bp">False</span>
+
+
+<span class="k">def</span> <span class="nf">runstrategy</span><span class="p">():</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parse_args</span><span class="p">()</span>
+
+    <span class="c1"># Create a cerebro</span>
+    <span class="n">cerebro</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">Cerebro</span><span class="p">()</span>
+
+    <span class="n">storekwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+        <span class="n">host</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">port</span><span class="p">,</span>
+        <span class="n">clientId</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">clientId</span><span class="p">,</span> <span class="n">timeoffset</span><span class="o">=</span><span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">no_timeoffset</span><span class="p">,</span>
+        <span class="n">reconnect</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">reconnect</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">timeout</span><span class="p">,</span>
+        <span class="n">notifyall</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">notifyall</span><span class="p">,</span> <span class="n">_debug</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">debug</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">usestore</span><span class="p">:</span>
+        <span class="n">ibstore</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">stores</span><span class="o">.</span><span class="n">IBStore</span><span class="p">(</span><span class="o">**</span><span class="n">storekwargs</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">broker</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">usestore</span><span class="p">:</span>
+            <span class="n">broker</span> <span class="o">=</span> <span class="n">ibstore</span><span class="o">.</span><span class="n">getbroker</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">broker</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">brokers</span><span class="o">.</span><span class="n">IBBroker</span><span class="p">(</span><span class="o">**</span><span class="n">storekwargs</span><span class="p">)</span>
+
+        <span class="n">cerebro</span><span class="o">.</span><span class="n">setbroker</span><span class="p">(</span><span class="n">broker</span><span class="p">)</span>
+
+    <span class="n">timeframe</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">TimeFrame</span><span class="o">.</span><span class="n">TFrame</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">timeframe</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">resample</span> <span class="ow">or</span> <span class="n">args</span><span class="o">.</span><span class="n">replay</span><span class="p">:</span>
+        <span class="n">datatf</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">TimeFrame</span><span class="o">.</span><span class="n">Ticks</span>
+        <span class="n">datacomp</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">datatf</span> <span class="o">=</span> <span class="n">timeframe</span>
+        <span class="n">datacomp</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">compression</span>
+
+    <span class="n">fromdate</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">fromdate</span><span class="p">:</span>
+        <span class="n">dtformat</span> <span class="o">=</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="p">(</span><span class="s1">&#39;T%H:%M:%S&#39;</span> <span class="o">*</span> <span class="p">(</span><span class="s1">&#39;T&#39;</span> <span class="ow">in</span> <span class="n">args</span><span class="o">.</span><span class="n">fromdate</span><span class="p">))</span>
+        <span class="n">fromdate</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">fromdate</span><span class="p">,</span> <span class="n">dtformat</span><span class="p">)</span>
+
+    <span class="n">IBDataFactory</span> <span class="o">=</span> <span class="n">ibstore</span><span class="o">.</span><span class="n">getdata</span> <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">usestore</span> <span class="k">else</span> <span class="n">bt</span><span class="o">.</span><span class="n">feeds</span><span class="o">.</span><span class="n">IBData</span>
+
+    <span class="n">datakwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+        <span class="n">timeframe</span><span class="o">=</span><span class="n">datatf</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="n">datacomp</span><span class="p">,</span>
+        <span class="n">historical</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">historical</span><span class="p">,</span> <span class="n">fromdate</span><span class="o">=</span><span class="n">fromdate</span><span class="p">,</span>
+        <span class="n">rtbar</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">rtbar</span><span class="p">,</span>
+        <span class="n">qcheck</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">qcheck</span><span class="p">,</span>
+        <span class="n">what</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">what</span><span class="p">,</span>
+        <span class="n">backfill_start</span><span class="o">=</span><span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">no_backfill_start</span><span class="p">,</span>
+        <span class="n">backfill</span><span class="o">=</span><span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">no_backfill</span><span class="p">,</span>
+        <span class="n">latethrough</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">latethrough</span><span class="p">,</span>
+        <span class="n">tz</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">timezone</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">usestore</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">broker</span><span class="p">:</span>   <span class="c1"># neither store nor broker</span>
+        <span class="n">datakwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">storekwargs</span><span class="p">)</span>  <span class="c1"># pass the store args over the data</span>
+
+    <span class="n">data0</span> <span class="o">=</span> <span class="n">IBDataFactory</span><span class="p">(</span><span class="n">dataname</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">data0</span><span class="p">,</span> <span class="o">**</span><span class="n">datakwargs</span><span class="p">)</span>
+
+    <span class="n">data1</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">data1</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">data1</span> <span class="o">=</span> <span class="n">IBDataFactory</span><span class="p">(</span><span class="n">dataname</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">data1</span><span class="p">,</span> <span class="o">**</span><span class="n">datakwargs</span><span class="p">)</span>
+
+    <span class="n">rekwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+        <span class="n">timeframe</span><span class="o">=</span><span class="n">timeframe</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">compression</span><span class="p">,</span>
+        <span class="n">bar2edge</span><span class="o">=</span><span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">no_bar2edge</span><span class="p">,</span>
+        <span class="n">adjbartime</span><span class="o">=</span><span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">no_adjbartime</span><span class="p">,</span>
+        <span class="n">rightedge</span><span class="o">=</span><span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">no_rightedge</span><span class="p">,</span>
+        <span class="n">takelate</span><span class="o">=</span><span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">no_takelate</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">replay</span><span class="p">:</span>
+        <span class="n">cerebro</span><span class="o">.</span><span class="n">replaydata</span><span class="p">(</span><span class="n">dataname</span><span class="o">=</span><span class="n">data0</span><span class="p">,</span> <span class="o">**</span><span class="n">rekwargs</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">data1</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">cerebro</span><span class="o">.</span><span class="n">replaydata</span><span class="p">(</span><span class="n">dataname</span><span class="o">=</span><span class="n">data1</span><span class="p">,</span> <span class="o">**</span><span class="n">rekwargs</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">resample</span><span class="p">:</span>
+        <span class="n">cerebro</span><span class="o">.</span><span class="n">resampledata</span><span class="p">(</span><span class="n">dataname</span><span class="o">=</span><span class="n">data0</span><span class="p">,</span> <span class="o">**</span><span class="n">rekwargs</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">data1</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">cerebro</span><span class="o">.</span><span class="n">resampledata</span><span class="p">(</span><span class="n">dataname</span><span class="o">=</span><span class="n">data1</span><span class="p">,</span> <span class="o">**</span><span class="n">rekwargs</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">cerebro</span><span class="o">.</span><span class="n">adddata</span><span class="p">(</span><span class="n">data0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">data1</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">cerebro</span><span class="o">.</span><span class="n">adddata</span><span class="p">(</span><span class="n">data1</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">valid</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">valid</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">valid</span><span class="p">)</span>
+    <span class="c1"># Add the strategy</span>
+    <span class="n">cerebro</span><span class="o">.</span><span class="n">addstrategy</span><span class="p">(</span><span class="n">TestStrategy</span><span class="p">,</span>
+                        <span class="n">smaperiod</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">smaperiod</span><span class="p">,</span>
+                        <span class="n">trade</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">trade</span><span class="p">,</span>
+                        <span class="n">exectype</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">Order</span><span class="o">.</span><span class="n">ExecType</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">exectype</span><span class="p">),</span>
+                        <span class="n">stake</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">stake</span><span class="p">,</span>
+                        <span class="n">stopafter</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">stopafter</span><span class="p">,</span>
+                        <span class="n">valid</span><span class="o">=</span><span class="n">valid</span><span class="p">,</span>
+                        <span class="n">cancel</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">cancel</span><span class="p">,</span>
+                        <span class="n">donotsell</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">donotsell</span><span class="p">)</span>
+
+    <span class="c1"># Live data ... avoid long data accumulation by switching to &quot;exactbars&quot;</span>
+    <span class="n">cerebro</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">exactbars</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">exactbars</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">plot</span> <span class="ow">and</span> <span class="n">args</span><span class="o">.</span><span class="n">exactbars</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># plot if possible</span>
+        <span class="n">cerebro</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">parse_args</span><span class="p">():</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span>
+        <span class="n">formatter_class</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentDefaultsHelpFormatter</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Test Interactive Brokers integration&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--exactbars&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;exactbars level, use 0/-1/-2 to enable plotting&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--plot&#39;</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Plot if possible&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--stopafter&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Stop after x lines of LIVE data&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--usestore&#39;</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Use the store pattern&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--notifyall&#39;</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Notify all messages to strategy as store notifs&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--debug&#39;</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Display all info received form IB&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--host&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Host for the Interactive Brokers TWS Connection&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--qcheck&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Timeout for periodic &#39;</span>
+                              <span class="s1">&#39;notification/resampling/replaying check&#39;</span><span class="p">))</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--port&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">7496</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Port for the Interactive Brokers TWS Connection&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--clientId&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Client Id to connect to TWS (default: random)&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--no-timeoffset&#39;</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Do not Use TWS/System time offset for non &#39;</span>
+                              <span class="s1">&#39;timestamped prices and to align resampling&#39;</span><span class="p">))</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--reconnect&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Number of recconnection attempts to TWS&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--timeout&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Timeout between reconnection attempts to TWS&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--data0&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;data 0 into the system&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--data1&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;data 1 into the system&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--timezone&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;timezone to get time output into (pytz names)&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--what&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;specific price type for historical requests&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--no-backfill_start&#39;</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Disable backfilling at the start&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--latethrough&#39;</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;if resampling replaying, adjusting time &#39;</span>
+                              <span class="s1">&#39;and disabling time offset, let late samples &#39;</span>
+                              <span class="s1">&#39;through&#39;</span><span class="p">))</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--no-backfill&#39;</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Disable backfilling after a disconnection&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--rtbar&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Use 5 seconds real time bar updates if possible&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--historical&#39;</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;do only historical download&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--fromdate&#39;</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Starting date for historical download &#39;</span>
+                              <span class="s1">&#39;with format: YYYY-MM-DD[THH:MM:SS]&#39;</span><span class="p">))</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--smaperiod&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Period to apply to the Simple Moving Average&#39;</span><span class="p">)</span>
+
+    <span class="n">pgroup</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">add_mutually_exclusive_group</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+    <span class="n">pgroup</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--replay&#39;</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;replay to chosen timeframe&#39;</span><span class="p">)</span>
+
+    <span class="n">pgroup</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--resample&#39;</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;resample to chosen timeframe&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--timeframe&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">TimeFrame</span><span class="o">.</span><span class="n">Names</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                        <span class="n">choices</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">TimeFrame</span><span class="o">.</span><span class="n">Names</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;TimeFrame for Resample/Replay&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--compression&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Compression for Resample/Replay&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--no-takelate&#39;</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;resample/replay, do not accept late samples &#39;</span>
+                              <span class="s1">&#39;in new bar if the data source let them through &#39;</span>
+                              <span class="s1">&#39;(latethrough)&#39;</span><span class="p">))</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--no-bar2edge&#39;</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;no bar2edge for resample/replay&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--no-adjbartime&#39;</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;no adjbartime for resample/replay&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--no-rightedge&#39;</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;no rightedge for resample/replay&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--broker&#39;</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Use IB as broker&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--trade&#39;</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Do Sample Buy/Sell operations&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--donotsell&#39;</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Do not sell after a buy&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--exectype&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">Order</span><span class="o">.</span><span class="n">ExecTypes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                        <span class="n">choices</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">Order</span><span class="o">.</span><span class="n">ExecTypes</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Execution to Use when opening position&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--stake&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Stake to use in buy operations&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--valid&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Seconds to keep the order alive (0 means DAY)&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--cancel&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Cancel a buy order after n bars in operation,&#39;</span>
+                              <span class="s1">&#39; to be combined with orders like Limit&#39;</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">runstrategy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+
+  <div class="section">
+  
+    
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  
+  <a href="../../2016-05-09-memory-savings/memory-savings/">
+    <i class="fa fa-arrow-circle-left"></i>
+    Saving Memory
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+</div>
+
+  
+  
+    <div class="section">
+    <h2>Comments</h2>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
+        var disqus_identifier = '/posts/2016-06-21-livedata-feed/live-data-feed/';
+        var disqus_title = 'Live Data/Live Trading';
+        var disqus_url = 'http://www.backtrader.com/posts/2016-06-21-livedata-feed/live-data-feed';
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+  
+  </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../">backtrader</a></h1>
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=mementum&repo=backtrader&type=watch&count=true&size=large"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+    
+
+<p>
+<a href="https://travis-ci.org/mementum/backtrader">
+    <img
+        alt="https://secure.travis-ci.org/mementum/backtrader.png?branch=master"
+        src="https://secure.travis-ci.org/mementum/backtrader.png?branch=master"
+    />
+</a>
+</p>
+
+
+
+  
+  
+  <h2>
+  
+  <i class="fa fa-calendar"></i>
+    Jun 21, 2016
+  
+  </h2>
+
+  <ul>
+    
+
+  
+  <li><i class="fa-fw fa fa-user"></i>
+    
+      
+      <a href="../../../blog/author/mementum/">mementum</a>
+      
+    </li>
+  
+
+  
+
+  
+
+  
+
+  
+  
+  <li>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+    </script>
+    <i class="fa-fw fa fa-comments"></i>
+    <a href="#disqus_thread" data-disqus-identifier="/posts/2016-06-21-livedata-feed/live-data-feed/"> </a>
+  </li>
+  
+  </ul>
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/">About backtrader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/#documentation">Documentation</a></li>
+</ul>
+
+
+  <h3><a href="../../../blog/">Recent Posts</a></h3>
+  <ul>
+    
+    
+      <li><a href="../../2016-05-09-memory-savings/memory-savings/">May 09 - Saving Memory</a></li>
+    
+      <li><a href="../../2016-05-05-indicators-mixing-timeframes/indicators-mixing-timeframes/">May 05 - Mixing Timeframes in Indicators</a></li>
+    
+      <li><a href="../../2016-04-28-pivot-point-cross-plotting/pivotpoint-crossplotting/">Apr 28 - Pivot Point and Cross Plotting</a></li>
+    
+      <li><a href="../../2016-04-19-sync-different-markets/sync-different-markets/">Apr 19 - Synchronizing different markets</a></li>
+    
+      <li><a href="../../2016-04-14-bidask-data-to-ohlc/bidask-data-to-ohlc/">Apr 16 - Bid-Ask Data to OHLC</a></li>
+    
+  </ul>
+
+  <h3><a href="../../../blog/archive/">Archives</a></h3>
+  <ul>
+  
+    
+    <li><a href="../../../blog/2016/">2016 (8)</a></li>
+    
+  
+    
+    <li><a href="../../../blog/2015/">2015 (27)</a></li>
+    
+  
+  </ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search/" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, mementum.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="../../../_sources/posts/2016-06-21-livedata-feed/live-data-feed.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+    <a href="https://github.com/mementum/backtrader" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-2435868-6']);
+      _gaq.push(['_setDomainName', 'none']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    
+  </body>
+</html>
