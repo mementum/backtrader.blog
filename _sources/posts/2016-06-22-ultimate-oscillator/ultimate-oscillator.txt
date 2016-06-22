@@ -6,7 +6,7 @@
 Ultimate Oscillator
 ###################
 
-`Ticker #102 <https://github.com/mementum/backtrader/issues/102>`_ is about
+`Ticket #102 <https://github.com/mementum/backtrader/issues/102>`_ is about
 adding the **UltimateOscillator** to the arsenal of *backtrader*
 
 .. note::
