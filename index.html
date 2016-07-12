@@ -57,38 +57,52 @@
             
   <div class="section" id="backtrader-python-backtesting">
 <h1>backtrader - Python backtesting<a class="headerlink" href="#backtrader-python-backtesting" title="Permalink to this headline">¶</a></h1>
-<p><code class="docutils literal"><span class="pre">backtrader</span></code> offers a complete backtesting platform with this (not fully
-comprehensive) list of features:</p>
+<p><code class="docutils literal"><span class="pre">backtrader</span></code> offers a complete backtesting/trading platform with this (not
+fully comprehensive) list of features:</p>
 <blockquote>
 <div><ul class="simple">
-<li>Index 0 approach to access the currently produced (or to be produced) data</li>
-<li>Index -1 approach to access the last produced data (to remain Pythonic)</li>
-<li>Multiple Strategies at the same time</li>
-<li>Multiple Datas at the same Time</li>
+<li>Live Data Feed and Trading</li>
 <li>Datas with different timeframes can be mixed (days and weeks)</li>
 <li>Data Resampling</li>
 <li>Data Replaying (i.e: indicators/strategies see 5 bars in a weekly timeframe)</li>
+<li>Multiple Datas at the same Time</li>
+<li>Multiple Strategies at the same time</li>
+<li>Strategy optimization (including multicore support)</li>
 <li>Indicators (several) which can of course take datas and/or indicators as input</li>
-<li>Natural python language/operations for Indicator development and object
-comparison/operations (arithmetic, logical operators)
-As much as permitted by Pthon overriding capabilities (if, and, or cannot
-be overriden ... but they are provided as logical functions)</li>
-<li>Broker implementation with AtMarket, AtClose, AtLimit, Stop, StopLimit
-orders</li>
+<li>Plotting support for visual inspection</li>
+<li>Broker implementation with Market, Close, Limit, Stop, StopLimit orders</li>
 <li>Commission schemes supporting futures-like and stocks-like objects and
 customizable</li>
 <li>Event based (strategy/indicator &#8216;next&#8217; will be called with all subordinate
 indicators calculated and data fetched)</li>
-<li>Vector (in the form on inner for loops) based for a one shot calculation
-This applies to indicators ... Strategies always are executed one step at a
-time</li>
-<li>Strategy optimization (including multicore support)</li>
-<li>Plotting support for visual inspection</li>
+<li>Vector (in the form on inner tight <em>for</em> loops) based for a one shot
+calculation This applies to indicators ... Strategies always are executed
+one step at a time</li>
+<li>Natural python language/operations for Indicator development and object
+comparison/operations (arithmetic, logical operators)
+As much as permitted by Pthon overriding capabilities (if, and, or cannot
+be overriden ... but they are provided as logical functions)</li>
+<li>Index 0 approach to access the currently produced (or to be produced) data</li>
+<li>Index -1 approach to access the last produced data (to remain Pythonic)</li>
 </ul>
 </div></blockquote>
 <div class="section" id="the-blog-entries">
 <h2>The Blog Entries<a class="headerlink" href="#the-blog-entries" title="Permalink to this headline">¶</a></h2>
 <ul class="postlist-style-circle postlist">
+<li><p class="first"><a class="reference internal" href="posts/2016-07-12-visualchart-feed/visualchart-feed/">Visual Chart Live Data/Trading</a> by <a class="reference internal" href="blog/author/mementum/" title="mementum"><em>mementum</em></a> on Jul 12</p>
+<p>Starting with release <em>1.5.1.93</em>, <code class="docutils literal"><span class="pre">backtrader</span></code> supports Visual Chart Live
+Feeds and Live Trading.</p>
+<a class=""
+               data-lightbox="group-848f87ca-f5fe-4b3f-a24f-3cc736585fe9"
+               href="_images/visualchart-filled-orders1.png"
+               title=""
+               data-title=""
+               ><img src="_images/visualchart-filled-orders1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a></li>
 <li><p class="first"><a class="reference internal" href="posts/2016-06-22-ultimate-oscillator/ultimate-oscillator/">Ultimate Oscillator</a> by <a class="reference internal" href="blog/author/mementum/" title="mementum"><em>mementum</em></a> on Jun 22</p>
 <p><a class="reference external" href="https://github.com/mementum/backtrader/issues/102">Ticket #102</a> is about
 adding the <strong>UltimateOscillator</strong> to the arsenal of <em>backtrader</em></p>
@@ -142,19 +156,6 @@ different timeframes mixed.</p>
                title=""
                data-title=""
                ><img src="_images/indicators-mixing-timeframes1.png"
-                     class=""
-                     width="100%"
-                     height="auto"
-                     alt=""/>
-                </a></li>
-<li><p class="first"><a class="reference internal" href="posts/2016-04-28-pivot-point-cross-plotting/pivotpoint-crossplotting/">Pivot Point and Cross Plotting</a> by <a class="reference internal" href="blog/author/mementum/" title="mementum"><em>mementum</em></a> on Apr 28</p>
-<p>An interesting request came across:</p>
-<a class=""
-               data-lightbox="group-4c257340-d210-4754-9549-17fc6718264c"
-               href="_images/pivotpoint-on-monthly-data1.png"
-               title=""
-               data-title=""
-               ><img src="_images/pivotpoint-on-monthly-data1.png"
                      class=""
                      width="100%"
                      height="auto"
@@ -215,6 +216,8 @@ different timeframes mixed.</p>
   <ul>
     
     
+      <li><a href="posts/2016-07-12-visualchart-feed/visualchart-feed/">Jul 12 - Visual Chart Live Data/Trading</a></li>
+    
       <li><a href="posts/2016-06-22-ultimate-oscillator/ultimate-oscillator/">Jun 22 - Ultimate Oscillator</a></li>
     
       <li><a href="posts/2016-06-21-livedata-feed/live-data-feed/">Jun 21 - Live Data/Live Trading</a></li>
@@ -223,15 +226,13 @@ different timeframes mixed.</p>
     
       <li><a href="posts/2016-05-05-indicators-mixing-timeframes/indicators-mixing-timeframes/">May 05 - Mixing Timeframes in Indicators</a></li>
     
-      <li><a href="posts/2016-04-28-pivot-point-cross-plotting/pivotpoint-crossplotting/">Apr 28 - Pivot Point and Cross Plotting</a></li>
-    
   </ul>
 
   <h3><a href="blog/archive/">Archives</a></h3>
   <ul>
   
     
-    <li><a href="blog/2016/">2016 (9)</a></li>
+    <li><a href="blog/2016/">2016 (10)</a></li>
     
   
     
