@@ -1,0 +1,660 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Volume Filling &mdash; backtrader  documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinxcontrib-images\LightBox2\lightbox2\css\lightbox.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/sphinxcontrib-images\LightBox2\lightbox2\js\jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../../_static/sphinxcontrib-images\LightBox2\lightbox2\js\lightbox.min.js"></script>
+    <script type="text/javascript" src="../../../_static/sphinxcontrib-images\LightBox2\lightbox2-customize\jquery-noconflict.js"></script>
+    <link rel="author" title="About these documents" href="../../../about/" />
+    <link rel="top" title="backtrader  documentation" href="../../../" />
+  
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  
+  
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.post-list-style-disc {list-style-type: disc;}
+    ul.post-list-style-none {list-style-type: none;}
+    ul.post-list-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="volume-filling">
+<h1>Volume Filling<a class="headerlink" href="#volume-filling" title="Permalink to this headline">¶</a></h1>
+<p>Up until now the default volume filling strategy in <em>backtrader</em> has been
+rather simple and straightforward:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Ignore volume</li>
+</ul>
+</div></blockquote>
+<p>This is based on 2 premises:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Trade in markets liquid enough to fully absorb <em>buy/sell</em> orders in one go</p>
+</li>
+<li><p class="first">Real volume matching requires a real wolrd</p>
+<p>A quick example is a <code class="docutils literal"><span class="pre">Fill</span> <span class="pre">or</span> <span class="pre">Kill</span></code> order. Even down to the <em>tick</em>
+resolution and with enough volume for a <em>fill</em>, the <em>backtrader</em> broker
+cannot know how many extra actors happen to be in the market to
+discriminate if such an order would be or would not be matched to stick to
+the <code class="docutils literal"><span class="pre">Fill</span></code> part or if the order should be <code class="docutils literal"><span class="pre">Kill</span></code></p>
+</li>
+</ul>
+</div></blockquote>
+<p>But with release <code class="docutils literal"><span class="pre">1.5.2.93</span></code> it is possible to specify a <code class="docutils literal"><span class="pre">filler</span></code> for the
+<em>broker</em> to take <em>Volume</em> into account when executing an order. Additionally 3
+initial fillers have made it into the release:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">FixedSize</span></code>: uses a fixed matching size (for example: 1000 units) each
+day, provided the current bar has at least 1000 units</li>
+<li><code class="docutils literal"><span class="pre">FixedBarPerc</span></code>: uses a percentage of the total bar volume to try to match
+the order</li>
+<li><code class="docutils literal"><span class="pre">BarPointPerc</span></code>: does a uniform distribution of the bar volume across the
+price range high-low and uses a percentage of the volume that would
+correspond to a single price point</li>
+</ul>
+</div></blockquote>
+<div class="section" id="creating-a-filler">
+<h2>Creating a filler<a class="headerlink" href="#creating-a-filler" title="Permalink to this headline">¶</a></h2>
+<p>A <em>filler</em> in the <em>backtrader</em> ecosystem can be any <em>callable</em> which matches
+the following signature:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nb">callable</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">ago</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Where:</p>
+<blockquote>
+<div><ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">order</span></code> is the order which is going to be executed</p>
+<p>This object gives access to the <code class="docutils literal"><span class="pre">data</span></code> object which is the target of the
+operation, creation sizes/prices, execution prices/sizes/remaining sizes
+and other details</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">price</span></code> at which the order is going to be executed</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">ago</span></code> is the index to the <code class="docutils literal"><span class="pre">data</span></code> in the <em>order</em> in which to look for
+the volume and price elements</p>
+<p>In almost all cases this will be <code class="docutils literal"><span class="pre">0</span></code> (current point in time) but in a
+corner case to cover <code class="docutils literal"><span class="pre">Close</span></code> orders this may be <code class="docutils literal"><span class="pre">-1</span></code></p>
+<p>To for example access the bar volume do:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">barvolume</span> <span class="o">=</span> <span class="n">order</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">volume</span><span class="p">[</span><span class="n">ago</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+<p>The callable can be a function or for example an instance of a class
+supporting the <code class="docutils literal"><span class="pre">__call__</span></code> method, like in:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MyFiller</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">ago</span><span class="p">):</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="adding-a-filler-to-the-broker">
+<h2>Adding a Filler to the broker<a class="headerlink" href="#adding-a-filler-to-the-broker" title="Permalink to this headline">¶</a></h2>
+<p>The most straightforward method is to use the <code class="docutils literal"><span class="pre">set_filler</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
+
+<span class="n">cerebro</span> <span class="o">=</span> <span class="n">Cerebro</span><span class="p">()</span>
+<span class="n">cerebro</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">set_filler</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">filler</span><span class="o">.</span><span class="n">FixedSize</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>The second choice is to completely replace the <code class="docutils literal"><span class="pre">broker</span></code>, although this is
+probably only meant for subclasses of <code class="docutils literal"><span class="pre">BrokerBack</span></code> which have rewritten
+portions of the functionality:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
+
+<span class="n">cerebro</span> <span class="o">=</span> <span class="n">Cerebro</span><span class="p">()</span>
+<span class="n">filler</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">filler</span><span class="o">.</span><span class="n">FixedSize</span><span class="p">()</span>
+<span class="n">newbroker</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">BrokerBack</span><span class="p">(</span><span class="n">filler</span><span class="o">=</span><span class="n">filler</span><span class="p">)</span>
+<span class="n">cerebro</span><span class="o">.</span><span class="n">broker</span> <span class="o">=</span> <span class="n">newbroker</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-sample">
+<h2>The sample<a class="headerlink" href="#the-sample" title="Permalink to this headline">¶</a></h2>
+<p>The <em>backtrader</em> sources contain a sample named <code class="docutils literal"><span class="pre">volumefilling</span></code> which allows
+to test some of the integrated <code class="docutils literal"><span class="pre">fillers</span></code> (initially all)</p>
+<p>The sample uses a default data sample in the sources named:
+<code class="docutils literal"><span class="pre">datas/2006-volume-day-001.txt</span></code>.</p>
+<p>For example a run with no filler:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ./volumefilling.py --stakeperc 20.0
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-python"><div class="highlight"><pre>Len,Datetime,Open,High,Low,Close,Volume,OpenInterest
+0001,2006-01-02,3602.00,3624.00,3596.00,3617.00,164794.00,1511674.00
+++ STAKE VOLUME: 32958.0
+-- NOTIFY ORDER BEGIN
+Ref: 1
+...
+Alive: False
+-- NOTIFY ORDER END
+-- ORDER REMSIZE: 0.0
+++ ORDER COMPLETED at data.len: 2
+0002,2006-01-03,3623.00,3665.00,3614.00,3665.00,554426.00,1501792.00
+...
+</pre></div>
+</div>
+<p>Much of the input has been skipped because it is rather verbose, but the
+summary is:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Upon seeing the 1st bar <code class="docutils literal"><span class="pre">20%</span></code> (<em>&#8211;stakeperc 20.0</em>) will be used to issue
+a <em>buy</em> order</li>
+<li>As seen in the output and with the default behaviour of <em>backtrader</em> the
+order has been completely matched in a single shot. No look at the volume
+has been performed</li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The broker has an insane amount of cash allocated in the sample to
+make sure it can withstand many test situations</p>
+</div>
+<p>Another run with the <code class="docutils literal"><span class="pre">FixedSize</span></code> volume filler and a maximum of <code class="docutils literal"><span class="pre">1000</span></code>
+units per bar:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ./volumefilling.py --stakeperc 20.0 --filler FixedSize --filler-args size=1000
+</pre></div>
+</div>
+<p>Ouutput:</p>
+<div class="highlight-python"><div class="highlight"><pre>Len,Datetime,Open,High,Low,Close,Volume,OpenInterest
+0001,2006-01-02,3602.00,3624.00,3596.00,3617.00,164794.00,1511674.00
+++ STAKE VOLUME: 32958.0
+-- NOTIFY ORDER BEGIN
+...
+-- NOTIFY ORDER END
+-- ORDER REMSIZE: 0.0
+++ ORDER COMPLETED at data.len: 34
+0034,2006-02-16,3755.00,3774.00,3738.00,3773.00,502043.00,1662302.00
+...
+</pre></div>
+</div>
+<p>Now:</p>
+<blockquote>
+<div><ul class="simple">
+<li>The chosen volume remains the same at <code class="docutils literal"><span class="pre">32958</span></code></li>
+<li>Execution is completed at bar <code class="docutils literal"><span class="pre">34</span></code> which seems reasonable because from
+bar 2 to 34 ... 33 bars have been seen. With <code class="docutils literal"><span class="pre">`1000</span></code> units matched per
+bar 33 bars are obviously needed to complete the execution</li>
+</ul>
+</div></blockquote>
+<p>This is not a great achievement, so let&#8217;s go for <code class="docutils literal"><span class="pre">FixedBarPerc</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ./volumefilling.py --stakeperc 20.0 --filler FixedBarPerc --filler-args perc=0.75
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-python"><div class="highlight"><pre>...
+-- NOTIFY ORDER END
+-- ORDER REMSIZE: 0.0
+++ ORDER COMPLETED at data.len: 11
+0011,2006-01-16,3635.00,3664.00,3632.00,3660.00,273296.00,1592611.00
+...
+</pre></div>
+</div>
+<p>This time:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Skipping the start, still <code class="docutils literal"><span class="pre">32958</span></code> units for the order</li>
+<li>The execution uses 0.75% of the bar volume to match the request.</li>
+<li>It takes from bar 2 to 11 (10 bars) to complete.</li>
+</ul>
+</div></blockquote>
+<p>This is more interesting, but let&#8217;s see what happens now with a more dynamic
+volume allocation with <code class="docutils literal"><span class="pre">BarPointPerc</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ./volumefilling.py --stakeperc 20.0 --filler BarPointPerc --filler-args minmov=1.0,perc=10.0
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-python"><div class="highlight"><pre>...
+-- NOTIFY ORDER END
+-- ORDER REMSIZE: 0.0
+++ ORDER COMPLETED at data.len: 22
+0022,2006-01-31,3697.00,3718.00,3681.00,3704.00,749740.00,1642003.00
+...
+</pre></div>
+</div>
+<p>What happens is:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Same initial allocation (skipped) to the order of <code class="docutils literal"><span class="pre">32958</span></code> as size</li>
+<li>It takes from 2 to 22 to fully execute (21 bars)</li>
+<li>The <em>filler</em> has used a <code class="docutils literal"><span class="pre">minmov</span></code> of <code class="docutils literal"><span class="pre">1.0</span></code> (<em>minimum price movement of
+the asset</em>) to uniformly distribute the volume amongst the high-low range</li>
+<li>A <code class="docutils literal"><span class="pre">10%</span></code> of the volumed assigned to a given price point is used for order
+matching</li>
+</ul>
+</div></blockquote>
+<p>For anyone interested in how the order is being matched partially at each bar,
+examining the full output of a run may be worth the time.</p>
+<p>Usage of the sample:</p>
+<div class="highlight-python"><div class="highlight"><pre>usage: volumefilling.py [-h] [--data DATA] [--cash CASH]
+                        [--filler {FixedSize,FixedBarPerc,BarPointPerc}]
+                        [--filler-args FILLER_ARGS] [--stakeperc STAKEPERC]
+                        [--fromdate FROMDATE] [--todate TODATE] [--plot]
+
+Volume Filling Sample
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --data DATA           Data to be read in (default: ../../datas/2006-volume-
+                        day-001.txt)
+  --cash CASH           Starting cash (default: 500000000.0)
+  --filler {FixedSize,FixedBarPerc,BarPointPerc}
+                        Apply a volume filler for the execution (default:
+                        None)
+  --filler-args FILLER_ARGS
+                        kwargs for the filler with format:
+                        arg1=val1,arg2=val2... (default: None)
+  --stakeperc STAKEPERC
+                        Percentage of 1st bar to use for stake (default: 10.0)
+  --fromdate FROMDATE, -f FROMDATE
+                        Starting date in YYYY-MM-DD format (default: None)
+  --todate TODATE, -t TODATE
+                        Ending date in YYYY-MM-DD format (default: None)
+  --plot                Plot the result (default: False)
+</pre></div>
+</div>
+<div class="section" id="the-code">
+<h3>The code<a class="headerlink" href="#the-code" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+                        <span class="n">unicode_literals</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">os.path</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+
+<span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
+
+
+<span class="k">class</span> <span class="nc">St</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Strategy</span><span class="p">):</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="p">(</span><span class="s1">&#39;stakeperc&#39;</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span>
+    <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">notify_order</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;-- NOTIFY ORDER BEGIN&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">order</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;-- NOTIFY ORDER END&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;-- ORDER REMSIZE:&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">.</span><span class="n">executed</span><span class="o">.</span><span class="n">remsize</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">order</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">order</span><span class="o">.</span><span class="n">Completed</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;++ ORDER COMPLETED at data.len:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">order</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">callcounter</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">txtfields</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+        <span class="n">txtfields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Len&#39;</span><span class="p">)</span>
+        <span class="n">txtfields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Datetime&#39;</span><span class="p">)</span>
+        <span class="n">txtfields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Open&#39;</span><span class="p">)</span>
+        <span class="n">txtfields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;High&#39;</span><span class="p">)</span>
+        <span class="n">txtfields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Low&#39;</span><span class="p">)</span>
+        <span class="n">txtfields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Close&#39;</span><span class="p">)</span>
+        <span class="n">txtfields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Volume&#39;</span><span class="p">)</span>
+        <span class="n">txtfields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;OpenInterest&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">txtfields</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">txtfields</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+        <span class="n">txtfields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%04d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+        <span class="n">txtfields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data0</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">isoformat</span><span class="p">())</span>
+        <span class="n">txtfields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">data0</span><span class="o">.</span><span class="n">open</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">txtfields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">data0</span><span class="o">.</span><span class="n">high</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">txtfields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">data0</span><span class="o">.</span><span class="n">low</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">txtfields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">data0</span><span class="o">.</span><span class="n">close</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">txtfields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">data0</span><span class="o">.</span><span class="n">volume</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">txtfields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">data0</span><span class="o">.</span><span class="n">openinterest</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">txtfields</span><span class="p">))</span>
+
+        <span class="c1"># Single order</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">stakevol</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data0</span><span class="o">.</span><span class="n">volume</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">stakeperc</span><span class="p">)</span> <span class="o">//</span> <span class="mi">100</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;++ STAKE VOLUME:&#39;</span><span class="p">,</span> <span class="n">stakevol</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">buy</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">stakevol</span><span class="p">)</span>
+
+
+<span class="n">FILLERS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;FixedSize&#39;</span><span class="p">:</span> <span class="n">bt</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">filler</span><span class="o">.</span><span class="n">FixedSize</span><span class="p">,</span>
+    <span class="s1">&#39;FixedBarPerc&#39;</span><span class="p">:</span> <span class="n">bt</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">filler</span><span class="o">.</span><span class="n">FixedBarPerc</span><span class="p">,</span>
+    <span class="s1">&#39;BarPointPerc&#39;</span><span class="p">:</span> <span class="n">bt</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">filler</span><span class="o">.</span><span class="n">BarPointPerc</span><span class="p">,</span>
+<span class="p">}</span>
+
+
+<span class="k">def</span> <span class="nf">runstrat</span><span class="p">():</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parse_args</span><span class="p">()</span>
+
+    <span class="n">datakwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">fromdate</span><span class="p">:</span>
+        <span class="n">fromdate</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">fromdate</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">datakwargs</span><span class="p">[</span><span class="s1">&#39;fromdate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fromdate</span>
+
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">todate</span><span class="p">:</span>
+        <span class="n">fromdate</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">todate</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">datakwargs</span><span class="p">[</span><span class="s1">&#39;todate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">todate</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">feeds</span><span class="o">.</span><span class="n">BacktraderCSVData</span><span class="p">(</span><span class="n">dataname</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">datakwargs</span><span class="p">)</span>
+
+    <span class="n">cerebro</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">Cerebro</span><span class="p">()</span>
+    <span class="n">cerebro</span><span class="o">.</span><span class="n">adddata</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="n">cerebro</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">set_cash</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">cash</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">filler</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">fillerkwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">filler_args</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">fillerkwargs</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="s1">&#39;dict(&#39;</span> <span class="o">+</span> <span class="n">args</span><span class="o">.</span><span class="n">filler_args</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span><span class="p">)</span>
+
+        <span class="n">filler</span> <span class="o">=</span> <span class="n">FILLERS</span><span class="p">[</span><span class="n">args</span><span class="o">.</span><span class="n">filler</span><span class="p">](</span><span class="o">**</span><span class="n">fillerkwargs</span><span class="p">)</span>
+        <span class="n">cerebro</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">set_filler</span><span class="p">(</span><span class="n">filler</span><span class="p">)</span>
+
+    <span class="n">cerebro</span><span class="o">.</span><span class="n">addstrategy</span><span class="p">(</span><span class="n">St</span><span class="p">,</span> <span class="n">stakeperc</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">stakeperc</span><span class="p">)</span>
+
+    <span class="n">cerebro</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">plot</span><span class="p">:</span>
+        <span class="n">cerebro</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">parse_args</span><span class="p">():</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span>
+        <span class="n">formatter_class</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentDefaultsHelpFormatter</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Volume Filling Sample&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--data&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="s1">&#39;../../datas/2006-volume-day-001.txt&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Data to be read in&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--cash&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store&#39;</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="mf">500e6</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Starting cash&#39;</span><span class="p">))</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--filler&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store&#39;</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="n">FILLERS</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span>
+                        <span class="n">help</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Apply a volume filler for the execution&#39;</span><span class="p">))</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--filler-args&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store&#39;</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;kwargs for the filler with format:</span><span class="se">\n</span><span class="s1">&#39;</span>
+                              <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+                              <span class="s1">&#39;arg1=val1,arg2=val2...&#39;</span><span class="p">))</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--stakeperc&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store&#39;</span><span class="p">,</span>
+                        <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Percentage of 1st bar to use for stake&#39;</span><span class="p">))</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--fromdate&#39;</span><span class="p">,</span> <span class="s1">&#39;-f&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Starting date in YYYY-MM-DD format&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--todate&#39;</span><span class="p">,</span> <span class="s1">&#39;-t&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Ending date in YYYY-MM-DD format&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--plot&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Plot the result&#39;</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">runstrat</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+  <div class="section">
+  
+    
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  
+  <a href="../../2016-07-13-day-in-steps/day-in-steps/">
+    <i class="fa fa-arrow-circle-left"></i>
+    Trading a Day in Steps
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+</div>
+
+  
+  
+    <div class="section">
+    <h2>Comments</h2>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
+        var disqus_identifier = '/posts/2016-07-14-volume-filling/volume-filling/';
+        var disqus_title = 'Volume Filling';
+        var disqus_url = 'http://www.backtrader.com/posts/2016-07-14-volume-filling/volume-filling';
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+  
+  </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../">backtrader</a></h1>
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=mementum&repo=backtrader&type=watch&count=true&size=large"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+    
+
+<p>
+<a href="https://travis-ci.org/mementum/backtrader">
+    <img
+        alt="https://secure.travis-ci.org/mementum/backtrader.png?branch=master"
+        src="https://secure.travis-ci.org/mementum/backtrader.png?branch=master"
+    />
+</a>
+</p>
+
+
+
+  
+  
+  <h2>
+  
+  <i class="fa fa-calendar"></i>
+    Jul 14, 2016
+  
+  </h2>
+
+  <ul>
+    
+
+  
+  <li><i class="fa-fw fa fa-user"></i>
+    
+      
+      <a href="../../../blog/author/mementum/">mementum</a>
+      
+    </li>
+  
+
+  
+
+  
+
+  
+
+  
+  
+  <li>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+    </script>
+    <i class="fa-fw fa fa-comments"></i>
+    <a href="#disqus_thread" data-disqus-identifier="/posts/2016-07-14-volume-filling/volume-filling/"> </a>
+  </li>
+  
+  </ul>
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/">About backtrader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/#documentation">Documentation</a></li>
+</ul>
+
+
+  <h3><a href="../../../blog/">Recent Posts</a></h3>
+  <ul>
+    
+    
+      <li><a href="../../2016-07-13-day-in-steps/day-in-steps/">Jul 13 - Trading a Day in Steps</a></li>
+    
+      <li><a href="../../2016-07-12-visualchart-feed/visualchart-feed/">Jul 12 - Visual Chart Live Data/Trading</a></li>
+    
+      <li><a href="../../2016-06-22-ultimate-oscillator/ultimate-oscillator/">Jun 22 - Ultimate Oscillator</a></li>
+    
+      <li><a href="../../2016-06-21-livedata-feed/live-data-feed/">Jun 21 - Live Data/Live Trading</a></li>
+    
+      <li><a href="../../2016-05-09-memory-savings/memory-savings/">May 09 - Saving Memory</a></li>
+    
+  </ul>
+
+  <h3><a href="../../../blog/archive/">Archives</a></h3>
+  <ul>
+  
+    
+    <li><a href="../../../blog/2016/">2016 (12)</a></li>
+    
+  
+    
+    <li><a href="../../../blog/2015/">2015 (27)</a></li>
+    
+  
+  </ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search/" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, mementum.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="../../../_sources/posts/2016-07-14-volume-filling/volume-filling.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+    <a href="https://github.com/mementum/backtrader" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-2435868-6']);
+      _gaq.push(['_setDomainName', 'none']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    
+  </body>
+</html>
