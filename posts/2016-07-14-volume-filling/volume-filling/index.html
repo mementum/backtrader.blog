@@ -56,6 +56,13 @@
             
   <div class="section" id="volume-filling">
 <h1>Volume Filling<a class="headerlink" href="#volume-filling" title="Permalink to this headline">¶</a></h1>
+<div class="note update admonition">
+<p class="first admonition-title">Updated on Jul 15, 2016</p>
+<p>Corrected a bug in the implementation and updated the sample to
+<code class="docutils literal"><span class="pre">close</span></code> the position and repeat after a break.</p>
+<p class="last">The last test run below (and the corresponding chart) are from the
+update sample</p>
+</div>
 <p>Up until now the default volume filling strategy in <em>backtrader</em> has been
 rather simple and straightforward:</p>
 <blockquote>
@@ -264,11 +271,34 @@ matching</li>
 </div></blockquote>
 <p>For anyone interested in how the order is being matched partially at each bar,
 examining the full output of a run may be worth the time.</p>
-<p>Usage of the sample:</p>
+<div class="note update admonition">
+<p class="first admonition-title">Updated on Jul 15, 2016</p>
+<p class="last">Run with corrected bug in 1.5.3.93 and updated sample to <code class="docutils literal"><span class="pre">close</span></code>
+the operation after a break</p>
+</div>
+<p>The cash is increased to an even insaner amount to avoid margin calls and
+plotting is enabled:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ./volumefilling.py --filler FixedSize --filler-args size=10000 --stakeperc 10.0 --plot --cash 500e9
+</pre></div>
+</div>
+<p>Rather than looking at the output which is extremely verbose, let&#8217;s look at the
+chart which already tells the story.</p>
+<a class=""
+               data-lightbox="group-98e6f1c6-cebb-41dd-bc72-48c3e7449ab5"
+               href="../../../_images/volumefilling1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/volumefilling1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>Usage of the sample:</p>
 <div class="highlight-python"><div class="highlight"><pre>usage: volumefilling.py [-h] [--data DATA] [--cash CASH]
                         [--filler {FixedSize,FixedBarPerc,BarPointPerc}]
                         [--filler-args FILLER_ARGS] [--stakeperc STAKEPERC]
-                        [--fromdate FROMDATE] [--todate TODATE] [--plot]
+                        [--opbreak OPBREAK] [--fromdate FROMDATE]
+                        [--todate TODATE] [--plot]
 
 Volume Filling Sample
 
@@ -285,6 +315,8 @@ optional arguments:
                         arg1=val1,arg2=val2... (default: None)
   --stakeperc STAKEPERC
                         Percentage of 1st bar to use for stake (default: 10.0)
+  --opbreak OPBREAK     Bars to wait for new op after completing another
+                        (default: 10)
   --fromdate FROMDATE, -f FROMDATE
                         Starting date in YYYY-MM-DD format (default: None)
   --todate TODATE, -t TODATE
@@ -310,6 +342,7 @@ optional arguments:
 <span class="k">class</span> <span class="nc">St</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Strategy</span><span class="p">):</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">(</span>
         <span class="p">(</span><span class="s1">&#39;stakeperc&#39;</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;opbreak&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
     <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">notify_order</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="p">):</span>
@@ -320,6 +353,7 @@ optional arguments:
 
         <span class="k">if</span> <span class="n">order</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">order</span><span class="o">.</span><span class="n">Completed</span><span class="p">:</span>
             <span class="k">print</span><span class="p">(</span><span class="s1">&#39;++ ORDER COMPLETED at data.len:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">order</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">doop</span> <span class="o">=</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">opbreak</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">pass</span>
@@ -337,6 +371,8 @@ optional arguments:
         <span class="n">txtfields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;OpenInterest&#39;</span><span class="p">)</span>
         <span class="k">print</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">txtfields</span><span class="p">))</span>
 
+        <span class="bp">self</span><span class="o">.</span><span class="n">doop</span> <span class="o">=</span> <span class="mi">0</span>
+
     <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">txtfields</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
         <span class="n">txtfields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%04d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
@@ -350,10 +386,16 @@ optional arguments:
         <span class="k">print</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">txtfields</span><span class="p">))</span>
 
         <span class="c1"># Single order</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="n">stakevol</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data0</span><span class="o">.</span><span class="n">volume</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">stakeperc</span><span class="p">)</span> <span class="o">//</span> <span class="mi">100</span>
-            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;++ STAKE VOLUME:&#39;</span><span class="p">,</span> <span class="n">stakevol</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">buy</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">stakevol</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">doop</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">size</span><span class="p">:</span>
+                <span class="n">stakevol</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data0</span><span class="o">.</span><span class="n">volume</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">stakeperc</span><span class="p">)</span> <span class="o">//</span> <span class="mi">100</span>
+                <span class="k">print</span><span class="p">(</span><span class="s1">&#39;++ STAKE VOLUME:&#39;</span><span class="p">,</span> <span class="n">stakevol</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">buy</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">stakevol</span><span class="p">)</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">doop</span> <span class="o">+=</span> <span class="mi">1</span>
 
 
 <span class="n">FILLERS</span> <span class="o">=</span> <span class="p">{</span>
@@ -389,7 +431,7 @@ optional arguments:
         <span class="n">filler</span> <span class="o">=</span> <span class="n">FILLERS</span><span class="p">[</span><span class="n">args</span><span class="o">.</span><span class="n">filler</span><span class="p">](</span><span class="o">**</span><span class="n">fillerkwargs</span><span class="p">)</span>
         <span class="n">cerebro</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">set_filler</span><span class="p">(</span><span class="n">filler</span><span class="p">)</span>
 
-    <span class="n">cerebro</span><span class="o">.</span><span class="n">addstrategy</span><span class="p">(</span><span class="n">St</span><span class="p">,</span> <span class="n">stakeperc</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">stakeperc</span><span class="p">)</span>
+    <span class="n">cerebro</span><span class="o">.</span><span class="n">addstrategy</span><span class="p">(</span><span class="n">St</span><span class="p">,</span> <span class="n">stakeperc</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">stakeperc</span><span class="p">,</span> <span class="n">opbreak</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">opbreak</span><span class="p">)</span>
 
     <span class="n">cerebro</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">plot</span><span class="p">:</span>
@@ -422,6 +464,11 @@ optional arguments:
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--stakeperc&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store&#39;</span><span class="p">,</span>
                         <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span>
                         <span class="n">help</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Percentage of 1st bar to use for stake&#39;</span><span class="p">))</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--opbreak&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store&#39;</span><span class="p">,</span>
+                        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Bars to wait for new op after completing &#39;</span>
+                              <span class="s1">&#39;another&#39;</span><span class="p">))</span>
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--fromdate&#39;</span><span class="p">,</span> <span class="s1">&#39;-f&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
                         <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Starting date in YYYY-MM-DD format&#39;</span><span class="p">)</span>
@@ -530,6 +577,9 @@ optional arguments:
 
   <ul>
     
+  <li><i class="fa fa-pencil-square-o"></i>
+    Jul 15, 2016</li>
+  
 
   
   <li><i class="fa-fw fa fa-user"></i>
