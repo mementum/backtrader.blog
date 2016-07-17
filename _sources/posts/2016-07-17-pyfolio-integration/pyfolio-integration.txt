@@ -49,7 +49,7 @@ No PyFolio
 The sample uses ``random.randint`` to decide when to *buy*/*sell*, so this is
 simply a check that things are working::
 
-  $ ./pyfoliotest.py --cash 50000 --printout --no-pyfolio --plot
+  $ ./pyfoliotest.py --printout --no-pyfolio --plot
 
 Output::
 
