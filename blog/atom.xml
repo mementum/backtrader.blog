@@ -2,10 +2,33 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">backtrader Blog</title>
   <id>http://www.backtrader.com/blog/atom.xml</id>
-  <updated>2016-07-15T00:00:00Z</updated>
+  <updated>2016-07-17T00:00:00Z</updated>
   <link href="http://www.backtrader.com" />
   <link href="http://www.backtrader.com/blog/atom.xml" rel="self" />
   <generator uri="http://ablog.readthedocs.org" version="0.8.2">ABlog</generator>
+  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+    <title type="text">Pyfolio Integration</title>
+    <id>http://www.backtrader.com/posts/2016-07-17-pyfolio-integration/pyfolio-integration/</id>
+    <updated>2016-07-17T00:00:00Z</updated>
+    <published>2016-07-17T00:00:00Z</published>
+    <link href="http://www.backtrader.com/posts/2016-07-17-pyfolio-integration/pyfolio-integration/" />
+    <author>
+      <name>mementum</name>
+    </author>
+    <content type="html">&lt;p&gt;The integration of a &lt;em&gt;portfolio&lt;/em&gt; tool, namely &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;pyfolio&lt;/span&gt;&lt;/code&gt;, came up with in
+&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/mementum/backtrader/issues/108&quot;&gt;Ticket #108&lt;/a&gt;.&lt;/p&gt;
+&lt;a class=&quot;&quot;
+               data-lightbox=&quot;group-37fbeb4b-4a95-4de4-aca1-758e6e245b8c&quot;
+               href=&quot;../_images/output_2_4.png&quot;
+               title=&quot;&quot;
+               data-title=&quot;&quot;
+               &gt;&lt;img src=&quot;../_images/output_2_4.png&quot;
+                     class=&quot;&quot;
+                     width=&quot;100%&quot;
+                     height=&quot;auto&quot;
+                     alt=&quot;&quot;/&gt;
+                &lt;/a&gt;</content>
+  </entry>
   <entry xml:base="http://www.backtrader.com/blog/atom.xml">
     <title type="text">Volume Filling</title>
     <id>http://www.backtrader.com/posts/2016-07-14-volume-filling/volume-filling/</id>
@@ -101,10 +124,10 @@ adding the &lt;strong&gt;UltimateOscillator&lt;/strong&gt; to the arsenal of &lt
 Trading. The first integrated entity is:&lt;/p&gt;
 &lt;a class=&quot;&quot;
                data-lightbox=&quot;group-6fee251c-e114-4f2e-8bee-d36c79748d65&quot;
-               href=&quot;../_images/ibtest-twtr-execution1.png&quot;
+               href=&quot;posts\2016-06-21-livedata-feed\ibtest-twtr-execution.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
-               &gt;&lt;img src=&quot;../_images/ibtest-twtr-execution1.png&quot;
+               &gt;&lt;img src=&quot;posts\2016-06-21-livedata-feed\ibtest-twtr-execution.png&quot;
                      class=&quot;&quot;
                      width=&quot;100%&quot;
                      height=&quot;auto&quot;
