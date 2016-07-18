@@ -23,6 +23,8 @@ fully comprehensive) list of features:
   - Commission schemes supporting futures-like and stocks-like objects and
     customizable
 
+  - Performance analyzers including integration with ``pyfolio``
+
   - Event based (strategy/indicator 'next' will be called with all subordinate
     indicators calculated and data fetched)
   - Vector (in the form on inner tight *for* loops) based for a one shot
@@ -35,6 +37,8 @@ fully comprehensive) list of features:
     be overriden ... but they are provided as logical functions)
   - Index 0 approach to access the currently produced (or to be produced) data
   - Index -1 approach to access the last produced data (to remain Pythonic)
+
+
 
 The Blog Entries
 ----------------
