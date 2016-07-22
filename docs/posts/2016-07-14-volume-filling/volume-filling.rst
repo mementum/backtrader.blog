@@ -6,6 +6,14 @@
 Volume Filling
 ##############
 
+.. update:: Jul 15, 2016
+
+	    Corrected a bug in the implementation and updated the sample to
+	    ``close`` the position and repeat after a break.
+
+	    The last test run below (and the corresponding chart) are from the
+	    update sample
+
 Up until now the default volume filling strategy in *backtrader* has been
 rather simple and straightforward:
 
@@ -211,13 +219,29 @@ What happens is:
 For anyone interested in how the order is being matched partially at each bar,
 examining the full output of a run may be worth the time.
 
+.. update:: Jul 15, 2016
+
+	    Run with corrected bug in 1.5.3.93 and updated sample to ``close``
+	    the operation after a break
+
+The cash is increased to an even insaner amount to avoid margin calls and
+plotting is enabled::
+
+  $ ./volumefilling.py --filler FixedSize --filler-args size=10000 --stakeperc 10.0 --plot --cash 500e9
+
+Rather than looking at the output which is extremely verbose, let's look at the
+chart which already tells the story.
+
+.. thumbnail:: volumefilling.png
+
 
 Usage of the sample::
 
   usage: volumefilling.py [-h] [--data DATA] [--cash CASH]
                           [--filler {FixedSize,FixedBarPerc,BarPointPerc}]
                           [--filler-args FILLER_ARGS] [--stakeperc STAKEPERC]
-                          [--fromdate FROMDATE] [--todate TODATE] [--plot]
+                          [--opbreak OPBREAK] [--fromdate FROMDATE]
+                          [--todate TODATE] [--plot]
 
   Volume Filling Sample
 
@@ -234,6 +258,8 @@ Usage of the sample::
                           arg1=val1,arg2=val2... (default: None)
     --stakeperc STAKEPERC
                           Percentage of 1st bar to use for stake (default: 10.0)
+    --opbreak OPBREAK     Bars to wait for new op after completing another
+                          (default: 10)
     --fromdate FROMDATE, -f FROMDATE
                           Starting date in YYYY-MM-DD format (default: None)
     --todate TODATE, -t TODATE
