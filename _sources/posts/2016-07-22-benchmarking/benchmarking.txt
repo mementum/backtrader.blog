@@ -187,15 +187,15 @@ Output::
 
 Watch out!
 
-  - The strategy last value *HASN'T* changed
+  - The strategy last value has changed very slightly from ``-0.26`` to
+    ``-0.27``
+
   - The asset on the on the other hand shows a last value of ``-0.35`` (versus
     ``-0.33`` above)
 
-No need to worry
-
-  - Looking at the central point of the chart one can see that the portfolio
-    value was at around ``50,000`` when changin years back from ``45,000``,
-    being that the reason for the coincidence.
+The reason for values so close to each other is that when moving from 2005 to
+2006, both the strategy and the benchmarking asset were almost at the starting
+level in 2005.
 
 Switching to a lower timeframe like *weeks* the entire picture changes::
 
@@ -203,7 +203,7 @@ Switching to a lower timeframe like *weeks* the entire picture changes::
 
 Output::
 
-.. thumbnail:: 04-benchmarking-weeks.png
+  .. thumbnail:: 04-benchmarking-weeks.png
 
 Now:
 
@@ -213,8 +213,8 @@ Now:
 
   - And because no trade was active in the last week of the year and the asset
     barely moved, the last displayed values are 0.00 (The last closing value
-    before the last week was ``25.54`` and the sample data closed at ``25.55``)
-
+    before the last week was ``25.54`` and the sample data closed at ``25.55``,
+    and the difference is felt first at the 4th decimal point)
 
 Observing Benchmarking - Another data
 -------------------------------------

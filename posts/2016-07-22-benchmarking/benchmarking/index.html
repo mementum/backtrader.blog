@@ -192,7 +192,7 @@ show their functionality.</p>
 </div>
 <p>Output.</p>
 <a class=""
-               data-lightbox="group-d4f079b2-b040-4c17-82b8-7ed90e1ed286"
+               data-lightbox="group-0f039d8b-3ffe-487b-93e1-65608852b559"
                href="../../../_images/01-benchmarking-timereturn-no-timeframe1.png"
                title=""
                data-title=""
@@ -226,7 +226,7 @@ the same thing but with <em>benchmarking</em> active:</p>
 </div>
 <p>Output.</p>
 <a class=""
-               data-lightbox="group-58d58814-d0aa-4600-9a30-566432e96eb9"
+               data-lightbox="group-c5291162-eeae-4cbc-870a-093c63076ba0"
                href="../../../_images/02-benchmarking-no-timeframe1.png"
                title=""
                data-title=""
@@ -255,19 +255,15 @@ is not even as bad as the asset.</p>
 <p>Watch out!</p>
 <blockquote>
 <div><ul class="simple">
-<li>The strategy last value <em>HASN&#8217;T</em> changed</li>
+<li>The strategy last value has changed very slightly from <code class="docutils literal"><span class="pre">-0.26</span></code> to
+<code class="docutils literal"><span class="pre">-0.27</span></code></li>
 <li>The asset on the on the other hand shows a last value of <code class="docutils literal"><span class="pre">-0.35</span></code> (versus
 <code class="docutils literal"><span class="pre">-0.33</span></code> above)</li>
 </ul>
 </div></blockquote>
-<p>No need to worry</p>
-<blockquote>
-<div><ul class="simple">
-<li>Looking at the central point of the chart one can see that the portfolio
-value was at around <code class="docutils literal"><span class="pre">50,000</span></code> when changin years back from <code class="docutils literal"><span class="pre">45,000</span></code>,
-being that the reason for the coincidence.</li>
-</ul>
-</div></blockquote>
+<p>The reason for values so close to each other is that when moving from 2005 to
+2006, both the strategy and the benchmarking asset were almost at the starting
+level in 2005.</p>
 <p>Switching to a lower timeframe like <em>weeks</em> the entire picture changes:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ ./observer-benchmark.py --plot --timeframe weeks
 </pre></div>
@@ -284,7 +280,8 @@ and down, because now <code class="docutils literal"><span class="pre">weekly</s
 data are being tracked</li>
 <li>And because no trade was active in the last week of the year and the asset
 barely moved, the last displayed values are 0.00 (The last closing value
-before the last week was <code class="docutils literal"><span class="pre">25.54</span></code> and the sample data closed at <code class="docutils literal"><span class="pre">25.55</span></code>)</li>
+before the last week was <code class="docutils literal"><span class="pre">25.54</span></code> and the sample data closed at <code class="docutils literal"><span class="pre">25.55</span></code>,
+and the difference is felt first at the 4th decimal point)</li>
 </ul>
 </div></blockquote>
 </div>
@@ -298,7 +295,7 @@ dataset with <code class="docutils literal"><span class="pre">--timeframe</span>
 </div>
 <p>Output:</p>
 <a class=""
-               data-lightbox="group-43fc5739-6b07-4057-b59f-bbb81f370352"
+               data-lightbox="group-9fbe0e92-30ab-4ccb-8341-b5ef47521c8e"
                href="../../../_images/05-benchmarking-data1-no-timeframe1.png"
                title=""
                data-title=""
@@ -582,6 +579,13 @@ optional arguments:
   <span>&nbsp;</span>
   <span style="float: right;">
   
+  
+  <a href="../../2016-07-23-sizers-smart-staking/sizers-smart-staking/">
+    Sizers Smart Staking
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  </span>
+  
 </div>
 
   
@@ -700,6 +704,8 @@ optional arguments:
   <ul>
     
     
+      <li><a href="../../2016-07-23-sizers-smart-staking/sizers-smart-staking/">Jul 23 - Sizers Smart Staking</a></li>
+    
       <li><a href="../../2016-07-17-pyfolio-integration/pyfolio-integration/">Jul 17 - Pyfolio Integration</a></li>
     
       <li><a href="../../2016-07-14-volume-filling/volume-filling/">Jul 14 - Volume Filling</a></li>
@@ -708,15 +714,13 @@ optional arguments:
     
       <li><a href="../../2016-07-12-visualchart-feed/visualchart-feed/">Jul 12 - Visual Chart Live Data/Trading</a></li>
     
-      <li><a href="../../2016-06-22-ultimate-oscillator/ultimate-oscillator/">Jun 22 - Ultimate Oscillator</a></li>
-    
   </ul>
 
   <h3><a href="../../../blog/archive/">Archives</a></h3>
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (14)</a></li>
+    <li><a href="../../../blog/2016/">2016 (15)</a></li>
     
   
     
