@@ -2,10 +2,33 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">backtrader Blog</title>
   <id>http://www.backtrader.com/blog/atom.xml</id>
-  <updated>2016-07-22T00:00:00Z</updated>
+  <updated>2016-07-23T00:00:00Z</updated>
   <link href="http://www.backtrader.com" />
   <link href="http://www.backtrader.com/blog/atom.xml" rel="self" />
   <generator uri="http://ablog.readthedocs.org" version="0.8.2">ABlog</generator>
+  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+    <title type="text">Sizers Smart Staking</title>
+    <id>http://www.backtrader.com/posts/2016-07-23-sizers-smart-staking/sizers-smart-staking/</id>
+    <updated>2016-07-23T00:00:00Z</updated>
+    <published>2016-07-23T00:00:00Z</published>
+    <link href="http://www.backtrader.com/posts/2016-07-23-sizers-smart-staking/sizers-smart-staking/" />
+    <author>
+      <name>mementum</name>
+    </author>
+    <content type="html">&lt;p&gt;Release &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;1.6.4.93&lt;/span&gt;&lt;/code&gt; marks a major milestone in &lt;em&gt;backtrader&lt;/em&gt; even if the change
+in version numbering is a minor one.&lt;/p&gt;
+&lt;a class=&quot;&quot;
+               data-lightbox=&quot;group-721bd457-bdda-4714-9b99-9eda3d57ac5a&quot;
+               href=&quot;../_images/sizer-long-only1.png&quot;
+               title=&quot;&quot;
+               data-title=&quot;&quot;
+               &gt;&lt;img src=&quot;../_images/sizer-long-only1.png&quot;
+                     class=&quot;&quot;
+                     width=&quot;100%&quot;
+                     height=&quot;auto&quot;
+                     alt=&quot;&quot;/&gt;
+                &lt;/a&gt;</content>
+  </entry>
   <entry xml:base="http://www.backtrader.com/blog/atom.xml">
     <title type="text">Benchmarking</title>
     <id>http://www.backtrader.com/posts/2016-07-22-benchmarking/benchmarking/</id>
@@ -103,10 +126,10 @@ summarized as follows:&lt;/p&gt;
 Feeds and Live Trading.&lt;/p&gt;
 &lt;a class=&quot;&quot;
                data-lightbox=&quot;group-17a69a55-a6ba-4102-8c29-27e9bace49c7&quot;
-               href=&quot;../_images/visualchart-filled-orders1.png&quot;
+               href=&quot;posts\2016-07-12-visualchart-feed\visualchart-filled-orders.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
-               &gt;&lt;img src=&quot;../_images/visualchart-filled-orders1.png&quot;
+               &gt;&lt;img src=&quot;posts\2016-07-12-visualchart-feed\visualchart-filled-orders.png&quot;
                      class=&quot;&quot;
                      width=&quot;100%&quot;
                      height=&quot;auto&quot;
