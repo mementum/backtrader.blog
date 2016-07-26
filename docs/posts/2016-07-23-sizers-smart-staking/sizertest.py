@@ -51,7 +51,7 @@ class LongOnly(bt.Sizer):
             return self.p.stake
 
         # Sell situation
-        position = self.broker.getposition(data)
+        position = self.strategy.getposition(data)
         if not position.size:
             return 0  # do not sell if nothing is open
 
