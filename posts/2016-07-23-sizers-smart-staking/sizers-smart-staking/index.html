@@ -108,7 +108,7 @@ and will return the same fixed size to close it if already in the market.</p>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">stake</span>
 
         <span class="c1"># Sell situation</span>
-        <span class="n">position</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">getposition</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">position</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">strategy</span><span class="o">.</span><span class="n">getposition</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">position</span><span class="o">.</span><span class="n">size</span><span class="p">:</span>
             <span class="k">return</span> <span class="mi">0</span>  <span class="c1"># do not sell if nothing is open</span>
 
@@ -175,7 +175,7 @@ the sample (controlled with the switch <code class="docutils literal"><span clas
 </div>
 <p>And this output.</p>
 <a class=""
-               data-lightbox="group-721bd457-bdda-4714-9b99-9eda3d57ac5a"
+               data-lightbox="group-47606546-922e-48d5-b3ec-230e1eb52c84"
                href="../../../_images/sizer-long-only1.png"
                title=""
                data-title=""
@@ -193,7 +193,7 @@ the sample (controlled with the switch <code class="docutils literal"><span clas
 </div>
 <p>And this output.</p>
 <a class=""
-               data-lightbox="group-d55c9e47-ecab-4cb7-8366-a33b442d9567"
+               data-lightbox="group-1710bbe8-eb02-44c1-86cc-e2055ade2c17"
                href="../../../_images/sizer-fixedreverser1.png"
                title=""
                data-title=""
@@ -272,7 +272,7 @@ optional arguments:
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">stake</span>
 
         <span class="c1"># Sell situation</span>
-        <span class="n">position</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">getposition</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">position</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">strategy</span><span class="o">.</span><span class="n">getposition</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">position</span><span class="o">.</span><span class="n">size</span><span class="p">:</span>
             <span class="k">return</span> <span class="mi">0</span>  <span class="c1"># do not sell if nothing is open</span>
 
@@ -396,6 +396,13 @@ optional arguments:
   <span>&nbsp;</span>
   <span style="float: right;">
   
+  
+  <a href="../../2016-07-26-talib-integration/talib-integration/">
+    TA-Lib
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  </span>
+  
 </div>
 
   
@@ -514,6 +521,8 @@ optional arguments:
   <ul>
     
     
+      <li><a href="../../2016-07-26-talib-integration/talib-integration/">Jul 26 - TA-Lib</a></li>
+    
       <li><a href="../../2016-07-22-benchmarking/benchmarking/">Jul 22 - Benchmarking</a></li>
     
       <li><a href="../../2016-07-17-pyfolio-integration/pyfolio-integration/">Jul 17 - Pyfolio Integration</a></li>
@@ -522,15 +531,13 @@ optional arguments:
     
       <li><a href="../../2016-07-13-day-in-steps/day-in-steps/">Jul 13 - Trading a Day in Steps</a></li>
     
-      <li><a href="../../2016-07-12-visualchart-feed/visualchart-feed/">Jul 12 - Visual Chart Live Data/Trading</a></li>
-    
   </ul>
 
   <h3><a href="../../../blog/archive/">Archives</a></h3>
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (15)</a></li>
+    <li><a href="../../../blog/2016/">2016 (16)</a></li>
     
   
     
