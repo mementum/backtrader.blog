@@ -14,7 +14,10 @@ fully comprehensive) list of features:
   - Multiple Strategies at the same time
   - Strategy optimization (including multicore support)
 
-  - Indicators (several) which can of course take datas and/or indicators as input
+  - Indicators (several) which can of course take datas and/or indicators as
+    input
+
+  - TA-Lib support
 
   - Plotting support for visual inspection
 
