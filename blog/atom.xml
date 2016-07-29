@@ -2,10 +2,32 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">backtrader Blog</title>
   <id>http://www.backtrader.com/blog/atom.xml</id>
-  <updated>2016-07-26T00:00:00Z</updated>
+  <updated>2016-07-29T00:00:00Z</updated>
   <link href="http://www.backtrader.com" />
   <link href="http://www.backtrader.com/blog/atom.xml" rel="self" />
   <generator uri="http://ablog.readthedocs.org" version="0.8.2">ABlog</generator>
+  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+    <title type="text">Pinkfish Challenge</title>
+    <id>http://www.backtrader.com/posts/2016-07-29-pinkfish-challenge/pinkfish-challenge/</id>
+    <updated>2016-07-29T00:00:00Z</updated>
+    <published>2016-07-29T00:00:00Z</published>
+    <link href="http://www.backtrader.com/posts/2016-07-29-pinkfish-challenge/pinkfish-challenge/" />
+    <author>
+      <name>mementum</name>
+    </author>
+    <content type="html">&lt;p&gt;(Sample and changes added to release &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;1.7.1.93&lt;/span&gt;&lt;/code&gt;)&lt;/p&gt;
+&lt;a class=&quot;&quot;
+               data-lightbox=&quot;group-57faff15-b80e-4987-9e92-f42a8f3cb82b&quot;
+               href=&quot;../_images/pinkfish-challenge1.png&quot;
+               title=&quot;&quot;
+               data-title=&quot;&quot;
+               &gt;&lt;img src=&quot;../_images/pinkfish-challenge1.png&quot;
+                     class=&quot;&quot;
+                     width=&quot;100%&quot;
+                     height=&quot;auto&quot;
+                     alt=&quot;&quot;/&gt;
+                &lt;/a&gt;</content>
+  </entry>
   <entry xml:base="http://www.backtrader.com/blog/atom.xml">
     <title type="text">TA-Lib</title>
     <id>http://www.backtrader.com/posts/2016-07-26-talib-integration/talib-integration/</id>
@@ -115,10 +137,10 @@ have delivered.&lt;/p&gt;
 &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;close&lt;/span&gt;&lt;/code&gt; the position and repeat after a break.&lt;/p&gt;
 &lt;a class=&quot;&quot;
                data-lightbox=&quot;group-844a92fc-bcdb-49ed-9107-68a30b7507e5&quot;
-               href=&quot;../_images/volumefilling1.png&quot;
+               href=&quot;posts\2016-07-14-volume-filling\volumefilling.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
-               &gt;&lt;img src=&quot;../_images/volumefilling1.png&quot;
+               &gt;&lt;img src=&quot;posts\2016-07-14-volume-filling\volumefilling.png&quot;
                      class=&quot;&quot;
                      width=&quot;100%&quot;
                      height=&quot;auto&quot;
