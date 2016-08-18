@@ -103,7 +103,7 @@ were also added to the arsenal of moving averages.</p>
 </pre></div>
 </div>
 <a class=""
-               data-lightbox="group-d7485738-ecc4-4a01-9abf-d8f77f60c5e5"
+               data-lightbox="group-bd58434e-c792-490c-8c6a-0893214f0377"
                href="../../../_images/dma-comparison1.png"
                title=""
                data-title=""
@@ -121,7 +121,29 @@ values a couple of values later than the rest. This is due to the
 fact that is uses a <em>moving average</em> on <em>moving average</em> which delays
 the initial production.</p>
 </div>
+<p>And a comparison showing how the <em>DMA</em> sits in between the middle of a
+<em>ZeroLagIndicator</em> and a <em>HullMovingAverage</em>. The latter with a <code class="docutils literal"><span class="pre">period=7</span></code> to
+match the default value inside the <em>Dickson Moving Average</em>:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ btrun --nostdstats \
+    --format btcsv \
+    --data ../../../backtrader/datas/2006-day-001.txt \
+    --indicator :HMA:period=7 \
+    --indicator :ZeroLagIndicator \
+    --indicator :DMA \
+    --plot style=\&#39;line\&#39;
+</pre></div>
 </div>
+<a class=""
+               data-lightbox="group-9cfb2375-2899-4587-868c-2ee7684d1ec8"
+               href="../../../_images/dma-hma-zlind-comparison1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/dma-hma-zlind-comparison1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a></div>
 
   <div class="section">
   
