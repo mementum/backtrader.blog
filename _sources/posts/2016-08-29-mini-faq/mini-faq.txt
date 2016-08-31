@@ -1,0 +1,239 @@
+
+.. post:: Aug 29, 2016
+   :author: mementum
+   :image: 1
+
+
+Mini FAQ
+########
+
+After a couple of questions from a private user of *backtrader*, hereby a
+*Mini-FAQ* which tries to bring light to some topis, which seem to be somehow
+not so clear.
+
+
+``__init__`` vs ``next``
+************************
+
+The main goal of the platform is *ease of use* and in order to (try to) achieve
+it, *backtrader* uses extensively operator overloading, to the point that
+operators deliver different resuls depending on the stage in which they are
+used.
+
+Stage 1: ``__init__``
+=====================
+
+Some premises have to be considered:
+
+  - Things are being instantiated during this stage
+
+  - As such the *data feeds*, *indicators*, *observers*, *strategies* and other
+    objects have not operated a single time
+
+    Example: *data feeds* have not yet produced the 1st data points (usually
+    ``OHLC``)
+
+    .. note:: the backtesting engine may preload the data feeds if they are for
+	      example disk based *csv* files, in order to later accelerate the
+	      backtesting. Accessing the indices of the *data* is in this case
+	      possible, but it makes no sense to do it unless cheating oneself
+	      is the goal
+
+Which means:
+
+  - Trying to access data point with the index operator ``[x]`` makes
+    absolutely no sense
+
+  - But using the ``(x)`` operator to get a delayed *line* makes sense.
+
+    This operator doesn't index anything
+
+Let's see a minimal but working example with *NO PRELOADING* (it could be a
+live data feed):
+
+.. literalinclude:: init-01.py
+   :language: python
+   :lines: 21-
+
+The execution runs as follows
+::
+
+  $ ./init-01.py
+  data0 is -> <backtrader.feeds.btcsv.BacktraderCSVData object at 0x000000000C7C1588>
+  data0.close is -> <backtrader.linebuffer.LineBuffer object at 0x000000000C7C16D8>
+  Traceback (most recent call last):
+    File "./init-01.py", line 44, in <module>
+      cerebro.run()
+    File "d:\dro\01-docs\01-home\src\backtrader\backtrader\cerebro.py", line 647, in run
+      runstrat = self.runstrategies(iterstrat)
+    File "d:\dro\01-docs\01-home\src\backtrader\backtrader\cerebro.py", line 692, in runstrategies
+      strat = stratcls(self, *sargs, **skwargs)
+    File "d:\dro\01-docs\01-home\src\backtrader\backtrader\metabase.py", line 87, in __call__
+      _obj, args, kwargs = cls.doinit(_obj, *args, **kwargs)
+    File "d:\dro\01-docs\01-home\src\backtrader\backtrader\metabase.py", line 77, in doinit
+      _obj.__init__(*args, **kwargs)
+    File "./init-01.py", line 32, in __init__
+      print('data0.close[0] is ->', self.data0.close[0])
+    File "d:\dro\01-docs\01-home\src\backtrader\backtrader\linebuffer.py", line 162, in __getitem__
+      return self.array[self.idx + ago]
+  IndexError: array index out of range
+
+Let's look at the output:
+
+  - ``data0 is -> <backtrader.feeds.btcsv.BacktraderCSVData object at 0x000000000C7CA588>``
+
+    ``self.data0``, as expected, is a ``BackTraderCSVData`` instance
+
+    Recall that ``self.data0`` is an alias to ``self.datas[0]``. And that
+    because this is the 1st data of the system, it has an additional alias ``self.data``
+
+  - ``data0.close is -> <backtrader.linebuffer.LineBuffer object at 0x000000000C7CA6D8>``
+
+    ``self.data0.close`` is a ``LineBuffer``. It is one of the *lines* that
+    make up ``self.data0``
+
+    ``self.data0`` has actually 7 *lines* (or ``LineBuffer``): ``open``,
+    ``high``, ``low``, ``close``, ``volume``, ``openinterest`` and ``datetime``
+
+  - And chaos happens when the script tries to access ``self.data0.close[0]``
+
+    Because *preloading* has been specifically deactivated the data has no
+    single value yet to offer during the *instantiation* phase
+
+Let's try letting *preload* active (*default* value):
+
+.. literalinclude:: init-02.py
+   :language: python
+   :lines: 21-
+
+The execution runs as follows
+::
+
+  $ ./init-02.py
+  data0 is -> <backtrader.feeds.btcsv.BacktraderCSVData object at 0x000000000C7CA588>
+  data0.close is -> <backtrader.linebuffer.LineBuffer object at 0x000000000C7CA6D8>
+  data0.close[0] is -> 4119.94
+  Signal is -> <backtrader.linebuffer.LinesOperation object at 0x000000000C7D9128>
+  Traceback (most recent call last):
+    File "./init-02.py", line 44, in <module>
+      cerebro.run()
+    File "d:\dro\01-docs\01-home\src\backtrader\backtrader\cerebro.py", line 647, in run
+      runstrat = self.runstrategies(iterstrat)
+    File "d:\dro\01-docs\01-home\src\backtrader\backtrader\cerebro.py", line 692, in runstrategies
+      strat = stratcls(self, *sargs, **skwargs)
+    File "d:\dro\01-docs\01-home\src\backtrader\backtrader\metabase.py", line 87, in __call__
+      _obj, args, kwargs = cls.doinit(_obj, *args, **kwargs)
+    File "d:\dro\01-docs\01-home\src\backtrader\backtrader\metabase.py", line 77, in doinit
+      _obj.__init__(*args, **kwargs)
+    File "./init-02.py", line 37, in __init__
+      print('Signal[0] is ->', self.signal[0])
+    File "d:\dro\01-docs\01-home\src\backtrader\backtrader\linebuffer.py", line 162, in __getitem__
+      return self.array[self.idx + ago]
+  IndexError: array index out of range
+
+The execution has gotten two steps further, namely:
+
+  - ``data0.close[0] is -> 4119.94``
+
+    The *data feed* has been preloaded and the last value is presented when
+    accessing ``[0]``
+
+    But remember ... this is *cheating*
+
+  - ``Signal is -> <backtrader.linebuffer.LinesOperation object at 0x000000000C7D9128>``
+
+    And here is the surprise that the *Mini-FAQ* tries to answer.
+
+      *signal* is not a **VALUE**, it is an **OBJECT**. This object will
+      resolve during *runtime* the logic of the statement::
+
+	self.data0.close > self.data0.open
+
+    It is a *lazily evaluated* object. And the name describes what happens:
+
+      - Two *lines* undergo an operation (a comparison) and  a
+	``LinesOperation`` object is returned. Natural
+
+  - And chaos happens again when trying to access index ``[0]`` of this new
+    object. Which is to be expected. This is the **instantiation** phase and
+    nothing has *run* yet. The object has had no chace to evaluate the logic
+    even a single time.
+
+Other types of object assignment may seem more natural but are actually the
+same. Example::
+
+  class MyStrategy(bt.Strategy):
+
+      def __init__(self):
+          self.sma = bt.indicators.SMA(period=15)
+
+In this case an object of type ``SMA`` is being assigned to the attribute
+``self.sma``. Of course the platform user is explicitly doing this.
+
+In the case ``self.signal = self.data0.close > self.data0.open`` the creation
+of the object happens transparently in the background. This is implicit. But it
+is exactly the same.
+
+
+Stage 2: ``next``
+=================
+
+Instantiation is over and the strategy is going to walk-forward point by point,
+giving ``next`` a chance to evaluate the ``signal``.
+
+The script from above with some changes:
+
+  - Remove *cheating* and code-breaking statements
+
+  - Add a ``next`` method
+
+.. literalinclude:: next-01.py
+   :language: python
+   :lines: 21-
+
+The execution runs as follows
+::
+
+  $ ./next-01.py
+  data0 is -> <backtrader.feeds.btcsv.BacktraderCSVData object at 0x000000000C7C7518>
+  data0.close is -> <backtrader.linebuffer.LineBuffer object at 0x000000000C7C7668>
+  Signal is -> <backtrader.linebuffer.LinesOperation object at 0x000000000C7D70B8>
+  0001 - Signal is -> <backtrader.linebuffer.LinesOperation object at 0x000000000C7D70B8>
+  0001 - Signal[0] is -> 1.0
+  0002 - Signal is -> <backtrader.linebuffer.LinesOperation object at 0x000000000C7D70B8>
+  0002 - Signal[0] is -> 1.0
+  0003 - Signal is -> <backtrader.linebuffer.LinesOperation object at 0x000000000C7D70B8>
+  0003 - Signal[0] is -> 1.0
+  0004 - Signal is -> <backtrader.linebuffer.LinesOperation object at 0x000000000C7D70B8>
+  0004 - Signal[0] is -> 0.0
+  ...
+  ...
+  0255 - Signal is -> <backtrader.linebuffer.LinesOperation object at 0x000000000C7D70B8>
+  0255 - Signal[0] is -> 0.0
+
+Focusing on ``next``:
+
+  - ``self.signal`` is still the same old ``LinesOperation`` object
+
+  - Index ``[0]`` can now be accessed and delivers the more current status of
+    the comparison ``self.data.close > self.data.open``
+
+Another form of overloading is shown here, which applies to this stage
+::
+
+   if self.signal:  # equivalent to if self.signal[0]
+       ...
+
+Boolean testing of the ``LinesOperation`` object is done against the value
+present at index ``[0]``
+
+A very dumb comparison, but to show more overloading could be::
+
+    if self.signal > self.data.close:
+        ...
+
+In this case the equivalence would be:
+
+  -  ``if self.signal[0] > self.data.close[0]``
+
+Bottomline: *just choose whatever notation better suits you*
