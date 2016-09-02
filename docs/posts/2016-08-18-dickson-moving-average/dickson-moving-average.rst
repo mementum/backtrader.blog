@@ -57,3 +57,18 @@ with any other indicator.
 	  values a couple of values later than the rest. This is due to the
 	  fact that is uses a *moving average* on *moving average* which delays
 	  the initial production.
+
+And a comparison showing how the *DMA* sits in between the middle of a
+*ZeroLagIndicator* and a *HullMovingAverage*. The latter with a ``period=7`` to
+match the default value inside the *Dickson Moving Average*::
+
+
+  $ btrun --nostdstats \
+      --format btcsv \
+      --data ../../../backtrader/datas/2006-day-001.txt \
+      --indicator :HMA:period=7 \
+      --indicator :ZeroLagIndicator \
+      --indicator :DMA \
+      --plot style=\'line\'
+
+.. thumbnail:: dma-hma-zlind-comparison.png
