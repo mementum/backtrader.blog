@@ -2,10 +2,23 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">backtrader Blog</title>
   <id>http://www.backtrader.com/blog/atom.xml</id>
-  <updated>2016-09-02T00:00:00Z</updated>
+  <updated>2016-09-05T00:00:00Z</updated>
   <link href="http://www.backtrader.com" />
   <link href="http://www.backtrader.com/blog/atom.xml" rel="self" />
   <generator uri="http://ablog.readthedocs.org" version="0.8.2">ABlog</generator>
+  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+    <title type="text">Optimization improvements</title>
+    <id>http://www.backtrader.com/posts/2016-09-05-optimization-improvements/optimization-improvements/</id>
+    <updated>2016-09-05T00:00:00Z</updated>
+    <published>2016-09-05T00:00:00Z</published>
+    <link href="http://www.backtrader.com/posts/2016-09-05-optimization-improvements/optimization-improvements/" />
+    <author>
+      <name>mementum</name>
+    </author>
+    <content type="html">&lt;p&gt;Version &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;1.8.12.99&lt;/span&gt;&lt;/code&gt; of &lt;em&gt;backtrader&lt;/em&gt; includes an improvement in how
+&lt;em&gt;data feeds&lt;/em&gt; and &lt;em&gt;results&lt;/em&gt; are managed during multiprocessing.&lt;/p&gt;
+</content>
+  </entry>
   <entry xml:base="http://www.backtrader.com/blog/atom.xml">
     <title type="text">Target Orders</title>
     <id>http://www.backtrader.com/posts/2016-09-02-target-orders/target-orders/</id>
