@@ -84,12 +84,22 @@ data which includes prices for <code class="docutils literal"><span class="pre">
 different <em>timeframes</em>:</p>
 <blockquote>
 <div><ul class="simple">
-<li><code class="docutils literal"><span class="pre">TimeFrame.Years</span></code>: <code class="docutils literal"><span class="pre">11.64</span></code></li>
-<li><code class="docutils literal"><span class="pre">TimeFrame.Months</span></code>: <code class="docutils literal"><span class="pre">0.1566</span></code></li>
-<li><code class="docutils literal"><span class="pre">TimeFrame.Weeks</span></code>: <code class="docutils literal"><span class="pre">0.0634</span></code></li>
-<li><code class="docutils literal"><span class="pre">TimeFrame.Days</span></code>: <code class="docutils literal"><span class="pre">0.0269</span></code></li>
+<li><code class="docutils literal"><span class="pre">TimeFrame.Years</span></code>: <code class="docutils literal"><span class="pre">11.6473</span></code></li>
+<li><code class="docutils literal"><span class="pre">TimeFrame.Months</span></code>: <code class="docutils literal"><span class="pre">0.5425</span></code></li>
+<li><code class="docutils literal"><span class="pre">TimeFrame.Weeks</span></code>: <code class="docutils literal"><span class="pre">0.457</span></code></li>
+<li><code class="docutils literal"><span class="pre">TimeFrame.Days</span></code>: <code class="docutils literal"><span class="pre">0.4274</span></code></li>
 </ul>
 </div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>For consistency the ratio is annualized. The <code class="docutils literal"><span class="pre">sharpe-timereturn</span></code> sample
+and is executed with:</p>
+<div class="highlight-python"><div class="highlight"><pre>--annualize --timeframe xxx
+</pre></div>
+</div>
+<p class="last">Where <code class="docutils literal"><span class="pre">xxx</span></code> stands for <code class="docutils literal"><span class="pre">days</span></code>, <code class="docutils literal"><span class="pre">weeks</span></code>, <code class="docutils literal"><span class="pre">months</span></code> or <code class="docutils literal"><span class="pre">years</span></code>
+(default)</p>
+</div>
 <p>In this sample there is something clear:</p>
 <blockquote>
 <div><ul class="simple">
@@ -110,6 +120,17 @@ value across <em>timeframes</em>. The same strategy offers the following values:
 <li><code class="docutils literal"><span class="pre">TimeFrame.Days</span></code>: <code class="docutils literal"><span class="pre">1.5221</span></code></li>
 </ul>
 </div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The <code class="docutils literal"><span class="pre">VWR</span></code> is returned (following the literature) always in annualized
+form. The sample is executed with:</p>
+<div class="highlight-python"><div class="highlight"><pre>--timeframe xxx
+</pre></div>
+</div>
+<p>Where <code class="docutils literal"><span class="pre">xxx</span></code> stands for <code class="docutils literal"><span class="pre">days</span></code>, <code class="docutils literal"><span class="pre">weeks</span></code>, <code class="docutils literal"><span class="pre">months</span></code> or <code class="docutils literal"><span class="pre">years</span></code></p>
+<p class="last">The default is <code class="docutils literal"><span class="pre">None</span></code> which uses the underlying <em>timeframe</em> of the data
+which is <code class="docutils literal"><span class="pre">days</span></code></p>
+</div>
 <p>Consistent values which show that the performance of the strategy when it comes
 to offering consistent returns can be evaluated on any timeframe.</p>
 <div class="admonition note">

@@ -33,10 +33,20 @@ case the ``SharpeRatio`` would be infinite.
 data which includes prices for ``2005`` and ``2006``. The returned values for
 different *timeframes*:
 
-  - ``TimeFrame.Years``: ``11.64``
-  - ``TimeFrame.Months``: ``0.1566``
-  - ``TimeFrame.Weeks``: ``0.0634``
-  - ``TimeFrame.Days``: ``0.0269``
+  - ``TimeFrame.Years``: ``11.6473``
+  - ``TimeFrame.Months``: ``0.5425``
+  - ``TimeFrame.Weeks``: ``0.457``
+  - ``TimeFrame.Days``: ``0.4274``
+
+.. note::
+
+   For consistency the ratio is annualized. The ``sharpe-timereturn`` sample
+   and is executed with::
+
+     --annualize --timeframe xxx
+
+   Where ``xxx`` stands for ``days``, ``weeks``, ``months`` or ``years``
+   (default)
 
 In this sample there is something clear:
 
@@ -55,6 +65,18 @@ value across *timeframes*. The same strategy offers the following values:
   - ``TimeFrame.Months``: ``1.5163``
   - ``TimeFrame.Weeks``: ``1.5383``
   - ``TimeFrame.Days``: ``1.5221``
+
+.. note::
+
+   The ``VWR`` is returned (following the literature) always in annualized
+   form. The sample is executed with::
+
+     --timeframe xxx
+
+   Where ``xxx`` stands for ``days``, ``weeks``, ``months`` or ``years``
+
+   The default is ``None`` which uses the underlying *timeframe* of the data
+   which is ``days``
 
 Consistent values which show that the performance of the strategy when it comes
 to offering consistent returns can be evaluated on any timeframe.
