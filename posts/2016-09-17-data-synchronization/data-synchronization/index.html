@@ -1,0 +1,678 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Data Synchronization Rework &mdash; backtrader  documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinxcontrib-images\LightBox2\lightbox2\css\lightbox.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/sphinxcontrib-images\LightBox2\lightbox2\js\jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../../_static/sphinxcontrib-images\LightBox2\lightbox2\js\lightbox.min.js"></script>
+    <script type="text/javascript" src="../../../_static/sphinxcontrib-images\LightBox2\lightbox2-customize\jquery-noconflict.js"></script>
+    <link rel="author" title="About these documents" href="../../../about/" />
+    <link rel="top" title="backtrader  documentation" href="../../../" />
+  
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  
+  
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.post-list-style-disc {list-style-type: disc;}
+    ul.post-list-style-none {list-style-type: none;}
+    ul.post-list-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="data-synchronization-rework">
+<h1>Data Synchronization Rework<a class="headerlink" href="#data-synchronization-rework" title="Permalink to this headline">¶</a></h1>
+<p>In the latest release the <em>minor</em> number has been moved from <code class="docutils literal"><span class="pre">8</span></code> to <code class="docutils literal"><span class="pre">9</span></code> to
+indicate a change which may have some behavioral impact, regardless, even if
+compatibility has been taken into account.</p>
+<p>With release <code class="docutils literal"><span class="pre">1.9.0.99</span></code> the entire mechanism to synchronize multiple datas
+using <em>datetime</em> has been reworked (for both <em>next</em> and <em>once</em> modes).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">All standard test cases get a nice OK from <code class="docutils literal"><span class="pre">nosetests</span></code>, but complex
+uses cases might uncover corner cases not covered.</p>
+</div>
+<p>The previous behavior was discussed in tickets
+<a class="reference external" href="https://github.com/mementum/backtrader/issues/39">#39</a>,
+<a class="reference external" href="https://github.com/mementum/backtrader/issues/76">#76</a>,
+<a class="reference external" href="https://github.com/mementum/backtrader/issues/115">#115</a> and
+<a class="reference external" href="https://github.com/mementum/backtrader/issues/129">#129</a> and this has been
+the basis to deprecate the old behavior.</p>
+<p>Now, the <em>datetime</em> timestamp of the incoming prices is checked to align datas
+and deliver what&#8217;s new (older bars first). Benefits:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Non time aligned data can now be used.</li>
+<li>In live feeds the behavior improves because the re-synchronizes
+automatically</li>
+</ul>
+</div></blockquote>
+<p>Let&#8217;s recall that the old behavior used the 1st data introduced in the system
+as a master for time synchronization and no other data could be faster. The
+order of introduction of datas in the system plays no role now.</p>
+<p>Part of the rework has addressed plotting which naively assumed all datas ended
+up having the same length, being this a consequence of having a time
+master. The new plotting code allows datas of different length.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The old behavior is still available by using:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">cerebro</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">Cerebro</span><span class="p">(</span><span class="n">oldsync</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>or:</p>
+<div class="last highlight-python"><div class="highlight"><pre><span class="n">cerebro</span><span class="o">.</span><span class="n">rund</span><span class="p">(</span><span class="n">oldsync</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="seeing-it-with-a-sample">
+<h2>Seeing it with a sample<a class="headerlink" href="#seeing-it-with-a-sample" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal"><span class="pre">multidata-strategy</span></code> sample has been used as the basis for the
+<code class="docutils literal"><span class="pre">multidata-strategy-unaligned</span></code> sample (in the same folder). Two data samples
+have been manually altered to remove some bars. Both had <code class="docutils literal"><span class="pre">756</span></code> bars and have
+been capped down to <code class="docutils literal"><span class="pre">753</span></code> at two different points in time</p>
+<blockquote>
+<div><ul class="simple">
+<li>End of 2004, beginning of 2005 for <code class="docutils literal"><span class="pre">YHOO</span></code></li>
+<li>End of 2005 for <code class="docutils literal"><span class="pre">ORCL</span></code></li>
+</ul>
+</div></blockquote>
+<p>As always, a execution is worth a thousand words.</p>
+<div class="section" id="first-the-old-behavior">
+<h3>First the old behavior<a class="headerlink" href="#first-the-old-behavior" title="Permalink to this headline">¶</a></h3>
+<p>The execution:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ./multidata-strategy-unaligned.py --oldsync --plot
+</pre></div>
+</div>
+<p>From the output, the important part is right at the end:</p>
+<div class="highlight-python"><div class="highlight"><pre>...
+Self  len: 753
+Data0 len: 753
+Data1 len: 750
+Data0 len == Data1 len: False
+Data0 dt: 2005-12-27 23:59:59
+Data1 dt: 2005-12-27 23:59:59
+...
+</pre></div>
+</div>
+<p>To notice:</p>
+<blockquote>
+<div><ul class="simple">
+<li>The <em>strategy</em> has a length of <code class="docutils literal"><span class="pre">753</span></code></li>
+<li>The 1st data (time master) also has <code class="docutils literal"><span class="pre">753</span></code></li>
+<li>The 2nd data (time slave) has <code class="docutils literal"><span class="pre">750</span></code></li>
+</ul>
+</div></blockquote>
+<p>It&#8217;s not obvious from the output but the <code class="docutils literal"><span class="pre">YHOO</span></code> file contains data up to
+<code class="docutils literal"><span class="pre">2005-12-30</span></code>, which is not being processed by the system.</p>
+<p>The visual chart</p>
+<a class=""
+               data-lightbox="group-22b13e64-9a82-4338-9fbb-79505c43e998"
+               href="../../../_images/multidata-oldsync1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/multidata-oldsync1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a></div>
+<div class="section" id="the-new-behavior">
+<h3>The new behavior<a class="headerlink" href="#the-new-behavior" title="Permalink to this headline">¶</a></h3>
+<p>The execution:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ./multidata-strategy-unaligned.py --plot
+</pre></div>
+</div>
+<p>From the output, the important part is right at the end:</p>
+<div class="highlight-python"><div class="highlight"><pre>...
+Self  len: 756
+Data0 len: 753
+Data1 len: 753
+Data0 len == Data1 len: True
+Data0 dt: 2005-12-27 23:59:59
+Data1 dt: 2005-12-30 23:59:59
+...
+</pre></div>
+</div>
+<p>The behavior has obvioulsy improved:</p>
+<blockquote>
+<div><ul class="simple">
+<li>The <em>strategy</em> goes to a length of <code class="docutils literal"><span class="pre">756</span></code> and each of the datas to the
+full <code class="docutils literal"><span class="pre">753</span></code> data points.</li>
+<li>Because the removed data points don&#8217;t overlap the strategy ends up being
+<code class="docutils literal"><span class="pre">3</span></code> units longer than the datas.</li>
+<li><code class="docutils literal"><span class="pre">2005-12-30</span></code> has been reached with <code class="docutils literal"><span class="pre">data1</span></code> (it&#8217;s one of the data points
+removed for <code class="docutils literal"><span class="pre">data0</span></code>), so all datas have been processed to the very end</li>
+</ul>
+</div></blockquote>
+<p>The visual chart</p>
+<a class=""
+               data-lightbox="group-3b07e9e0-69cd-4919-8ead-5926f2974292"
+               href="../../../_images/multidata-newsync1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/multidata-newsync1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>Although the charts do not exhibit major differences, they are actually
+different behind the scenes.</p>
+</div>
+</div>
+<div class="section" id="another-check">
+<h2>Another check<a class="headerlink" href="#another-check" title="Permalink to this headline">¶</a></h2>
+<p>For the interested user, the <code class="docutils literal"><span class="pre">data-multitimeframe</span></code> sample has been updated to
+also support a <code class="docutils literal"><span class="pre">--oldsync</span></code> parameter. Because now different length datas are
+being plotted, the visual aspect of the larger time frame is better.</p>
+<div class="section" id="execution-with-new-synchronization-model">
+<h3>Execution with new synchronization model<a class="headerlink" href="#execution-with-new-synchronization-model" title="Permalink to this headline">¶</a></h3>
+<a class=""
+               data-lightbox="group-830ff93b-49d4-4319-8770-262f3ec9c950"
+               href="../../../_images/data-multitimeframe-newsync1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/data-multitimeframe-newsync1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a></div>
+<div class="section" id="execution-with-old-synchronization-model">
+<h3>Execution with old synchronization model<a class="headerlink" href="#execution-with-old-synchronization-model" title="Permalink to this headline">¶</a></h3>
+<a class=""
+               data-lightbox="group-0e791a66-5695-4ecc-a6a3-409411163c7e"
+               href="../../../_images/data-multitimeframe-oldsync1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/data-multitimeframe-oldsync1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a></div>
+</div>
+<div class="section" id="sample-usage">
+<h2>Sample Usage<a class="headerlink" href="#sample-usage" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre>$ ./multidata-strategy-unaligned.py --help
+usage: multidata-strategy-unaligned.py [-h] [--data0 DATA0] [--data1 DATA1]
+                                       [--fromdate FROMDATE] [--todate TODATE]
+                                       [--period PERIOD] [--cash CASH]
+                                       [--runnext] [--nopreload] [--oldsync]
+                                       [--commperc COMMPERC] [--stake STAKE]
+                                       [--plot] [--numfigs NUMFIGS]
+
+MultiData Strategy
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --data0 DATA0, -d0 DATA0
+                        1st data into the system
+  --data1 DATA1, -d1 DATA1
+                        2nd data into the system
+  --fromdate FROMDATE, -f FROMDATE
+                        Starting date in YYYY-MM-DD format
+  --todate TODATE, -t TODATE
+                        Starting date in YYYY-MM-DD format
+  --period PERIOD       Period to apply to the Simple Moving Average
+  --cash CASH           Starting Cash
+  --runnext             Use next by next instead of runonce
+  --nopreload           Do not preload the data
+  --oldsync             Use old data synchronization method
+  --commperc COMMPERC   Percentage commission (0.005 is 0.5%
+  --stake STAKE         Stake to apply in each operation
+  --plot, -p            Plot the read data
+  --numfigs NUMFIGS, -n NUMFIGS
+                        Plot using numfigs figures
+</pre></div>
+</div>
+</div>
+<div class="section" id="sample-code">
+<h2>Sample Code<a class="headerlink" href="#sample-code" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+                        <span class="n">unicode_literals</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="c1"># The above could be sent to an independent module</span>
+<span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
+<span class="kn">import</span> <span class="nn">backtrader.feeds</span> <span class="kn">as</span> <span class="nn">btfeeds</span>
+<span class="kn">import</span> <span class="nn">backtrader.indicators</span> <span class="kn">as</span> <span class="nn">btind</span>
+
+
+<span class="k">class</span> <span class="nc">MultiDataStrategy</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Strategy</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This strategy operates on 2 datas. The expectation is that the 2 datas are</span>
+<span class="sd">    correlated and the 2nd data is used to generate signals on the 1st</span>
+
+<span class="sd">      - Buy/Sell Operationss will be executed on the 1st data</span>
+<span class="sd">      - The signals are generated using a Simple Moving Average on the 2nd data</span>
+<span class="sd">        when the close price crosses upwwards/downwards</span>
+
+<span class="sd">    The strategy is a long-only strategy</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+        <span class="n">period</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+        <span class="n">stake</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">printout</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">txt</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">printout</span><span class="p">:</span>
+            <span class="n">dt</span> <span class="o">=</span> <span class="n">dt</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">datetime</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">dt</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">num2date</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span> <span class="n">txt</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">notify_order</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">order</span><span class="o">.</span><span class="n">status</span> <span class="ow">in</span> <span class="p">[</span><span class="n">bt</span><span class="o">.</span><span class="n">Order</span><span class="o">.</span><span class="n">Submitted</span><span class="p">,</span> <span class="n">bt</span><span class="o">.</span><span class="n">Order</span><span class="o">.</span><span class="n">Accepted</span><span class="p">]:</span>
+            <span class="k">return</span>  <span class="c1"># Await further notifications</span>
+
+        <span class="k">if</span> <span class="n">order</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">order</span><span class="o">.</span><span class="n">Completed</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">order</span><span class="o">.</span><span class="n">isbuy</span><span class="p">():</span>
+                <span class="n">buytxt</span> <span class="o">=</span> <span class="s1">&#39;BUY COMPLETE, </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">order</span><span class="o">.</span><span class="n">executed</span><span class="o">.</span><span class="n">price</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">buytxt</span><span class="p">,</span> <span class="n">order</span><span class="o">.</span><span class="n">executed</span><span class="o">.</span><span class="n">dt</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">selltxt</span> <span class="o">=</span> <span class="s1">&#39;SELL COMPLETE, </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">order</span><span class="o">.</span><span class="n">executed</span><span class="o">.</span><span class="n">price</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">selltxt</span><span class="p">,</span> <span class="n">order</span><span class="o">.</span><span class="n">executed</span><span class="o">.</span><span class="n">dt</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">order</span><span class="o">.</span><span class="n">status</span> <span class="ow">in</span> <span class="p">[</span><span class="n">order</span><span class="o">.</span><span class="n">Expired</span><span class="p">,</span> <span class="n">order</span><span class="o">.</span><span class="n">Canceled</span><span class="p">,</span> <span class="n">order</span><span class="o">.</span><span class="n">Margin</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> ,&#39;</span> <span class="o">%</span> <span class="n">order</span><span class="o">.</span><span class="n">Status</span><span class="p">[</span><span class="n">order</span><span class="o">.</span><span class="n">status</span><span class="p">])</span>
+            <span class="k">pass</span>  <span class="c1"># Simply log</span>
+
+        <span class="c1"># Allow new orders</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">orderid</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># To control operation entries</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">orderid</span> <span class="o">=</span> <span class="bp">None</span>
+
+        <span class="c1"># Create SMA on 2nd data</span>
+        <span class="n">sma</span> <span class="o">=</span> <span class="n">btind</span><span class="o">.</span><span class="n">MovAv</span><span class="o">.</span><span class="n">SMA</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data1</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">period</span><span class="p">)</span>
+        <span class="c1"># Create a CrossOver Signal from close an moving average</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">signal</span> <span class="o">=</span> <span class="n">btind</span><span class="o">.</span><span class="n">CrossOver</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data1</span><span class="o">.</span><span class="n">close</span><span class="p">,</span> <span class="n">sma</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">orderid</span><span class="p">:</span>
+            <span class="k">return</span>  <span class="c1"># if an order is active, no new orders are allowed</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">printout</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Self  len:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Data0 len:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data0</span><span class="p">))</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Data1 len:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data1</span><span class="p">))</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Data0 len == Data1 len:&#39;</span><span class="p">,</span>
+                  <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data0</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data1</span><span class="p">))</span>
+
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Data0 dt:&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data0</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">())</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Data1 dt:&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data1</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">())</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="p">:</span>  <span class="c1"># not yet in market</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">signal</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>  <span class="c1"># cross upwards</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;BUY CREATE , </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">data1</span><span class="o">.</span><span class="n">close</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">buy</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">stake</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># in the market</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">signal</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>  <span class="c1"># crosss downwards</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;SELL CREATE , </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">data1</span><span class="o">.</span><span class="n">close</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">sell</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">stake</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;==================================================&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Starting Value - </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">startingcash</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Ending   Value - </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;==================================================&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">runstrategy</span><span class="p">():</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parse_args</span><span class="p">()</span>
+
+    <span class="c1"># Create a cerebro</span>
+    <span class="n">cerebro</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">Cerebro</span><span class="p">()</span>
+
+    <span class="c1"># Get the dates from the args</span>
+    <span class="n">fromdate</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">fromdate</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">todate</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">todate</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Create the 1st data</span>
+    <span class="n">data0</span> <span class="o">=</span> <span class="n">btfeeds</span><span class="o">.</span><span class="n">YahooFinanceCSVData</span><span class="p">(</span>
+        <span class="n">dataname</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">data0</span><span class="p">,</span>
+        <span class="n">fromdate</span><span class="o">=</span><span class="n">fromdate</span><span class="p">,</span>
+        <span class="n">todate</span><span class="o">=</span><span class="n">todate</span><span class="p">)</span>
+
+    <span class="c1"># Add the 1st data to cerebro</span>
+    <span class="n">cerebro</span><span class="o">.</span><span class="n">adddata</span><span class="p">(</span><span class="n">data0</span><span class="p">)</span>
+
+    <span class="c1"># Create the 2nd data</span>
+    <span class="n">data1</span> <span class="o">=</span> <span class="n">btfeeds</span><span class="o">.</span><span class="n">YahooFinanceCSVData</span><span class="p">(</span>
+        <span class="n">dataname</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">data1</span><span class="p">,</span>
+        <span class="n">fromdate</span><span class="o">=</span><span class="n">fromdate</span><span class="p">,</span>
+        <span class="n">todate</span><span class="o">=</span><span class="n">todate</span><span class="p">)</span>
+
+    <span class="c1"># Add the 2nd data to cerebro</span>
+    <span class="n">cerebro</span><span class="o">.</span><span class="n">adddata</span><span class="p">(</span><span class="n">data1</span><span class="p">)</span>
+
+    <span class="c1"># Add the strategy</span>
+    <span class="n">cerebro</span><span class="o">.</span><span class="n">addstrategy</span><span class="p">(</span><span class="n">MultiDataStrategy</span><span class="p">,</span>
+                        <span class="n">period</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">period</span><span class="p">,</span>
+                        <span class="n">stake</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">stake</span><span class="p">)</span>
+
+    <span class="c1"># Add the commission - only stocks like a for each operation</span>
+    <span class="n">cerebro</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">setcash</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">cash</span><span class="p">)</span>
+
+    <span class="c1"># Add the commission - only stocks like a for each operation</span>
+    <span class="n">cerebro</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">setcommission</span><span class="p">(</span><span class="n">commission</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">commperc</span><span class="p">)</span>
+
+    <span class="c1"># And run it</span>
+    <span class="n">cerebro</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">runonce</span><span class="o">=</span><span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">runnext</span><span class="p">,</span>
+                <span class="n">preload</span><span class="o">=</span><span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">nopreload</span><span class="p">,</span>
+                <span class="n">oldsync</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">oldsync</span><span class="p">)</span>
+
+    <span class="c1"># Plot if requested</span>
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">plot</span><span class="p">:</span>
+        <span class="n">cerebro</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">numfigs</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">numfigs</span><span class="p">,</span> <span class="n">volume</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">zdown</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">parse_args</span><span class="p">():</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;MultiData Strategy&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--data0&#39;</span><span class="p">,</span> <span class="s1">&#39;-d0&#39;</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="s1">&#39;../../datas/orcl-2003-2005.txt&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;1st data into the system&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--data1&#39;</span><span class="p">,</span> <span class="s1">&#39;-d1&#39;</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="s1">&#39;../../datas/yhoo-2003-2005.txt&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;2nd data into the system&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--fromdate&#39;</span><span class="p">,</span> <span class="s1">&#39;-f&#39;</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="s1">&#39;2003-01-01&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Starting date in YYYY-MM-DD format&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--todate&#39;</span><span class="p">,</span> <span class="s1">&#39;-t&#39;</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="s1">&#39;2005-12-31&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Starting date in YYYY-MM-DD format&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--period&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Period to apply to the Simple Moving Average&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--cash&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Starting Cash&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--runnext&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Use next by next instead of runonce&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--nopreload&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Do not preload the data&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--oldsync&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Use old data synchronization method&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--commperc&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Percentage commission (0.005 is 0.5</span><span class="si">%%</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--stake&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Stake to apply in each operation&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--plot&#39;</span><span class="p">,</span> <span class="s1">&#39;-p&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Plot the read data&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--numfigs&#39;</span><span class="p">,</span> <span class="s1">&#39;-n&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Plot using numfigs figures&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">runstrategy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+  <div class="section">
+  
+    
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  
+  <a href="../../2016-09-06-vwr/vwr/">
+    <i class="fa fa-arrow-circle-left"></i>
+    Variability Weighted Return (or VWR)
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+</div>
+
+  
+  
+    <div class="section">
+    <h2>Comments</h2>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
+        var disqus_identifier = '/posts/2016-09-17-data-synchronization/data-synchronization/';
+        var disqus_title = 'Data Synchronization Rework';
+        var disqus_url = 'http://www.backtrader.com/posts/2016-09-17-data-synchronization/data-synchronization';
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+  
+  </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../">backtrader</a></h1>
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=mementum&repo=backtrader&type=watch&count=true&size=large"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+    
+
+<p>
+<a href="https://travis-ci.org/mementum/backtrader">
+    <img
+        alt="https://secure.travis-ci.org/mementum/backtrader.png?branch=master"
+        src="https://secure.travis-ci.org/mementum/backtrader.png?branch=master"
+    />
+</a>
+</p>
+
+
+
+  
+  
+  <h2>
+  
+  <i class="fa fa-calendar"></i>
+    Sep 17, 2016
+  
+  </h2>
+
+  <ul>
+    
+
+  
+  <li><i class="fa-fw fa fa-user"></i>
+    
+      
+      <a href="../../../blog/author/mementum/">mementum</a>
+      
+    </li>
+  
+
+  
+
+  
+
+  
+
+  
+  
+  <li>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+    </script>
+    <i class="fa-fw fa fa-comments"></i>
+    <a href="#disqus_thread" data-disqus-identifier="/posts/2016-09-17-data-synchronization/data-synchronization/"> </a>
+  </li>
+  
+  </ul>
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/">About backtrader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/#documentation">Documentation</a></li>
+</ul>
+
+
+  <h3><a href="../../../blog/">Recent Posts</a></h3>
+  <ul>
+    
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
+      <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
+    
+      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
+    
+      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
+    
+  </ul>
+
+  <h3><a href="../../../blog/archive/">Archives</a></h3>
+  <ul>
+  
+    
+    <li><a href="../../../blog/2016/">2016 (27)</a></li>
+    
+  
+    
+    <li><a href="../../../blog/2015/">2015 (27)</a></li>
+    
+  
+  </ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search/" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, mementum.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="../../../_sources/posts/2016-09-17-data-synchronization/data-synchronization.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+    <a href="https://github.com/mementum/backtrader" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-2435868-6']);
+      _gaq.push(['_setDomainName', 'none']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    
+  </body>
+</html>

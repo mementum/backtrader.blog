@@ -2,10 +2,34 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">backtrader Blog</title>
   <id>http://www.backtrader.com/blog/atom.xml</id>
-  <updated>2016-09-06T00:00:00Z</updated>
+  <updated>2016-09-17T00:00:00Z</updated>
   <link href="http://www.backtrader.com" />
   <link href="http://www.backtrader.com/blog/atom.xml" rel="self" />
   <generator uri="http://ablog.readthedocs.org" version="0.8.2">ABlog</generator>
+  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+    <title type="text">Data Synchronization Rework</title>
+    <id>http://www.backtrader.com/posts/2016-09-17-data-synchronization/data-synchronization/</id>
+    <updated>2016-09-17T00:00:00Z</updated>
+    <published>2016-09-17T00:00:00Z</published>
+    <link href="http://www.backtrader.com/posts/2016-09-17-data-synchronization/data-synchronization/" />
+    <author>
+      <name>mementum</name>
+    </author>
+    <content type="html">&lt;p&gt;In the latest release the &lt;em&gt;minor&lt;/em&gt; number has been moved from &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;8&lt;/span&gt;&lt;/code&gt; to &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;9&lt;/span&gt;&lt;/code&gt; to
+indicate a change which may have some behavioral impact, regardless, even if
+compatibility has been taken into account.&lt;/p&gt;
+&lt;a class=&quot;&quot;
+               data-lightbox=&quot;group-22b13e64-9a82-4338-9fbb-79505c43e998&quot;
+               href=&quot;../_images/multidata-oldsync1.png&quot;
+               title=&quot;&quot;
+               data-title=&quot;&quot;
+               &gt;&lt;img src=&quot;../_images/multidata-oldsync1.png&quot;
+                     class=&quot;&quot;
+                     width=&quot;100%&quot;
+                     height=&quot;auto&quot;
+                     alt=&quot;&quot;/&gt;
+                &lt;/a&gt;</content>
+  </entry>
   <entry xml:base="http://www.backtrader.com/blog/atom.xml">
     <title type="text">Variability Weighted Return (or VWR)</title>
     <id>http://www.backtrader.com/posts/2016-09-06-vwr/vwr/</id>
@@ -93,10 +117,10 @@ dates, i.e.: those still being traded&lt;/p&gt;
 the operation on assets includes an interest rate. Examples:&lt;/p&gt;
 &lt;a class=&quot;&quot;
                data-lightbox=&quot;group-cc9d2279-06cc-4a78-88b9-45aae6fe0467&quot;
-               href=&quot;../_images/long-no-exit-no-interest1.png&quot;
+               href=&quot;posts\2016-08-22-credit-interest\long-no-exit-no-interest.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
-               &gt;&lt;img src=&quot;../_images/long-no-exit-no-interest1.png&quot;
+               &gt;&lt;img src=&quot;posts\2016-08-22-credit-interest\long-no-exit-no-interest.png&quot;
                      class=&quot;&quot;
                      width=&quot;100%&quot;
                      height=&quot;auto&quot;
@@ -519,11 +543,11 @@ cornerstone.&lt;/p&gt;
 line overriding, which allows to redefine the entire hierarchy and for example
 have data feeds which only feature &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;bid&lt;/span&gt;&lt;/code&gt;, &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;ask&lt;/span&gt;&lt;/code&gt; and &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;datetime&lt;/span&gt;&lt;/code&gt; lines.&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-01f47146-5e99-4a4c-9c62-b3b48db8738b&quot;
-               href=&quot;posts\2016-04-14-bidask-data-to-ohlc\./bidask-data-to-ohlc.png&quot;
+               data-lightbox=&quot;group-2c55b060-7f62-44e4-8d5c-6e0d3e672b0d&quot;
+               href=&quot;../_images/bidask-data-to-ohlc1.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
-               &gt;&lt;img src=&quot;posts\2016-04-14-bidask-data-to-ohlc\./bidask-data-to-ohlc.png&quot;
+               &gt;&lt;img src=&quot;../_images/bidask-data-to-ohlc1.png&quot;
                      class=&quot;&quot;
                      width=&quot;100%&quot;
                      height=&quot;auto&quot;
