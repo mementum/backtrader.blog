@@ -39,8 +39,8 @@ After which:
 
   - Reading the data will not be a major problem, given the end result has to
     be OHLC and that's what the built-in data feeds deliver after
-    parsin. Because it is yet another variant from *csv*. We can even reuse the
-    ``GenericCSVData`` existing feed. Thank God it is *generic*
+    parsing. Because it is yet another variant from *csv*. We can even reuse
+    the ``GenericCSVData`` existing feed. Thank God it is *generic*
 
   - Having only a single *price* element and a single *volume* element per
     line, the price assignment is clear: *assign the price to the four price
