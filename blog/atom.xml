@@ -7,6 +7,19 @@
   <link href="http://www.backtrader.com/blog/atom.xml" rel="self" />
   <generator uri="http://ablog.readthedocs.org" version="0.8.2">ABlog</generator>
   <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+    <title type="text">Notebook - Automatic Inline Plotting</title>
+    <id>http://www.backtrader.com/posts/2016-09-17-notebook-inline/notebook-inline/</id>
+    <updated>2016-09-17T00:00:00Z</updated>
+    <published>2016-09-17T00:00:00Z</published>
+    <link href="http://www.backtrader.com/posts/2016-09-17-notebook-inline/notebook-inline/" />
+    <author>
+      <name>mementum</name>
+    </author>
+    <content type="html">&lt;p&gt;Release &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;1.9.1.99&lt;/span&gt;&lt;/code&gt; adds automatic inline plotting when running inside a
+&lt;em&gt;Jupyter Notebook&lt;/em&gt;.&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
     <title type="text">Data Synchronization Rework</title>
     <id>http://www.backtrader.com/posts/2016-09-17-data-synchronization/data-synchronization/</id>
     <updated>2016-09-17T00:00:00Z</updated>
@@ -94,10 +107,10 @@ one can trade. Sometimes the data offered is that of the still valid expiration
 dates, i.e.: those still being traded&lt;/p&gt;
 &lt;a class=&quot;&quot;
                data-lightbox=&quot;group-fe33f47d-de17-455f-9f30-98996c088ecb&quot;
-               href=&quot;../_images/rollover1.png&quot;
+               href=&quot;posts\2016-08-31-rolling-over-futures\rollover.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
-               &gt;&lt;img src=&quot;../_images/rollover1.png&quot;
+               &gt;&lt;img src=&quot;posts\2016-08-31-rolling-over-futures\rollover.png&quot;
                      class=&quot;&quot;
                      width=&quot;100%&quot;
                      height=&quot;auto&quot;
@@ -544,10 +557,10 @@ line overriding, which allows to redefine the entire hierarchy and for example
 have data feeds which only feature &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;bid&lt;/span&gt;&lt;/code&gt;, &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;ask&lt;/span&gt;&lt;/code&gt; and &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;datetime&lt;/span&gt;&lt;/code&gt; lines.&lt;/p&gt;
 &lt;a class=&quot;&quot;
                data-lightbox=&quot;group-2c55b060-7f62-44e4-8d5c-6e0d3e672b0d&quot;
-               href=&quot;../_images/bidask-data-to-ohlc1.png&quot;
+               href=&quot;posts\2016-04-14-bidask-data-to-ohlc\./bidask-data-to-ohlc.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
-               &gt;&lt;img src=&quot;../_images/bidask-data-to-ohlc1.png&quot;
+               &gt;&lt;img src=&quot;posts\2016-04-14-bidask-data-to-ohlc\./bidask-data-to-ohlc.png&quot;
                      class=&quot;&quot;
                      width=&quot;100%&quot;
                      height=&quot;auto&quot;
