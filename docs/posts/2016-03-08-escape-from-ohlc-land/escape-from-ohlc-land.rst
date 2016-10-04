@@ -14,7 +14,7 @@ flexible whilst still being able to deliver.
 An old post shows the extension concept.
 
   - `Extending a datafeed
-    <http://www.backtrader.com/posts/2015-08-07/extending-a-datafeed/>`_
+    <http://blog.backtrader.com/posts/2015-08-07/extending-a-datafeed/>`_
 
 The basics::
 
@@ -44,7 +44,7 @@ predefined *lines* hierarchy in the form of *OHLC* is not enough. The *Bid* and
 the *Bid* and *Ask* prices, there would be too many fields left untouched.
 
 This called for a solution which has been implemented with `Release 1.2.1.88
-<http://www.backtrader.com/posts/2016-03-07-release-1.2.1.88/release-1.2.1.88/>`_. The
+<http://blog.backtrader.com/posts/2016-03-07-release-1.2.1.88/release-1.2.1.88/>`_. The
 idea can be summarized as:
 
   - Now it's not only possible to *extend* the existing hierarchy, but also to

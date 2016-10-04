@@ -23,7 +23,7 @@ blog_title = u'backtrader Blog'
 
 # Base URL for the website, required for generating feeds.
 # e.g. blog_baseurl = "http://example.com/"
-blog_baseurl = u'http://www.backtrader.com'
+blog_baseurl = u'http://blog.backtrader.com'
 
 # Choose to archive only post titles. Archiving only titles can speed
 # up project building.
