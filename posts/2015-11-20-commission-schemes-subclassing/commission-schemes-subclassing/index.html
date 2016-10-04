@@ -81,7 +81,7 @@ part of the rework involved:</p>
 already does this with some definitions present in the module
 <code class="docutils literal"><span class="pre">backtrader.commissions</span></code>. The regular industry standard for Futures is a
 fixed amount per contract and per round. The definition can be done as:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">CommInfo_Futures_Fixed</span><span class="p">(</span><span class="n">CommInfoBase</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CommInfo_Futures_Fixed</span><span class="p">(</span><span class="n">CommInfoBase</span><span class="p">):</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">(</span>
         <span class="p">(</span><span class="s1">&#39;stocklike&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">),</span>
         <span class="p">(</span><span class="s1">&#39;commtype&#39;</span><span class="p">,</span> <span class="n">CommInfoBase</span><span class="o">.</span><span class="n">COMM_FIXED</span><span class="p">),</span>
@@ -89,7 +89,7 @@ fixed amount per contract and per round. The definition can be done as:</p>
 </pre></div>
 </div>
 <p>For stocks and perc-wise commissions:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">CommInfo_Stocks_Perc</span><span class="p">(</span><span class="n">CommInfoBase</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CommInfo_Stocks_Perc</span><span class="p">(</span><span class="n">CommInfoBase</span><span class="p">):</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">(</span>
         <span class="p">(</span><span class="s1">&#39;stocklike&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">),</span>
         <span class="p">(</span><span class="s1">&#39;commtype&#39;</span><span class="p">,</span> <span class="n">CommInfoBase</span><span class="o">.</span><span class="n">COMM_PERC</span><span class="p">),</span>
@@ -99,7 +99,7 @@ fixed amount per contract and per round. The definition can be done as:</p>
 <p>As stated above the default for the interpretation of the percentage here
 (passed as parameter <code class="docutils literal"><span class="pre">commission</span></code>) is that of: <strong>xx%</strong>. Should the
 old/other behavior be wished <strong>0.xx</strong>, it can be easily done:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">CommInfo_Stocks_PercAbs</span><span class="p">(</span><span class="n">CommInfoBase</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CommInfo_Stocks_PercAbs</span><span class="p">(</span><span class="n">CommInfoBase</span><span class="p">):</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">(</span>
         <span class="p">(</span><span class="s1">&#39;stocklike&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">),</span>
         <span class="p">(</span><span class="s1">&#39;commtype&#39;</span><span class="p">,</span> <span class="n">CommInfoBase</span><span class="o">.</span><span class="n">COMM_PERC</span><span class="p">),</span>
@@ -110,7 +110,7 @@ old/other behavior be wished <strong>0.xx</strong>, it can be easily done:</p>
 </li>
 <li><p class="first">Overriding (if needed be) the <code class="docutils literal"><span class="pre">_getcommission</span></code> method</p>
 <p>Defined as:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">_getcommission</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">pseudoexec</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_getcommission</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">pseudoexec</span><span class="p">):</span>
    <span class="sd">&#39;&#39;&#39;Calculates the commission of an operation at a given price</span>
 
 <span class="sd">   pseudoexec: if True the operation has not yet been executed</span>
@@ -128,14 +128,14 @@ old/other behavior be wished <strong>0.xx</strong>, it can be easily done:</p>
 <code class="docutils literal"><span class="pre">broker.addcommission</span></code> rather than the usual <code class="docutils literal"><span class="pre">broker.setcommission</span></code>. The
 latter will internally use the legacy <code class="docutils literal"><span class="pre">CommissionInfoObject</span></code>.</p>
 <p>Easier done than said:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="o">...</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="o">...</span>
 
 <span class="n">comminfo</span> <span class="o">=</span> <span class="n">CommInfo_Stocks_PercAbs</span><span class="p">(</span><span class="n">commission</span><span class="o">=</span><span class="mf">0.005</span><span class="p">)</span>  <span class="c1"># 0.5%</span>
 <span class="n">cerebro</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">addcommission</span><span class="p">(</span><span class="n">comminfo</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal"><span class="pre">addcommission</span></code> method is defined as follows:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">addcommissioninfo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comminfo</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">addcommissioninfo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comminfo</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">comminfo</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">comminfo</span>
 </pre></div>
 </div>
@@ -150,7 +150,7 @@ commission scheme which applies to Futures, is percentage wise and uses the
 commission percentage on the entire &#8220;virtual&#8221; value of the contract. ie:
 includes the future multiplier in the commission calculation.</p>
 <p>It should be easy:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
 
 <span class="k">class</span> <span class="nc">CommInfo_Fut_Perc_Mult</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">CommInfoBase</span><span class="p">):</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">(</span>
@@ -164,7 +164,7 @@ includes the future multiplier in the commission calculation.</p>
 </pre></div>
 </div>
 <p>Putting it into the system:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">comminfo</span> <span class="o">=</span> <span class="n">CommInfo_Fut_Perc_Mult</span><span class="p">(</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">comminfo</span> <span class="o">=</span> <span class="n">CommInfo_Fut_Perc_Mult</span><span class="p">(</span>
     <span class="n">commission</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>  <span class="c1"># 0.1%</span>
     <span class="n">mult</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
     <span class="n">margin</span><span class="o">=</span><span class="mi">2000</span>  <span class="c1"># Margin is needed for futures-like instruments</span>
@@ -175,7 +175,7 @@ includes the future multiplier in the commission calculation.</p>
 </div>
 <p>If the format <strong>0.xx</strong> is preferred as the default, just set param <code class="docutils literal"><span class="pre">percabs</span></code>
 to <code class="docutils literal"><span class="pre">True</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">CommInfo_Fut_Perc_Mult</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">CommInfoBase</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CommInfo_Fut_Perc_Mult</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">CommInfoBase</span><span class="p">):</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">(</span>
       <span class="p">(</span><span class="s1">&#39;stocklike&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">),</span>  <span class="c1"># Futures</span>
       <span class="p">(</span><span class="s1">&#39;commtype&#39;</span><span class="p">,</span> <span class="n">bt</span><span class="o">.</span><span class="n">CommInfoBase</span><span class="o">.</span><span class="n">COMM_PERC</span><span class="p">),</span>  <span class="c1"># Apply % Commission</span>
@@ -196,7 +196,7 @@ to <code class="docutils literal"><span class="pre">True</span></code>:</p>
 <div class="section" id="explaining-pseudoexec">
 <h2>Explaining <code class="docutils literal"><span class="pre">pseudoexec</span></code><a class="headerlink" href="#explaining-pseudoexec" title="Permalink to this headline">¶</a></h2>
 <p>Let&#8217;s recall the definition of <code class="docutils literal"><span class="pre">_getcommission</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">_getcommission</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">pseudoexec</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_getcommission</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">pseudoexec</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Calculates the commission of an operation at a given price</span>
 
 <span class="sd">    pseudoexec: if True the operation has not yet been executed</span>
@@ -226,7 +226,7 @@ is in place.</p>
 </ul>
 </div></blockquote>
 <p>Putting the scenario to work:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
 
 <span class="k">class</span> <span class="nc">CommInfo_Fut_Discount</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">CommInfoBase</span><span class="p">):</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">(</span>
@@ -261,7 +261,7 @@ is in place.</p>
 <div class="section" id="comminfobase-docstring-and-params">
 <h2>CommInfoBase docstring and params<a class="headerlink" href="#comminfobase-docstring-and-params" title="Permalink to this headline">¶</a></h2>
 <p>Here it is:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">CommInfoBase</span><span class="p">(</span><span class="n">with_metaclass</span><span class="p">(</span><span class="n">MetaParams</span><span class="p">)):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CommInfoBase</span><span class="p">(</span><span class="n">with_metaclass</span><span class="p">(</span><span class="n">MetaParams</span><span class="p">)):</span>
     <span class="sd">&#39;&#39;&#39;Base Class for the Commission Schemes.</span>
 
 <span class="sd">    Params:</span>
@@ -363,7 +363,7 @@ is in place.</p>
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2015-11-20-commission-schemes-subclassing/commission-schemes-subclassing/';
         var disqus_title = 'User Defined Commissions';
-        var disqus_url = 'http://www.backtrader.com/posts/2015-11-20-commission-schemes-subclassing/commission-schemes-subclassing';
+        var disqus_url = 'http://blog.backtrader.com/posts/2015-11-20-commission-schemes-subclassing/commission-schemes-subclassing';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -469,15 +469,15 @@ is in place.</p>
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -485,7 +485,7 @@ is in place.</p>
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

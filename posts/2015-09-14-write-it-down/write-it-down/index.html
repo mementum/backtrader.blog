@@ -123,13 +123,13 @@ weakness) or the <code class="docutils literal"><span class="pre">writers</span>
 <blockquote>
 <div><ol class="arabic">
 <li><p class="first">Using the <code class="docutils literal"><span class="pre">writer</span></code> param to <code class="docutils literal"><span class="pre">cerebro</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">cerebro</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">Cerebro</span><span class="p">(</span><span class="n">writer</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">cerebro</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">Cerebro</span><span class="p">(</span><span class="n">writer</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This creates a default instance.</p>
 </li>
 <li><p class="first">Specific addition:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">cerebro</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">Cerebro</span><span class="p">()</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">cerebro</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">Cerebro</span><span class="p">()</span>
 
 <span class="n">cerebro</span><span class="o">.</span><span class="n">addwriter</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">WriterFile</span><span class="p">,</span> <span class="n">csv</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 </pre></div>
@@ -142,12 +142,12 @@ generated in the output.</p>
 </div></blockquote>
 <p>The long due example with a <strong>long-short</strong> strategy (see below for the full
 code) using a Close-SMA crossover as the signal by executing:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./writer-test.py
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./writer-test.py
 </pre></div>
 </div>
 <p>The chart:</p>
 <a class=""
-               data-lightbox="group-c0561988-2168-4ee6-8018-1a0daa0b3d2f"
+               data-lightbox="group-a1c1c57e-60e8-41fe-828f-06093838ff53"
                href="../../../_images/writer-test1.png"
                title=""
                data-title=""
@@ -157,7 +157,7 @@ code) using a Close-SMA crossover as the signal by executing:</p>
                      height="auto"
                      alt=""/>
                 </a><p>With the following output:</p>
-<div class="highlight-python"><div class="highlight"><pre>===============================================================================
+<div class="highlight-python"><div class="highlight"><pre><span></span>===============================================================================
 Cerebro:
   -----------------------------------------------------------------------------
   - Datas:
@@ -234,12 +234,12 @@ small profit after a full year (luckily the system loses no money)</p>
 </ul>
 </div></blockquote>
 <p>The test script allows us to tune the strategy to become <strong>long-only</strong>:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./writer-test.py --onlylong --plot
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./writer-test.py --onlylong --plot
 </pre></div>
 </div>
 <p>The chart:</p>
 <a class=""
-               data-lightbox="group-59667216-23ed-42e6-aa27-10f2cbc57030"
+               data-lightbox="group-65da3e22-b7a3-4e0e-aa4a-32a94545a5e9"
                href="../../../_images/writer-test-onlylong1.png"
                title=""
                data-title=""
@@ -249,7 +249,7 @@ small profit after a full year (luckily the system loses no money)</p>
                      height="auto"
                      alt=""/>
                 </a><p>The output being now:</p>
-<div class="highlight-python"><div class="highlight"><pre>===============================================================================
+<div class="highlight-python"><div class="highlight"><pre><span></span>===============================================================================
 Cerebro:
   -----------------------------------------------------------------------------
   - Datas:
@@ -321,11 +321,11 @@ True) and the Analyzers tell a different story:</p>
 </div></blockquote>
 <p>But still there is no CSV output to be seen. Let&#8217;s run the script to turn it
 on:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./writer-test.py --onlylong --writercsv
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./writer-test.py --onlylong --writercsv
 </pre></div>
 </div>
 <p>With renewed output:</p>
-<div class="highlight-python"><div class="highlight"><pre>===============================================================================
+<div class="highlight-python"><div class="highlight"><pre><span></span>===============================================================================
 Id,2006-day-001,len,datetime,open,high,low,close,volume,openinterest,LongShortStrategy,len,Broker,len,cash,value,Buy
 Sell,len,buy,sell,Trades,len,pnlplus,pnlminus
 1,2006-day-001,1,2006-01-02 23:59:59+00:00,3578.73,3605.95,3578.73,3604.33,0.0,0.0,LongShortStrategy,1,Broker,1,1000
@@ -365,11 +365,11 @@ CrossOver)</li>
 </div></blockquote>
 <p>Let&#8217;s run the script with an additional parameter to have the CrossOver
 indicator added to the CSV stream:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./writer-test.py --onlylong --writercsv --csvcross
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./writer-test.py --onlylong --writercsv --csvcross
 </pre></div>
 </div>
 <p>The output:</p>
-<div class="highlight-python"><div class="highlight"><pre>===============================================================================
+<div class="highlight-python"><div class="highlight"><pre><span></span>===============================================================================
 Id,2006-day-001,len,datetime,open,high,low,close,volume,openinterest,LongShortStrategy,len,CrossOver,len,crossover,B
 roker,len,cash,value,BuySell,len,buy,sell,Trades,len,pnlplus,pnlminus
 1,2006-day-001,1,2006-01-02 23:59:59+00:00,3578.73,3605.95,3578.73,3604.33,0.0,0.0,LongShortStrategy,1,CrossOver,1,,
@@ -382,7 +382,7 @@ Broker,1,100000.0,100000.0,BuySell,1,,,Trades,1,,
 class is still a to-do.</p>
 <p>Meanwhile the execution possibilities and code used for the example.</p>
 <p>Usage:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./writer-test.py --help
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./writer-test.py --help
 usage: writer-test.py [-h] [--data DATA] [--fromdate FROMDATE]
                       [--todate TODATE] [--period PERIOD] [--onlylong]
                       [--writercsv] [--csvcross] [--cash CASH] [--comm COMM]
@@ -413,7 +413,7 @@ optional arguments:
 </pre></div>
 </div>
 <p>And the test script.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span>
@@ -651,7 +651,7 @@ optional arguments:
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2015-09-14-write-it-down/write-it-down/';
         var disqus_title = 'Writers - Write it down';
-        var disqus_url = 'http://www.backtrader.com/posts/2015-09-14-write-it-down/write-it-down';
+        var disqus_url = 'http://blog.backtrader.com/posts/2015-09-14-write-it-down/write-it-down';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -757,15 +757,15 @@ optional arguments:
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -773,7 +773,7 @@ optional arguments:
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

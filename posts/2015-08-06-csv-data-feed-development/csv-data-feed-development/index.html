@@ -131,7 +131,7 @@ automatically with a float(&#8216;NaN&#8217;) value before the end user code has
 to do anything.</p>
 </div>
 <p>In this example only a daily format is supported:</p>
-<div class="highlight-python"><div class="highlight"><pre>import itertools
+<div class="highlight-python"><div class="highlight"><pre><span></span>import itertools
 ...
 import backtrader import bt
 
@@ -193,7 +193,7 @@ is always stored in CSV format).</p>
 </ul>
 </div></blockquote>
 <p>A parser for those files:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">SierraChartCSVData</span><span class="p">(</span><span class="n">backtrader</span><span class="o">.</span><span class="n">feeds</span><span class="o">.</span><span class="n">GenericCSVData</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SierraChartCSVData</span><span class="p">(</span><span class="n">backtrader</span><span class="o">.</span><span class="n">feeds</span><span class="o">.</span><span class="n">GenericCSVData</span><span class="p">):</span>
 
     <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;dtformat&#39;</span><span class="p">,</span> <span class="s1">&#39;%Y/%m/</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">),)</span>
 </pre></div>
@@ -202,7 +202,7 @@ is always stored in CSV format).</p>
 base class. In this case just the formatting string for dates needs a change.</p>
 <p>Et voilá ... the parser for <strong>Sierra Chart</strong> is finished.</p>
 <p>Here below the parameters definition of <code class="docutils literal"><span class="pre">GenericCSVData</span></code> as a reminder:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">GenericCSVData</span><span class="p">(</span><span class="n">feed</span><span class="o">.</span><span class="n">CSVDataBase</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">GenericCSVData</span><span class="p">(</span><span class="n">feed</span><span class="o">.</span><span class="n">CSVDataBase</span><span class="p">):</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">(</span>
         <span class="p">(</span><span class="s1">&#39;nullvalue&#39;</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;NaN&#39;</span><span class="p">)),</span>
         <span class="p">(</span><span class="s1">&#39;dtformat&#39;</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">),</span>
@@ -259,7 +259,7 @@ base class. In this case just the formatting string for dates needs a change.</p
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2015-08-06-csv-data-feed-development/csv-data-feed-development/';
         var disqus_title = 'CSV Data Feed Development';
-        var disqus_url = 'http://www.backtrader.com/posts/2015-08-06-csv-data-feed-development/csv-data-feed-development';
+        var disqus_url = 'http://blog.backtrader.com/posts/2015-08-06-csv-data-feed-development/csv-data-feed-development';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -365,15 +365,15 @@ base class. In this case just the formatting string for dates needs a change.</p
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -381,7 +381,7 @@ base class. In this case just the formatting string for dates needs a change.</p
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

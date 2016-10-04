@@ -97,12 +97,12 @@ removed unless activated via a command line switch.</p>
 </ul>
 </div></blockquote>
 <p>Execution:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./plot-same-axis.py
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./plot-same-axis.py
 </pre></div>
 </div>
 <p>And the chart.</p>
 <a class=""
-               data-lightbox="group-d80997a6-4e9b-44b8-b32c-395a89a8dc7e"
+               data-lightbox="group-3b965c7b-7555-4d0d-aacd-c1f6a64fcdd8"
                href="../../../_images/plotting-same-axis-standard1.png"
                title=""
                data-title=""
@@ -124,19 +124,19 @@ removed unless activated via a command line switch.</p>
 indicator to the other indicator to be plotted onto.</p>
 <p>In this case and because the local variables in <code class="docutils literal"><span class="pre">__init__</span></code> are named
 <code class="docutils literal"><span class="pre">stoc</span></code> for Stochastic and <code class="docutils literal"><span class="pre">rsi</span></code> for RSI, it looks like:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">rsi</span><span class="o">.</span><span class="n">plotinfo</span><span class="o">.</span><span class="n">plotmaster</span> <span class="o">=</span> <span class="n">stoc</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">rsi</span><span class="o">.</span><span class="n">plotinfo</span><span class="o">.</span><span class="n">plotmaster</span> <span class="o">=</span> <span class="n">stoc</span>
 </pre></div>
 </div>
 </li>
 </ul>
 </div></blockquote>
 <p>Execution:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./plot-same-axis.py --smasubplot --nomacdplot --rsioverstoc
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./plot-same-axis.py --smasubplot --nomacdplot --rsioverstoc
 </pre></div>
 </div>
 <p>The chart.</p>
 <a class=""
-               data-lightbox="group-bd622595-9188-46f5-b58f-526d284e77e6"
+               data-lightbox="group-36f07450-44c8-447c-9245-711b1e81006d"
                href="../../../_images/plotting-same-axis-new-panorama1.png"
                title=""
                data-title=""
@@ -146,12 +146,12 @@ indicator to the other indicator to be plotted onto.</p>
                      height="auto"
                      alt=""/>
                 </a><p>And to check the incompatibility of scales, let&#8217;s try plotting the rsi over the SMA:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./plot-same-axis.py --rsiovermacd
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./plot-same-axis.py --rsiovermacd
 </pre></div>
 </div>
 <p>The chart.</p>
 <a class=""
-               data-lightbox="group-f4d45db0-d76f-49c8-88f6-26a24b8384d6"
+               data-lightbox="group-9244e709-0403-4dee-8ff3-f0572b2f0e39"
                href="../../../_images/plotting-same-axis-rsi-over-sma1.png"
                title=""
                data-title=""
@@ -168,7 +168,7 @@ on the SMA</p>
 <div>$ ./plot-same-axis.py &#8211;rsiovermacd &#8211;smasubplot</div></blockquote>
 <p>The chart.</p>
 <a class=""
-               data-lightbox="group-5c024c37-daa1-41ec-9217-50c8e16496fd"
+               data-lightbox="group-2fa2a5aa-f381-4fc5-a6c6-81cbc1b79ef3"
                href="../../../_images/plotting-same-axis-rsi-over-sma-subplot1.png"
                title=""
                data-title=""
@@ -185,11 +185,11 @@ bottom of the SMA plot.</p>
 </div>
 <p>Going in the other direction, let&#8217;s plot a multi-line indicator on another
 indicator. Let&#8217;s plot the Stochastic on the RSI:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./plot-same-axis.py --stocrsi
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./plot-same-axis.py --stocrsi
 </pre></div>
 </div>
 <a class=""
-               data-lightbox="group-88a049a6-e763-46ab-a5a5-e43725cbc5f0"
+               data-lightbox="group-493c6a6a-2327-40aa-86bd-2bd63697dc80"
                href="../../../_images/plotting-same-axis-stoc-over-rsi1.png"
                title=""
                data-title=""
@@ -202,22 +202,22 @@ indicator. Let&#8217;s plot the Stochastic on the RSI:</p>
 too. But the lines are not &#8220;named&#8221; because we have got the name of the
 indicator.</p>
 <p>In the code, the current setting would be:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">stoc</span><span class="o">.</span><span class="n">plotinfo</span><span class="o">.</span><span class="n">plotmaster</span> <span class="o">=</span> <span class="n">rsi</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">stoc</span><span class="o">.</span><span class="n">plotinfo</span><span class="o">.</span><span class="n">plotmaster</span> <span class="o">=</span> <span class="n">rsi</span>
 </pre></div>
 </div>
 <p>To have the names of the Stochastic lines displayed instead of the name, we
 would additionally need:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">stoc</span><span class="o">.</span><span class="n">plotinfo</span><span class="o">.</span><span class="n">plotlinelabels</span> <span class="o">=</span> <span class="bp">True</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">stoc</span><span class="o">.</span><span class="n">plotinfo</span><span class="o">.</span><span class="n">plotlinelabels</span> <span class="o">=</span> <span class="bp">True</span>
 </pre></div>
 </div>
 <p>This has been parametrized and a new execution shows it:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./plot-same-axis.py --stocrsi --stocrsilabels
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./plot-same-axis.py --stocrsi --stocrsilabels
 </pre></div>
 </div>
 <p>With the chart now showing the name of the Stochasti lines below the name of the
 RSI line.</p>
 <a class=""
-               data-lightbox="group-09026f31-ba17-4ece-8a8b-c354b3dc0a98"
+               data-lightbox="group-4f03154f-f936-43ae-bc6c-177b25b6e469"
                href="../../../_images/plotting-same-axis-stoc-over-rsi-lines1.png"
                title=""
                data-title=""
@@ -227,7 +227,7 @@ RSI line.</p>
                      height="auto"
                      alt=""/>
                 </a><p>The script usage:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./plot-same-axis.py --help
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./plot-same-axis.py --help
 usage: plot-same-axis.py [-h] [--data DATA] [--fromdate FROMDATE]
                          [--todate TODATE] [--stdstats] [--smasubplot]
                          [--nomacdplot]
@@ -255,7 +255,7 @@ optional arguments:
 </pre></div>
 </div>
 <p>And the code.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span>
@@ -422,7 +422,7 @@ optional arguments:
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2015-09-21-plotting-same-axis/plotting-same-axis/';
         var disqus_title = 'Plotting on the same axis';
-        var disqus_url = 'http://www.backtrader.com/posts/2015-09-21-plotting-same-axis/plotting-same-axis';
+        var disqus_url = 'http://blog.backtrader.com/posts/2015-09-21-plotting-same-axis/plotting-same-axis';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -531,15 +531,15 @@ optional arguments:
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -547,7 +547,7 @@ optional arguments:
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

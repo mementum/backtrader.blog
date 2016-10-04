@@ -98,11 +98,11 @@ the issue creator. The scenario:</p>
 </ul>
 </div></blockquote>
 <p>Running a custom script to see how the data is synchronized by <code class="docutils literal"><span class="pre">backtrader</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./weekdaysaligner.py --online --data1 &#39;^GSPC&#39; --data0 &#39;^GDAXI&#39;
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./weekdaysaligner.py --online --data1 &#39;^GSPC&#39; --data0 &#39;^GDAXI&#39;
 </pre></div>
 </div>
 <p>And the output:</p>
-<div class="highlight-python"><div class="highlight"><pre>0001,  True, data0, 2012-01-03T23:59:59, 2012-01-03T23:59:59, data1
+<div class="highlight-python"><div class="highlight"><pre><span></span>0001,  True, data0, 2012-01-03T23:59:59, 2012-01-03T23:59:59, data1
 0002,  True, data0, 2012-01-04T23:59:59, 2012-01-04T23:59:59, data1
 0003,  True, data0, 2012-01-05T23:59:59, 2012-01-05T23:59:59, data1
 0004,  True, data0, 2012-01-06T23:59:59, 2012-01-06T23:59:59, data1
@@ -125,7 +125,7 @@ deliver the next not yet processed date for <code class="docutils literal"><span
 <code class="docutils literal"><span class="pre">2012-01-16</span></code>.</p>
 <p>And the synchronization problem accumulates with each diverging day. At the end
 of <code class="docutils literal"><span class="pre">2012</span></code> it looks like follows:</p>
-<div class="highlight-python"><div class="highlight"><pre>...
+<div class="highlight-python"><div class="highlight"><pre><span></span>...
 0249, False, data0, 2012-12-28T23:59:59, 2012-12-19T23:59:59, data1
 0250, False, data0, 2012-12-31T23:59:59, 2012-12-20T23:59:59, data1
 </pre></div>
@@ -135,7 +135,7 @@ Americans</em>.</p>
 <p>In the <cite>Ticket #76 &lt;https://github.com/mementum/backtrader/issues/76&gt;</cite> the
 poster shows what <code class="docutils literal"><span class="pre">zipline</span></code> does. Let&#8217;s look at the <code class="docutils literal"><span class="pre">2012-01-13</span></code> -
 <code class="docutils literal"><span class="pre">2012-01-17</span></code> conundrum:</p>
-<div class="highlight-python"><div class="highlight"><pre>0009 : True : 2012-01-13 : close 1289.09 - 2012-01-13 :  close 6143.08
+<div class="highlight-python"><div class="highlight"><pre><span></span>0009 : True : 2012-01-13 : close 1289.09 - 2012-01-13 :  close 6143.08
 0010 : False : 2012-01-13 : close 1289.09 - 2012-01-16 :  close 6220.01
 0011 : True : 2012-01-17 : close 1293.67 - 2012-01-17 :  close 6332.93
 </pre></div>
@@ -154,11 +154,11 @@ if it can be undone</p>
 the accumulated wisdom: <em>the Europeans trade more often than the
 Americans</em>. Let&#8217;s reverse the roles of <code class="docutils literal"><span class="pre">^GSPC</span></code> and <code class="docutils literal"><span class="pre">^GDAXI</span></code> and see the
 outcome:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./weekdaysaligner.py --online --data1 &#39;^GSPC&#39; --data0 &#39;^GDAXI&#39;
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./weekdaysaligner.py --online --data1 &#39;^GSPC&#39; --data0 &#39;^GDAXI&#39;
 </pre></div>
 </div>
 <p>The output (skipping to <code class="docutils literal"><span class="pre">2012-01-13</span></code> directly):</p>
-<div class="highlight-python"><div class="highlight"><pre>...
+<div class="highlight-python"><div class="highlight"><pre><span></span>...
 0009,  True, data0, 2012-01-13T23:59:59, 2012-01-13T23:59:59, data1
 0010, False, data0, 2012-01-16T23:59:59, 2012-01-13T23:59:59, data1
 0011,  True, data0, 2012-01-17T23:59:59, 2012-01-17T23:59:59, data1
@@ -175,7 +175,7 @@ outcome:</p>
 </ul>
 </div></blockquote>
 <p>The same re-synchronization is seen again soon:</p>
-<div class="highlight-python"><div class="highlight"><pre>...
+<div class="highlight-python"><div class="highlight"><pre><span></span>...
 0034,  True, data0, 2012-02-17T23:59:59, 2012-02-17T23:59:59, data1
 0035, False, data0, 2012-02-20T23:59:59, 2012-02-17T23:59:59, data1
 0036,  True, data0, 2012-02-21T23:59:59, 2012-02-21T23:59:59, data1
@@ -183,7 +183,7 @@ outcome:</p>
 </pre></div>
 </div>
 <p>Followed by not such an easy re-sync:</p>
-<div class="highlight-python"><div class="highlight"><pre>...
+<div class="highlight-python"><div class="highlight"><pre><span></span>...
 0068,  True, data0, 2012-04-05T23:59:59, 2012-04-05T23:59:59, data1
 0069, False, data0, 2012-04-10T23:59:59, 2012-04-09T23:59:59, data1
 ...
@@ -193,7 +193,7 @@ outcome:</p>
 </pre></div>
 </div>
 <p>Such episodes keep repeating until the last bar for <code class="docutils literal"><span class="pre">^GDAXI</span></code> is delivered:</p>
-<div class="highlight-python"><div class="highlight"><pre>...
+<div class="highlight-python"><div class="highlight"><pre><span></span>...
 0256,  True, data0, 2012-12-31T23:59:59, 2012-12-31T23:59:59, data1
 ...
 </pre></div>
@@ -225,7 +225,7 @@ data before it hits the deepest parts of the platform and for example
 the <code class="docutils literal"><span class="pre">delivery</span></code></p>
 </div>
 <p>The actual code</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">datetime</span>
@@ -272,12 +272,12 @@ the <code class="docutils literal"><span class="pre">delivery</span></code></p>
 </pre></div>
 </div>
 <p>The test script is already fitted with the capability to use it:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./weekdaysaligner.py --online --data0 &#39;^GSPC&#39; --data1 &#39;^GDAXI&#39; --filler
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./weekdaysaligner.py --online --data0 &#39;^GSPC&#39; --data1 &#39;^GDAXI&#39; --filler
 </pre></div>
 </div>
 <p>With <code class="docutils literal"><span class="pre">--filler</span></code> the <code class="docutils literal"><span class="pre">WeekDaysFiller</span></code> is added to both <code class="docutils literal"><span class="pre">data0</span></code> and
 <code class="docutils literal"><span class="pre">data1</span></code>. And the output:</p>
-<div class="highlight-python"><div class="highlight"><pre>0001,  True, data0, 2012-01-03T23:59:59, 2012-01-03T23:59:59, data1
+<div class="highlight-python"><div class="highlight"><pre><span></span>0001,  True, data0, 2012-01-03T23:59:59, 2012-01-03T23:59:59, data1
 ...
 0009,  True, data0, 2012-01-13T23:59:59, 2012-01-13T23:59:59, data1
 0010,  True, data0, 2012-01-16T23:59:59, 2012-01-16T23:59:59, data1
@@ -287,7 +287,7 @@ the <code class="docutils literal"><span class="pre">delivery</span></code></p>
 </div>
 <p>The 1st <em>conundrum</em> at <code class="docutils literal"><span class="pre">2012-01-13</span></code> - <code class="docutils literal"><span class="pre">2012-01-17</span></code> is gone. And the entire
 set is <em>synchronized</em>:</p>
-<div class="highlight-python"><div class="highlight"><pre>...
+<div class="highlight-python"><div class="highlight"><pre><span></span>...
 0256,  True, data0, 2012-12-25T23:59:59, 2012-12-25T23:59:59, data1
 0257,  True, data0, 2012-12-26T23:59:59, 2012-12-26T23:59:59, data1
 0258,  True, data0, 2012-12-27T23:59:59, 2012-12-27T23:59:59, data1
@@ -314,11 +314,11 @@ was for sure a <em>Saturday</em> or a <em>Sunday</em>.</p>
 </div></blockquote>
 <p>The <em>filter</em> is <em>filling</em> with <code class="docutils literal"><span class="pre">NaN</span></code> values for the days in which no trading
 took place for the given data. Let&#8217;s plot it:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./weekdaysaligner.py --online --data0 &#39;^GSPC&#39; --data1 &#39;^GDAXI&#39; --filler --plot
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./weekdaysaligner.py --online --data0 &#39;^GSPC&#39; --data1 &#39;^GDAXI&#39; --filler --plot
 </pre></div>
 </div>
 <a class=""
-               data-lightbox="group-98b41850-653a-446b-a0dd-7b29e9b2499d"
+               data-lightbox="group-cd541aca-0762-4394-be4d-713e19758bff"
                href="../../../_images/gspc-gdaxi-synced1.png"
                title=""
                data-title=""
@@ -337,11 +337,11 @@ took place for the given data. Let&#8217;s plot it:</p>
 <p>A 2nd plot will try to answer the question at the top: <em>what happens with
 indicators?</em>. Remember that the new bars have been given a value of <code class="docutils literal"><span class="pre">NaN</span></code>
 (that&#8217;s why they are not displayed):</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./weekdaysaligner.py --online --data0 &#39;^GSPC&#39; --data1 &#39;^GDAXI&#39; --filler --plot --sma 10
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./weekdaysaligner.py --online --data0 &#39;^GSPC&#39; --data1 &#39;^GDAXI&#39; --filler --plot --sma 10
 </pre></div>
 </div>
 <a class=""
-               data-lightbox="group-950ce3d2-ff0e-410a-ab3d-285076fd89c1"
+               data-lightbox="group-f8d90be8-dbbe-464d-abce-4e35d1735c2d"
                href="../../../_images/gspc-gdaxi-synced-broken-sma1.png"
                title=""
                data-title=""
@@ -355,12 +355,12 @@ continuum and jumps some bars with no solution of continuity. This is of course
 the effect of filling up with <em>Not a Number</em> aka <code class="docutils literal"><span class="pre">NaN</span></code>: <em>mathematic
 operations no longer make sense</em>.</p>
 <p>If instead of <code class="docutils literal"><span class="pre">NaN</span></code> the last seen closing price is used:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./weekdaysaligner.py --online --data0 &#39;^GSPC&#39; --data1 &#39;^GDAXI&#39; --filler --plot --sma 10 --fillclose
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./weekdaysaligner.py --online --data0 &#39;^GSPC&#39; --data1 &#39;^GDAXI&#39; --filler --plot --sma 10 --fillclose
 </pre></div>
 </div>
 <p>The plot looks a lot nicer with a regular <em>SMA</em> for the entire 260 days</p>
 <a class=""
-               data-lightbox="group-e3f12977-788b-49c9-818d-82c146377338"
+               data-lightbox="group-3c27de69-fb1b-4856-b695-bbd0f8197760"
                href="../../../_images/gspc-gdaxi-synced-good-sma1.png"
                title=""
                data-title=""
@@ -382,7 +382,7 @@ a matter of long and prolonged consideration.</p>
 <div class="section" id="script-code-and-usage">
 <h2>Script Code and Usage<a class="headerlink" href="#script-code-and-usage" title="Permalink to this headline">¶</a></h2>
 <p>Available as sample in the sources of <code class="docutils literal"><span class="pre">backtrader</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./weekdaysaligner.py --help
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./weekdaysaligner.py --help
 usage: weekdaysaligner.py [-h] [--online] --data0 DATA0 [--data1 DATA1]
                           [--sma SMA] [--fillclose] [--filler] [--filler0]
                           [--filler1] [--fromdate FROMDATE] [--todate TODATE]
@@ -409,7 +409,7 @@ optional arguments:
 </pre></div>
 </div>
 <p>The code:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span>
@@ -560,7 +560,7 @@ optional arguments:
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2016-04-19-sync-different-markets/sync-different-markets/';
         var disqus_title = 'Synchronizing different markets';
-        var disqus_url = 'http://www.backtrader.com/posts/2016-04-19-sync-different-markets/sync-different-markets';
+        var disqus_url = 'http://blog.backtrader.com/posts/2016-04-19-sync-different-markets/sync-different-markets';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -666,15 +666,15 @@ optional arguments:
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -682,7 +682,7 @@ optional arguments:
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

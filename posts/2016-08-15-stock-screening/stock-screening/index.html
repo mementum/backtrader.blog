@@ -73,7 +73,7 @@ task.</p>
 wants those above the moving average, we&#8217;ll keep extra information like the
 stocks which don&#8217;t meet the criteria, to make sure the grain is being actually
 separated from the chaff.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Screener_SMA</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Analyzer</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Screener_SMA</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Analyzer</span><span class="p">):</span>
     <span class="n">params</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">period</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -129,7 +129,7 @@ it.</p>
 running called <code class="docutils literal"><span class="pre">btrun</span></code>, which can load strategies, indicators, analyzers from
 python modules, parse arguments and of course plot.</p>
 <p>Let&#8217;s do a run:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ btrun --format yahoo --data YHOO --data IBM --data NVDA --data TSLA --data ORCL --data AAPL --fromdate 2016-07-15 --todate 2016-08-13 --analyzer st-screener:Screener_SMA --cerebro runonce=0 --writer --nostdstats
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ btrun --format yahoo --data YHOO --data IBM --data NVDA --data TSLA --data ORCL --data AAPL --fromdate 2016-07-15 --todate 2016-08-13 --analyzer st-screener:Screener_SMA --cerebro runonce=0 --writer --nostdstats
 ===============================================================================
 Cerebro:
   -----------------------------------------------------------------------------
@@ -207,7 +207,7 @@ Cerebro:
 Average</em> is <code class="docutils literal"><span class="pre">TSLA</span></code>.</p>
 <p>Let&#8217;s try a <code class="docutils literal"><span class="pre">50</span></code> days period. Yes, this can also be controlled with
 <code class="docutils literal"><span class="pre">btrun</span></code>. The run (output shortened):</p>
-<div class="highlight-python"><div class="highlight"><pre>$ btrun --format yahoo --data YHOO --data IBM --data NVDA --data TSLA --data ORCL --data AAPL --fromdate 2016-05-15 --todate 2016-08-13 --analyzer st-screener:Screener_SMA:period=50 --cerebro runonce=0 --writer --nostdstats
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ btrun --format yahoo --data YHOO --data IBM --data NVDA --data TSLA --data ORCL --data AAPL --fromdate 2016-05-15 --todate 2016-08-13 --analyzer st-screener:Screener_SMA:period=50 --cerebro runonce=0 --writer --nostdstats
 ===============================================================================
 Cerebro:
   -----------------------------------------------------------------------------
@@ -245,7 +245,7 @@ consider for the calculation of the <em>Simple Moving Averages</em></p>
 <p>Craft a small script (see below for the full code) to have finer control of
 what we do. But the results are the same.</p>
 <p>The core is rather small:</p>
-<div class="highlight-python"><div class="highlight"><pre>    <span class="n">cerebro</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">Cerebro</span><span class="p">()</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span>    <span class="n">cerebro</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">Cerebro</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">ticker</span> <span class="ow">in</span> <span class="n">args</span><span class="o">.</span><span class="n">tickers</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">):</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">feeds</span><span class="o">.</span><span class="n">YahooFinanceData</span><span class="p">(</span><span class="n">dataname</span><span class="o">=</span><span class="n">ticker</span><span class="p">,</span>
                                          <span class="n">fromdate</span><span class="o">=</span><span class="n">fromdate</span><span class="p">,</span> <span class="n">todate</span><span class="o">=</span><span class="n">todate</span><span class="p">)</span>
@@ -257,7 +257,7 @@ what we do. But the results are the same.</p>
 </div>
 <p>Being the rest about argument parsing mostly.</p>
 <p>For <code class="docutils literal"><span class="pre">10</span></code> days (again shortening the output):</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./st-screener.py
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./st-screener.py
 ===============================================================================
 Cerebro:
 ...
@@ -297,7 +297,7 @@ lengths (one of the stocks could have traded less)</li>
 </div>
 <div class="section" id="script-usage">
 <h2>Script usage<a class="headerlink" href="#script-usage" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre>$ ./st-screener.py --help
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./st-screener.py --help
 usage: st-screener.py [-h] [--tickers TICKERS] [--period PERIOD]
 
 SMA Stock Screener
@@ -312,7 +312,7 @@ optional arguments:
 </div>
 <div class="section" id="the-full-script">
 <h2>The full script<a class="headerlink" href="#the-full-script" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8; py-indent-offset:4 -*-</span>
 <span class="c1">###############################################################################</span>
 <span class="c1">#</span>
@@ -443,7 +443,7 @@ optional arguments:
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2016-08-15-stock-screening/stock-screening/';
         var disqus_title = 'Stock Screening';
-        var disqus_url = 'http://www.backtrader.com/posts/2016-08-15-stock-screening/stock-screening';
+        var disqus_url = 'http://blog.backtrader.com/posts/2016-08-15-stock-screening/stock-screening';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -549,15 +549,15 @@ optional arguments:
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-01-signal-strategy/signal-strategy/">Aug 01 - Strategy with Signals</a></li>
     
   </ul>
 
@@ -565,7 +565,7 @@ optional arguments:
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

@@ -80,7 +80,7 @@ continuous future</li>
 <h2>The RollOver Data Feed<a class="headerlink" href="#the-rollover-data-feed" title="Permalink to this headline">¶</a></h2>
 <p><em>backtrader</em> has added with <cite>1.8.10.99`</cite> the possibility to join futures&#8217; data
 from different expiration dates into a continuous future:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
 
 <span class="n">cerebro</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">Cerebro</span><span class="p">()</span>
 <span class="n">data0</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">feeds</span><span class="o">.</span><span class="n">MyFeed</span><span class="p">(</span><span class="n">dataname</span><span class="o">=</span><span class="s1">&#39;Expiry0&#39;</span><span class="p">)</span>
@@ -99,7 +99,7 @@ from different expiration dates into a continuous future:</p>
 </div>
 <p>It can also be done by directly accessing the <code class="docutils literal"><span class="pre">RollOver</span></code> feed (which is
 helpful if subclassing is done):</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
 
 <span class="n">cerebro</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">Cerebro</span><span class="p">()</span>
 <span class="n">data0</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">feeds</span><span class="o">.</span><span class="n">MyFeed</span><span class="p">(</span><span class="n">dataname</span><span class="o">=</span><span class="s1">&#39;Expiry0&#39;</span><span class="p">)</span>
@@ -145,7 +145,7 @@ feed using <code class="docutils literal"><span class="pre">name</span></code>, 
 <div><ul>
 <li><p class="first"><code class="docutils literal"><span class="pre">checkdate</span></code> (default: <code class="docutils literal"><span class="pre">None</span></code>)</p>
 <p>This must be a <em>callable</em> with the following signature:</p>
-<div class="highlight-python"><div class="highlight"><pre>checkdate(dt, d):
+<div class="highlight-python"><div class="highlight"><pre><span></span>checkdate(dt, d):
 </pre></div>
 </div>
 <p>Where:</p>
@@ -173,7 +173,7 @@ place.</p>
 <p><strong>Note</strong>: This will only be called if <code class="docutils literal"><span class="pre">checkdate</span></code> has returned <code class="docutils literal"><span class="pre">True</span></code></p>
 <p>If <code class="docutils literal"><span class="pre">None</span></code> this will evaluate to <code class="docutils literal"><span class="pre">True</span></code> (execute roll over) internally</p>
 <p>Else this must be a <em>callable</em> with this signature:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">checkcondition</span><span class="p">(</span><span class="n">d0</span><span class="p">,</span> <span class="n">d1</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">checkcondition</span><span class="p">(</span><span class="n">d0</span><span class="p">,</span> <span class="n">d1</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Where:</p>
@@ -232,7 +232,7 @@ sources.</p>
 <h3>Futures concatenation<a class="headerlink" href="#futures-concatenation" title="Permalink to this headline">¶</a></h3>
 <p>Let&#8217;s start by looking at a pure concatenation by running the sample with no
 arguments.</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./rollover.py
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./rollover.py
 
 Len, Name, RollName, Datetime, WeekDay, Open, High, Low, Close, Volume, OpenInterest
 0001, FESX, 199FESXM4, 2013-09-26, Thu, 2829.0, 2843.0, 2829.0, 2843.0, 3.0, 1000.0
@@ -266,7 +266,7 @@ samples always expire on <em>Friday</em></li>
 <div class="section" id="futures-roll-over-with-no-checks">
 <h3>Futures roll-over with no checks<a class="headerlink" href="#futures-roll-over-with-no-checks" title="Permalink to this headline">¶</a></h3>
 <p>Let&#8217;s execute with <code class="docutils literal"><span class="pre">--rollover</span></code></p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./rollover.py --rollover --plot
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./rollover.py --rollover --plot
 
 Len, Name, RollName, Datetime, WeekDay, Open, High, Low, Close, Volume, OpenInterest
 0001, FESX, 199FESXM4, 2013-09-26, Thu, 2829.0, 2843.0, 2829.0, 2843.0, 3.0, 1000.0
@@ -295,7 +295,7 @@ the <em>EuroStoxx 50</em> futures stop trading at <code class="docutils literal"
 daily bar for the 3rd Friday of the expiration month, the change is happening
 too late.</p>
 <a class=""
-               data-lightbox="group-fe33f47d-de17-455f-9f30-98996c088ecb"
+               data-lightbox="group-f078abce-a179-40a4-aaa9-c979f50b788a"
                href="../../../_images/rollover1.png"
                title=""
                data-title=""
@@ -311,7 +311,7 @@ too late.</p>
 of expiration for the currently active contract.</p>
 <p><code class="docutils literal"><span class="pre">checkdate</span></code> will allow a roll over as soon as the week of the 3rd Friday of
 the month is reached (it may be <em>Tuesday</em> if for example <em>Monday</em> is a bank holiday)</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./rollover.py --rollover --checkdate --plot
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./rollover.py --rollover --checkdate --plot
 
 Len, Name, RollName, Datetime, WeekDay, Open, High, Low, Close, Volume, OpenInterest
 0001, FESX, 199FESXM4, 2013-09-26, Thu, 2829.0, 2843.0, 2829.0, 2843.0, 3.0, 1000.0
@@ -344,7 +344,7 @@ inspection of the <em>Len</em> indices show it. For example:</p>
 <p>The roll over is happening on the Monday before the 3rd Friday of the
 expiration month.</p>
 <a class=""
-               data-lightbox="group-9f46e756-33eb-4a27-a6e3-a47df387f0b1"
+               data-lightbox="group-48b30246-40da-4965-8855-49fb0969d24b"
                href="../../../_images/rollover-checkdate1.png"
                title=""
                data-title=""
@@ -360,7 +360,7 @@ expiration month.</p>
 only the date but also de negotiated <em>volume</em> will be taken into account. Do
 switch when the new contract trades more volume than the currently active one.</p>
 <p>Let&#8217;s add a <code class="docutils literal"><span class="pre">checkcondition</span></code> to the mix and run.</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./rollover.py --rollover --checkdate --checkcondition --plot
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./rollover.py --rollover --checkdate --checkcondition --plot
 
 Len, Name, RollName, Datetime, WeekDay, Open, High, Low, Close, Volume, OpenInterest
 0001, FESX, 199FESXM4, 2013-09-26, Thu, 2829.0, 2843.0, 2829.0, 2843.0, 3.0, 1000.0
@@ -392,7 +392,7 @@ hours on that <em>Friday</em> and the volume must be small.</p>
 <code class="docutils literal"><span class="pre">checkdate</span></code> callable. But that isn&#8217;t the point of the sample.</p>
 </div>
 <a class=""
-               data-lightbox="group-909e7fba-b7b9-41d6-bd05-a0bcfe144428"
+               data-lightbox="group-7cd4b578-c965-4f93-831c-9f1e9c931822"
                href="../../../_images/rollover-checkdate-checkcondition1.png"
                title=""
                data-title=""
@@ -410,7 +410,7 @@ create a continuous stream.</p>
 </div>
 <div class="section" id="sample-usage">
 <h2>Sample Usage<a class="headerlink" href="#sample-usage" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre>$ ./rollover.py --help
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./rollover.py --help
 usage: rollover.py [-h] [--no-cerebro] [--rollover] [--checkdate]
                    [--checkcondition] [--plot [kwargs]]
 
@@ -431,7 +431,7 @@ optional arguments:
 </div>
 <div class="section" id="sample-code">
 <h2>Sample Code<a class="headerlink" href="#sample-code" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 
@@ -616,7 +616,7 @@ optional arguments:
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2016-08-31-rolling-over-futures/rolling-futures-over/';
         var disqus_title = 'Rolling over Futures';
-        var disqus_url = 'http://www.backtrader.com/posts/2016-08-31-rolling-over-futures/rolling-futures-over';
+        var disqus_url = 'http://blog.backtrader.com/posts/2016-08-31-rolling-over-futures/rolling-futures-over';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -722,15 +722,15 @@ optional arguments:
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
-    
-      <li><a href="../../2016-08-01-signal-strategy/signal-strategy/">Aug 01 - Strategy with Signals</a></li>
     
   </ul>
 
@@ -738,7 +738,7 @@ optional arguments:
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

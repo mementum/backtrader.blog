@@ -71,7 +71,7 @@ seems less complicated (although it still is)</p>
 <h2>Filters at work<a class="headerlink" href="#filters-at-work" title="Permalink to this headline">¶</a></h2>
 <p>Given an existing data feed/source you use the <code class="docutils literal"><span class="pre">addfilter</span></code> method of the data
 feed:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">data</span> <span class="o">=</span> <span class="n">MyDataFeed</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">myname</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">MyDataFeed</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">myname</span><span class="p">)</span>
 
 <span class="n">data</span><span class="o">.</span><span class="n">addfilter</span><span class="p">(</span><span class="nb">filter</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </pre></div>
@@ -80,7 +80,7 @@ feed:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">A callable which accepts this signature:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="nb">callable</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="nb">callable</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>
@@ -90,12 +90,12 @@ feed:</p>
 <li><p class="first">A class which can be instantiated and called</p>
 <ul>
 <li><p class="first">During instantiation the __init__ method must support the signature:</p>
-<div class="highlight-python"><div class="highlight"><pre>def __init__(self, data, *args, **kwargs)
+<div class="highlight-python"><div class="highlight"><pre><span></span>def __init__(self, data, *args, **kwargs)
 </pre></div>
 </div>
 </li>
 <li><p class="first">The __call__ and last methods this one:</p>
-<div class="highlight-python"><div class="highlight"><pre>def __call__(self, data)
+<div class="highlight-python"><div class="highlight"><pre><span></span>def __call__(self, data)
 
 def last(self, data)
 </pre></div>
@@ -122,7 +122,7 @@ environment.</p>
 <div class="section" id="filtering-out-pre-post-market-data">
 <h3>Filtering out Pre/Post Market Data<a class="headerlink" href="#filtering-out-pre-post-market-data" title="Permalink to this headline">¶</a></h3>
 <p>The following filter (already available in <code class="docutils literal"><span class="pre">backtrader</span></code>) comes to the rescue:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">SessionFilter</span><span class="p">(</span><span class="n">with_metaclass</span><span class="p">(</span><span class="n">metabase</span><span class="o">.</span><span class="n">MetaParams</span><span class="p">,</span> <span class="nb">object</span><span class="p">)):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SessionFilter</span><span class="p">(</span><span class="n">with_metaclass</span><span class="p">(</span><span class="n">metabase</span><span class="o">.</span><span class="n">MetaParams</span><span class="p">,</span> <span class="nb">object</span><span class="p">)):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    This class can be applied to a data source as a filter and will filter out</span>
 <span class="sd">    intraday bars which fall outside of the regular session times (ie: pre/post</span>
@@ -172,11 +172,11 @@ stream</p>
 </div>
 <p>The sample code at the end of the script can be run with and without filter. The
 first run is 100% unfiltered and without specifying session times:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./data-filler.py --writer --wrcsv
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./data-filler.py --writer --wrcsv
 </pre></div>
 </div>
 <p>Looking at the start and end of the 1st day:</p>
-<div class="highlight-python"><div class="highlight"><pre>===============================================================================
+<div class="highlight-python"><div class="highlight"><pre><span></span>===============================================================================
 Id,2006-01-02-volume-min-001,len,datetime,open,high,low,close,volume,openinterest,Strategy,len
 1,2006-01-02-volume-min-001,1,2006-01-02 09:01:00,3602.0,3603.0,3597.0,3599.0,5699.0,0.0,Strategy,1
 2,2006-01-02-volume-min-001,2,2006-01-02 09:02:00,3600.0,3601.0,3598.0,3599.0,894.0,0.0,Strategy,2
@@ -193,7 +193,7 @@ Id,2006-01-02-volume-min-001,len,datetime,open,high,low,close,volume,openinteres
 <p>The session run from 09:01:00 to 20:04:00 on the 2nd of January of 2006.</p>
 <p>Now a run with a <code class="docutils literal"><span class="pre">SessionFilter</span></code> and telling the script to use 09:30 and 17:30
 as the start/end times of the session:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./data-filler.py --writer --wrcsv --tstart 09:30 --tend 17:30 --filter
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./data-filler.py --writer --wrcsv --tstart 09:30 --tend 17:30 --filter
 
 ===============================================================================
 Id,2006-01-02-volume-min-001,len,datetime,open,high,low,close,volume,openinterest,Strategy,len
@@ -213,7 +213,7 @@ been filtered out.</p>
 <div class="section" id="filling-in-missing-data">
 <h3>Filling in Missing Data<a class="headerlink" href="#filling-in-missing-data" title="Permalink to this headline">¶</a></h3>
 <p>A deeper examination of the output shows the following:</p>
-<div class="highlight-python"><div class="highlight"><pre>...
+<div class="highlight-python"><div class="highlight"><pre><span></span>...
 61,2006-01-02-volume-min-001,61,2006-01-02 10:30:00,3613.0,3614.0,3613.0,3614.0,112.0,0.0,Strategy,61
 62,2006-01-02-volume-min-001,62,2006-01-02 10:31:00,3614.0,3614.0,3614.0,3614.0,183.0,0.0,Strategy,62
 63,2006-01-02-volume-min-001,63,2006-01-02 10:34:00,3614.0,3614.0,3614.0,3614.0,841.0,0.0,Strategy,63
@@ -231,7 +231,7 @@ data.</p>
 in missing data. The code is long and bears more complexities than that of a
 filter (see at the end for the full implementation), but let&#8217;s see the
 class/params definition:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">SessionFiller</span><span class="p">(</span><span class="n">with_metaclass</span><span class="p">(</span><span class="n">metabase</span><span class="o">.</span><span class="n">MetaParams</span><span class="p">,</span> <span class="nb">object</span><span class="p">)):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SessionFiller</span><span class="p">(</span><span class="n">with_metaclass</span><span class="p">(</span><span class="n">metabase</span><span class="o">.</span><span class="n">MetaParams</span><span class="p">,</span> <span class="nb">object</span><span class="p">)):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Bar Filler for a Data Source inside the declared session start/end times.</span>
 
@@ -266,7 +266,7 @@ class/params definition:</p>
 </pre></div>
 </div>
 <p>The sample script can now filter and fill data:</p>
-<div class="highlight-python"><div class="highlight"><pre>./data-filler.py --writer --wrcsv --tstart 09:30 --tend 17:30 --filter --filler
+<div class="highlight-python"><div class="highlight"><pre><span></span>./data-filler.py --writer --wrcsv --tstart 09:30 --tend 17:30 --filter --filler
 
 ...
 62,2006-01-02-volume-min-001,62,2006-01-02 10:31:00,3614.0,3614.0,3614.0,3614.0,183.0,0.0,Strategy,62
@@ -297,7 +297,7 @@ the same number of bars (in the example all minutes from 09:30 to 17:30 both
 included)</p>
 <p>Remembering that the default is to set the missing volume to <code class="docutils literal"><span class="pre">0</span></code> an easy
 <code class="docutils literal"><span class="pre">RelativeVolume</span></code> indicator can be developed:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">RelativeVolume</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Indicator</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RelativeVolume</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Indicator</span><span class="p">):</span>
     <span class="n">csv</span> <span class="o">=</span> <span class="bp">True</span>  <span class="c1"># show up in csv output (default for indicators is False)</span>
 
     <span class="n">lines</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;relvol&#39;</span><span class="p">,)</span>
@@ -324,7 +324,7 @@ included)</p>
 <p>Which is smart enough to avoid a division by zero by using a built-in aid in
 <code class="docutils literal"><span class="pre">backtrader</span></code>.</p>
 <p>Putting all pieces together in the next invocation of the script:</p>
-<div class="highlight-python"><div class="highlight"><pre>./data-filler.py --writer --wrcsv --tstart 09:30 --tend 17:30 --filter --filler --relvol
+<div class="highlight-python"><div class="highlight"><pre><span></span>./data-filler.py --writer --wrcsv --tstart 09:30 --tend 17:30 --filter --filler --relvol
 
 ===============================================================================
 Id,2006-01-02-volume-min-001,len,datetime,open,high,low,close,volume,openinterest,Strategy,len,RelativeVolume,len,relvol
@@ -337,7 +337,7 @@ Id,2006-01-02-volume-min-001,len,datetime,open,high,low,close,volume,openinteres
 bars. The period is calculated in the script as: (17:30 - 09:30 * 60) + 1. Let&#8217;s
 directly look at how the relative volume looks for 10:32 and 10:33 in the second
 day, given that the 1st day, the volume value was filled with <code class="docutils literal"><span class="pre">0</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre>...
+<div class="highlight-python"><div class="highlight"><pre><span></span>...
 543,2006-01-02-volume-min-001,543,2006-01-03 10:31:00,3648.0,3648.0,3647.0,3648.0,56.0,0.0,Strategy,543,RelativeVolume,543,3.26785714286
 544,2006-01-02-volume-min-001,544,2006-01-03 10:32:00,3647.0,3648.0,3647.0,3647.0,313.0,0.0,Strategy,544,RelativeVolume,544,0.0
 545,2006-01-02-volume-min-001,545,2006-01-03 10:33:00,3647.0,3647.0,3647.0,3647.0,135.0,0.0,Strategy,545,RelativeVolume,545,0.0
@@ -355,7 +355,7 @@ manipulate the data stream. Use with caution.</p>
 <div class="section" id="script-code-and-usage">
 <h3>Script Code and Usage<a class="headerlink" href="#script-code-and-usage" title="Permalink to this headline">¶</a></h3>
 <p>Available as sample in the sources of <code class="docutils literal"><span class="pre">backtrader</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre>usage: data-filler.py [-h] [--data DATA] [--filter] [--filler] [--fvol FVOL]
+<div class="highlight-python"><div class="highlight"><pre><span></span>usage: data-filler.py [-h] [--data DATA] [--filter] [--filler] [--fvol FVOL]
                       [--tstart TSTART] [--tend TEND] [--relvol]
                       [--fromdate FROMDATE] [--todate TODATE] [--writer]
                       [--wrcsv] [--plot] [--numfigs NUMFIGS]
@@ -385,7 +385,7 @@ optional arguments:
 </pre></div>
 </div>
 <p>The code:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span>
@@ -523,7 +523,7 @@ optional arguments:
 <div class="section" id="sessionfiller">
 <h3>SessionFiller<a class="headerlink" href="#sessionfiller" title="Permalink to this headline">¶</a></h3>
 <p>From the <code class="docutils literal"><span class="pre">backtrader</span></code> sources:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">SessionFiller</span><span class="p">(</span><span class="n">with_metaclass</span><span class="p">(</span><span class="n">metabase</span><span class="o">.</span><span class="n">MetaParams</span><span class="p">,</span> <span class="nb">object</span><span class="p">)):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SessionFiller</span><span class="p">(</span><span class="n">with_metaclass</span><span class="p">(</span><span class="n">metabase</span><span class="o">.</span><span class="n">MetaParams</span><span class="p">,</span> <span class="nb">object</span><span class="p">)):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Bar Filler for a Data Source inside the declared session start/end times.</span>
 
@@ -707,7 +707,7 @@ optional arguments:
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2015-11-21-data-filters/data-filling-filtering/';
         var disqus_title = 'Data Filters';
-        var disqus_url = 'http://www.backtrader.com/posts/2015-11-21-data-filters/data-filling-filtering';
+        var disqus_url = 'http://blog.backtrader.com/posts/2015-11-21-data-filters/data-filling-filtering';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -813,15 +813,15 @@ optional arguments:
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -829,7 +829,7 @@ optional arguments:
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

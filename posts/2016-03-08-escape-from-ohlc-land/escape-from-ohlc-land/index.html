@@ -63,11 +63,11 @@ flexible whilst still being able to deliver.</p>
 <p>An old post shows the extension concept.</p>
 <blockquote>
 <div><ul class="simple">
-<li><a class="reference external" href="http://www.backtrader.com/posts/2015-08-07/extending-a-datafeed/">Extending a datafeed</a></li>
+<li><a class="reference external" href="http://blog.backtrader.com/posts/2015-08-07/extending-a-datafeed/">Extending a datafeed</a></li>
 </ul>
 </div></blockquote>
 <p>The basics:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">backtrader.feeds</span> <span class="kn">import</span> <span class="n">GenericCSVData</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">backtrader.feeds</span> <span class="kn">import</span> <span class="n">GenericCSVData</span>
 
 <span class="k">class</span> <span class="nc">GenericCSV_PE</span><span class="p">(</span><span class="n">GenericCSVData</span><span class="p">):</span>
     <span class="n">lines</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;pe&#39;</span><span class="p">,)</span>  <span class="c1"># Add &#39;pe&#39; to already defined lines</span>
@@ -76,7 +76,7 @@ flexible whilst still being able to deliver.</p>
 <p>Done. <code class="docutils literal"><span class="pre">backtrader</span></code> defines in the background the most usual lines: OHLC.</p>
 <p>If we digged into the final aspect of <code class="docutils literal"><span class="pre">GenericCSV_PE</span></code>, the sum of inherited
 plus newly defined lines would yield the following lines:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">(</span><span class="s1">&#39;close&#39;</span><span class="p">,</span> <span class="s1">&#39;open&#39;</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">,</span> <span class="s1">&#39;volume&#39;</span><span class="p">,</span> <span class="s1">&#39;openinterest&#39;</span><span class="p">,</span> <span class="s1">&#39;datetime&#39;</span><span class="p">,</span> <span class="s1">&#39;pe&#39;</span><span class="p">,)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">(</span><span class="s1">&#39;close&#39;</span><span class="p">,</span> <span class="s1">&#39;open&#39;</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">,</span> <span class="s1">&#39;volume&#39;</span><span class="p">,</span> <span class="s1">&#39;openinterest&#39;</span><span class="p">,</span> <span class="s1">&#39;datetime&#39;</span><span class="p">,</span> <span class="s1">&#39;pe&#39;</span><span class="p">,)</span>
 </pre></div>
 </div>
 <p>This can be check at any time with the method <code class="docutils literal"><span class="pre">getlinealiases</span></code> (applicable to
@@ -89,7 +89,7 @@ predefined <em>lines</em> hierarchy in the form of <em>OHLC</em> is not enough. 
 <em>Ask</em> prices, volumes and number of trades can be made to fit into the existing
 <em>OHLC</em> fields, but it wouldn&#8217;t feel natural. And if one is only concerned with
 the <em>Bid</em> and <em>Ask</em> prices, there would be too many fields left untouched.</p>
-<p>This called for a solution which has been implemented with <a class="reference external" href="http://www.backtrader.com/posts/2016-03-07-release-1.2.1.88/release-1.2.1.88/">Release 1.2.1.88</a>. The
+<p>This called for a solution which has been implemented with <a class="reference external" href="http://blog.backtrader.com/posts/2016-03-07-release-1.2.1.88/release-1.2.1.88/">Release 1.2.1.88</a>. The
 idea can be summarized as:</p>
 <blockquote>
 <div><ul class="simple">
@@ -109,7 +109,7 @@ Archimedes needed a lever.</p>
 </ul>
 </div></blockquote>
 <p>Here it is how it works:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">backtrader.feeds</span> <span class="kn">import</span> <span class="n">GenericCSVData</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">backtrader.feeds</span> <span class="kn">import</span> <span class="n">GenericCSVData</span>
 
 <span class="k">class</span> <span class="nc">GenericCSV_BidAsk</span><span class="p">(</span><span class="n">GenericCSVData</span><span class="p">):</span>
     <span class="n">linesoverride</span> <span class="o">=</span> <span class="bp">True</span>
@@ -123,7 +123,7 @@ Archimedes needed a lever.</p>
 <p>The original <code class="docutils literal"><span class="pre">GenericCSVData</span></code> class parses a <em>csv</em> file
 and needs a hint as to where the <em>fields</em> corresponding to the <em>lines</em> are
 located. The original definition is:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">GenericCSVData</span><span class="p">(</span><span class="n">feed</span><span class="o">.</span><span class="n">CSVDataBase</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">GenericCSVData</span><span class="p">(</span><span class="n">feed</span><span class="o">.</span><span class="n">CSVDataBase</span><span class="p">):</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">(</span>
         <span class="p">(</span><span class="s1">&#39;nullvalue&#39;</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;NaN&#39;</span><span class="p">)),</span>
         <span class="p">(</span><span class="s1">&#39;dtformat&#39;</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">),</span>
@@ -141,7 +141,7 @@ located. The original definition is:</p>
 </pre></div>
 </div>
 <p>The new <em>hierarchy-redefining-class</em> can be completed with a light touch:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">backtrader.feeds</span> <span class="kn">import</span> <span class="n">GenericCSVData</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">backtrader.feeds</span> <span class="kn">import</span> <span class="n">GenericCSVData</span>
 
 <span class="k">class</span> <span class="nc">GenericCSV_BidAsk</span><span class="p">(</span><span class="n">GenericCSVData</span><span class="p">):</span>
     <span class="n">linesoverride</span> <span class="o">=</span> <span class="bp">True</span>
@@ -154,7 +154,7 @@ located. The original definition is:</p>
 are field #2. We have left the <em>datetime</em> #0 definition untouched from the base
 class.</p>
 <p>Crafting a small data file for the occasion helps:</p>
-<div class="highlight-python"><div class="highlight"><pre>TIMESTAMP,BID,ASK
+<div class="highlight-python"><div class="highlight"><pre><span></span>TIMESTAMP,BID,ASK
 02/03/2010 16:53:50,0.5346,0.5347
 02/03/2010 16:53:51,0.5343,0.5347
 02/03/2010 16:53:52,0.5543,0.5545
@@ -169,11 +169,11 @@ class.</p>
 </div>
 <p>Add a small test script to the equation (with some more content for those who
 just go directly to the samples in the sources) (see full code at the end):</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./bidask.py
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./bidask.py
 </pre></div>
 </div>
 <p>And the output speaks up for itself:</p>
-<div class="highlight-python"><div class="highlight"><pre> 1: 2010-02-03T16:53:50 - Bid 0.5346 - 0.5347 Ask
+<div class="highlight-python"><div class="highlight"><pre><span></span> 1: 2010-02-03T16:53:50 - Bid 0.5346 - 0.5347 Ask
  2: 2010-02-03T16:53:51 - Bid 0.5343 - 0.5347 Ask
  3: 2010-02-03T16:53:52 - Bid 0.5543 - 0.5545 Ask
  4: 2010-02-03T16:53:53 - Bid 0.5342 - 0.5344 Ask
@@ -204,7 +204,7 @@ researching) in the <em>High Frequency Trading</em> domain is not concerned with
 <li><p class="first">Other indicators like <em>moving average</em> are perfectly fine. They assume
 nothing about what the fields mean or imply and will happily take
 anything. As such one can do:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">mysma</span> <span class="o">=</span> <span class="n">backtrader</span><span class="o">.</span><span class="n">indicators</span><span class="o">.</span><span class="n">SMA</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">bid</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">mysma</span> <span class="o">=</span> <span class="n">backtrader</span><span class="o">.</span><span class="n">indicators</span><span class="o">.</span><span class="n">SMA</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">bid</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>And an moving average of the last 5 <em>bid</em> prices will be delivered</p>
@@ -212,11 +212,11 @@ anything. As such one can do:</p>
 </ul>
 </div></blockquote>
 <p>The test script already supports adding a <em>SMA</em>. Let&#8217;s execute:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./bidask.py --sma --period=3
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./bidask.py --sma --period=3
 </pre></div>
 </div>
 <p>The output:</p>
-<div class="highlight-python"><div class="highlight"><pre> 3: 2010-02-03T16:53:52 - Bid 0.5543 - 0.5545 Ask - SMA: 0.5411
+<div class="highlight-python"><div class="highlight"><pre><span></span> 3: 2010-02-03T16:53:52 - Bid 0.5543 - 0.5545 Ask - SMA: 0.5411
  4: 2010-02-03T16:53:53 - Bid 0.5342 - 0.5344 Ask - SMA: 0.5409
  5: 2010-02-03T16:53:54 - Bid 0.5245 - 0.5464 Ask - SMA: 0.5377
  6: 2010-02-03T16:53:54 - Bid 0.5460 - 0.5470 Ask - SMA: 0.5349
@@ -235,7 +235,7 @@ and taking just the 1st defined line in the object. But a sound model has to
 be developed. For an upcoming version of <code class="docutils literal"><span class="pre">backtrader</span></code></p>
 </div>
 <p>The test script usage:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./bidask.py --help
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./bidask.py --help
 usage: bidask.py [-h] [--data DATA] [--dtformat DTFORMAT] [--sma]
                  [--period PERIOD]
 
@@ -254,7 +254,7 @@ optional arguments:
 </pre></div>
 </div>
 <p>And the test script itself (included in the <code class="docutils literal"><span class="pre">backtrader</span></code> sources)</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span>
@@ -373,7 +373,7 @@ optional arguments:
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2016-03-08-escape-from-ohlc-land/escape-from-ohlc-land/';
         var disqus_title = 'Escape from OHLC Land';
-        var disqus_url = 'http://www.backtrader.com/posts/2016-03-08-escape-from-ohlc-land/escape-from-ohlc-land';
+        var disqus_url = 'http://blog.backtrader.com/posts/2016-03-08-escape-from-ohlc-land/escape-from-ohlc-land';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -479,15 +479,15 @@ optional arguments:
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -495,7 +495,7 @@ optional arguments:
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

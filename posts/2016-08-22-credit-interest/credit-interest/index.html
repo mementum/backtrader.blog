@@ -96,7 +96,7 @@ will be charged on both directions</p>
 </ul>
 </div></blockquote>
 <p>The parameters can also be set via the <em>broker</em> using the following method:</p>
-<div class="highlight-python"><div class="highlight"><pre>def setcommission(self,
+<div class="highlight-python"><div class="highlight"><pre><span></span>def setcommission(self,
                   commission=0.0, margin=None, mult=1.0,
                   commtype=None, percabs=True, stocklike=False,
                   interest=0.0, interest_long=False,
@@ -110,7 +110,7 @@ above.</p>
 <h2>Applying a CommissionInfo<a class="headerlink" href="#applying-a-commissioninfo" title="Permalink to this headline">¶</a></h2>
 <p>For a stock with a commission in percentage a typical use scenario with <em>credit
 interest</em> would be as follows</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
 
 <span class="n">cerebro</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">Cerebro</span><span class="p">()</span>
 <span class="n">comminfo</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">CommissionInfo</span><span class="p">(</span><span class="n">commtype</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">CommissionInfo</span><span class="o">.</span><span class="n">COMM_PERC</span><span class="p">,</span>  <span class="c1"># % commission</span>
@@ -126,7 +126,7 @@ interest</em> would be as follows</p>
 </div>
 <p>This is mostly useful if th end user has own commission schemes.</p>
 <p>A simpler case with <code class="docutils literal"><span class="pre">setcommission</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
 
 <span class="n">cerebro</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">Cerebro</span><span class="p">()</span>
 <span class="n">cerebro</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">setcommission</span><span class="p">(</span><span class="n">commtype</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">CommissionInfo</span><span class="o">.</span><span class="n">COMM_PERC</span><span class="p">,</span>  <span class="c1"># % commission</span>
@@ -147,12 +147,12 @@ interest</em> would be as follows</p>
 <h3>Long only, no exit, No interest<a class="headerlink" href="#long-only-no-exit-no-interest" title="Permalink to this headline">¶</a></h3>
 <p>To establish a minimum baseline, let&#8217;s start without interest and letting the
 script enter the market only long and avoid exiting.</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./credit-interest.py --plot --stocklike --long --no-exit
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./credit-interest.py --plot --stocklike --long --no-exit
 01 2005-04-11 23:59:59 BUY  Size: +10 / Price: 3088.47
 </pre></div>
 </div>
 <a class=""
-               data-lightbox="group-cc9d2279-06cc-4a78-88b9-45aae6fe0467"
+               data-lightbox="group-8c173727-fdae-47f7-bfff-404aa594a2c6"
                href="../../../_images/long-no-exit-no-interest1.png"
                title=""
                data-title=""
@@ -168,12 +168,12 @@ portfolio value and showing no deduction.</p>
 <h3>Long only, no exit and interest<a class="headerlink" href="#long-only-no-exit-and-interest" title="Permalink to this headline">¶</a></h3>
 <p>Let&#8217;s try to add interest and see what happens (we&#8217;ll be adding a huge <code class="docutils literal"><span class="pre">15%</span></code>
 interest to try to notice the movements)</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./credit-interest.py --plot --stocklike --long --no-exit --interest 0.15
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./credit-interest.py --plot --stocklike --long --no-exit --interest 0.15
 01 2005-04-11 23:59:59 BUY  Size: +10 / Price: 3088.47
 </pre></div>
 </div>
 <a class=""
-               data-lightbox="group-adc7caff-f077-4801-a969-7cee3daab77b"
+               data-lightbox="group-629ce7c9-d3f5-44a3-a6fa-2c89d8159a82"
                href="../../../_images/long-no-exit-interest-0151.png"
                title=""
                data-title=""
@@ -186,12 +186,12 @@ interest to try to notice the movements)</p>
 applied only to <code class="docutils literal"><span class="pre">short</span></code> positions (taken with a credit) and this is a a
 long-only position.</p>
 <p>Let&#8217;s tell the script to do it for <code class="docutils literal"><span class="pre">long</span></code> positions too</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./credit-interest.py --plot --stocklike --long --no-exit --interest 0.15 --interest_long
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./credit-interest.py --plot --stocklike --long --no-exit --interest 0.15 --interest_long
 01 2005-04-11 23:59:59 BUY  Size: +10 / Price: 3088.47
 </pre></div>
 </div>
 <a class=""
-               data-lightbox="group-2a743203-7ea9-4c71-a13a-02d3e37ff8c2"
+               data-lightbox="group-c3d631ab-ac63-45b8-9b79-141192fbe59d"
                href="../../../_images/long-no-exit-interest-015-ilong1.png"
                title=""
                data-title=""
@@ -207,7 +207,7 @@ interest which is being taken)</p>
 <h3>A long-short scenario<a class="headerlink" href="#a-long-short-scenario" title="Permalink to this headline">¶</a></h3>
 <p>This would model something like an <code class="docutils literal"><span class="pre">ETF</span></code> which has a yearly interest and can
 be a regular one or an inverse one. First let&#8217;s establish the baseline.</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./credit-interest.py --plot --stocklike
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./credit-interest.py --plot --stocklike
 01 2005-03-22 23:59:59 SELL Size: -10 / Price: 3040.55
 02 2005-04-11 23:59:59 BUY  Size: +10 / Price: 3088.47
 ...
@@ -218,7 +218,7 @@ be a regular one or an inverse one. First let&#8217;s establish the baseline.</p
 </div>
 <p>Plenty more operations and the system is always <em>in the market</em>.</p>
 <a class=""
-               data-lightbox="group-f8cad6aa-98a4-47f4-bef6-37f8609601d3"
+               data-lightbox="group-c326c11b-43bd-4419-ad34-fdcaf32f54ba"
                href="../../../_images/long-short-no-interest1.png"
                title=""
                data-title=""
@@ -229,7 +229,7 @@ be a regular one or an inverse one. First let&#8217;s establish the baseline.</p
                      alt=""/>
                 </a><p>Because the <code class="docutils literal"><span class="pre">ETF</span></code> will have interest charged on both long and short
 operations, the interest will be added for both now:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./credit-interest.py --plot --stocklike --interest 0.15 --interest_long
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./credit-interest.py --plot --stocklike --interest 0.15 --interest_long
 01 2005-03-22 23:59:59 SELL Size: -10 / Price: 3040.55
 02 2005-04-11 23:59:59 BUY  Size: +10 / Price: 3088.47
 ...
@@ -238,7 +238,7 @@ operations, the interest will be added for both now:</p>
 </pre></div>
 </div>
 <a class=""
-               data-lightbox="group-91810cb5-bcf3-4d43-ac94-4d9921892b93"
+               data-lightbox="group-cb9af915-39a0-4650-bf74-5a90744ca540"
                href="../../../_images/long-short-interest-margin1.png"
                title=""
                data-title=""
@@ -254,7 +254,7 @@ broken but ... NO ...</p>
 up not allowing the last order because <em>THERE IS NOT ENOUGH CASH</em></div></blockquote>
 <p>Removing the interest charge from <em>long</em> operations (even if not real for an
 <em>ETF</em>) will allow the system to come to the end:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./credit-interest.py --plot --stocklike --interest 0.15
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./credit-interest.py --plot --stocklike --interest 0.15
 01 2005-03-22 23:59:59 SELL Size: -10 / Price: 3040.55
 02 2005-04-11 23:59:59 BUY  Size: +10 / Price: 3088.47
 ...
@@ -265,7 +265,7 @@ up not allowing the last order because <em>THERE IS NOT ENOUGH CASH</em></div></
 </div>
 <p>Back in business until the <code class="docutils literal"><span class="pre">35th</span></code> operation.</p>
 <a class=""
-               data-lightbox="group-3f5978c6-19b1-4f24-a8d3-490bc41d2bed"
+               data-lightbox="group-fd70799e-034f-4927-a1c8-fdb6e9e99f3e"
                href="../../../_images/long-short-interest-only-short1.png"
                title=""
                data-title=""
@@ -286,7 +286,7 @@ scenarios to try to achieve the dream: a profitable system</p>
 </div>
 <div class="section" id="sample-usage">
 <h2>Sample usage<a class="headerlink" href="#sample-usage" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre>$ ./credit-interest.py --help
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./credit-interest.py --help
 usage: credit-interest.py [-h] [--data DATA] [--fromdate FROMDATE]
                           [--todate TODATE] [--cash CASH] [--period1 PERIOD1]
                           [--period2 PERIOD2] [--interest INTEREST]
@@ -325,7 +325,7 @@ optional arguments:
 </div>
 <div class="section" id="sample-code">
 <h2>Sample code<a class="headerlink" href="#sample-code" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span>
@@ -540,7 +540,7 @@ optional arguments:
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2016-08-22-credit-interest/credit-interest/';
         var disqus_title = 'Credit Interest';
-        var disqus_url = 'http://www.backtrader.com/posts/2016-08-22-credit-interest/credit-interest';
+        var disqus_url = 'http://blog.backtrader.com/posts/2016-08-22-credit-interest/credit-interest';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -646,15 +646,15 @@ optional arguments:
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
-    
-      <li><a href="../../2016-08-01-signal-strategy/signal-strategy/">Aug 01 - Strategy with Signals</a></li>
     
   </ul>
 
@@ -662,7 +662,7 @@ optional arguments:
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

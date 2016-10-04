@@ -114,8 +114,8 @@ it comes down to identifying traits to try to improve an algorithm.</p>
 <blockquote>
 <div><ul class="simple">
 <li><a class="reference external" href="http://backtrader.readthedocs.org/quickstart.html#visual-inspection-plotting">Visual Inspection: Plotting</a></li>
-<li><a class="reference external" href="http://www.backtrader.com/posts/2015-07-20/extending-an-indicator/">Extending an Indicator</a></li>
-<li><a class="reference external" href="http://www.backtrader.com/posts/2015-07-31/commission-schemes-updated/">Improving Commissions: Stocks vs Futures</a></li>
+<li><a class="reference external" href="http://blog.backtrader.com/posts/2015-07-20/extending-an-indicator/">Extending an Indicator</a></li>
+<li><a class="reference external" href="http://blog.backtrader.com/posts/2015-07-31/commission-schemes-updated/">Improving Commissions: Stocks vs Futures</a></li>
 </ul>
 </div></blockquote>
 <p>And for reference on how to apply that to the <code class="docutils literal"><span class="pre">Indicators</span></code>:</p>
@@ -130,7 +130,7 @@ it comes down to identifying traits to try to improve an algorithm.</p>
 <p>One of the things I tried to achieve with <code class="docutils literal"><span class="pre">backtrader</span></code> was full freedom for
 the end user in terms of ease of use.</p>
 <p>From the <code class="docutils literal"><span class="pre">Zipline</span></code> tutorial:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
     <span class="c1"># Register 2 histories that track daily prices,</span>
     <span class="c1"># one with a 100 window and one with a 300 day window</span>
     <span class="n">add_history</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;1d&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">)</span>
@@ -187,7 +187,7 @@ run. Larger timeframe datas will of course push the first invocation of
 <code class="docutils literal"><span class="pre">next</span></code> further into the future according to the declared indicators</p>
 </div>
 <p>Example for <code class="docutils literal"><span class="pre">backtrader</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
 <span class="kn">import</span> <span class="nn">backtrader.indicators</span> <span class="kn">as</span> <span class="nn">btind</span>
 
 <span class="k">class</span> <span class="nc">SMACrossOver</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Strategy</span><span class="p">):</span>
@@ -210,7 +210,7 @@ run. Larger timeframe datas will of course push the first invocation of
 <div class="section" id="indicator-declaration-and-logic-implementation">
 <h2>Indicator declaration and Logic implementation<a class="headerlink" href="#indicator-declaration-and-logic-implementation" title="Permalink to this headline">¶</a></h2>
 <p>From the zipline tutorial:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
     <span class="c1"># Register 2 histories that track daily prices,</span>
     <span class="c1"># one with a 100 window and one with a 300 day window</span>
     <span class="n">add_history</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;1d&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">)</span>
@@ -235,7 +235,7 @@ decouples the <code class="docutils literal"><span class="pre">add_history</span
 object which provides functions like <code class="docutils literal"><span class="pre">mean</span></code>.</p>
 <p>The declaration in <code class="docutils literal"><span class="pre">backtrader</span></code> (repeating from above just the <code class="docutils literal"><span class="pre">__init__</span></code>
 part) is a single one:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">SMACrossOver</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Strategy</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SMACrossOver</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Strategy</span><span class="p">):</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;period1&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;period2&#39;</span><span class="p">,</span> <span class="mi">300</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -248,7 +248,7 @@ part) is a single one:</p>
 advantages when compared with the tutorial (again ... <code class="docutils literal"><span class="pre">Zipline</span></code> may offer
 alternative methods similar to the ones shown below)</p>
 <p>From the tutorial:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">handle_data</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">handle_data</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
     <span class="o">...</span>
 
     <span class="c1"># Trading logic</span>
@@ -262,7 +262,7 @@ alternative methods similar to the ones shown below)</p>
 </div>
 <p><code class="docutils literal"><span class="pre">backtrader</span></code> offers also the <strong>[0]</strong> notation to access the value. Sample next
 implementation:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sma1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">sma2</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">buy</span><span class="p">()</span>  <span class="c1"># buys the main data feed passed to the system</span>
 
@@ -282,7 +282,7 @@ nothing is indicated is to operate on the main <code class="docutils literal"><s
 sense dictates makes more sense.</p>
 </div>
 <p>An even better approach in <code class="docutils literal"><span class="pre">backtrader</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sma1</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">sma2</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">buy</span><span class="p">()</span>  <span class="c1"># buys the main data feed passed to the system</span>
 
@@ -294,7 +294,7 @@ sense dictates makes more sense.</p>
 has been implemented.</p>
 <p>An even better alternative approach (in the author&#8217;s modest opinion) is to
 define the comparison logic during the <code class="docutils literal"><span class="pre">__init__</span></code> phase. Approach 1:</p>
-<div class="highlight-python"><div class="highlight"><pre>class SMACrossOver(bt.Strategy):
+<div class="highlight-python"><div class="highlight"><pre><span></span>class SMACrossOver(bt.Strategy):
     params = ((&#39;period1&#39;, 100), (&#39;period2&#39;, 300))
 
     def __init__(self):
@@ -314,7 +314,7 @@ define the comparison logic during the <code class="docutils literal"><span clas
 </div>
 <p>And yet another possibility further using the already built-in operator
 overloading:</p>
-<div class="highlight-python"><div class="highlight"><pre>class SMACrossOver(bt.Strategy):
+<div class="highlight-python"><div class="highlight"><pre><span></span>class SMACrossOver(bt.Strategy):
     params = ((&#39;period1&#39;, 100), (&#39;period2&#39;, 300))
 
     def __init__(self):
@@ -339,7 +339,7 @@ overloading:</p>
 <div class="section" id="data-recording">
 <h2>Data Recording<a class="headerlink" href="#data-recording" title="Permalink to this headline">¶</a></h2>
 <p>This part of the <code class="docutils literal"><span class="pre">Zipline</span></code> tutorial has got me really puzzled:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">handle_data</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">handle_data</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
     <span class="o">...</span>
     <span class="o">...</span>
 
@@ -407,7 +407,7 @@ executed and getting the execution price are different ones)</li>
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2015-08-05-a-zipline-rough-comparison/a-zipline-rough-comparison/';
         var disqus_title = 'A rough Zipline comparison';
-        var disqus_url = 'http://www.backtrader.com/posts/2015-08-05-a-zipline-rough-comparison/a-zipline-rough-comparison';
+        var disqus_url = 'http://blog.backtrader.com/posts/2015-08-05-a-zipline-rough-comparison/a-zipline-rough-comparison';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -513,15 +513,15 @@ executed and getting the execution price are different ones)</li>
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -529,7 +529,7 @@ executed and getting the execution price are different ones)</li>
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

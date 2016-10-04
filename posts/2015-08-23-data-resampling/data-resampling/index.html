@@ -84,12 +84,12 @@ be equal or larger than the source</p>
 </ul>
 </div></blockquote>
 <p>Let&#8217;s see an example from Daily to weekly with a handcrafted script:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./data-resampling.py --timeframe weekly --compression 1
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./data-resampling.py --timeframe weekly --compression 1
 </pre></div>
 </div>
 <p>The output:</p>
 <a class=""
-               data-lightbox="group-0f5b518a-2e91-4a2d-8ba1-c7acd28297be"
+               data-lightbox="group-712fe807-6576-4f5e-afe7-62dca76b70d0"
                href="../../../_images/resample-daily-weekly1.png"
                title=""
                data-title=""
@@ -99,12 +99,12 @@ be equal or larger than the source</p>
                      height="auto"
                      alt=""/>
                 </a><p>We can compare it to the original daily data:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./data-resampling.py --timeframe daily --compression 1
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./data-resampling.py --timeframe daily --compression 1
 </pre></div>
 </div>
 <p>The output:</p>
 <a class=""
-               data-lightbox="group-bca60707-362e-4994-8798-c3e52482f8cb"
+               data-lightbox="group-03d432d8-fb20-41d3-9ff6-5f9a1bbd8dba"
                href="../../../_images/resample-daily-daily1.png"
                title=""
                data-title=""
@@ -125,7 +125,7 @@ be equal or larger than the source</p>
 </ul>
 </div></blockquote>
 <p>The code in the sample (the entire script at the bottom).</p>
-<div class="highlight-python"><div class="highlight"><pre>
+<div class="highlight-python"><div class="highlight"><pre><span></span>
     <span class="c1"># Load the Data</span>
     <span class="n">datapath</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">dataname</span> <span class="ow">or</span> <span class="s1">&#39;../datas/sample/2006-day-001.txt&#39;</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">btfeeds</span><span class="o">.</span><span class="n">BacktraderCSVData</span><span class="p">(</span>
@@ -149,12 +149,12 @@ be equal or larger than the source</p>
 </div>
 <p>A last example in which we first change the time frame from daily to weekly and
 then apply a 3 to 1 compression:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./data-resampling.py --timeframe weekly --compression 3
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./data-resampling.py --timeframe weekly --compression 3
 </pre></div>
 </div>
 <p>The output:</p>
 <a class=""
-               data-lightbox="group-d348b568-e124-4940-85e9-30a017726258"
+               data-lightbox="group-00e09f80-5116-4b34-a805-ab8b774165ff"
                href="../../../_images/resample-daily-weekly-31.png"
                title=""
                data-title=""
@@ -172,7 +172,7 @@ then apply a 3 to 1 compression:</p>
 </div></blockquote>
 <p>It doesn&#8217;t take much more. Of course intraday data can also be resampled.</p>
 <p>The sample code for the resampling test script.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span>
@@ -277,7 +277,7 @@ then apply a 3 to 1 compression:</p>
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2015-08-23-data-resampling/data-resampling/';
         var disqus_title = 'Data Resampling';
-        var disqus_url = 'http://www.backtrader.com/posts/2015-08-23-data-resampling/data-resampling';
+        var disqus_url = 'http://blog.backtrader.com/posts/2015-08-23-data-resampling/data-resampling';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -383,15 +383,15 @@ then apply a 3 to 1 compression:</p>
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -399,7 +399,7 @@ then apply a 3 to 1 compression:</p>
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

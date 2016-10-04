@@ -74,7 +74,7 @@ timeframe. For example for the daily timeframe:</p>
 <p>This may seem troublesome because for each timeframe there needs to be a
 definition of what other timeframe has to be used. Looking at the formulas
 opens up another question:</p>
-<div class="highlight-python"><div class="highlight"><pre>Pivot Point (P) = (High + Low + Close)/3
+<div class="highlight-python"><div class="highlight"><pre><span></span>Pivot Point (P) = (High + Low + Close)/3
 Support 1 (S1) = (P x 2) - High
 Support 2 (S2) = P  -  (High  -  Low)
 Resistance 1 (R1) = (P x 2) - Low
@@ -93,13 +93,13 @@ first let&#8217;s tackle the problem of the different timeframes by doing this:<
 <p>Although this may seem confusing, one has to take into account that
 <em>indicators</em> have to remain as stupid as possible and be made up of actual
 formulas. The problem will be solved as follows:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">data</span> <span class="o">=</span> <span class="n">btfeeds</span><span class="o">.</span><span class="n">ADataFeed</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">timeframe</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">TimeFrame</span><span class="o">.</span><span class="n">Days</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">btfeeds</span><span class="o">.</span><span class="n">ADataFeed</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">timeframe</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">TimeFrame</span><span class="o">.</span><span class="n">Days</span><span class="p">)</span>
 <span class="n">cerebro</span><span class="o">.</span><span class="n">adddata</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="n">cerebro</span><span class="o">.</span><span class="n">resampledata</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">timeframe</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">TimeFrame</span><span class="o">.</span><span class="n">Months</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>And later in the <em>Strategy</em>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MyStrategy</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Strategy</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyStrategy</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Strategy</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pp</span> <span class="o">=</span> <span class="n">PivotPoint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data1</span><span class="p">)</span>  <span class="c1"># the resampled data</span>
 </pre></div>
@@ -110,7 +110,7 @@ resampled data, which is already in the needed <em>monthly</em> timeframe for th
 original data timeframe which is <em>daily</em>.</p>
 <p>The indicator can be developed. Let&#8217;s start by following the text indications
 and not the formulas and look back 1 period.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">PivotPoint1</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Indicator</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">PivotPoint1</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Indicator</span><span class="p">):</span>
     <span class="n">lines</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="s1">&#39;s1&#39;</span><span class="p">,</span> <span class="s1">&#39;s2&#39;</span><span class="p">,</span> <span class="s1">&#39;r1&#39;</span><span class="p">,</span> <span class="s1">&#39;r2&#39;</span><span class="p">,)</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -131,7 +131,7 @@ and not the formulas and look back 1 period.</p>
 </pre></div>
 </div>
 <p>The strategy will look at parameter <code class="docutils literal"><span class="pre">usepp1</span></code> to use this <code class="docutils literal"><span class="pre">PivotPoint1</span></code></p>
-<div class="highlight-python"><div class="highlight"><pre>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">usepp1</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">pp</span> <span class="o">=</span> <span class="n">PivotPoint1</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data1</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
@@ -140,7 +140,7 @@ and not the formulas and look back 1 period.</p>
 </pre></div>
 </div>
 <p>And the output is controlled by a simple <code class="docutils literal"><span class="pre">next</span></code> method</p>
-<div class="highlight-python"><div class="highlight"><pre>    <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">txt</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
             <span class="p">[</span><span class="s1">&#39;</span><span class="si">%04d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span>
              <span class="s1">&#39;</span><span class="si">%04d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data0</span><span class="p">),</span>
@@ -153,11 +153,11 @@ and not the formulas and look back 1 period.</p>
 </pre></div>
 </div>
 <p>Let&#8217;s execute:</p>
-<div class="highlight-python"><div class="highlight"><pre>./ppsample --usepp1
+<div class="highlight-python"><div class="highlight"><pre><span></span>./ppsample --usepp1
 </pre></div>
 </div>
 <p>And the output:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="mo">0041</span><span class="p">,</span><span class="mo">0041</span><span class="p">,</span><span class="mo">0002</span><span class="p">,</span><span class="mi">2005</span><span class="o">-</span><span class="mo">02</span><span class="o">-</span><span class="mi">28</span><span class="p">,</span><span class="mf">2962.79</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mo">0041</span><span class="p">,</span><span class="mo">0041</span><span class="p">,</span><span class="mo">0002</span><span class="p">,</span><span class="mi">2005</span><span class="o">-</span><span class="mo">02</span><span class="o">-</span><span class="mi">28</span><span class="p">,</span><span class="mf">2962.79</span>
 <span class="mo">0042</span><span class="p">,</span><span class="mo">0042</span><span class="p">,</span><span class="mo">0002</span><span class="p">,</span><span class="mi">2005</span><span class="o">-</span><span class="mo">03</span><span class="o">-</span><span class="mo">01</span><span class="p">,</span><span class="mf">2962.79</span>
 <span class="o">...</span>
 </pre></div>
@@ -178,7 +178,7 @@ with multiple timeframes.</p>
 </div></blockquote>
 <p>That&#8217;s why the <code class="docutils literal"><span class="pre">next</span></code> method is looking at index <code class="docutils literal"><span class="pre">[0]</span></code>. All this has a very
 easy fix and that&#8217;s writing the formulas just like <em>StockCharts</em> documents them.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">PivotPoint</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Indicator</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">PivotPoint</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Indicator</span><span class="p">):</span>
     <span class="n">lines</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="s1">&#39;s1&#39;</span><span class="p">,</span> <span class="s1">&#39;s2&#39;</span><span class="p">,</span> <span class="s1">&#39;r1&#39;</span><span class="p">,</span> <span class="s1">&#39;r2&#39;</span><span class="p">,)</span>
     <span class="n">plotinfo</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">subplot</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 
@@ -199,11 +199,11 @@ easy fix and that&#8217;s writing the formulas just like <em>StockCharts</em> do
 </pre></div>
 </div>
 <p>An execution without <code class="docutils literal"><span class="pre">usepp1</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre>./ppsample
+<div class="highlight-python"><div class="highlight"><pre><span></span>./ppsample
 </pre></div>
 </div>
 <p>And the new output is:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="mo">0021</span><span class="p">,</span><span class="mo">0021</span><span class="p">,</span><span class="mo">0001</span><span class="p">,</span><span class="mi">2005</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mi">31</span><span class="p">,</span><span class="mf">2962.79</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mo">0021</span><span class="p">,</span><span class="mo">0021</span><span class="p">,</span><span class="mo">0001</span><span class="p">,</span><span class="mi">2005</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mi">31</span><span class="p">,</span><span class="mf">2962.79</span>
 <span class="mo">0022</span><span class="p">,</span><span class="mo">0022</span><span class="p">,</span><span class="mo">0001</span><span class="p">,</span><span class="mi">2005</span><span class="o">-</span><span class="mo">02</span><span class="o">-</span><span class="mo">01</span><span class="p">,</span><span class="mf">2962.79</span>
 <span class="o">...</span>
 </pre></div>
@@ -212,23 +212,23 @@ easy fix and that&#8217;s writing the formulas just like <em>StockCharts</em> do
 has calculated the values and can be delivered. The only printed line is <code class="docutils literal"><span class="pre">p</span></code>
 and if the value is the same in the 2 lines is because the value remains fixed
 for the entire next month. Quoting <em>StockCharts</em>:</p>
-<div class="highlight-python"><div class="highlight"><pre>Once Pivot Points are set, they do not change and remain in play throughout ...
+<div class="highlight-python"><div class="highlight"><pre><span></span>Once Pivot Points are set, they do not change and remain in play throughout ...
 </pre></div>
 </div>
 <p>The indicator can already be used. Let&#8217;s go for plotting. A plotting parameter
 has already been set</p>
-<div class="highlight-python"><div class="highlight"><pre>    <span class="n">plotinfo</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">subplot</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span>    <span class="n">plotinfo</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">subplot</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 
 </pre></div>
 </div>
 <p>The calculated values are in line with the data scale and just like a <em>Moving
 Average</em> it can be plotted along the data (hence <code class="docutils literal"><span class="pre">subplot=False</span></code>)</p>
 <p>An execution with <code class="docutils literal"><span class="pre">--plot</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre>./ppsample --plot
+<div class="highlight-python"><div class="highlight"><pre><span></span>./ppsample --plot
 </pre></div>
 </div>
 <a class=""
-               data-lightbox="group-824dbfe1-7ae0-4261-8a3a-2e3b87fefbe0"
+               data-lightbox="group-c40b9320-97af-4775-8cff-32ba1e5d1a2b"
                href="../../../_images/pivotpoint-on-monthly-data1.png"
                title=""
                data-title=""
@@ -245,11 +245,11 @@ a small addition in <code class="docutils literal"><span class="pre">1.2.8.88</s
 of a different timeframe.</p>
 <p>This is achieved by having <code class="docutils literal"><span class="pre">plotmaster</span></code> say which the plot target is, by
 adding it to the <code class="docutils literal"><span class="pre">plotinfo</span></code> attribute of the indicator:</p>
-<div class="highlight-python"><div class="highlight"><pre>./ppsample --plot --plot-on-daily
+<div class="highlight-python"><div class="highlight"><pre><span></span>./ppsample --plot --plot-on-daily
 </pre></div>
 </div>
 <a class=""
-               data-lightbox="group-109034e0-0a5c-48e2-a542-bba333920132"
+               data-lightbox="group-415a21aa-a447-41f9-9c28-5554b39f382d"
                href="../../../_images/pivotpoint-on-daily-data1.png"
                title=""
                data-title=""
@@ -262,7 +262,7 @@ adding it to the <code class="docutils literal"><span class="pre">plotinfo</span
 <div class="section" id="script-code-and-usage">
 <h2>Script Code and Usage<a class="headerlink" href="#script-code-and-usage" title="Permalink to this headline">¶</a></h2>
 <p>Available as sample in the sources of <code class="docutils literal"><span class="pre">backtrader</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./ppsample.py --help
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./ppsample.py --help
 usage: ppsample.py [-h] [--data DATA] [--usepp1] [--plot] [--plot-on-daily]
 
 Sample for pivot point and cross plotting
@@ -277,7 +277,7 @@ optional arguments:
 </pre></div>
 </div>
 <p>The code for <code class="docutils literal"><span class="pre">PivotPoint</span></code></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,)</span>
 <span class="c1">#                        unicode_literals)</span>
 
 <span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
@@ -323,7 +323,7 @@ optional arguments:
 </pre></div>
 </div>
 <p>The code for the script.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span>
@@ -440,7 +440,7 @@ optional arguments:
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2016-04-28-pivot-point-cross-plotting/pivotpoint-crossplotting/';
         var disqus_title = 'Pivot Point and Cross Plotting';
-        var disqus_url = 'http://www.backtrader.com/posts/2016-04-28-pivot-point-cross-plotting/pivotpoint-crossplotting';
+        var disqus_url = 'http://blog.backtrader.com/posts/2016-04-28-pivot-point-cross-plotting/pivotpoint-crossplotting';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -546,15 +546,15 @@ optional arguments:
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -562,7 +562,7 @@ optional arguments:
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

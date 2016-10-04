@@ -71,12 +71,12 @@ good, but it could be better.</p>
 </ul>
 </div></blockquote>
 <p>Data replay does exactly what the name implies:</p>
-<div class="highlight-python"><div class="highlight"><pre>Replay a daily bar using the 1 minute data
+<div class="highlight-python"><div class="highlight"><pre><span></span>Replay a daily bar using the 1 minute data
 </pre></div>
 </div>
 <p>This is of course not exactly how the market developed, but it is far better
 than looking at the daily fully formed and closed bar in isolation:</p>
-<div class="highlight-python"><div class="highlight"><pre>If the strategy operates in realtime during the formation of the daily bar,
+<div class="highlight-python"><div class="highlight"><pre><span></span>If the strategy operates in realtime during the formation of the daily bar,
 the approximation of the formation of the bar gives a chance to replicate the
 actual behavior of the strategy under real conditions
 </pre></div>
@@ -118,7 +118,7 @@ will remain unchanged.</li>
 <p>Some examples below, but first the sauce of the test script in which the data is
 loaded and passed to a replayer ... and <code class="docutils literal"><span class="pre">run</span></code> with <code class="docutils literal"><span class="pre">preload=False</span></code> to
 disable preloading (COMPULSORY)</p>
-<div class="highlight-python"><div class="highlight"><pre>        <span class="n">dataname</span><span class="o">=</span><span class="n">datapath</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span>        <span class="n">dataname</span><span class="o">=</span><span class="n">datapath</span><span class="p">)</span>
 
     <span class="n">tframes</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
         <span class="n">daily</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">TimeFrame</span><span class="o">.</span><span class="n">Days</span><span class="p">,</span>
@@ -143,12 +143,12 @@ disable preloading (COMPULSORY)</p>
 <div class="section" id="example-replay-daily-to-weekly">
 <h2>Example - Replay Daily to Weekly<a class="headerlink" href="#example-replay-daily-to-weekly" title="Permalink to this headline">¶</a></h2>
 <p>The invocation of the script:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./data-replay.py --timeframe weekly --compression 1
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./data-replay.py --timeframe weekly --compression 1
 </pre></div>
 </div>
 <p>The chart cannot unfortunately show us the real thing happening in the
 background, so let&#8217;s have a look at the console output:</p>
-<div class="highlight-python"><div class="highlight"><pre>prenext len 1 - counter 1
+<div class="highlight-python"><div class="highlight"><pre><span></span>prenext len 1 - counter 1
 prenext len 1 - counter 2
 prenext len 1 - counter 3
 prenext len 1 - counter 4
@@ -202,7 +202,7 @@ bar.</p>
 <p>The visual output is that of the weekly chart which is the final outcome the
 system is being tested again.</p>
 <a class=""
-               data-lightbox="group-86ab9f24-cde8-48ac-919d-b896effd659e"
+               data-lightbox="group-ccc96de1-3fca-4ba5-9ff3-f6dfb69bf8eb"
                href="../../../_images/replay-daily-weekly1.png"
                title=""
                data-title=""
@@ -217,7 +217,7 @@ system is being tested again.</p>
 <p>Of course &#8220;Replaying&#8221; can be applied to the same timeframe but with a
 compression.</p>
 <p>The console:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./data-replay.py --timeframe daily --compression 2
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./data-replay.py --timeframe daily --compression 2
 prenext len 1 - counter 1
 prenext len 1 - counter 2
 prenext len 2 - counter 3
@@ -238,7 +238,7 @@ prenext len 4 - counter 7
 <p>This time we got half the bars as expected because of the factor 2 requested compression.</p>
 <p>The chart:</p>
 <a class=""
-               data-lightbox="group-bde9ebf1-55ee-437d-951f-40e9537de9d7"
+               data-lightbox="group-86d05614-bc01-4718-a038-ce4bdab2f8d9"
                href="../../../_images/replay-daily-daily-compression-21.png"
                title=""
                data-title=""
@@ -254,7 +254,7 @@ prenext len 4 - counter 7
 timeframe set of data is available and can be used to discretely replay the
 timeframe which the system operates on.</p>
 <p>The test script.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span>
@@ -388,7 +388,7 @@ timeframe which the system operates on.</p>
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2015-08-25-data-replay/data-replay/';
         var disqus_title = 'Data - Replay';
-        var disqus_url = 'http://www.backtrader.com/posts/2015-08-25-data-replay/data-replay';
+        var disqus_url = 'http://blog.backtrader.com/posts/2015-08-25-data-replay/data-replay';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -494,15 +494,15 @@ timeframe which the system operates on.</p>
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -510,7 +510,7 @@ timeframe which the system operates on.</p>
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

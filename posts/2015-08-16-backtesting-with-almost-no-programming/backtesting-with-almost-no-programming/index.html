@@ -103,7 +103,7 @@ data</li>
 <li>Is in a fily with the name mymod.py</li>
 </ul>
 </div></blockquote>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 
@@ -136,14 +136,14 @@ data</li>
 </div>
 <p>Executing the strategy with the usual testing sample is easy:
 easy:</p>
-<div class="highlight-python"><div class="highlight"><pre>./bt-run.py --csvformat btcsv \
+<div class="highlight-python"><div class="highlight"><pre><span></span>./bt-run.py --csvformat btcsv \
             --data ../samples/data/sample/2006-day-001.txt \
             --strategy ./mymod.py
 </pre></div>
 </div>
 <p>The chart output</p>
 <a class=""
-               data-lightbox="group-bfe8bc48-5c6b-489f-9deb-1cbebca7d7ea"
+               data-lightbox="group-17243122-4553-4baf-927e-83b40269eab8"
                href="../../../_images/bt-run-mymod-no-params1.png"
                title=""
                data-title=""
@@ -153,7 +153,7 @@ easy:</p>
                      height="auto"
                      alt=""/>
                 </a><p>The console output:</p>
-<div class="highlight-python"><div class="highlight"><pre>2006-01-20T23:59:59+00:00, 15, 3593.16, 3612.37, 3550.80, 3550.80, 0.00, 0.00
+<div class="highlight-python"><div class="highlight"><pre><span></span>2006-01-20T23:59:59+00:00, 15, 3593.16, 3612.37, 3550.80, 3550.80, 0.00, 0.00
 2006-01-23T23:59:59+00:00, 16, 3550.24, 3550.24, 3515.07, 3544.31, 0.00, 0.00
 2006-01-24T23:59:59+00:00, 17, 3544.78, 3553.16, 3526.37, 3532.68, 0.00, 0.00
 2006-01-25T23:59:59+00:00, 18, 3532.72, 3578.00, 3532.72, 3578.00, 0.00, 0.00
@@ -172,7 +172,7 @@ easy:</p>
 </ul>
 </div></blockquote>
 <p>The command line:</p>
-<div class="highlight-python"><div class="highlight"><pre>./bt-run.py --csvformat btcsv \
+<div class="highlight-python"><div class="highlight"><pre><span></span>./bt-run.py --csvformat btcsv \
             --data ../samples/data/sample/2006-day-001.txt \
             --strategy ./mymod.py \
             period 50
@@ -180,7 +180,7 @@ easy:</p>
 </div>
 <p>The chart output.</p>
 <a class=""
-               data-lightbox="group-da35db0f-7c7e-482b-b9f1-3da0ba608aac"
+               data-lightbox="group-3e66a060-1e6a-4a8f-bfe1-891df225ec6b"
                href="../../../_images/bt-run-mymod-period-501.png"
                title=""
                data-title=""
@@ -209,7 +209,7 @@ is included. The name:</p>
 if it has bought before) upon the fast moving average crossing down the slow
 moving average.</p>
 <p>The code</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 
@@ -238,7 +238,7 @@ moving average.</p>
 </pre></div>
 </div>
 <p>Standard execution:</p>
-<div class="highlight-python"><div class="highlight"><pre>./bt-run.py --csvformat btcsv \
+<div class="highlight-python"><div class="highlight"><pre><span></span>./bt-run.py --csvformat btcsv \
             --data ../samples/data/sample/2006-day-001.txt \
             --strategy :SMA_CrossOver
 </pre></div>
@@ -263,7 +263,7 @@ the <code class="docutils literal"><span class="pre">backtrader</span></code> pa
 <p>The latter being our case.</p>
 <p>The output.</p>
 <a class=""
-               data-lightbox="group-b638fc40-dbd3-45b9-bb71-fb7386ca357d"
+               data-lightbox="group-9dcdff00-2570-4f9c-b32f-b9aac953369e"
                href="../../../_images/bt-run-sma-crossover1.png"
                title=""
                data-title=""
@@ -273,7 +273,7 @@ the <code class="docutils literal"><span class="pre">backtrader</span></code> pa
                      height="auto"
                      alt=""/>
                 </a><p>One last example adding commission schemes, cash and changing the parameters:</p>
-<div class="highlight-python"><div class="highlight"><pre>./bt-run.py --csvformat btcsv \
+<div class="highlight-python"><div class="highlight"><pre><span></span>./bt-run.py --csvformat btcsv \
             --data ../samples/data/sample/2006-day-001.txt \
             --cash 20000 \
             --commission 2.0 \
@@ -285,7 +285,7 @@ the <code class="docutils literal"><span class="pre">backtrader</span></code> pa
 </div>
 <p>The output.</p>
 <a class=""
-               data-lightbox="group-1635159a-cb57-42b3-b69d-6923a67062f6"
+               data-lightbox="group-40fcefa0-8bf9-4a72-a9d7-6461307864c6"
                href="../../../_images/bt-run-sma-crossover-params-commission1.png"
                title=""
                data-title=""
@@ -317,14 +317,14 @@ the futures-like instrument daily changes</p>
 <p><code class="docutils literal"><span class="pre">bt-run.py</span></code> also supports adding <code class="docutils literal"><span class="pre">Analyzers</span></code> with the same syntax used for
 the strategies to choose between internal/external analyzers.</p>
 <p>Example with a <code class="docutils literal"><span class="pre">SharpeRatio</span></code> analysis for the years 2005-2006:</p>
-<div class="highlight-python"><div class="highlight"><pre>./bt-run.py --csvformat btcsv \
+<div class="highlight-python"><div class="highlight"><pre><span></span>./bt-run.py --csvformat btcsv \
             --data ../samples/data/sample/2005-2006-day-001.txt \
             --strategy :SMA_CrossOver \
             --analyzer :SharpeRatio
 </pre></div>
 </div>
 <p>The output:</p>
-<div class="highlight-python"><div class="highlight"><pre>====================
+<div class="highlight-python"><div class="highlight"><pre><span></span>====================
 == Analyzers
 ====================
 ##  sharperatio
@@ -336,7 +336,7 @@ commissions)</p>
 <p>The chart (which simply shows the Analyzer is not in the plot, because Analyzers
 cannot be plotted, they aren&#8217;t lines objects)</p>
 <a class=""
-               data-lightbox="group-70c443b8-00d1-445b-8232-be3f10c437b9"
+               data-lightbox="group-d5bea8f7-db1e-424d-9b81-469294a68c64"
                href="../../../_images/bt-run-sma-crossover-sharpe1.png"
                title=""
                data-title=""
@@ -349,7 +349,7 @@ cannot be plotted, they aren&#8217;t lines objects)</p>
 <div class="section" id="usage-of-the-script">
 <h2>Usage of the script<a class="headerlink" href="#usage-of-the-script" title="Permalink to this headline">¶</a></h2>
 <p>Directly from the script:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./bt-run.py --help
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./bt-run.py --help
 usage: bt-run.py [-h] --data DATA
                  [--csvformat {yahoocsv_unreversed,vchart,sierracsv,yahoocsv,vchartcsv,btcsv}]
                  [--fromdate FROMDATE] [--todate TODATE] --strategy STRATEGY
@@ -428,7 +428,7 @@ Plotting options:
 </pre></div>
 </div>
 <p>And the code:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span>
@@ -863,7 +863,7 @@ Plotting options:
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2015-08-16-backtesting-with-almost-no-programming/backtesting-with-almost-no-programming/';
         var disqus_title = 'Automating &lt;code class=&#34;docutils literal&#34;&gt;&lt;span class=&#34;pre&#34;&gt;backtrader&lt;/span&gt;&lt;/code&gt; BackTesting';
-        var disqus_url = 'http://www.backtrader.com/posts/2015-08-16-backtesting-with-almost-no-programming/backtesting-with-almost-no-programming';
+        var disqus_url = 'http://blog.backtrader.com/posts/2015-08-16-backtesting-with-almost-no-programming/backtesting-with-almost-no-programming';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -972,15 +972,15 @@ Plotting options:
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -988,7 +988,7 @@ Plotting options:
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

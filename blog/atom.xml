@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">backtrader Blog</title>
-  <id>http://www.backtrader.com/blog/atom.xml</id>
+  <id>http://blog.backtrader.com/blog/atom.xml</id>
   <updated>2016-09-17T00:00:00Z</updated>
-  <link href="http://www.backtrader.com" />
-  <link href="http://www.backtrader.com/blog/atom.xml" rel="self" />
+  <link href="http://blog.backtrader.com" />
+  <link href="http://blog.backtrader.com/blog/atom.xml" rel="self" />
   <generator uri="http://ablog.readthedocs.org" version="0.8.2">ABlog</generator>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Notebook - Automatic Inline Plotting</title>
-    <id>http://www.backtrader.com/posts/2016-09-17-notebook-inline/notebook-inline/</id>
+    <id>http://blog.backtrader.com/posts/2016-09-17-notebook-inline/notebook-inline/</id>
     <updated>2016-09-17T00:00:00Z</updated>
     <published>2016-09-17T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2016-09-17-notebook-inline/notebook-inline/" />
+    <link href="http://blog.backtrader.com/posts/2016-09-17-notebook-inline/notebook-inline/" />
     <author>
       <name>mementum</name>
     </author>
@@ -19,12 +19,12 @@
 &lt;em&gt;Jupyter Notebook&lt;/em&gt;.&lt;/p&gt;
 </content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Data Synchronization Rework</title>
-    <id>http://www.backtrader.com/posts/2016-09-17-data-synchronization/data-synchronization/</id>
+    <id>http://blog.backtrader.com/posts/2016-09-17-data-synchronization/data-synchronization/</id>
     <updated>2016-09-17T00:00:00Z</updated>
     <published>2016-09-17T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2016-09-17-data-synchronization/data-synchronization/" />
+    <link href="http://blog.backtrader.com/posts/2016-09-17-data-synchronization/data-synchronization/" />
     <author>
       <name>mementum</name>
     </author>
@@ -32,7 +32,7 @@
 indicate a change which may have some behavioral impact, regardless, even if
 compatibility has been taken into account.&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-22b13e64-9a82-4338-9fbb-79505c43e998&quot;
+               data-lightbox=&quot;group-53505416-cae5-4895-ad54-f42c41037791&quot;
                href=&quot;../_images/multidata-oldsync1.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -43,12 +43,12 @@ compatibility has been taken into account.&lt;/p&gt;
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Variability Weighted Return (or VWR)</title>
-    <id>http://www.backtrader.com/posts/2016-09-06-vwr/vwr/</id>
+    <id>http://blog.backtrader.com/posts/2016-09-06-vwr/vwr/</id>
     <updated>2016-09-06T00:00:00Z</updated>
     <published>2016-09-06T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2016-09-06-vwr/vwr/" />
+    <link href="http://blog.backtrader.com/posts/2016-09-06-vwr/vwr/" />
     <author>
       <name>mementum</name>
     </author>
@@ -56,12 +56,12 @@ compatibility has been taken into account.&lt;/p&gt;
 added this &lt;em&gt;analyzer&lt;/em&gt; to its arsenal.&lt;/p&gt;
 </content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Optimization improvements</title>
-    <id>http://www.backtrader.com/posts/2016-09-05-optimization-improvements/optimization-improvements/</id>
+    <id>http://blog.backtrader.com/posts/2016-09-05-optimization-improvements/optimization-improvements/</id>
     <updated>2016-09-05T00:00:00Z</updated>
     <published>2016-09-05T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2016-09-05-optimization-improvements/optimization-improvements/" />
+    <link href="http://blog.backtrader.com/posts/2016-09-05-optimization-improvements/optimization-improvements/" />
     <author>
       <name>mementum</name>
     </author>
@@ -69,12 +69,12 @@ added this &lt;em&gt;analyzer&lt;/em&gt; to its arsenal.&lt;/p&gt;
 &lt;em&gt;data feeds&lt;/em&gt; and &lt;em&gt;results&lt;/em&gt; are managed during multiprocessing.&lt;/p&gt;
 </content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Target Orders</title>
-    <id>http://www.backtrader.com/posts/2016-09-02-target-orders/target-orders/</id>
+    <id>http://blog.backtrader.com/posts/2016-09-02-target-orders/target-orders/</id>
     <updated>2016-09-02T00:00:00Z</updated>
     <published>2016-09-02T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2016-09-02-target-orders/target-orders/" />
+    <link href="http://blog.backtrader.com/posts/2016-09-02-target-orders/target-orders/" />
     <author>
       <name>mementum</name>
     </author>
@@ -82,7 +82,7 @@ added this &lt;em&gt;analyzer&lt;/em&gt; to its arsenal.&lt;/p&gt;
 the &lt;em&gt;Strategy&lt;/em&gt; methods: &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;buy&lt;/span&gt;&lt;/code&gt; and &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;sell&lt;/span&gt;&lt;/code&gt;. It was all about adding a
 &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;Sizer&lt;/span&gt;&lt;/code&gt; to the equation which is responsible for the size of the stake.&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-b8513200-e026-4d51-bfab-affa31c65c32&quot;
+               data-lightbox=&quot;group-ba9530f3-c314-402d-acbc-f8661437ba41&quot;
                href=&quot;../_images/order_target_size1.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -93,12 +93,12 @@ the &lt;em&gt;Strategy&lt;/em&gt; methods: &lt;code class=&quot;docutils literal
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Rolling over Futures</title>
-    <id>http://www.backtrader.com/posts/2016-08-31-rolling-over-futures/rolling-futures-over/</id>
+    <id>http://blog.backtrader.com/posts/2016-08-31-rolling-over-futures/rolling-futures-over/</id>
     <updated>2016-08-31T00:00:00Z</updated>
     <published>2016-08-31T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2016-08-31-rolling-over-futures/rolling-futures-over/" />
+    <link href="http://blog.backtrader.com/posts/2016-08-31-rolling-over-futures/rolling-futures-over/" />
     <author>
       <name>mementum</name>
     </author>
@@ -106,7 +106,7 @@ the &lt;em&gt;Strategy&lt;/em&gt; methods: &lt;code class=&quot;docutils literal
 one can trade. Sometimes the data offered is that of the still valid expiration
 dates, i.e.: those still being traded&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-fe33f47d-de17-455f-9f30-98996c088ecb&quot;
+               data-lightbox=&quot;group-f078abce-a179-40a4-aaa9-c979f50b788a&quot;
                href=&quot;posts\2016-08-31-rolling-over-futures\rollover.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -117,19 +117,19 @@ dates, i.e.: those still being traded&lt;/p&gt;
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Credit Interest</title>
-    <id>http://www.backtrader.com/posts/2016-08-22-credit-interest/credit-interest/</id>
+    <id>http://blog.backtrader.com/posts/2016-08-22-credit-interest/credit-interest/</id>
     <updated>2016-08-22T00:00:00Z</updated>
     <published>2016-08-22T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2016-08-22-credit-interest/credit-interest/" />
+    <link href="http://blog.backtrader.com/posts/2016-08-22-credit-interest/credit-interest/" />
     <author>
       <name>mementum</name>
     </author>
     <content type="html">&lt;p&gt;In some situations, the cash amount in real brokers may be decreased because
 the operation on assets includes an interest rate. Examples:&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-cc9d2279-06cc-4a78-88b9-45aae6fe0467&quot;
+               data-lightbox=&quot;group-8c173727-fdae-47f7-bfff-404aa594a2c6&quot;
                href=&quot;posts\2016-08-22-credit-interest\long-no-exit-no-interest.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -140,12 +140,12 @@ the operation on assets includes an interest rate. Examples:&lt;/p&gt;
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Dickson Moving Average</title>
-    <id>http://www.backtrader.com/posts/2016-08-18-dickson-moving-average/dickson-moving-average/</id>
+    <id>http://blog.backtrader.com/posts/2016-08-18-dickson-moving-average/dickson-moving-average/</id>
     <updated>2016-08-17T00:00:00Z</updated>
     <published>2016-08-17T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2016-08-18-dickson-moving-average/dickson-moving-average/" />
+    <link href="http://blog.backtrader.com/posts/2016-08-18-dickson-moving-average/dickson-moving-average/" />
     <author>
       <name>mementum</name>
     </author>
@@ -153,7 +153,7 @@ the operation on assets includes an interest rate. Examples:&lt;/p&gt;
 I found a post about a moving average which tries to mimic the Jurik Moving
 Average (aka &lt;em&gt;JMA&lt;/em&gt;)&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-502393fa-aeca-44db-965f-eebc83acc28f&quot;
+               data-lightbox=&quot;group-314e32dd-4d92-4761-986f-a39c7726b32b&quot;
                href=&quot;posts\2016-08-18-dickson-moving-average\dma-comparison.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -164,12 +164,12 @@ Average (aka &lt;em&gt;JMA&lt;/em&gt;)&lt;/p&gt;
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Stock Screening</title>
-    <id>http://www.backtrader.com/posts/2016-08-15-stock-screening/stock-screening/</id>
+    <id>http://blog.backtrader.com/posts/2016-08-15-stock-screening/stock-screening/</id>
     <updated>2016-08-15T00:00:00Z</updated>
     <published>2016-08-15T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2016-08-15-stock-screening/stock-screening/" />
+    <link href="http://blog.backtrader.com/posts/2016-08-15-stock-screening/stock-screening/" />
     <author>
       <name>mementum</name>
     </author>
@@ -178,12 +178,12 @@ Average (aka &lt;em&gt;JMA&lt;/em&gt;)&lt;/p&gt;
 StackExchange&lt;/em&gt;. The question:&lt;/p&gt;
 </content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Strategy with Signals</title>
-    <id>http://www.backtrader.com/posts/2016-08-01-signal-strategy/signal-strategy/</id>
+    <id>http://blog.backtrader.com/posts/2016-08-01-signal-strategy/signal-strategy/</id>
     <updated>2016-08-01T00:00:00Z</updated>
     <published>2016-08-01T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2016-08-01-signal-strategy/signal-strategy/" />
+    <link href="http://blog.backtrader.com/posts/2016-08-01-signal-strategy/signal-strategy/" />
     <author>
       <name>mementum</name>
     </author>
@@ -191,7 +191,7 @@ StackExchange&lt;/em&gt;. The question:&lt;/p&gt;
 &lt;em&gt;Strategy&lt;/em&gt;. Although this is the preferred way, due to the object hierarchy
 which makes up the machinery, using &lt;em&gt;Signals&lt;/em&gt; is also possible.&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-5b6733ae-f3f6-46c4-840c-f8f69c9a1019&quot;
+               data-lightbox=&quot;group-36b1e1c3-10e7-4971-99bd-8ff066e1b4ff&quot;
                href=&quot;posts\2016-08-01-signal-strategy\signal-longshort.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -202,18 +202,18 @@ which makes up the machinery, using &lt;em&gt;Signals&lt;/em&gt; is also possibl
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">MACD Settings</title>
-    <id>http://www.backtrader.com/posts/2016-07-30-macd-settings/macd-settings/</id>
+    <id>http://blog.backtrader.com/posts/2016-07-30-macd-settings/macd-settings/</id>
     <updated>2016-07-30T00:00:00Z</updated>
     <published>2016-07-30T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2016-07-30-macd-settings/macd-settings/" />
+    <link href="http://blog.backtrader.com/posts/2016-07-30-macd-settings/macd-settings/" />
     <author>
       <name>mementum</name>
     </author>
     <content type="html">&lt;p&gt;In the &lt;em&gt;Algotrading&lt;/em&gt; site of &lt;em&gt;Reddit&lt;/em&gt; I found the following thread:&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-c8db3c24-6f8e-49a5-abe2-97439b0e3875&quot;
+               data-lightbox=&quot;group-67e4ed85-6d5a-4f5a-b55a-e5ad2014d9f5&quot;
                href=&quot;posts\2016-07-30-macd-settings\yhoo-run01.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -224,18 +224,18 @@ which makes up the machinery, using &lt;em&gt;Signals&lt;/em&gt; is also possibl
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Pinkfish Challenge</title>
-    <id>http://www.backtrader.com/posts/2016-07-29-pinkfish-challenge/pinkfish-challenge/</id>
+    <id>http://blog.backtrader.com/posts/2016-07-29-pinkfish-challenge/pinkfish-challenge/</id>
     <updated>2016-07-29T00:00:00Z</updated>
     <published>2016-07-29T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2016-07-29-pinkfish-challenge/pinkfish-challenge/" />
+    <link href="http://blog.backtrader.com/posts/2016-07-29-pinkfish-challenge/pinkfish-challenge/" />
     <author>
       <name>mementum</name>
     </author>
     <content type="html">&lt;p&gt;(Sample and changes added to release &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;1.7.1.93&lt;/span&gt;&lt;/code&gt;)&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-4562b943-3813-4e0b-a4c6-c72e1c306c96&quot;
+               data-lightbox=&quot;group-1e32e427-083c-4854-a489-d93e20fa397d&quot;
                href=&quot;posts\2016-07-29-pinkfish-challenge\pinkfish-challenge.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -246,12 +246,12 @@ which makes up the machinery, using &lt;em&gt;Signals&lt;/em&gt; is also possibl
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">TA-Lib</title>
-    <id>http://www.backtrader.com/posts/2016-07-26-talib-integration/talib-integration/</id>
+    <id>http://blog.backtrader.com/posts/2016-07-26-talib-integration/talib-integration/</id>
     <updated>2016-07-26T00:00:00Z</updated>
     <published>2016-07-26T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2016-07-26-talib-integration/talib-integration/" />
+    <link href="http://blog.backtrader.com/posts/2016-07-26-talib-integration/talib-integration/" />
     <author>
       <name>mementum</name>
     </author>
@@ -260,7 +260,7 @@ developing an indicator is mostly a matter of defining the inputs, outputs and
 writing the formula in a natural manner, some people want to use &lt;em&gt;TA-LIB&lt;/em&gt;. Some
 of the reasons:&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-25968465-fa2c-4ee6-aa2e-11a36b1dade9&quot;
+               data-lightbox=&quot;group-22bad868-d0e6-4637-8ea9-738b7bb8a9d3&quot;
                href=&quot;posts\2016-07-26-talib-integration\ta-lib-macd.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -271,19 +271,19 @@ of the reasons:&lt;/p&gt;
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Sizers Smart Staking</title>
-    <id>http://www.backtrader.com/posts/2016-07-23-sizers-smart-staking/sizers-smart-staking/</id>
+    <id>http://blog.backtrader.com/posts/2016-07-23-sizers-smart-staking/sizers-smart-staking/</id>
     <updated>2016-07-23T00:00:00Z</updated>
     <published>2016-07-23T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2016-07-23-sizers-smart-staking/sizers-smart-staking/" />
+    <link href="http://blog.backtrader.com/posts/2016-07-23-sizers-smart-staking/sizers-smart-staking/" />
     <author>
       <name>mementum</name>
     </author>
     <content type="html">&lt;p&gt;Release &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;1.6.4.93&lt;/span&gt;&lt;/code&gt; marks a major milestone in &lt;em&gt;backtrader&lt;/em&gt; even if the change
 in version numbering is a minor one.&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-6f809ef8-3d1d-4216-914a-abb2554f9f82&quot;
+               data-lightbox=&quot;group-06f2964f-a6c4-436d-98c2-df7b4a6fa6bf&quot;
                href=&quot;posts\2016-07-23-sizers-smart-staking\sizer-long-only.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -294,12 +294,12 @@ in version numbering is a minor one.&lt;/p&gt;
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Benchmarking</title>
-    <id>http://www.backtrader.com/posts/2016-07-22-benchmarking/benchmarking/</id>
+    <id>http://blog.backtrader.com/posts/2016-07-22-benchmarking/benchmarking/</id>
     <updated>2016-07-22T00:00:00Z</updated>
     <published>2016-07-22T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2016-07-22-benchmarking/benchmarking/" />
+    <link href="http://blog.backtrader.com/posts/2016-07-22-benchmarking/benchmarking/" />
     <author>
       <name>mementum</name>
     </author>
@@ -308,7 +308,7 @@ adding benchmarking aginst an asset. Sensible as one may actually have a
 strategy that even if positive is below what simply tracking the asset would
 have delivered.&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-35382611-2ddb-41fb-86f7-773350a882ed&quot;
+               data-lightbox=&quot;group-6c36fba9-aabd-451f-9513-500b26c9a470&quot;
                href=&quot;posts\2016-07-22-benchmarking\01-benchmarking-timereturn-no-timeframe.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -319,19 +319,19 @@ have delivered.&lt;/p&gt;
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Pyfolio Integration</title>
-    <id>http://www.backtrader.com/posts/2016-07-17-pyfolio-integration/pyfolio-integration/</id>
+    <id>http://blog.backtrader.com/posts/2016-07-17-pyfolio-integration/pyfolio-integration/</id>
     <updated>2016-07-17T00:00:00Z</updated>
     <published>2016-07-17T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2016-07-17-pyfolio-integration/pyfolio-integration/" />
+    <link href="http://blog.backtrader.com/posts/2016-07-17-pyfolio-integration/pyfolio-integration/" />
     <author>
       <name>mementum</name>
     </author>
     <content type="html">&lt;p&gt;The integration of a &lt;em&gt;portfolio&lt;/em&gt; tool, namely &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;pyfolio&lt;/span&gt;&lt;/code&gt;, came up with in
 &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/mementum/backtrader/issues/108&quot;&gt;Ticket #108&lt;/a&gt;.&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-0f7b018a-ae37-4265-8d82-5c54a7feaef6&quot;
+               data-lightbox=&quot;group-d43ed0cc-c495-4c81-8340-c58b2f102813&quot;
                href=&quot;posts\2016-07-17-pyfolio-integration\output_2_4.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -342,19 +342,19 @@ have delivered.&lt;/p&gt;
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Volume Filling</title>
-    <id>http://www.backtrader.com/posts/2016-07-14-volume-filling/volume-filling/</id>
+    <id>http://blog.backtrader.com/posts/2016-07-14-volume-filling/volume-filling/</id>
     <updated>2016-07-15T00:00:00Z</updated>
     <published>2016-07-14T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2016-07-14-volume-filling/volume-filling/" />
+    <link href="http://blog.backtrader.com/posts/2016-07-14-volume-filling/volume-filling/" />
     <author>
       <name>mementum</name>
     </author>
     <content type="html">&lt;p&gt;Corrected a bug in the implementation and updated the sample to
 &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;close&lt;/span&gt;&lt;/code&gt; the position and repeat after a break.&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-e98f1a3f-8d36-4c69-ab37-81b52bf835a7&quot;
+               data-lightbox=&quot;group-cec097ef-5ab3-49c6-8b70-6ae429190bbc&quot;
                href=&quot;posts\2016-07-14-volume-filling\volumefilling.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -365,12 +365,12 @@ have delivered.&lt;/p&gt;
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Trading a Day in Steps</title>
-    <id>http://www.backtrader.com/posts/2016-07-13-day-in-steps/day-in-steps/</id>
+    <id>http://blog.backtrader.com/posts/2016-07-13-day-in-steps/day-in-steps/</id>
     <updated>2016-07-13T00:00:00Z</updated>
     <published>2016-07-13T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2016-07-13-day-in-steps/day-in-steps/" />
+    <link href="http://blog.backtrader.com/posts/2016-07-13-day-in-steps/day-in-steps/" />
     <author>
       <name>mementum</name>
     </author>
@@ -378,19 +378,19 @@ have delivered.&lt;/p&gt;
 summarized as follows:&lt;/p&gt;
 </content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Visual Chart Live Data/Trading</title>
-    <id>http://www.backtrader.com/posts/2016-07-12-visualchart-feed/visualchart-feed/</id>
+    <id>http://blog.backtrader.com/posts/2016-07-12-visualchart-feed/visualchart-feed/</id>
     <updated>2016-07-12T00:00:00Z</updated>
     <published>2016-07-12T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2016-07-12-visualchart-feed/visualchart-feed/" />
+    <link href="http://blog.backtrader.com/posts/2016-07-12-visualchart-feed/visualchart-feed/" />
     <author>
       <name>mementum</name>
     </author>
     <content type="html">&lt;p&gt;Starting with release &lt;em&gt;1.5.1.93&lt;/em&gt;, &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt; supports Visual Chart Live
 Feeds and Live Trading.&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-a46cea52-6336-4498-8f67-f19b7d252070&quot;
+               data-lightbox=&quot;group-cc5fef96-43e5-4295-bf55-681526b7b429&quot;
                href=&quot;posts\2016-07-12-visualchart-feed\visualchart-filled-orders.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -401,19 +401,19 @@ Feeds and Live Trading.&lt;/p&gt;
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Ultimate Oscillator</title>
-    <id>http://www.backtrader.com/posts/2016-06-22-ultimate-oscillator/ultimate-oscillator/</id>
+    <id>http://blog.backtrader.com/posts/2016-06-22-ultimate-oscillator/ultimate-oscillator/</id>
     <updated>2016-06-22T00:00:00Z</updated>
     <published>2016-06-22T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2016-06-22-ultimate-oscillator/ultimate-oscillator/" />
+    <link href="http://blog.backtrader.com/posts/2016-06-22-ultimate-oscillator/ultimate-oscillator/" />
     <author>
       <name>mementum</name>
     </author>
     <content type="html">&lt;p&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/mementum/backtrader/issues/102&quot;&gt;Ticket #102&lt;/a&gt; is about
 adding the &lt;strong&gt;UltimateOscillator&lt;/strong&gt; to the arsenal of &lt;em&gt;backtrader&lt;/em&gt;&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-e793aaf1-2aed-445b-8cd4-0cf95704afd7&quot;
+               data-lightbox=&quot;group-dfa9f96c-dd7c-4bac-add5-20f6dc423dbf&quot;
                href=&quot;posts\2016-06-22-ultimate-oscillator\ultimate-oscillator.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -424,19 +424,19 @@ adding the &lt;strong&gt;UltimateOscillator&lt;/strong&gt; to the arsenal of &lt
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Live Data/Live Trading</title>
-    <id>http://www.backtrader.com/posts/2016-06-21-livedata-feed/live-data-feed/</id>
+    <id>http://blog.backtrader.com/posts/2016-06-21-livedata-feed/live-data-feed/</id>
     <updated>2016-06-21T00:00:00Z</updated>
     <published>2016-06-21T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2016-06-21-livedata-feed/live-data-feed/" />
+    <link href="http://blog.backtrader.com/posts/2016-06-21-livedata-feed/live-data-feed/" />
     <author>
       <name>mementum</name>
     </author>
     <content type="html">&lt;p&gt;Starting with release &lt;em&gt;1.5.0&lt;/em&gt;, &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt; supports Live Data Feeds and Live
 Trading. The first integrated entity is:&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-dab91140-acce-4d77-a048-eca8a61797f8&quot;
+               data-lightbox=&quot;group-3306cc80-9cda-4043-a504-866d4e983f9a&quot;
                href=&quot;posts\2016-06-21-livedata-feed\ibtest-twtr-execution.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -447,12 +447,12 @@ Trading. The first integrated entity is:&lt;/p&gt;
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Saving Memory</title>
-    <id>http://www.backtrader.com/posts/2016-05-09-memory-savings/memory-savings/</id>
+    <id>http://blog.backtrader.com/posts/2016-05-09-memory-savings/memory-savings/</id>
     <updated>2016-05-09T00:00:00Z</updated>
     <published>2016-05-09T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2016-05-09-memory-savings/memory-savings/" />
+    <link href="http://blog.backtrader.com/posts/2016-05-09-memory-savings/memory-savings/" />
     <author>
       <name>mementum</name>
     </author>
@@ -460,7 +460,7 @@ Trading. The first integrated entity is:&lt;/p&gt;
 and fully implemented the memory saving schemes that were previously in place,
 although not much touted and less used.&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-cccde9c1-e743-47be-b016-cdf79a74b8a9&quot;
+               data-lightbox=&quot;group-dc72e1ec-1050-4f0b-9ffd-c24e33b01c75&quot;
                href=&quot;posts\2016-05-09-memory-savings\memory-savings.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -471,12 +471,12 @@ although not much touted and less used.&lt;/p&gt;
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Mixing Timeframes in Indicators</title>
-    <id>http://www.backtrader.com/posts/2016-05-05-indicators-mixing-timeframes/indicators-mixing-timeframes/</id>
+    <id>http://blog.backtrader.com/posts/2016-05-05-indicators-mixing-timeframes/indicators-mixing-timeframes/</id>
     <updated>2016-05-05T00:00:00Z</updated>
     <published>2016-05-05T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2016-05-05-indicators-mixing-timeframes/indicators-mixing-timeframes/" />
+    <link href="http://blog.backtrader.com/posts/2016-05-05-indicators-mixing-timeframes/indicators-mixing-timeframes/" />
     <author>
       <name>mementum</name>
     </author>
@@ -484,7 +484,7 @@ although not much touted and less used.&lt;/p&gt;
 possibility to have data (from either data feeds and/or indicators) from
 different timeframes mixed.&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-94ff86b1-0d09-4ab2-a40f-6a40cfaf9c30&quot;
+               data-lightbox=&quot;group-2617d500-c2da-4073-a04e-ec57bd491063&quot;
                href=&quot;posts\2016-05-05-indicators-mixing-timeframes\indicators-mixing-timeframes.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -495,18 +495,18 @@ different timeframes mixed.&lt;/p&gt;
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Pivot Point and Cross Plotting</title>
-    <id>http://www.backtrader.com/posts/2016-04-28-pivot-point-cross-plotting/pivotpoint-crossplotting/</id>
+    <id>http://blog.backtrader.com/posts/2016-04-28-pivot-point-cross-plotting/pivotpoint-crossplotting/</id>
     <updated>2016-04-28T00:00:00Z</updated>
     <published>2016-04-28T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2016-04-28-pivot-point-cross-plotting/pivotpoint-crossplotting/" />
+    <link href="http://blog.backtrader.com/posts/2016-04-28-pivot-point-cross-plotting/pivotpoint-crossplotting/" />
     <author>
       <name>mementum</name>
     </author>
     <content type="html">&lt;p&gt;An interesting request came across:&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-824dbfe1-7ae0-4261-8a3a-2e3b87fefbe0&quot;
+               data-lightbox=&quot;group-c40b9320-97af-4775-8cff-32ba1e5d1a2b&quot;
                href=&quot;posts\2016-04-28-pivot-point-cross-plotting\pivotpoint-on-monthly-data.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -517,12 +517,12 @@ different timeframes mixed.&lt;/p&gt;
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Synchronizing different markets</title>
-    <id>http://www.backtrader.com/posts/2016-04-19-sync-different-markets/sync-different-markets/</id>
+    <id>http://blog.backtrader.com/posts/2016-04-19-sync-different-markets/sync-different-markets/</id>
     <updated>2016-04-19T00:00:00Z</updated>
     <published>2016-04-19T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2016-04-19-sync-different-markets/sync-different-markets/" />
+    <link href="http://blog.backtrader.com/posts/2016-04-19-sync-different-markets/sync-different-markets/" />
     <author>
       <name>mementum</name>
     </author>
@@ -532,7 +532,7 @@ platform can live up to the expectations set forth when development started,
 flexibility and ease of use were the targets and &lt;em&gt;Python&lt;/em&gt; was chosen as the
 cornerstone.&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-98b41850-653a-446b-a0dd-7b29e9b2499d&quot;
+               data-lightbox=&quot;group-cd541aca-0762-4394-be4d-713e19758bff&quot;
                href=&quot;posts\2016-04-19-sync-different-markets\gspc-gdaxi-synced.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -543,12 +543,12 @@ cornerstone.&lt;/p&gt;
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Bid-Ask Data to OHLC</title>
-    <id>http://www.backtrader.com/posts/2016-04-14-bidask-data-to-ohlc/bidask-data-to-ohlc/</id>
+    <id>http://blog.backtrader.com/posts/2016-04-14-bidask-data-to-ohlc/bidask-data-to-ohlc/</id>
     <updated>2016-04-16T00:00:00Z</updated>
     <published>2016-04-16T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2016-04-14-bidask-data-to-ohlc/bidask-data-to-ohlc/" />
+    <link href="http://blog.backtrader.com/posts/2016-04-14-bidask-data-to-ohlc/bidask-data-to-ohlc/" />
     <author>
       <name>mementum</name>
     </author>
@@ -556,7 +556,7 @@ cornerstone.&lt;/p&gt;
 line overriding, which allows to redefine the entire hierarchy and for example
 have data feeds which only feature &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;bid&lt;/span&gt;&lt;/code&gt;, &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;ask&lt;/span&gt;&lt;/code&gt; and &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;datetime&lt;/span&gt;&lt;/code&gt; lines.&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-2c55b060-7f62-44e4-8d5c-6e0d3e672b0d&quot;
+               data-lightbox=&quot;group-f6af412d-f808-4ed4-8d12-b79f78010652&quot;
                href=&quot;posts\2016-04-14-bidask-data-to-ohlc\./bidask-data-to-ohlc.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -567,12 +567,12 @@ have data feeds which only feature &lt;code class=&quot;docutils literal&quot;&g
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Escape from OHLC Land</title>
-    <id>http://www.backtrader.com/posts/2016-03-08-escape-from-ohlc-land/escape-from-ohlc-land/</id>
+    <id>http://blog.backtrader.com/posts/2016-03-08-escape-from-ohlc-land/escape-from-ohlc-land/</id>
     <updated>2016-03-08T00:00:00Z</updated>
     <published>2016-03-08T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2016-03-08-escape-from-ohlc-land/escape-from-ohlc-land/" />
+    <link href="http://blog.backtrader.com/posts/2016-03-08-escape-from-ohlc-land/escape-from-ohlc-land/" />
     <author>
       <name>mementum</name>
     </author>
@@ -582,12 +582,12 @@ capabilities of Python were (and still are) the basis to keep many things
 flexible whilst still being able to deliver.&lt;/p&gt;
 </content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Release 1.2.1.88</title>
-    <id>http://www.backtrader.com/posts/2016-03-07-release-1.2.1.88/release-1.2.1.88/</id>
+    <id>http://blog.backtrader.com/posts/2016-03-07-release-1.2.1.88/release-1.2.1.88/</id>
     <updated>2016-03-07T00:00:00Z</updated>
     <published>2016-03-07T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2016-03-07-release-1.2.1.88/release-1.2.1.88/" />
+    <link href="http://blog.backtrader.com/posts/2016-03-07-release-1.2.1.88/release-1.2.1.88/" />
     <author>
       <name>mementum</name>
     </author>
@@ -596,12 +596,12 @@ but the deprecation of the old &lt;code class=&quot;docutils literal&quot;&gt;&l
 to it.&lt;/p&gt;
 </content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Data Filters</title>
-    <id>http://www.backtrader.com/posts/2015-11-21-data-filters/data-filling-filtering/</id>
+    <id>http://blog.backtrader.com/posts/2015-11-21-data-filters/data-filling-filtering/</id>
     <updated>2015-11-21T00:00:00Z</updated>
     <published>2015-11-21T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2015-11-21-data-filters/data-filling-filtering/" />
+    <link href="http://blog.backtrader.com/posts/2015-11-21-data-filters/data-filling-filtering/" />
     <author>
       <name>mementum</name>
     </author>
@@ -610,12 +610,12 @@ got me thinking about a potential improvement for the discussion which was held
 in the context of that ticket.&lt;/p&gt;
 </content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">User Defined Commissions</title>
-    <id>http://www.backtrader.com/posts/2015-11-20-commission-schemes-subclassing/commission-schemes-subclassing/</id>
+    <id>http://blog.backtrader.com/posts/2015-11-20-commission-schemes-subclassing/commission-schemes-subclassing/</id>
     <updated>2015-11-20T00:00:00Z</updated>
     <published>2015-11-20T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2015-11-20-commission-schemes-subclassing/commission-schemes-subclassing/" />
+    <link href="http://blog.backtrader.com/posts/2015-11-20-commission-schemes-subclassing/commission-schemes-subclassing/" />
     <author>
       <name>mementum</name>
     </author>
@@ -624,12 +624,12 @@ basics were outlined in &lt;a class=&quot;reference internal&quot; href=&quot;..
 part of the rework involved:&lt;/p&gt;
 </content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Extending Commissions</title>
-    <id>http://www.backtrader.com/posts/2015-11-05-commission-schemes-extended/commission-schemes-extended/</id>
+    <id>http://blog.backtrader.com/posts/2015-11-05-commission-schemes-extended/commission-schemes-extended/</id>
     <updated>2015-11-05T00:00:00Z</updated>
     <published>2015-11-05T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2015-11-05-commission-schemes-extended/commission-schemes-extended/" />
+    <link href="http://blog.backtrader.com/posts/2015-11-05-commission-schemes-extended/commission-schemes-extended/" />
     <author>
       <name>mementum</name>
     </author>
@@ -637,7 +637,7 @@ part of the rework involved:&lt;/p&gt;
 &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;CommissionInfo&lt;/span&gt;&lt;/code&gt; which was mostly instantiated by calling
 &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;broker.setcommission&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-92bcd249-eda5-4919-bbba-00e7fdb0ff16&quot;
+               data-lightbox=&quot;group-d0133533-7f13-4f11-bdad-a16f75c4aefb&quot;
                href=&quot;posts\2015-11-05-commission-schemes-extended\./commission-futures-extended.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -648,12 +648,12 @@ part of the rework involved:&lt;/p&gt;
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">MultiTrades</title>
-    <id>http://www.backtrader.com/posts/2015-10-05-multitrades/multitrades/</id>
+    <id>http://blog.backtrader.com/posts/2015-10-05-multitrades/multitrades/</id>
     <updated>2015-10-05T00:00:00Z</updated>
     <published>2015-10-05T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2015-10-05-multitrades/multitrades/" />
+    <link href="http://blog.backtrader.com/posts/2015-10-05-multitrades/multitrades/" />
     <author>
       <name>mementum</name>
     </author>
@@ -663,7 +663,7 @@ assign a &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre
 it possible to have different categories of trades and have them simultaneously
 open.&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-d0ca3627-4ae3-4da7-a77b-c8cc8796026c&quot;
+               data-lightbox=&quot;group-47383422-ffbf-4aa4-b02f-7052e5d3eeab&quot;
                href=&quot;posts\2015-10-05-multitrades\./multitrades-disabled.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -674,12 +674,12 @@ open.&lt;/p&gt;
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Bar Synchronization</title>
-    <id>http://www.backtrader.com/posts/2015-10-04-bar-synchronization/bar-synchronization/</id>
+    <id>http://blog.backtrader.com/posts/2015-10-04-bar-synchronization/bar-synchronization/</id>
     <updated>2015-10-04T00:00:00Z</updated>
     <published>2015-10-04T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2015-10-04-bar-synchronization/bar-synchronization/" />
+    <link href="http://blog.backtrader.com/posts/2015-10-04-bar-synchronization/bar-synchronization/" />
     <author>
       <name>mementum</name>
     </author>
@@ -687,7 +687,7 @@ open.&lt;/p&gt;
 questions as to whether &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt; can look into calculating
 a &lt;strong&gt;RelativeVolume&lt;/strong&gt; indicator.&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-62573f9b-3258-49ed-9f27-5a87001f4c7a&quot;
+               data-lightbox=&quot;group-f0dc75de-1e1b-4344-8ca9-da6a9144396f&quot;
                href=&quot;posts\2015-10-04-bar-synchronization\./bar-synchronization.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -698,12 +698,12 @@ a &lt;strong&gt;RelativeVolume&lt;/strong&gt; indicator.&lt;/p&gt;
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Tick Data and Resampling</title>
-    <id>http://www.backtrader.com/posts/2015-09-25-tickdata-resample/resample-tickdata/</id>
+    <id>http://blog.backtrader.com/posts/2015-09-25-tickdata-resample/resample-tickdata/</id>
     <updated>2015-10-06T00:00:00Z</updated>
     <published>2015-09-25T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2015-09-25-tickdata-resample/resample-tickdata/" />
+    <link href="http://blog.backtrader.com/posts/2015-09-25-tickdata-resample/resample-tickdata/" />
     <author>
       <name>mementum</name>
     </author>
@@ -711,7 +711,7 @@ a &lt;strong&gt;RelativeVolume&lt;/strong&gt; indicator.&lt;/p&gt;
 data was not a problem, by simply setting the 4 usual fields (open, high, low,
 close) to the tick value.&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-8b360e0c-4998-4375-be42-e264dc8a7775&quot;
+               data-lightbox=&quot;group-5e3d60a1-2766-4d85-a14c-2cbcf2353234&quot;
                href=&quot;posts\2015-09-25-tickdata-resample\./tickdata-default.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -722,19 +722,19 @@ close) to the tick value.&lt;/p&gt;
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Plotting on the same axis</title>
-    <id>http://www.backtrader.com/posts/2015-09-21-plotting-same-axis/plotting-same-axis/</id>
+    <id>http://blog.backtrader.com/posts/2015-09-21-plotting-same-axis/plotting-same-axis/</id>
     <updated>2015-09-22T00:00:00Z</updated>
     <published>2015-09-21T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2015-09-21-plotting-same-axis/plotting-same-axis/" />
+    <link href="http://blog.backtrader.com/posts/2015-09-21-plotting-same-axis/plotting-same-axis/" />
     <author>
       <name>mementum</name>
     </author>
     <content type="html">&lt;p&gt;Following a comment on the blog a slight addition (luckily just a few lines of
 code) has been made to plotting.&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-d80997a6-4e9b-44b8-b32c-395a89a8dc7e&quot;
+               data-lightbox=&quot;group-3b965c7b-7555-4d0d-aacd-c1f6a64fcdd8&quot;
                href=&quot;posts\2015-09-21-plotting-same-axis\./plotting-same-axis-standard.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -745,18 +745,18 @@ code) has been made to plotting.&lt;/p&gt;
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Writers - Write it down</title>
-    <id>http://www.backtrader.com/posts/2015-09-14-write-it-down/write-it-down/</id>
+    <id>http://blog.backtrader.com/posts/2015-09-14-write-it-down/write-it-down/</id>
     <updated>2015-09-14T00:00:00Z</updated>
     <published>2015-09-14T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2015-09-14-write-it-down/write-it-down/" />
+    <link href="http://blog.backtrader.com/posts/2015-09-14-write-it-down/write-it-down/" />
     <author>
       <name>mementum</name>
     </author>
     <content type="html">&lt;p&gt;With the 1.1.7.88 release &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt; gets a new addition: &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;writers&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-c0561988-2168-4ee6-8018-1a0daa0b3d2f&quot;
+               data-lightbox=&quot;group-a1c1c57e-60e8-41fe-828f-06093838ff53&quot;
                href=&quot;posts\2015-09-14-write-it-down\./writer-test.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -767,19 +767,19 @@ code) has been made to plotting.&lt;/p&gt;
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">MultiData Strategy</title>
-    <id>http://www.backtrader.com/posts/2015-09-03-multidata-strategy/multidata-strategy/</id>
+    <id>http://blog.backtrader.com/posts/2015-09-03-multidata-strategy/multidata-strategy/</id>
     <updated>2015-09-03T00:00:00Z</updated>
     <published>2015-09-03T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2015-09-03-multidata-strategy/multidata-strategy/" />
+    <link href="http://blog.backtrader.com/posts/2015-09-03-multidata-strategy/multidata-strategy/" />
     <author>
       <name>mementum</name>
     </author>
     <content type="html">&lt;p&gt;Because nothing in the world lives in isolation it can well be that the trigger
 to buy an asset is actually another asset.&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-9096457d-22c7-45c2-b142-ffab6ecb5baf&quot;
+               data-lightbox=&quot;group-ba34178d-dcd5-44b3-a2fe-74778dfe02af&quot;
                href=&quot;posts\2015-09-03-multidata-strategy\./multidata-strategy-defaults.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -790,18 +790,18 @@ to buy an asset is actually another asset.&lt;/p&gt;
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Real World Usage</title>
-    <id>http://www.backtrader.com/posts/2015-08-27-real-world-usage/real-world-usage/</id>
+    <id>http://blog.backtrader.com/posts/2015-08-27-real-world-usage/real-world-usage/</id>
     <updated>2015-08-27T00:00:00Z</updated>
     <published>2015-08-27T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2015-08-27-real-world-usage/real-world-usage/" />
+    <link href="http://blog.backtrader.com/posts/2015-08-27-real-world-usage/real-world-usage/" />
     <author>
       <name>mementum</name>
     </author>
     <content type="html">&lt;p&gt;Finally it seems it pays having gotten down to developing &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-20079e07-9e90-48d8-a5fc-bfb706769da4&quot;
+               data-lightbox=&quot;group-3e6ae085-43ef-43cd-9949-12771a3d4f15&quot;
                href=&quot;posts\2015-08-27-real-world-usage\real-wold-legupdown.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -812,19 +812,19 @@ to buy an asset is actually another asset.&lt;/p&gt;
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Data - Replay</title>
-    <id>http://www.backtrader.com/posts/2015-08-25-data-replay/data-replay/</id>
+    <id>http://blog.backtrader.com/posts/2015-08-25-data-replay/data-replay/</id>
     <updated>2015-08-25T00:00:00Z</updated>
     <published>2015-08-25T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2015-08-25-data-replay/data-replay/" />
+    <link href="http://blog.backtrader.com/posts/2015-08-25-data-replay/data-replay/" />
     <author>
       <name>mementum</name>
     </author>
     <content type="html">&lt;p&gt;The time is gone and testing a strategy against a fully formed and closed bar is
 good, but it could be better.&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-86ab9f24-cde8-48ac-919d-b896effd659e&quot;
+               data-lightbox=&quot;group-ccc96de1-3fca-4ba5-9ff3-f6dfb69bf8eb&quot;
                href=&quot;posts\2015-08-25-data-replay\replay-daily-weekly.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -835,18 +835,18 @@ good, but it could be better.&lt;/p&gt;
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Data - Multiple Timeframes</title>
-    <id>http://www.backtrader.com/posts/2015-08-24-data-multitimeframe/data-multitimeframe/</id>
+    <id>http://blog.backtrader.com/posts/2015-08-24-data-multitimeframe/data-multitimeframe/</id>
     <updated>2015-08-24T00:00:00Z</updated>
     <published>2015-08-24T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2015-08-24-data-multitimeframe/data-multitimeframe/" />
+    <link href="http://blog.backtrader.com/posts/2015-08-24-data-multitimeframe/data-multitimeframe/" />
     <author>
       <name>mementum</name>
     </author>
     <content type="html">&lt;p&gt;Sometimes investing decisions are taken using different timeframes:&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-66a4d343-4734-4dff-85e7-d57716cb4e08&quot;
+               data-lightbox=&quot;group-fb89605c-f352-4b11-914d-60ba84d624f5&quot;
                href=&quot;posts\2015-08-24-data-multitimeframe\multitimeframe-daily-weekly.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -857,19 +857,19 @@ good, but it could be better.&lt;/p&gt;
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Data Resampling</title>
-    <id>http://www.backtrader.com/posts/2015-08-23-data-resampling/data-resampling/</id>
+    <id>http://blog.backtrader.com/posts/2015-08-23-data-resampling/data-resampling/</id>
     <updated>2015-08-23T00:00:00Z</updated>
     <published>2015-08-23T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2015-08-23-data-resampling/data-resampling/" />
+    <link href="http://blog.backtrader.com/posts/2015-08-23-data-resampling/data-resampling/" />
     <author>
       <name>mementum</name>
     </author>
     <content type="html">&lt;p&gt;When data is only available in a single timeframe and the analysis has to be
 done for a different timeframe, it&amp;#8217;s time to do some resampling.&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-0f5b518a-2e91-4a2d-8ba1-c7acd28297be&quot;
+               data-lightbox=&quot;group-712fe807-6576-4f5e-afe7-62dca76b70d0&quot;
                href=&quot;posts\2015-08-23-data-resampling\./resample-daily-weekly.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -880,12 +880,12 @@ done for a different timeframe, it&amp;#8217;s time to do some resampling.&lt;/p
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Pandas DataFeed Support</title>
-    <id>http://www.backtrader.com/posts/2015-08-21-pandas-datafeed/pandas-datafeed/</id>
+    <id>http://blog.backtrader.com/posts/2015-08-21-pandas-datafeed/pandas-datafeed/</id>
     <updated>2015-08-21T00:00:00Z</updated>
     <published>2015-08-21T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2015-08-21-pandas-datafeed/pandas-datafeed/" />
+    <link href="http://blog.backtrader.com/posts/2015-08-21-pandas-datafeed/pandas-datafeed/" />
     <author>
       <name>mementum</name>
     </author>
@@ -893,7 +893,7 @@ done for a different timeframe, it&amp;#8217;s time to do some resampling.&lt;/p
 Python 2.6 support, the latest release from &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt; adds support for
 analyzing data from a &lt;a class=&quot;reference external&quot; href=&quot;pandas.pydata.org&quot;&gt;Pandas&lt;/a&gt; Dataframe aka Time Series.&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-b9eb8494-6876-45c5-880b-82fbeb7f823a&quot;
+               data-lightbox=&quot;group-1c54fc87-bde0-41a1-b788-6870b89fd484&quot;
                href=&quot;posts\2015-08-21-pandas-datafeed\./pandas-headers.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -904,18 +904,18 @@ analyzing data from a &lt;a class=&quot;reference external&quot; href=&quot;pand
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Automating backtrader BackTesting</title>
-    <id>http://www.backtrader.com/posts/2015-08-16-backtesting-with-almost-no-programming/backtesting-with-almost-no-programming/</id>
+    <id>http://blog.backtrader.com/posts/2015-08-16-backtesting-with-almost-no-programming/backtesting-with-almost-no-programming/</id>
     <updated>2015-08-22T00:00:00Z</updated>
     <published>2015-08-16T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2015-08-16-backtesting-with-almost-no-programming/backtesting-with-almost-no-programming/" />
+    <link href="http://blog.backtrader.com/posts/2015-08-16-backtesting-with-almost-no-programming/backtesting-with-almost-no-programming/" />
     <author>
       <name>mementum</name>
     </author>
     <content type="html">&lt;p&gt;&lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;Analyzer&lt;/span&gt;&lt;/code&gt; support in &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;bt-run.py&lt;/span&gt;&lt;/code&gt; included&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-bfe8bc48-5c6b-489f-9deb-1cbebca7d7ea&quot;
+               data-lightbox=&quot;group-17243122-4553-4baf-927e-83b40269eab8&quot;
                href=&quot;posts\2015-08-16-backtesting-with-almost-no-programming\./bt-run-mymod-no-params.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -926,19 +926,19 @@ analyzing data from a &lt;a class=&quot;reference external&quot; href=&quot;pand
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Observers and Statistics</title>
-    <id>http://www.backtrader.com/posts/2015-08-12-observers-and-statistics/observers-and-statistics/</id>
+    <id>http://blog.backtrader.com/posts/2015-08-12-observers-and-statistics/observers-and-statistics/</id>
     <updated>2015-08-19T00:00:00Z</updated>
     <published>2015-08-12T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2015-08-12-observers-and-statistics/observers-and-statistics/" />
+    <link href="http://blog.backtrader.com/posts/2015-08-12-observers-and-statistics/observers-and-statistics/" />
     <author>
       <name>mementum</name>
     </author>
     <content type="html">&lt;p&gt;Strateties running inside the &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt; do mostly deal with &lt;strong&gt;datas&lt;/strong&gt; and
 &lt;strong&gt;indicators&lt;/strong&gt;.&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-d0ac661e-c873-4b27-9bdb-fc195cd49497&quot;
+               data-lightbox=&quot;group-1eef3739-5a94-406f-882d-6cc006b51f18&quot;
                href=&quot;posts\2015-08-12-observers-and-statistics\./observers-default.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -949,12 +949,12 @@ analyzing data from a &lt;a class=&quot;reference external&quot; href=&quot;pand
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Datafeed Development</title>
-    <id>http://www.backtrader.com/posts/2015-08-11-datafeed-development/datafeed-development/</id>
+    <id>http://blog.backtrader.com/posts/2015-08-11-datafeed-development/datafeed-development/</id>
     <updated>2015-08-11T00:00:00Z</updated>
     <published>2015-08-11T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2015-08-11-datafeed-development/datafeed-development/" />
+    <link href="http://blog.backtrader.com/posts/2015-08-11-datafeed-development/datafeed-development/" />
     <author>
       <name>mementum</name>
     </author>
@@ -962,7 +962,7 @@ analyzing data from a &lt;a class=&quot;reference external&quot; href=&quot;pand
 feeds. The existing base class &lt;cite&gt;CSVDataBase&lt;/cite&gt; provides the framework taking most
 of the work off the subclasses which in most cases can simply do:&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-26522aaa-6ecb-42a9-bfeb-82fbfc0d0a39&quot;
+               data-lightbox=&quot;group-74a5784c-9ea2-46d4-8b69-42c7f01abdde&quot;
                href=&quot;posts\2015-08-11-datafeed-development\./vchart-goog-2006.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -973,19 +973,19 @@ of the work off the subclasses which in most cases can simply do:&lt;/p&gt;
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Order Management and Execution</title>
-    <id>http://www.backtrader.com/posts/2015-08-08-order-creation-execution/order-creation-execution/</id>
+    <id>http://blog.backtrader.com/posts/2015-08-08-order-creation-execution/order-creation-execution/</id>
     <updated>2015-08-11T00:00:00Z</updated>
     <published>2015-08-08T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2015-08-08-order-creation-execution/order-creation-execution/" />
+    <link href="http://blog.backtrader.com/posts/2015-08-08-order-creation-execution/order-creation-execution/" />
     <author>
       <name>mementum</name>
     </author>
     <content type="html">&lt;p&gt;Backtesting, and hence &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt;, would not be complete if orders could not
 be simulated. To do so, the following is available in the platform.&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-4ec2f49c-4254-4515-b11e-2a7776ccfa15&quot;
+               data-lightbox=&quot;group-71d0cf8f-f5b0-439c-aacb-8b4e1f0107c2&quot;
                href=&quot;posts\2015-08-08-order-creation-execution\./market.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -996,12 +996,12 @@ be simulated. To do so, the following is available in the platform.&lt;/p&gt;
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Extending a data feed</title>
-    <id>http://www.backtrader.com/posts/2015-08-07-extending-a-datafeed/extending-a-datafeed/</id>
+    <id>http://blog.backtrader.com/posts/2015-08-07-extending-a-datafeed/extending-a-datafeed/</id>
     <updated>2015-08-07T00:00:00Z</updated>
     <published>2015-08-07T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2015-08-07-extending-a-datafeed/extending-a-datafeed/" />
+    <link href="http://blog.backtrader.com/posts/2015-08-07-extending-a-datafeed/extending-a-datafeed/" />
     <author>
       <name>mementum</name>
     </author>
@@ -1010,12 +1010,12 @@ helping me to understand if &lt;code class=&quot;docutils literal&quot;&gt;&lt;s
 envisioned from the first moments and the decisions made along the way.&lt;/p&gt;
 </content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">CSV Data Feed Development</title>
-    <id>http://www.backtrader.com/posts/2015-08-06-csv-data-feed-development/csv-data-feed-development/</id>
+    <id>http://blog.backtrader.com/posts/2015-08-06-csv-data-feed-development/csv-data-feed-development/</id>
     <updated>2015-08-06T00:00:00Z</updated>
     <published>2015-08-06T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2015-08-06-csv-data-feed-development/csv-data-feed-development/" />
+    <link href="http://blog.backtrader.com/posts/2015-08-06-csv-data-feed-development/csv-data-feed-development/" />
     <author>
       <name>mementum</name>
     </author>
@@ -1023,12 +1023,12 @@ envisioned from the first moments and the decisions made along the way.&lt;/p&gt
 Feeds. Summarizing:&lt;/p&gt;
 </content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">A rough Zipline comparison</title>
-    <id>http://www.backtrader.com/posts/2015-08-05-a-zipline-rough-comparison/a-zipline-rough-comparison/</id>
+    <id>http://blog.backtrader.com/posts/2015-08-05-a-zipline-rough-comparison/a-zipline-rough-comparison/</id>
     <updated>2015-08-05T00:00:00Z</updated>
     <published>2015-08-05T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2015-08-05-a-zipline-rough-comparison/a-zipline-rough-comparison/" />
+    <link href="http://blog.backtrader.com/posts/2015-08-05-a-zipline-rough-comparison/a-zipline-rough-comparison/" />
     <author>
       <name>mementum</name>
     </author>
@@ -1037,12 +1037,12 @@ GitHub, &lt;a class=&quot;reference external&quot; href=&quot;https://github.com
 the differences with Quantopian&amp;#8217;s &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/quantopian/zipline&quot;&gt;Zipline&lt;/a&gt;.&lt;/p&gt;
 </content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">A Generic CSV Data Feed</title>
-    <id>http://www.backtrader.com/posts/2015-08-04-generic-csv-datafeed/generic-csv-datafeed/</id>
+    <id>http://blog.backtrader.com/posts/2015-08-04-generic-csv-datafeed/generic-csv-datafeed/</id>
     <updated>2015-08-04T00:00:00Z</updated>
     <published>2015-08-04T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2015-08-04-generic-csv-datafeed/generic-csv-datafeed/" />
+    <link href="http://blog.backtrader.com/posts/2015-08-04-generic-csv-datafeed/generic-csv-datafeed/" />
     <author>
       <name>mementum</name>
     </author>
@@ -1050,19 +1050,19 @@ the differences with Quantopian&amp;#8217;s &lt;a class=&quot;reference external
 need to have something that can actually handle any incoming CSV data feed.&lt;/p&gt;
 </content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Improving Commissions: Stocks vs Futures</title>
-    <id>http://www.backtrader.com/posts/2015-07-31-commission-schemes-updated/commission-schemes-updated/</id>
+    <id>http://blog.backtrader.com/posts/2015-07-31-commission-schemes-updated/commission-schemes-updated/</id>
     <updated>2015-07-31T00:00:00Z</updated>
     <published>2015-07-31T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2015-07-31-commission-schemes-updated/commission-schemes-updated/" />
+    <link href="http://blog.backtrader.com/posts/2015-07-31-commission-schemes-updated/commission-schemes-updated/" />
     <author>
       <name>mementum</name>
     </author>
     <content type="html">&lt;p&gt;Posting &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;backtrader&lt;/span&gt;&lt;/code&gt; usage examples has given me an insight into things that
 were missing. For starters:&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-5387324e-75e9-42c7-bc6f-abf1058c4237&quot;
+               data-lightbox=&quot;group-02d34bd5-4f9a-42bd-882d-83739fd9eff4&quot;
                href=&quot;posts\2015-07-31-commission-schemes-updated\./commission-futures-updated.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -1073,12 +1073,12 @@ were missing. For starters:&lt;/p&gt;
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Commissions: Stocks vs Futures</title>
-    <id>http://www.backtrader.com/posts/2015-07-26-commission-schemes/commission-schemes/</id>
+    <id>http://blog.backtrader.com/posts/2015-07-26-commission-schemes/commission-schemes/</id>
     <updated>2015-07-31T00:00:00Z</updated>
     <published>2015-07-26T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2015-07-26-commission-schemes/commission-schemes/" />
+    <link href="http://blog.backtrader.com/posts/2015-07-26-commission-schemes/commission-schemes/" />
     <author>
       <name>mementum</name>
     </author>
@@ -1086,7 +1086,7 @@ were missing. For starters:&lt;/p&gt;
 plotting of trades P&amp;amp;L figures and avoiding manual calculation like in the
 example below&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-6bc9dd39-4e70-4f6d-8329-61144b557af4&quot;
+               data-lightbox=&quot;group-4c557bf9-4f93-4a97-9d08-43a7b6b92ef2&quot;
                href=&quot;posts\2015-07-26-commission-schemes\./commission-futures.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -1097,12 +1097,12 @@ example below&lt;/p&gt;
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Multicore Optimization</title>
-    <id>http://www.backtrader.com/posts/2015-07-23-multicore-optimization/multicore-optimization/</id>
+    <id>http://blog.backtrader.com/posts/2015-07-23-multicore-optimization/multicore-optimization/</id>
     <updated>2015-07-24T00:00:00Z</updated>
     <published>2015-07-23T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2015-07-23-multicore-optimization/multicore-optimization/" />
+    <link href="http://blog.backtrader.com/posts/2015-07-23-multicore-optimization/multicore-optimization/" />
     <author>
       <name>mementum</name>
     </author>
@@ -1111,7 +1111,7 @@ set of test cases. Given the behavior exhibited by &lt;code class=&quot;docutils
 adjustments are expected to ensure all indicators and functions can be passed
 back and forth amongst processes when doing multicore optimization.&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-83e3fc40-1cc7-4de6-8048-e57422b5f353&quot;
+               data-lightbox=&quot;group-22f77f02-9c19-4902-99b4-47e559b58538&quot;
                href=&quot;posts\2015-07-23-multicore-optimization\./eight-cores-in-use.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -1122,19 +1122,19 @@ back and forth amongst processes when doing multicore optimization.&lt;/p&gt;
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Extending an Indicator</title>
-    <id>http://www.backtrader.com/posts/2015-07-20-extending-an-indicator/extending-an-indicator/</id>
+    <id>http://blog.backtrader.com/posts/2015-07-20-extending-an-indicator/extending-an-indicator/</id>
     <updated>2015-07-21T00:00:00Z</updated>
     <published>2015-07-21T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2015-07-20-extending-an-indicator/extending-an-indicator/" />
+    <link href="http://blog.backtrader.com/posts/2015-07-20-extending-an-indicator/extending-an-indicator/" />
     <author>
       <name>mementum</name>
     </author>
     <content type="html">&lt;p&gt;In Object Oriented Programming, and of course in Python itself, extension of an
 existing class can be achieved in two ways.&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-e57371de-57e4-4f2b-94a0-dfdbce24ef31&quot;
+               data-lightbox=&quot;group-c283bb36-210e-4858-91d4-0c0eb0770753&quot;
                href=&quot;posts\2015-07-20-extending-an-indicator\./trixsignal-inherited.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;
@@ -1145,12 +1145,12 @@ existing class can be achieved in two ways.&lt;/p&gt;
                      alt=&quot;&quot;/&gt;
                 &lt;/a&gt;</content>
   </entry>
-  <entry xml:base="http://www.backtrader.com/blog/atom.xml">
+  <entry xml:base="http://blog.backtrader.com/blog/atom.xml">
     <title type="text">Developing an Indicator</title>
-    <id>http://www.backtrader.com/posts/2015-07-18-developing-an-indicator/developing-an-indicator/</id>
+    <id>http://blog.backtrader.com/posts/2015-07-18-developing-an-indicator/developing-an-indicator/</id>
     <updated>2015-07-18T00:00:00Z</updated>
     <published>2015-07-18T00:00:00Z</published>
-    <link href="http://www.backtrader.com/posts/2015-07-18-developing-an-indicator/developing-an-indicator/" />
+    <link href="http://blog.backtrader.com/posts/2015-07-18-developing-an-indicator/developing-an-indicator/" />
     <author>
       <name>mementum</name>
     </author>
@@ -1158,7 +1158,7 @@ existing class can be achieved in two ways.&lt;/p&gt;
 for a while) I decided to not only share it via GitHub but to also tell the
 world it was there and posted about its existence in &amp;#8220;Reddit&amp;#8221;.&lt;/p&gt;
 &lt;a class=&quot;&quot;
-               data-lightbox=&quot;group-56420f2c-7c46-4a46-a03e-89918bf96ca5&quot;
+               data-lightbox=&quot;group-b7f38639-b52e-40fd-bae9-a7c7a9ae3317&quot;
                href=&quot;posts\2015-07-18-developing-an-indicator\./trix.png&quot;
                title=&quot;&quot;
                data-title=&quot;&quot;

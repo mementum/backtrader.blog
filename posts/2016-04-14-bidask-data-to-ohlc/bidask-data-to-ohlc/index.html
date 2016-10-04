@@ -71,7 +71,7 @@ effectively done in <code class="docutils literal"><span class="pre">OHLC</span>
 </ol>
 </div></blockquote>
 <p>Source data (10 rows of bid-ask data):</p>
-<div class="highlight-python"><div class="highlight"><pre>Date,Time,Symbol,Status,Bid,Ask,Bid Vol,Ask Vol
+<div class="highlight-python"><div class="highlight"><pre><span></span>Date,Time,Symbol,Status,Bid,Ask,Bid Vol,Ask Vol
 01/03/16,23:43:11,EUR/JPY,D,,130.520,,1000000
 01/03/16,23:43:27,EUR/JPY,D,,130.520,,2000000
 01/03/16,23:49:19,EUR/JPY,D,,130.510,,500000
@@ -104,7 +104,7 @@ compressed</p>
 </ul>
 </div></blockquote>
 <p>Getting the data into OHLC format with the <code class="docutils literal"><span class="pre">GenericCSVData</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre>    <span class="n">data</span> <span class="o">=</span> <span class="n">btfeeds</span><span class="o">.</span><span class="n">GenericCSVData</span><span class="p">(</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span>    <span class="n">data</span> <span class="o">=</span> <span class="n">btfeeds</span><span class="o">.</span><span class="n">GenericCSVData</span><span class="p">(</span>
         <span class="n">dataname</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
         <span class="n">dtformat</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">/%m/%y&#39;</span><span class="p">,</span>
         <span class="c1"># tmformat=&#39;%H%M%S&#39;,  # already the default value</span>
@@ -140,7 +140,7 @@ the stream will be used as source for the price</li>
 </ul>
 </div></blockquote>
 <p>Once the data is on board it is about just resampling it:</p>
-<div class="highlight-python"><div class="highlight"><pre>    <span class="n">cerebro</span><span class="o">.</span><span class="n">resampledata</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span>    <span class="n">cerebro</span><span class="o">.</span><span class="n">resampledata</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
                          <span class="n">timeframe</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">TimeFrame</span><span class="o">.</span><span class="n">Ticks</span><span class="p">,</span>
                          <span class="n">compression</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">compression</span><span class="p">)</span>
 
@@ -150,7 +150,7 @@ the stream will be used as source for the price</li>
 make sure that the data is not <em>upsampled</em>. And the <code class="docutils literal"><span class="pre">compression</span></code> is taken as
 an argument from the command line, hence: <code class="docutils literal"><span class="pre">compression=args.compression</span></code></p>
 <p>A sample execution:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./bidask-to-ohlc.py --compression 2
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./bidask-to-ohlc.py --compression 2
 2016-03-01 23:43:27,130.52,130.52,130.52,130.52,3000000.0
 2016-03-01 23:49:22,130.51,130.53,130.53,130.53,2000000.0
 2016-03-01 23:49:27,130.54,130.55,130.55,130.55,1650000.0
@@ -163,7 +163,7 @@ from <code class="docutils literal"><span class="pre">10</span></code> to <code 
 <p>It should also come to no surprise that <code class="docutils literal"><span class="pre">backtrader</span></code> cannot make miracles and
 with a <em>compression</em> factor which is not a divisor of the total number of
 original rows it will deliver <code class="docutils literal"><span class="pre">rows</span> <span class="pre">/</span> <span class="pre">compression</span> <span class="pre">+</span> <span class="pre">1</span></code> new rows:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./bidask-to-ohlc.py --compression 3
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./bidask-to-ohlc.py --compression 3
 2016-03-01 23:49:19,130.52,130.52,130.52,130.51,3500000.0
 2016-03-01 23:49:27,130.53,130.55,130.55,130.55,3150000.0
 2016-03-01 23:53:25,130.5,130.5,130.5,130.48,2900000.0
@@ -175,7 +175,7 @@ original rows it will deliver <code class="docutils literal"><span class="pre">r
 is not really nice due to the low amount of data and the low variance of the
 data and how <code class="docutils literal"><span class="pre">matplotlib</span></code> internally handles this situation.</p>
 <a class=""
-               data-lightbox="group-2c55b060-7f62-44e4-8d5c-6e0d3e672b0d"
+               data-lightbox="group-f6af412d-f808-4ed4-8d12-b79f78010652"
                href="../../../_images/bidask-data-to-ohlc1.png"
                title=""
                data-title=""
@@ -185,7 +185,7 @@ data and how <code class="docutils literal"><span class="pre">matplotlib</span><
                      height="auto"
                      alt=""/>
                 </a><p>The sample code (included in the sources of <code class="docutils literal"><span class="pre">backtrader</span></code>)</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,)</span>
 <span class="c1">#                        unicode_literals)</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span>
@@ -295,7 +295,7 @@ data and how <code class="docutils literal"><span class="pre">matplotlib</span><
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2016-04-14-bidask-data-to-ohlc/bidask-data-to-ohlc/';
         var disqus_title = 'Bid-Ask Data to OHLC';
-        var disqus_url = 'http://www.backtrader.com/posts/2016-04-14-bidask-data-to-ohlc/bidask-data-to-ohlc';
+        var disqus_url = 'http://blog.backtrader.com/posts/2016-04-14-bidask-data-to-ohlc/bidask-data-to-ohlc';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -401,6 +401,8 @@ data and how <code class="docutils literal"><span class="pre">matplotlib</span><
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
       <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
     
       <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
@@ -409,15 +411,13 @@ data and how <code class="docutils literal"><span class="pre">matplotlib</span><
     
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
     
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
   </ul>
 
   <h3><a href="../../../blog/archive/">Archives</a></h3>
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (27)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

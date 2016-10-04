@@ -145,7 +145,7 @@ control for <code class="docutils literal"><span class="pre">optdatas</span></co
 <h3>Single Core Run<a class="headerlink" href="#single-core-run" title="Permalink to this headline">¶</a></h3>
 <p>As a reference what happens when the amount of CPUs is limited to <code class="docutils literal"><span class="pre">1</span></code> and the
 <code class="docutils literal"><span class="pre">multiprocessing</span></code> module is not used:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./optimization.py --maxcpus 1
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./optimization.py --maxcpus 1
 ==================================================
 **************************************************
 --------------------------------------------------
@@ -168,7 +168,7 @@ try to use all of them. <code class="docutils literal"><span class="pre">optdata
 <div class="section" id="both-optdata-and-optreturn-active">
 <h4>Both <code class="docutils literal"><span class="pre">optdata</span></code> and <code class="docutils literal"><span class="pre">optreturn</span></code> active<a class="headerlink" href="#both-optdata-and-optreturn-active" title="Permalink to this headline">¶</a></h4>
 <p>The default behavior:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./optimization.py
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./optimization.py
 ...
 ...
 ...
@@ -185,7 +185,7 @@ generate only values with a length of <code class="docutils literal"><span class
 <div class="section" id="optreturn-deactivated">
 <h4><code class="docutils literal"><span class="pre">optreturn</span></code> deactivated<a class="headerlink" href="#optreturn-deactivated" title="Permalink to this headline">¶</a></h4>
 <p>Let&#8217;s pass full <em>strategy</em> objects back to the caller:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./optimization.py --no-optreturn
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./optimization.py --no-optreturn
 ...
 ...
 ...
@@ -199,7 +199,7 @@ place.</p>
 <div class="section" id="optdatas-deactivated">
 <h4><code class="docutils literal"><span class="pre">optdatas</span></code> deactivated<a class="headerlink" href="#optdatas-deactivated" title="Permalink to this headline">¶</a></h4>
 <p>Each subproccess is forced to load its own set of values for the <em>data feeds</em>:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./optimization.py --no-optdatas
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./optimization.py --no-optdatas
 ...
 ...
 ...
@@ -213,7 +213,7 @@ place.</p>
 <div class="section" id="both-deactivated">
 <h4>Both deactivated<a class="headerlink" href="#both-deactivated" title="Permalink to this headline">¶</a></h4>
 <p>Still using multicore but with the old non-improved behavior:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./optimization.py --no-optdatas --no-optreturn
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./optimization.py --no-optdatas --no-optreturn
 ...
 ...
 ...
@@ -247,7 +247,7 @@ around <code class="docutils literal"><span class="pre">22.19%</span></code> and
 </div>
 <div class="section" id="sample-usage">
 <h2>Sample Usage<a class="headerlink" href="#sample-usage" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre>$ ./optimization.py --help
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./optimization.py --help
 usage: optimization.py [-h] [--data DATA] [--fromdate FROMDATE]
                        [--todate TODATE] [--maxcpus MAXCPUS] [--no-runonce]
                        [--exactbars EXACTBARS] [--no-optdatas]
@@ -290,7 +290,7 @@ optional arguments:
 </div>
 <div class="section" id="sample-code">
 <h2>Sample Code<a class="headerlink" href="#sample-code" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span>
@@ -489,6 +489,13 @@ optional arguments:
   <span>&nbsp;</span>
   <span style="float: right;">
   
+  
+  <a href="../../2016-09-06-vwr/vwr/">
+    Variability Weighted Return (or VWR)
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  </span>
+  
 </div>
 
   
@@ -501,7 +508,7 @@ optional arguments:
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2016-09-05-optimization-improvements/optimization-improvements/';
         var disqus_title = 'Optimization improvements';
-        var disqus_url = 'http://www.backtrader.com/posts/2016-09-05-optimization-improvements/optimization-improvements';
+        var disqus_url = 'http://blog.backtrader.com/posts/2016-09-05-optimization-improvements/optimization-improvements';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -607,15 +614,15 @@ optional arguments:
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
     
       <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -623,7 +630,7 @@ optional arguments:
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (25)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

@@ -153,7 +153,7 @@ of <code class="docutils literal"><span class="pre">order_target_value</span></c
 <div class="section" id="order-target-size">
 <h3>order_target_size<a class="headerlink" href="#order-target-size" title="Permalink to this headline">¶</a></h3>
 <p>Let&#8217;s see what happens in <em>Jan</em> and <em>Feb</em>.</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./order_target.py --target-size -- plot
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./order_target.py --target-size -- plot
 0001 - 2005-01-03 - Position Size:     00 - Value 1000000.00
 0001 - 2005-01-03 - Order Target Size: 03
 0002 - 2005-01-04 - Position Size:     03 - Value 999994.39
@@ -181,7 +181,7 @@ is reported when entering the 1st day of <em>Feb</em>, when the new <em>target s
 requested to be <code class="docutils literal"><span class="pre">30</span></code> and goes changing along with the position in decrements
 of <cite>´1`</cite>.</p>
 <a class=""
-               data-lightbox="group-b8513200-e026-4d51-bfab-affa31c65c32"
+               data-lightbox="group-ba9530f3-c314-402d-acbc-f8661437ba41"
                href="../../../_images/order_target_size1.png"
                title=""
                data-title=""
@@ -194,7 +194,7 @@ of <cite>´1`</cite>.</p>
 <div class="section" id="order-target-value">
 <h3>order_target_value<a class="headerlink" href="#order-target-value" title="Permalink to this headline">¶</a></h3>
 <p>A similar behavior is expected from <em>target values</em></p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./order_target.py --target-value --plot
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./order_target.py --target-value --plot
 0001 - 2005-01-03 - Position Size:     00 - Value 1000000.00
 0001 - 2005-01-03 - data value 0.00
 0001 - 2005-01-03 - Order Target Value: 3000.00
@@ -264,7 +264,7 @@ provide specific pricing</p>
 </ul>
 </div></blockquote>
 <a class=""
-               data-lightbox="group-c715fec8-5b57-4a24-9226-9ba5151f4ad5"
+               data-lightbox="group-c7b9d289-0e58-4ff3-bb35-9a2f57d00991"
                href="../../../_images/order_target_value1.png"
                title=""
                data-title=""
@@ -277,7 +277,7 @@ provide specific pricing</p>
 <div class="section" id="id1">
 <h3>order_target_value<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>In this case it is simply a percentage of the current portfolio value.</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./order_target.py --target-percent --plot
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./order_target.py --target-percent --plot
 0001 - 2005-01-03 - Position Size:     00 - Value 1000000.00
 0001 - 2005-01-03 - data percent 0.00
 0001 - 2005-01-03 - Order Target Percent: 0.03
@@ -307,7 +307,7 @@ provide specific pricing</p>
 <p>And the information has been changed to see the <code class="docutils literal"><span class="pre">%</span></code> the data represents in
 the portfolio.</p>
 <a class=""
-               data-lightbox="group-c2a2d74a-17bb-405f-818b-b8d152327d92"
+               data-lightbox="group-4a29de48-31cf-4cca-b576-1ab0d610d359"
                href="../../../_images/order_target_percent1.png"
                title=""
                data-title=""
@@ -320,7 +320,7 @@ the portfolio.</p>
 </div>
 <div class="section" id="sample-usage">
 <h2>Sample Usage<a class="headerlink" href="#sample-usage" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre>$ ./order_target.py --help
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./order_target.py --help
 usage: order_target.py [-h] [--data DATA] [--fromdate FROMDATE]
                        [--todate TODATE] [--cash CASH]
                        (--target-size | --target-value | --target-percent)
@@ -348,7 +348,7 @@ optional arguments:
 </div>
 <div class="section" id="sample-code">
 <h2>Sample Code<a class="headerlink" href="#sample-code" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span>
@@ -549,6 +549,13 @@ optional arguments:
   <span>&nbsp;</span>
   <span style="float: right;">
   
+  
+  <a href="../../2016-09-05-optimization-improvements/optimization-improvements/">
+    Optimization improvements
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  </span>
+  
 </div>
 
   
@@ -561,7 +568,7 @@ optional arguments:
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2016-09-02-target-orders/target-orders/';
         var disqus_title = 'Target Orders';
-        var disqus_url = 'http://www.backtrader.com/posts/2016-09-02-target-orders/target-orders';
+        var disqus_url = 'http://blog.backtrader.com/posts/2016-09-02-target-orders/target-orders';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -667,15 +674,15 @@ optional arguments:
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
-    
-      <li><a href="../../2016-08-01-signal-strategy/signal-strategy/">Aug 01 - Strategy with Signals</a></li>
     
   </ul>
 
@@ -683,7 +690,7 @@ optional arguments:
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

@@ -82,12 +82,12 @@ data a new sample script <code class="docutils literal"><span class="pre">resamp
 avoids the need to manually instantiate a <code class="docutils literal"><span class="pre">backtrader.DataResampler</span></code></p>
 </div>
 <p>The default execution doesn&#8217;t touch the data:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./resample-tickdata.py
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./resample-tickdata.py
 </pre></div>
 </div>
 <p>Producing this chart:</p>
 <a class=""
-               data-lightbox="group-8b360e0c-4998-4375-be42-e264dc8a7775"
+               data-lightbox="group-5e3d60a1-2766-4d85-a14c-2cbcf2353234"
                href="../../../_images/tickdata-default1.png"
                title=""
                data-title=""
@@ -97,12 +97,12 @@ avoids the need to manually instantiate a <code class="docutils literal"><span c
                      height="auto"
                      alt=""/>
                 </a><p>Compressing 3 ticks to 1:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./resample-tickdata.py --timeframe ticks --compression 3
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./resample-tickdata.py --timeframe ticks --compression 3
 </pre></div>
 </div>
 <p>Producing this chart:</p>
 <a class=""
-               data-lightbox="group-84b5032c-7f2e-4cef-8719-a862daa49c65"
+               data-lightbox="group-86ddc168-e4ec-4d6b-9ee6-b5d9a4fd42d1"
                href="../../../_images/tickdata-tickdata-compression-31.png"
                title=""
                data-title=""
@@ -113,12 +113,12 @@ avoids the need to manually instantiate a <code class="docutils literal"><span c
                      alt=""/>
                 </a><p>After the compression we no longer have single &#8220;ticks&#8221; but &#8220;bars&#8221;.</p>
 <p>Now compressing to seconds and 5 bars compression:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./resample-tickdata.py --timeframe seconds --compression 5
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./resample-tickdata.py --timeframe seconds --compression 5
 </pre></div>
 </div>
 <p>With a new chart:</p>
 <a class=""
-               data-lightbox="group-5b5f3ab9-4d7b-4c3a-9352-64f7c05fb787"
+               data-lightbox="group-caf84a80-9f82-4bf1-8c77-b88f26afb003"
                href="../../../_images/tickdata-seconds-compression-51.png"
                title=""
                data-title=""
@@ -129,13 +129,13 @@ avoids the need to manually instantiate a <code class="docutils literal"><span c
                      alt=""/>
                 </a><p>And finally to minutes. The sample data contains tick data from 4 different
 minutes (the last tick in the file is the only tick for the 4th minute):</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./resample-tickdata.py --timeframe minutes
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./resample-tickdata.py --timeframe minutes
 </pre></div>
 </div>
 <p>With a 4 bars (at the top it can be seen the final price was 3069). The 4th bar
 is a single point given for this minute a single tick is present in the file.</p>
 <a class=""
-               data-lightbox="group-3df7e2b0-f657-4057-92a9-1e2c12a0c593"
+               data-lightbox="group-26c8f233-f9bd-4839-bedd-b0cc90f70755"
                href="../../../_images/tickdata-minutes1.png"
                title=""
                data-title=""
@@ -145,7 +145,7 @@ is a single point given for this minute a single tick is present in the file.</p
                      height="auto"
                      alt=""/>
                 </a><p>The script usage:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./resample-tickdata.py --help
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./resample-tickdata.py --help
 usage: resample-tickdata.py [-h] [--dataname DATANAME]
                             [--timeframe {ticks,microseconds,seconds,minutes,daily,weekly,monthly}]
                             [--compression COMPRESSION]
@@ -162,7 +162,7 @@ optional arguments:
 </pre></div>
 </div>
 <p>And the code.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span>
@@ -274,7 +274,7 @@ optional arguments:
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2015-09-25-tickdata-resample/resample-tickdata/';
         var disqus_title = 'Tick Data and Resampling';
-        var disqus_url = 'http://www.backtrader.com/posts/2015-09-25-tickdata-resample/resample-tickdata';
+        var disqus_url = 'http://blog.backtrader.com/posts/2015-09-25-tickdata-resample/resample-tickdata';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -383,15 +383,15 @@ optional arguments:
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -399,7 +399,7 @@ optional arguments:
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

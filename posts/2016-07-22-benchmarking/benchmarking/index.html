@@ -108,7 +108,7 @@ time constraints</p>
 <p>(For more details and parameters go to the reference in the docs)</p>
 <p>As such, the returns of the porftolio on a yearly basis can be tracked like
 this:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
 
 <span class="n">cerebro</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">Cerebro</span><span class="p">()</span>
 <span class="n">cerebro</span><span class="o">.</span><span class="n">addanalyzer</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">analyzers</span><span class="o">.</span><span class="n">TimeReturn</span><span class="p">,</span> <span class="n">timeframe</span><span class="o">=</span><span class="n">bt</span><span class="o">.</span><span class="n">TimeFrame</span><span class="o">.</span><span class="n">Years</span><span class="p">)</span>
@@ -124,7 +124,7 @@ this:</p>
 </pre></div>
 </div>
 <p>If we wanted to track the returns of a <em>data</em>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
 
 <span class="n">cerebro</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">Cerebro</span><span class="p">()</span>
 
@@ -145,7 +145,7 @@ this:</p>
 </pre></div>
 </div>
 <p>If both are to be tracked, the best is to assign names to the <em>analyzers</em>:</p>
-<div class="highlight-python"><div class="highlight"><pre>import backtrader as bt
+<div class="highlight-python"><div class="highlight"><pre><span></span>import backtrader as bt
 
 cerebro = bt.Cerebro()
 
@@ -187,12 +187,12 @@ show their functionality.</p>
 <div class="section" id="observing-timereturn">
 <h3>Observing TimeReturn<a class="headerlink" href="#observing-timereturn" title="Permalink to this headline">¶</a></h3>
 <p>Execution:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./observer-benchmark.py --plot --timereturn --timeframe notimeframe
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./observer-benchmark.py --plot --timereturn --timeframe notimeframe
 </pre></div>
 </div>
 <p>Output.</p>
 <a class=""
-               data-lightbox="group-35382611-2ddb-41fb-86f7-773350a882ed"
+               data-lightbox="group-6c36fba9-aabd-451f-9513-500b26c9a470"
                href="../../../_images/01-benchmarking-timereturn-no-timeframe1.png"
                title=""
                data-title=""
@@ -221,12 +221,12 @@ up with <code class="docutils literal"><span class="pre">36,970</span></code> mo
 <h3>Observing Benchmarking<a class="headerlink" href="#observing-benchmarking" title="Permalink to this headline">¶</a></h3>
 <p>Because <em>benchmarking</em> will also display the <em>timereturn</em> results, let&#8217;s run
 the same thing but with <em>benchmarking</em> active:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./observer-benchmark.py --plot --timeframe notimeframe
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./observer-benchmark.py --plot --timeframe notimeframe
 </pre></div>
 </div>
 <p>Output.</p>
 <a class=""
-               data-lightbox="group-63198cc4-c64f-4b2c-b336-ec10f6cc1118"
+               data-lightbox="group-83e4253b-c957-475f-933a-c40de5abe6f8"
                href="../../../_images/02-benchmarking-no-timeframe1.png"
                title=""
                data-title=""
@@ -245,11 +245,11 @@ is not even as bad as the asset.</p>
 </ul>
 </div></blockquote>
 <p>Moving down to track things on a <em>yearly</em> basis:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./observer-benchmark.py --plot --timeframe years
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./observer-benchmark.py --plot --timeframe years
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-python"><div class="highlight"><pre>.. thumbnail:: 03-benchmarking-years.png
+<div class="highlight-python"><div class="highlight"><pre><span></span>.. thumbnail:: 03-benchmarking-years.png
 </pre></div>
 </div>
 <p>Watch out!</p>
@@ -265,11 +265,11 @@ is not even as bad as the asset.</p>
 2006, both the strategy and the benchmarking asset were almost at the starting
 level in 2005.</p>
 <p>Switching to a lower timeframe like <em>weeks</em> the entire picture changes:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./observer-benchmark.py --plot --timeframe weeks
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./observer-benchmark.py --plot --timeframe weeks
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-python"><div class="highlight"><pre>.. thumbnail:: 04-benchmarking-weeks.png
+<div class="highlight-python"><div class="highlight"><pre><span></span>.. thumbnail:: 04-benchmarking-weeks.png
 </pre></div>
 </div>
 <p>Now:</p>
@@ -290,12 +290,12 @@ and the difference is felt first at the 4th decimal point)</li>
 <p>The sample allows to benchmark against a different data. The default is to
 benchmark against <em>Oracle</em> when using <code class="docutils literal"><span class="pre">--benchdata1</span></code>. Considering the entire
 dataset with <code class="docutils literal"><span class="pre">--timeframe</span> <span class="pre">notimeframe</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./observer-benchmark.py --plot --timeframe notimeframe --benchdata1
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./observer-benchmark.py --plot --timeframe notimeframe --benchdata1
 </pre></div>
 </div>
 <p>Output:</p>
 <a class=""
-               data-lightbox="group-e8511008-d763-4f4e-b82e-74566cbe17e5"
+               data-lightbox="group-a1a2ebb9-631c-4925-b56e-4575d1947371"
                href="../../../_images/05-benchmarking-data1-no-timeframe1.png"
                title=""
                data-title=""
@@ -333,7 +333,7 @@ the <em>TimeReturn</em> and <em>Benchmark</em></p>
 </div></blockquote>
 <p>Of course <em>benchmarking</em> doesn&#8217;t guarantee profit, just <em>comparison</em>.</p>
 <p>Usage of the sample:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./observer-benchmark.py --help
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./observer-benchmark.py --help
 usage: observer-benchmark.py [-h] [--data0 DATA0] [--data1 DATA1]
                              [--benchdata1] [--fromdate FROMDATE]
                              [--todate TODATE] [--printout] [--cash CASH]
@@ -369,7 +369,7 @@ optional arguments:
 </div>
 <div class="section" id="the-code">
 <h3>The code<a class="headerlink" href="#the-code" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 
@@ -598,7 +598,7 @@ optional arguments:
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2016-07-22-benchmarking/benchmarking/';
         var disqus_title = 'Benchmarking';
-        var disqus_url = 'http://www.backtrader.com/posts/2016-07-22-benchmarking/benchmarking';
+        var disqus_url = 'http://blog.backtrader.com/posts/2016-07-22-benchmarking/benchmarking';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -704,15 +704,15 @@ optional arguments:
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -720,7 +720,7 @@ optional arguments:
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

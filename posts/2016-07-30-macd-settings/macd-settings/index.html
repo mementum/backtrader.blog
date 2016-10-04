@@ -101,7 +101,7 @@ being whipped</li>
 </ol>
 </div></blockquote>
 <p>The manually chosen parameters for the strategy:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">params</span> <span class="o">=</span> <span class="p">(</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">params</span> <span class="o">=</span> <span class="p">(</span>
     <span class="c1"># Standard MACD Parameters</span>
     <span class="p">(</span><span class="s1">&#39;macd1&#39;</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
     <span class="p">(</span><span class="s1">&#39;macd2&#39;</span><span class="p">,</span> <span class="mi">26</span><span class="p">),</span>
@@ -114,7 +114,7 @@ being whipped</li>
 </pre></div>
 </div>
 <p>And system wide:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--cash&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store&#39;</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--cash&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store&#39;</span><span class="p">,</span>
                     <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">50000</span><span class="p">,</span>
                     <span class="n">help</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Cash to start with&#39;</span><span class="p">))</span>
 
@@ -159,7 +159,7 @@ using this performance indicator defined by Van K. Tharp</p>
 <h2>Run 1: Standard Parameters<a class="headerlink" href="#run-1-standard-parameters" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="yhoo">
 <h3>YHOO<a class="headerlink" href="#yhoo" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>$ ./macdsystem.py --plot --dataset yhoo
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./macdsystem.py --plot --dataset yhoo
 ===============================================================================
 TimeReturn:
   - 9999-12-31 23:59:59.999999: -0.07118518868
@@ -188,7 +188,7 @@ SQN:
 </pre></div>
 </div>
 <a class=""
-               data-lightbox="group-c8db3c24-6f8e-49a5-abe2-97439b0e3875"
+               data-lightbox="group-67e4ed85-6d5a-4f5a-b55a-e5ad2014d9f5"
                href="../../../_images/yhoo-run011.png"
                title=""
                data-title=""
@@ -200,7 +200,7 @@ SQN:
                 </a></div>
 <div class="section" id="orcl">
 <h3>ORCL<a class="headerlink" href="#orcl" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>$ ./macdsystem.py --plot --dataset orcl
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./macdsystem.py --plot --dataset orcl
 ===============================================================================
 TimeReturn:
   - 9999-12-31 23:59:59.999999: 0.24890384718
@@ -229,7 +229,7 @@ SQN:
 </pre></div>
 </div>
 <a class=""
-               data-lightbox="group-81be22b1-e2c4-425a-9874-1c9b48e25a24"
+               data-lightbox="group-ded2ad3b-b2ee-48fa-8bbb-d12fa883c1e3"
                href="../../../_images/orcl-run011.png"
                title=""
                data-title=""
@@ -241,7 +241,7 @@ SQN:
                 </a></div>
 <div class="section" id="nvda">
 <h3>NVDA<a class="headerlink" href="#nvda" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>$ ./macdsystem.py --plot --dataset nvda
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./macdsystem.py --plot --dataset nvda
 ===============================================================================
 TimeReturn:
   - 9999-12-31 23:59:59.999999: -0.0178507058999
@@ -270,7 +270,7 @@ SQN:
 </pre></div>
 </div>
 <a class=""
-               data-lightbox="group-7ca72ae7-a510-4108-9489-1cb91a0be098"
+               data-lightbox="group-b6a9c7a3-e52a-4f72-9f15-c0160107d6a2"
                href="../../../_images/nvda-run011.png"
                title=""
                data-title=""
@@ -321,7 +321,7 @@ account.</p>
 <h2>Run 2: CashAlloc to 0.50<a class="headerlink" href="#run-2-cashalloc-to-0-50" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id1">
 <h3>YHOO<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>$ ./macdsystem.py --plot --dataset yhoo --cashalloc 0.50
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./macdsystem.py --plot --dataset yhoo --cashalloc 0.50
 ===============================================================================
 TimeReturn:
   - 9999-12-31 23:59:59.999999: -0.20560369198
@@ -350,7 +350,7 @@ SQN:
 </pre></div>
 </div>
 <a class=""
-               data-lightbox="group-cdf31151-7907-488d-b57b-399bc2ce57d7"
+               data-lightbox="group-195b9bbf-c1db-4680-a5f7-d51505273a87"
                href="../../../_images/yhoo-run021.png"
                title=""
                data-title=""
@@ -362,7 +362,7 @@ SQN:
                 </a></div>
 <div class="section" id="id2">
 <h3>ORCL<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>$ ./macdsystem.py --plot --dataset orcl --cashalloc 0.50
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./macdsystem.py --plot --dataset orcl --cashalloc 0.50
 ===============================================================================
 TimeReturn:
   - 9999-12-31 23:59:59.999999: 0.69016747856
@@ -391,7 +391,7 @@ SQN:
 </pre></div>
 </div>
 <a class=""
-               data-lightbox="group-93ad9d45-acea-4305-a49b-34e248ca0ca3"
+               data-lightbox="group-32b47ba1-7012-42c9-bd43-8ad64502c0f9"
                href="../../../_images/orcl-run021.png"
                title=""
                data-title=""
@@ -403,7 +403,7 @@ SQN:
                 </a></div>
 <div class="section" id="id3">
 <h3>NVDA<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>$ ./macdsystem.py --plot --dataset nvda --cashalloc 0.50
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./macdsystem.py --plot --dataset nvda --cashalloc 0.50
 ===============================================================================
 TimeReturn:
   - 9999-12-31 23:59:59.999999: -0.128845648113
@@ -432,7 +432,7 @@ SQN:
 </pre></div>
 </div>
 <a class=""
-               data-lightbox="group-d7d31c01-aafc-44e0-8292-270a258f4d54"
+               data-lightbox="group-02f8fcf7-64ac-4e5a-9060-c84d372926ff"
                href="../../../_images/nvda-run021.png"
                title=""
                data-title=""
@@ -463,7 +463,7 @@ the over <em>220%</em> of the asset.</li>
 to avoid getting too early out of the market.</p>
 <div class="section" id="id4">
 <h3>YHOO<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>$ ./macdsystem.py --plot --dataset yhoo --cashalloc 0.50 --atrdist 4.0
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./macdsystem.py --plot --dataset yhoo --cashalloc 0.50 --atrdist 4.0
 ===============================================================================
 TimeReturn:
   - 9999-12-31 23:59:59.999999: 0.01196310622
@@ -492,7 +492,7 @@ SQN:
 </pre></div>
 </div>
 <a class=""
-               data-lightbox="group-f1b82868-8832-423a-bbd3-2338f8204a4d"
+               data-lightbox="group-12e5c6e9-f520-48d6-ae38-4b38e4454359"
                href="../../../_images/yhoo-run031.png"
                title=""
                data-title=""
@@ -504,7 +504,7 @@ SQN:
                 </a></div>
 <div class="section" id="id5">
 <h3>ORCL<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>$ ./macdsystem.py --plot --dataset orcl --cashalloc 0.50 --atrdist 4.0
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./macdsystem.py --plot --dataset orcl --cashalloc 0.50 --atrdist 4.0
 ===============================================================================
 TimeReturn:
   - 9999-12-31 23:59:59.999999: 0.21907748452
@@ -533,7 +533,7 @@ SQN:
 </pre></div>
 </div>
 <a class=""
-               data-lightbox="group-899fb214-9b28-4d8e-81bc-9a989c896e04"
+               data-lightbox="group-cd03b815-75a8-4d74-bde7-b662096261db"
                href="../../../_images/orcl-run031.png"
                title=""
                data-title=""
@@ -545,7 +545,7 @@ SQN:
                 </a></div>
 <div class="section" id="id6">
 <h3>NVDA<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>$ ./macdsystem.py --plot --dataset nvda --cashalloc 0.50 --atrdist 4.0
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./macdsystem.py --plot --dataset nvda --cashalloc 0.50 --atrdist 4.0
 ===============================================================================
 TimeReturn:
   - 9999-12-31 23:59:59.999999: 0.48840287049
@@ -574,7 +574,7 @@ SQN:
 </pre></div>
 </div>
 <a class=""
-               data-lightbox="group-68d7400e-7772-4625-97cc-dcb4582962d0"
+               data-lightbox="group-69d9004c-c120-4087-ab47-819e1ce8602c"
                href="../../../_images/nvda-run031.png"
                title=""
                data-title=""
@@ -609,7 +609,7 @@ that</p>
 </div>
 <div class="section" id="usage-of-the-sample">
 <h2>Usage of the sample<a class="headerlink" href="#usage-of-the-sample" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre>$ ./macdsystem.py --help
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./macdsystem.py --help
 usage: macdsystem.py [-h] (--data DATA | --dataset {yhoo,orcl,nvda})
                      [--fromdate FROMDATE] [--todate TODATE] [--cash CASH]
                      [--cashalloc CASHALLOC] [--commperc COMMPERC]
@@ -655,7 +655,7 @@ optional arguments:
 </div>
 <div class="section" id="and-the-code-itself">
 <h2>And the code itself<a class="headerlink" href="#and-the-code-itself" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 
@@ -966,7 +966,7 @@ optional arguments:
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2016-07-30-macd-settings/macd-settings/';
         var disqus_title = 'MACD Settings';
-        var disqus_url = 'http://www.backtrader.com/posts/2016-07-30-macd-settings/macd-settings';
+        var disqus_url = 'http://blog.backtrader.com/posts/2016-07-30-macd-settings/macd-settings';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -1072,15 +1072,15 @@ optional arguments:
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -1088,7 +1088,7 @@ optional arguments:
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

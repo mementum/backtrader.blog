@@ -63,7 +63,7 @@ to it.</p>
 <p>The <a class="reference external" href="http://backtrader.readthedocs.org/en/latest/">Documentation</a> has been
 updated to only reference the modern way to do <code class="docutils literal"><span class="pre">resampling</span></code> and
 <code class="docutils literal"><span class="pre">replaying</span></code>. It is as easy as:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="o">...</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="o">...</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">backtrader</span><span class="o">.</span><span class="n">feeds</span><span class="o">.</span><span class="n">BacktraderCSVData</span><span class="p">(</span><span class="n">dataname</span><span class="o">=</span><span class="s1">&#39;mydata.csv&#39;</span><span class="p">)</span>  <span class="c1"># daily bars</span>
 <span class="n">cerebro</span><span class="o">.</span><span class="n">resampledata</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">timeframe</span><span class="o">=</span><span class="n">backtrader</span><span class="o">.</span><span class="n">TimeFrame</span><span class="o">.</span><span class="n">Weeks</span><span class="p">)</span> <span class="c1"># to weeks</span>
 <span class="o">...</span>
@@ -80,7 +80,7 @@ what was suggested in the ticket.</p>
 allows the complete redefinition of the lines hierarchy (<strong>Escape from OHLC
 Land</strong> would be an appropriate film title)</p>
 <p>A sample named <em>data-bid-ask</em> has been added to the sources. From the sample:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">BidAskCSV</span><span class="p">(</span><span class="n">btfeeds</span><span class="o">.</span><span class="n">GenericCSVData</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">BidAskCSV</span><span class="p">(</span><span class="n">btfeeds</span><span class="o">.</span><span class="n">GenericCSVData</span><span class="p">):</span>
     <span class="n">linesoverride</span> <span class="o">=</span> <span class="bp">True</span>  <span class="c1"># discard usual OHLC structure</span>
     <span class="c1"># datetime must be present and last</span>
     <span class="n">lines</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;bid&#39;</span><span class="p">,</span> <span class="s1">&#39;ask&#39;</span><span class="p">,</span> <span class="s1">&#39;datetime&#39;</span><span class="p">)</span>
@@ -97,11 +97,11 @@ Land</strong> would be an appropriate film title)</p>
 <p>By specifying <code class="docutils literal"><span class="pre">linesoverride</span></code> the regular <em>lines</em> inheritance mechanisme is
 bypassed and the defined lines in the object supersede any previous lines.</p>
 <p>The release is available from <em>pypi</em> and can be installed with usual:</p>
-<div class="highlight-python"><div class="highlight"><pre>pip install backtrader
+<div class="highlight-python"><div class="highlight"><pre><span></span>pip install backtrader
 </pre></div>
 </div>
 <p>Or if updating:</p>
-<div class="highlight-python"><div class="highlight"><pre>pip install backtrader --upgrade
+<div class="highlight-python"><div class="highlight"><pre><span></span>pip install backtrader --upgrade
 </pre></div>
 </div>
 </div>
@@ -143,7 +143,7 @@ bypassed and the defined lines in the object supersede any previous lines.</p>
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2016-03-07-release-1.2.1.88/release-1.2.1.88/';
         var disqus_title = 'Release 1.2.1.88';
-        var disqus_url = 'http://www.backtrader.com/posts/2016-03-07-release-1.2.1.88/release-1.2.1.88';
+        var disqus_url = 'http://blog.backtrader.com/posts/2016-03-07-release-1.2.1.88/release-1.2.1.88';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -249,15 +249,15 @@ bypassed and the defined lines in the object supersede any previous lines.</p>
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -265,7 +265,7 @@ bypassed and the defined lines in the object supersede any previous lines.</p>
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

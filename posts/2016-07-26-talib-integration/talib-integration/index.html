@@ -83,7 +83,7 @@ gladly accept a request)</li>
 <p>As easys as using any of the indicators already built-in in
 <em>backtrader</em>. Example of a <em>Simple Moving Average</em>. First the
 backtrader* one:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
 
 <span class="k">class</span> <span class="nc">MyStrategy</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Strategy</span><span class="p">):</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">),)</span>
@@ -96,7 +96,7 @@ backtrader* one:</p>
 </pre></div>
 </div>
 <p>Now the <em>ta-lib</em> example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
 
 <span class="k">class</span> <span class="nc">MyStrategy</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Strategy</span><span class="p">):</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">),)</span>
@@ -113,7 +113,7 @@ library itself and not by <em>backtrader</em>. In this case the <em>SMA</em> in 
 takes a parameter named <code class="docutils literal"><span class="pre">timeperiod</span></code> to defined the size of the operating
 window.</p>
 <p>For indicators that require more than one input, for example the <em>Stochastic</em>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
 
 <span class="k">class</span> <span class="nc">MyStrategy</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Strategy</span><span class="p">):</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">),)</span>
@@ -133,11 +133,11 @@ experiment.</p>
 <p>The <em>ta-lib</em> indicator documentation is automatically parsed and added to the
 <em>backtrader</em> docs. You may also check the <em>ta-lib</em> source code/docs. Or
 adittionally do:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">talib</span><span class="o">.</span><span class="n">SMA</span><span class="o">.</span><span class="n">__doc__</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">talib</span><span class="o">.</span><span class="n">SMA</span><span class="o">.</span><span class="n">__doc__</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Which in this case outputs:</p>
-<div class="highlight-python"><div class="highlight"><pre>SMA([input_arrays], [timeperiod=30])
+<div class="highlight-python"><div class="highlight"><pre><span></span>SMA([input_arrays], [timeperiod=30])
 
 Simple Moving Average (Overlap Studies)
 
@@ -163,7 +163,7 @@ backtrader manages the conversions in the background)</li>
 <p>To select a specific <em>moving average</em> for indicators like <code class="docutils literal"><span class="pre">bt.talib.STOCH</span></code>,
 the standard <em>ta-lib</em> <code class="docutils literal"><span class="pre">MA_Type</span></code> is accesible with
 <code class="docutils literal"><span class="pre">bactrader.talib.MA_Type</span></code>. For example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;SMA:&#39;</span><span class="p">,</span> <span class="n">bt</span><span class="o">.</span><span class="n">talib</span><span class="o">.</span><span class="n">MA_Type</span><span class="o">.</span><span class="n">SMA</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;T3:&#39;</span><span class="p">,</span> <span class="n">bt</span><span class="o">.</span><span class="n">talib</span><span class="o">.</span><span class="n">MA_Type</span><span class="o">.</span><span class="n">T3</span><span class="p">)</span>
 </pre></div>
@@ -237,12 +237,12 @@ by <em>Kaufman</em>.</li>
 </ul>
 </div></blockquote>
 <p>Sample execution:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./talibtest.py --plot --ind kama
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./talibtest.py --plot --ind kama
 </pre></div>
 </div>
 <p>Output</p>
 <a class=""
-               data-lightbox="group-faac5c8b-a7c5-495b-a5b6-db35b6d48096"
+               data-lightbox="group-59591cb2-40a1-4118-992d-dea51af19c13"
                href="../../../_images/ta-lib-kama1.png"
                title=""
                data-title=""
@@ -254,12 +254,12 @@ by <em>Kaufman</em>.</li>
                 </a></div>
 <div class="section" id="sma">
 <h3>SMA<a class="headerlink" href="#sma" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>$ ./talibtest.py --plot --ind sma
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./talibtest.py --plot --ind sma
 </pre></div>
 </div>
 <p>Output</p>
 <a class=""
-               data-lightbox="group-4f03693e-e7c4-4f84-81ef-6526bb55a6e3"
+               data-lightbox="group-454af7e5-b540-4f4b-943f-a2dcfc68b3c7"
                href="../../../_images/ta-lib-sma1.png"
                title=""
                data-title=""
@@ -271,12 +271,12 @@ by <em>Kaufman</em>.</li>
                 </a></div>
 <div class="section" id="ema">
 <h3>EMA<a class="headerlink" href="#ema" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>$ ./talibtest.py --plot --ind ema
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./talibtest.py --plot --ind ema
 </pre></div>
 </div>
 <p>Output</p>
 <a class=""
-               data-lightbox="group-bc04c9fd-bd54-4ffe-9501-e3bad23f5206"
+               data-lightbox="group-afab5928-6c2c-4e08-a3fe-72ca54095dcd"
                href="../../../_images/ta-lib-ema1.png"
                title=""
                data-title=""
@@ -288,12 +288,12 @@ by <em>Kaufman</em>.</li>
                 </a></div>
 <div class="section" id="stochastic">
 <h3>Stochastic<a class="headerlink" href="#stochastic" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>$ ./talibtest.py --plot --ind stoc
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./talibtest.py --plot --ind stoc
 </pre></div>
 </div>
 <p>Output</p>
 <a class=""
-               data-lightbox="group-198b8925-42ec-4325-9779-ceb0b392f9d4"
+               data-lightbox="group-9a11e809-6a24-4bbe-a889-0b41c7d61ae6"
                href="../../../_images/ta-lib-stoc1.png"
                title=""
                data-title=""
@@ -305,12 +305,12 @@ by <em>Kaufman</em>.</li>
                 </a></div>
 <div class="section" id="rsi">
 <h3>RSI<a class="headerlink" href="#rsi" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>$ ./talibtest.py --plot --ind rsi
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./talibtest.py --plot --ind rsi
 </pre></div>
 </div>
 <p>Output</p>
 <a class=""
-               data-lightbox="group-0b2f9b57-7338-4734-a7f0-82d8de549351"
+               data-lightbox="group-5d488e12-28a2-4680-9812-36d69be788f2"
                href="../../../_images/ta-lib-rsi1.png"
                title=""
                data-title=""
@@ -322,12 +322,12 @@ by <em>Kaufman</em>.</li>
                 </a></div>
 <div class="section" id="macd">
 <h3>MACD<a class="headerlink" href="#macd" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>$ ./talibtest.py --plot --ind macd
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./talibtest.py --plot --ind macd
 </pre></div>
 </div>
 <p>Output</p>
 <a class=""
-               data-lightbox="group-25968465-fa2c-4ee6-aa2e-11a36b1dade9"
+               data-lightbox="group-22bad868-d0e6-4637-8ea9-738b7bb8a9d3"
                href="../../../_images/ta-lib-macd1.png"
                title=""
                data-title=""
@@ -339,12 +339,12 @@ by <em>Kaufman</em>.</li>
                 </a></div>
 <div class="section" id="bollinger-bands">
 <h3>Bollinger Bands<a class="headerlink" href="#bollinger-bands" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>$ ./talibtest.py --plot --ind bollinger
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./talibtest.py --plot --ind bollinger
 </pre></div>
 </div>
 <p>Output</p>
 <a class=""
-               data-lightbox="group-2cdc226b-532b-43d8-b221-495df827f497"
+               data-lightbox="group-745ed02d-6acf-4a86-bfa5-c815174f7b8a"
                href="../../../_images/ta-lib-bollinger1.png"
                title=""
                data-title=""
@@ -358,12 +358,12 @@ by <em>Kaufman</em>.</li>
 <h3>AROON<a class="headerlink" href="#aroon" title="Permalink to this headline">¶</a></h3>
 <p>Note that <em>ta-lib</em> chooses to put the <em>down</em> line first and the colours are
 inverted when compared with the <em>backtrader</em> built-in indicator.</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./talibtest.py --plot --ind aroon
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./talibtest.py --plot --ind aroon
 </pre></div>
 </div>
 <p>Output</p>
 <a class=""
-               data-lightbox="group-9ea4a83d-191a-4fc5-beee-66c8f4cc9d59"
+               data-lightbox="group-fa8d28de-b367-4812-8e6f-ff330177bb14"
                href="../../../_images/ta-lib-aroon1.png"
                title=""
                data-title=""
@@ -375,12 +375,12 @@ inverted when compared with the <em>backtrader</em> built-in indicator.</p>
                 </a></div>
 <div class="section" id="ultimate-oscillator">
 <h3>Ultimate Oscillator<a class="headerlink" href="#ultimate-oscillator" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>$ ./talibtest.py --plot --ind ultimate
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./talibtest.py --plot --ind ultimate
 </pre></div>
 </div>
 <p>Output</p>
 <a class=""
-               data-lightbox="group-0037af3e-fedd-4864-9d10-12078ecb63f1"
+               data-lightbox="group-d11f2402-48e4-42a4-9d7e-db09b517962e"
                href="../../../_images/ta-lib-ultimate1.png"
                title=""
                data-title=""
@@ -392,12 +392,12 @@ inverted when compared with the <em>backtrader</em> built-in indicator.</p>
                 </a></div>
 <div class="section" id="trix">
 <h3>Trix<a class="headerlink" href="#trix" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>$ ./talibtest.py --plot --ind trix
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./talibtest.py --plot --ind trix
 </pre></div>
 </div>
 <p>Output</p>
 <a class=""
-               data-lightbox="group-f7cf4d6f-fdc1-44cc-bcd0-5a62b75ae027"
+               data-lightbox="group-e9ac6550-3f1a-4121-94d9-78e06e028b82"
                href="../../../_images/ta-lib-trix1.png"
                title=""
                data-title=""
@@ -410,12 +410,12 @@ inverted when compared with the <em>backtrader</em> built-in indicator.</p>
 <div class="section" id="adxr">
 <h3>ADXR<a class="headerlink" href="#adxr" title="Permalink to this headline">¶</a></h3>
 <p>Here <em>backtrader</em> offers both the <code class="docutils literal"><span class="pre">ADX</span></code> and <code class="docutils literal"><span class="pre">ADXR</span></code> lines.</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./talibtest.py --plot --ind adxr
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./talibtest.py --plot --ind adxr
 </pre></div>
 </div>
 <p>Output</p>
 <a class=""
-               data-lightbox="group-541c7c38-57ca-4c8d-8830-1c55fbf229b8"
+               data-lightbox="group-d608c98e-1fc6-42a5-975c-a52d6bf910a9"
                href="../../../_images/ta-lib-adxr1.png"
                title=""
                data-title=""
@@ -427,12 +427,12 @@ inverted when compared with the <em>backtrader</em> built-in indicator.</p>
                 </a></div>
 <div class="section" id="dema">
 <h3>DEMA<a class="headerlink" href="#dema" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>$ ./talibtest.py --plot --ind dema
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./talibtest.py --plot --ind dema
 </pre></div>
 </div>
 <p>Output</p>
 <a class=""
-               data-lightbox="group-a450b703-c7c5-4dc8-babd-59568e25def9"
+               data-lightbox="group-e55f4450-610b-483b-9ad4-5411742dcc1f"
                href="../../../_images/ta-lib-dema1.png"
                title=""
                data-title=""
@@ -444,12 +444,12 @@ inverted when compared with the <em>backtrader</em> built-in indicator.</p>
                 </a></div>
 <div class="section" id="tema">
 <h3>TEMA<a class="headerlink" href="#tema" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>$ ./talibtest.py --plot --ind tema
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./talibtest.py --plot --ind tema
 </pre></div>
 </div>
 <p>Output</p>
 <a class=""
-               data-lightbox="group-d902bb89-526e-461e-9491-511f3ca9f6c2"
+               data-lightbox="group-99b2281e-70af-4151-a256-b7749e82fb7d"
                href="../../../_images/ta-lib-tema1.png"
                title=""
                data-title=""
@@ -463,12 +463,12 @@ inverted when compared with the <em>backtrader</em> built-in indicator.</p>
 <h3>PPO<a class="headerlink" href="#ppo" title="Permalink to this headline">¶</a></h3>
 <p>Here <em>backtrader</em> offers not only the <code class="docutils literal"><span class="pre">ppo</span></code> line, but a more traditional
 <code class="docutils literal"><span class="pre">macd</span></code> approach.</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./talibtest.py --plot --ind ppo
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./talibtest.py --plot --ind ppo
 </pre></div>
 </div>
 <p>Output</p>
 <a class=""
-               data-lightbox="group-3e31b926-2c19-4b86-a55d-4b11f9369ac0"
+               data-lightbox="group-776daae9-8053-4ae6-8fb7-f3cfaf14637a"
                href="../../../_images/ta-lib-ppo1.png"
                title=""
                data-title=""
@@ -480,12 +480,12 @@ inverted when compared with the <em>backtrader</em> built-in indicator.</p>
                 </a></div>
 <div class="section" id="williamsr">
 <h3>WilliamsR<a class="headerlink" href="#williamsr" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>$ ./talibtest.py --plot --ind williamsr
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./talibtest.py --plot --ind williamsr
 </pre></div>
 </div>
 <p>Output</p>
 <a class=""
-               data-lightbox="group-2cf309c8-a744-476d-84af-0a746e816638"
+               data-lightbox="group-b8f27ca6-1e31-4691-a092-07f9e6a82103"
                href="../../../_images/ta-lib-williamsr1.png"
                title=""
                data-title=""
@@ -499,12 +499,12 @@ inverted when compared with the <em>backtrader</em> built-in indicator.</p>
 <h3>ROC<a class="headerlink" href="#roc" title="Permalink to this headline">¶</a></h3>
 <p>All indicators show have exactly the same shape, but how to track <em>momentum</em> or
 <em>rate of change</em> has several definitions</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./talibtest.py --plot --ind roc
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./talibtest.py --plot --ind roc
 </pre></div>
 </div>
 <p>Output</p>
 <a class=""
-               data-lightbox="group-83705033-ef44-4bf4-999a-b5c6cd6ef2f8"
+               data-lightbox="group-f7db085e-ba60-4453-92fb-4e194bff11b3"
                href="../../../_images/ta-lib-roc1.png"
                title=""
                data-title=""
@@ -517,7 +517,7 @@ inverted when compared with the <em>backtrader</em> built-in indicator.</p>
 </div>
 <div class="section" id="sample-usage">
 <h2>Sample Usage<a class="headerlink" href="#sample-usage" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre>$ ./talibtest.py --help
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./talibtest.py --help
 usage: talibtest.py [-h] [--data0 DATA0] [--fromdate FROMDATE]
                     [--todate TODATE]
                     [--ind {sma,ema,stoc,rsi,macd,bollinger,aroon,ultimate,trix,kama,adxr,dema,tema,ppo,williamsr,roc}]
@@ -547,7 +547,7 @@ optional arguments:
 </div>
 <div class="section" id="sample-code">
 <h2>Sample Code<a class="headerlink" href="#sample-code" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span>
@@ -761,7 +761,7 @@ optional arguments:
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2016-07-26-talib-integration/talib-integration/';
         var disqus_title = 'TA-Lib';
-        var disqus_url = 'http://www.backtrader.com/posts/2016-07-26-talib-integration/talib-integration';
+        var disqus_url = 'http://blog.backtrader.com/posts/2016-07-26-talib-integration/talib-integration';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -867,15 +867,15 @@ optional arguments:
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -883,7 +883,7 @@ optional arguments:
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

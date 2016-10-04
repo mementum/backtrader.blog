@@ -59,7 +59,7 @@
 <p>In <a class="reference internal" href="../../2015-08-06-csv-data-feed-development/csv-data-feed-development/#csv-data-feed-development"><span>CSV Data Feed Development</span></a> it was shown how to add new CSV based data
 feeds. The existing base class <cite>CSVDataBase</cite> provides the framework taking most
 of the work off the subclasses which in most cases can simply do:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">_loadline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">linetokens</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_loadline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">linetokens</span><span class="p">):</span>
 
   <span class="c1"># parse the linetokens here and put them in self.lines.close,</span>
   <span class="c1"># self.lines.high, etc</span>
@@ -84,7 +84,7 @@ already splitted line tokens.</p>
 </ul>
 </div></blockquote>
 <p>Let&#8217;s the parameters already provided by <code class="docutils literal"><span class="pre">backtrader.feed.DataBase</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">DataBase</span><span class="p">(</span><span class="n">six</span><span class="o">.</span><span class="n">with_metaclass</span><span class="p">(</span><span class="n">MetaDataBase</span><span class="p">,</span> <span class="n">dataseries</span><span class="o">.</span><span class="n">OHLCDateTime</span><span class="p">)):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">DataBase</span><span class="p">(</span><span class="n">six</span><span class="o">.</span><span class="n">with_metaclass</span><span class="p">(</span><span class="n">MetaDataBase</span><span class="p">,</span> <span class="n">dataseries</span><span class="o">.</span><span class="n">OHLCDateTime</span><span class="p">)):</span>
 
     <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;dataname&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span>
         <span class="p">(</span><span class="s1">&#39;fromdate&#39;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">min</span><span class="p">),</span>
@@ -123,7 +123,7 @@ directly read the binary data files.</p>
 intraday data (.min extension). Here the informative parameter <code class="docutils literal"><span class="pre">timeframe</span></code>
 will be used to distinguish which type of file is being read.</p>
 <p>During <code class="docutils literal"><span class="pre">__init__</span></code> constants which differ for each type are set up.</p>
-<div class="highlight-python"><div class="highlight"><pre>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">VChartData</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
 
         <span class="c1"># Use the informative &quot;timeframe&quot; parameter to understand if the</span>
@@ -146,7 +146,7 @@ will be used to distinguish which type of file is being read.</p>
 started several times during optimizations)</p>
 <p>In the <code class="docutils literal"><span class="pre">start</span></code> method the binary file is open unless a file-like object has
 been passed.</p>
-<div class="highlight-python"><div class="highlight"><pre>    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># the feed must start ... get the file open (or see if it was open)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">dataname</span><span class="p">,</span> <span class="s1">&#39;read&#39;</span><span class="p">):</span>
@@ -163,7 +163,7 @@ been passed.</p>
 <h3>Stop<a class="headerlink" href="#stop" title="Permalink to this headline">¶</a></h3>
 <p>Called when backtesting is finished.</p>
 <p>If a file was open, it will be closed</p>
-<div class="highlight-python"><div class="highlight"><pre>    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># Close the file if any</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
@@ -195,7 +195,7 @@ has been reached</p>
 <li><code class="docutils literal"><span class="pre">True</span></code> is returned to indicate the loading of the data set was a success</li>
 </ul>
 </div></blockquote>
-<div class="highlight-python"><div class="highlight"><pre>    <span class="k">def</span> <span class="nf">_load</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">_load</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
             <span class="c1"># if no file ... no parsing</span>
             <span class="k">return</span> <span class="bp">False</span>
@@ -275,7 +275,7 @@ datetime, open, high, low, close, volume, openinterest</p>
 year 2006.</p>
 <p>It&#8217;s only about loading the data, so not even a subclass of <code class="docutils literal"><span class="pre">Strategy</span></code> is
 needed.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">datetime</span>
@@ -311,7 +311,7 @@ needed.</p>
 </pre></div>
 </div>
 <a class=""
-               data-lightbox="group-26522aaa-6ecb-42a9-bfeb-82fbfc0d0a39"
+               data-lightbox="group-74a5784c-9ea2-46d4-8b69-42c7f01abdde"
                href="../../../_images/vchart-goog-20061.png"
                title=""
                data-title=""
@@ -323,7 +323,7 @@ needed.</p>
                 </a></div>
 <div class="section" id="vchartdata-full-code">
 <h2>VChartData Full Code<a class="headerlink" href="#vchartdata-full-code" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">datetime</span>
@@ -448,7 +448,7 @@ needed.</p>
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2015-08-11-datafeed-development/datafeed-development/';
         var disqus_title = 'Datafeed Development';
-        var disqus_url = 'http://www.backtrader.com/posts/2015-08-11-datafeed-development/datafeed-development';
+        var disqus_url = 'http://blog.backtrader.com/posts/2015-08-11-datafeed-development/datafeed-development';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -554,15 +554,15 @@ needed.</p>
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -570,7 +570,7 @@ needed.</p>
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

@@ -80,7 +80,7 @@ parameter to automatically add (or not) them to the Strategy:</p>
 </div></blockquote>
 <p>If the default is respected <strong>Cerebro</strong> executes the following equivalent user
 code:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
 
 <span class="o">...</span>
 
@@ -94,7 +94,7 @@ code:</p>
 <p>Let&#8217;s see the usual chart with those 3 default observers (even if no order is
 issued and therefore no trade happens and there is no change to the cash and
 portfolio value)</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
@@ -112,7 +112,7 @@ portfolio value)</p>
 </pre></div>
 </div>
 <a class=""
-               data-lightbox="group-d0ac661e-c873-4b27-9bdb-fc195cd49497"
+               data-lightbox="group-1eef3739-5a94-406f-882d-6cc006b51f18"
                href="../../../_images/observers-default1.png"
                title=""
                data-title=""
@@ -123,12 +123,12 @@ portfolio value)</p>
                      alt=""/>
                 </a><p>Now let&#8217;s change the value of <code class="docutils literal"><span class="pre">stdstats</span></code> to <code class="docutils literal"><span class="pre">False</span></code> when creating the
 <strong>Cerebro</strong> instance (can also be done when invoking <code class="docutils literal"><span class="pre">run</span></code>):</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">cerebro</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">Cerebro</span><span class="p">(</span><span class="n">stdstats</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">cerebro</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">Cerebro</span><span class="p">(</span><span class="n">stdstats</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The chart is different now.</p>
 <a class=""
-               data-lightbox="group-bf90bae3-03d1-4c0b-9686-bd32a4b9ea7c"
+               data-lightbox="group-34e45a19-4167-4c65-99a2-b5e7c9e3245f"
                href="../../../_images/observers-default-false1.png"
                title=""
                data-title=""
@@ -149,14 +149,14 @@ the observers can be done through an attribute of the strategy called:</p>
 </div></blockquote>
 <p>It is simply a placeholder. If we recall the addition of one of the default
 <strong>Observers</strong> as laid out above:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="o">...</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="o">...</span>
 <span class="n">cerebro</span><span class="o">.</span><span class="n">addobserver</span><span class="p">(</span><span class="n">backtrader</span><span class="o">.</span><span class="n">observers</span><span class="o">.</span><span class="n">Broker</span><span class="p">)</span>
 <span class="o">...</span>
 </pre></div>
 </div>
 <p>The obvious question would be how to access the <code class="docutils literal"><span class="pre">Broker</span></code> observer. Here for
 example how it&#8217;s done from the <code class="docutils literal"><span class="pre">next</span></code> method of a strategy:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MyStrategy</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Strategy</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyStrategy</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Strategy</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
@@ -178,7 +178,7 @@ is also a <code class="docutils literal"><span class="pre">Lines</span></code> o
 <div class="section" id="observer-implementation">
 <h2>Observer Implementation<a class="headerlink" href="#observer-implementation" title="Permalink to this headline">¶</a></h2>
 <p>The implementation is very similar to that of an Indicator:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Broker</span><span class="p">(</span><span class="n">Observer</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Broker</span><span class="p">(</span><span class="n">Observer</span><span class="p">):</span>
     <span class="n">alias</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;CashValue&#39;</span><span class="p">,)</span>
     <span class="n">lines</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;cash&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">)</span>
 
@@ -225,7 +225,7 @@ removing those.</p>
 ecosystem</li>
 </ul>
 </div></blockquote>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span>
@@ -255,7 +255,7 @@ ecosystem</li>
 </div>
 <p>The visual output shows the evolution of the drawdown</p>
 <a class=""
-               data-lightbox="group-5928f40e-5f7d-4e0d-8930-a8bc1ebb61e5"
+               data-lightbox="group-4fcb3808-3f56-44fb-b2e4-11499faa9b10"
                href="../../../_images/observers-default-drawdown1.png"
                title=""
                data-title=""
@@ -265,7 +265,7 @@ ecosystem</li>
                      height="auto"
                      alt=""/>
                 </a><p>And part of the text output:</p>
-<div class="highlight-python"><div class="highlight"><pre>...
+<div class="highlight-python"><div class="highlight"><pre><span></span>...
 2006-12-14T23:59:59+00:00, MaxDrawDown: 2.62
 2006-12-15T23:59:59+00:00, DrawDown: 0.22
 2006-12-15T23:59:59+00:00, MaxDrawDown: 2.62
@@ -345,7 +345,7 @@ executed. We can create an observer which shows when orders where created and if
 they expired.</p>
 <p>For the sake of <em>visibility</em> the display will not be plotted along the price but
 on a separate axis.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">math</span>
@@ -395,7 +395,7 @@ of the signal</li>
 </div></blockquote>
 <p>The resulting chart.</p>
 <a class=""
-               data-lightbox="group-e43eb907-2f1e-4291-bf7a-398e08103358"
+               data-lightbox="group-8ccdce76-1a23-468d-b8e5-6a96a9099b8d"
                href="../../../_images/observers-orderobserver1.png"
                title=""
                data-title=""
@@ -416,7 +416,7 @@ the closing price will be used as the reference price.</p>
 all times and eases up the usage of <code class="docutils literal"><span class="pre">buy</span></code></p>
 </div>
 <p>Finally the code for this strategy which applies the new <strong>observer</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">datetime</span>
@@ -530,7 +530,7 @@ of observers storing them into files. The best way to do it:</p>
 </ul>
 </div></blockquote>
 <p>Considering the <code class="docutils literal"><span class="pre">DrawDown</span></code> observer, it could be done like this:</p>
-<div class="highlight-python"><div class="highlight"><pre>class MyStrategy(bt.Strategy):
+<div class="highlight-python"><div class="highlight"><pre><span></span>class MyStrategy(bt.Strategy):
 
     def start(self):
 
@@ -588,7 +588,7 @@ system to save values to a csv file.</p>
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2015-08-12-observers-and-statistics/observers-and-statistics/';
         var disqus_title = 'Observers and Statistics';
-        var disqus_url = 'http://www.backtrader.com/posts/2015-08-12-observers-and-statistics/observers-and-statistics';
+        var disqus_url = 'http://blog.backtrader.com/posts/2015-08-12-observers-and-statistics/observers-and-statistics';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -697,15 +697,15 @@ system to save values to a csv file.</p>
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -713,7 +713,7 @@ system to save values to a csv file.</p>
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

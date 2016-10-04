@@ -73,7 +73,7 @@ background</li>
 </ul>
 </div></blockquote>
 <p>Quick example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">feeds</span><span class="o">.</span><span class="n">OneOfTheFeeds</span><span class="p">(</span><span class="n">dataname</span><span class="o">=</span><span class="s1">&#39;mydataname&#39;</span><span class="p">)</span>
 <span class="n">cerebro</span><span class="o">.</span><span class="n">adddata</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
@@ -94,7 +94,7 @@ Average</em></li>
 </ul>
 </div></blockquote>
 <p>The definition:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MySignal</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Indicator</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MySignal</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Indicator</span><span class="p">):</span>
     <span class="n">lines</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;signal&#39;</span><span class="p">,)</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">),)</span>
 
@@ -171,7 +171,7 @@ meaning is:</p>
 <h2><em>Signals</em> Types<a class="headerlink" href="#signals-types" title="Permalink to this headline">¶</a></h2>
 <p>The <em>constants</em> indicated below as seen in the example above, are directly
 available from the main <em>bactrader</em> module as in:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
 
 <span class="n">bt</span><span class="o">.</span><span class="n">SIGNAL_LONG</span>
 </pre></div>
@@ -257,7 +257,7 @@ execution of other orders</li>
 <h2>The sample<a class="headerlink" href="#the-sample" title="Permalink to this headline">¶</a></h2>
 <p>The <em>backtrader</em> sources contain a sample to test the functionality.</p>
 <p>Main signal to be used.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">SMACloseSignal</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Indicator</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SMACloseSignal</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Indicator</span><span class="p">):</span>
     <span class="n">lines</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;signal&#39;</span><span class="p">,)</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">),)</span>
 
@@ -267,7 +267,7 @@ execution of other orders</li>
 </pre></div>
 </div>
 <p>And the <em>Exit Signal</em> in case the option is specified.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">SMAExitSignal</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Indicator</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SMAExitSignal</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Indicator</span><span class="p">):</span>
     <span class="n">lines</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;signal&#39;</span><span class="p">,)</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;p1&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;p2&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">),)</span>
 
@@ -280,12 +280,12 @@ execution of other orders</li>
 </div>
 <div class="section" id="first-run-long-and-short">
 <h3>First run: long and short<a class="headerlink" href="#first-run-long-and-short" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>$ ./signals-strategy.py --plot --signal longshort
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./signals-strategy.py --plot --signal longshort
 </pre></div>
 </div>
 <p>The output</p>
 <a class=""
-               data-lightbox="group-5b6733ae-f3f6-46c4-840c-f8f69c9a1019"
+               data-lightbox="group-36b1e1c3-10e7-4971-99bd-8ff066e1b4ff"
                href="../../../_images/signal-longshort1.png"
                title=""
                data-title=""
@@ -308,12 +308,12 @@ hasn&#8217;t lost money ...</li>
 </div>
 <div class="section" id="second-run-long-only">
 <h3>Second run: long only<a class="headerlink" href="#second-run-long-only" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>$ ./signals-strategy.py --plot --signal longonly
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./signals-strategy.py --plot --signal longonly
 </pre></div>
 </div>
 <p>The output</p>
 <a class=""
-               data-lightbox="group-1a5866a8-7bae-4b9c-9878-a6fd54b8b803"
+               data-lightbox="group-6bb2c914-47fe-44c9-80f4-1d8ce83ddda8"
                href="../../../_images/signal-longonly1.png"
                title=""
                data-title=""
@@ -333,12 +333,12 @@ which means the strategy is out of the market</li>
 </div>
 <div class="section" id="third-run-short-only">
 <h3>Third run: short only<a class="headerlink" href="#third-run-short-only" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>$ ./signals-strategy.py --plot --signal shortonly
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./signals-strategy.py --plot --signal shortonly
 </pre></div>
 </div>
 <p>The output</p>
 <a class=""
-               data-lightbox="group-d1e6a938-23c0-4473-85fa-d462cfffea7b"
+               data-lightbox="group-3ccaa3da-7ca1-46f6-ba73-43326db281fb"
                href="../../../_images/signal-shortonly1.png"
                title=""
                data-title=""
@@ -361,12 +361,12 @@ which means the strategy is out of the market</li>
 </div>
 <div class="section" id="fourth-run-long-longexit">
 <h3>Fourth run: long + longexit<a class="headerlink" href="#fourth-run-long-longexit" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>$ ./signals-strategy.py --plot --signal longonly --exitsignal longexit
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./signals-strategy.py --plot --signal longonly --exitsignal longexit
 </pre></div>
 </div>
 <p>The output</p>
 <a class=""
-               data-lightbox="group-915b02a7-a079-44f6-927d-e9d0e5cc31f4"
+               data-lightbox="group-3aeb4735-0eb5-4cc2-b1ac-653f9ff74a8a"
                href="../../../_images/signal-long-longexit1.png"
                title=""
                data-title=""
@@ -389,7 +389,7 @@ at the end of each trade</li>
 </div>
 <div class="section" id="usage">
 <h3>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>$ ./signals-strategy.py --help
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./signals-strategy.py --help
 usage: signals-strategy.py [-h] [--data DATA] [--fromdate FROMDATE]
                            [--todate TODATE] [--cash CASH]
                            [--smaperiod SMAPERIOD] [--exitperiod EXITPERIOD]
@@ -424,7 +424,7 @@ optional arguments:
 </div>
 <div class="section" id="the-code">
 <h3>The code<a class="headerlink" href="#the-code" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span>
@@ -598,7 +598,7 @@ optional arguments:
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2016-08-01-signal-strategy/signal-strategy/';
         var disqus_title = 'Strategy with Signals';
-        var disqus_url = 'http://www.backtrader.com/posts/2016-08-01-signal-strategy/signal-strategy';
+        var disqus_url = 'http://blog.backtrader.com/posts/2016-08-01-signal-strategy/signal-strategy';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -704,15 +704,15 @@ optional arguments:
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -720,7 +720,7 @@ optional arguments:
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

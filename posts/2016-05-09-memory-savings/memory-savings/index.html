@@ -145,12 +145,12 @@ month of trading.</p>
 </div>
 <p>The script 1st executed to see how many memory positions are used when no
 memory savings are requested:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./memory-savings.py --save 0
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./memory-savings.py --save 0
 Total memory cells used: 506430
 </pre></div>
 </div>
 <p>For level 1 (total savings):</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./memory-savings.py --save 1
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./memory-savings.py --save 1
 Total memory cells used: 2041
 </pre></div>
 </div>
@@ -203,7 +203,7 @@ case basis.</p>
 </div>
 <p>Now the negative levels. These are meant to keep <em>plotting</em> available whilst
 still saving a decent amount of memory. First level <code class="docutils literal"><span class="pre">-1</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./memory-savings.py --save -1
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./memory-savings.py --save -1
 Total memory cells used: 184623
 </pre></div>
 </div>
@@ -227,19 +227,19 @@ counted memory positions used.</p>
 </div>
 <p>Level <code class="docutils literal"><span class="pre">-2</span></code> now, which is meant to also save on the indicators declared at the
 strategy level which have been marked as no to be plotted:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./memory-savings.py --save -2
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./memory-savings.py --save -2
 Total memory cells used: 174695
 </pre></div>
 </div>
 <p>Not much has been saved now. This being because a single indicator has been
 tagged as not be plotted: <code class="docutils literal"><span class="pre">TestInd().plotinfo.plot</span> <span class="pre">=</span> <span class="pre">False</span></code></p>
 <p>Let&#8217;s see the plotting from this last example:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./memory-savings.py --save -2 --plot
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./memory-savings.py --save -2 --plot
 Total memory cells used: 174695
 </pre></div>
 </div>
 <a class=""
-               data-lightbox="group-cccde9c1-e743-47be-b016-cdf79a74b8a9"
+               data-lightbox="group-dc72e1ec-1050-4f0b-9ffd-c24e33b01c75"
                href="../../../_images/memory-savings1.png"
                title=""
                data-title=""
@@ -251,7 +251,7 @@ Total memory cells used: 174695
                 </a><p>For the interested reader, the sample script can produce a detailed analysis of
 each <em>lines</em> object traversed in the hierarchy of <em>indicators</em>. Running with
 <em>plotting</em> enabled (saving at <code class="docutils literal"><span class="pre">-1</span></code>):</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./memory-savings.py --save -1 --lendetails
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./memory-savings.py --save -1 --lendetails
 -- Evaluating Datas
 ---- Data 0 Total Cells 34755 - Cells per Line 4965
 -- Evaluating Indicators
@@ -270,7 +270,7 @@ Total memory cells used: 184623
 </pre></div>
 </div>
 <p>The same but with maximum savings (<code class="docutils literal"><span class="pre">1</span></code>) enabled:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./memory-savings.py --save 1 --lendetails
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./memory-savings.py --save 1 --lendetails
 -- Evaluating Datas
 ---- Data 0 Total Cells 266 - Cells per Line 38
 -- Evaluating Indicators
@@ -293,7 +293,7 @@ seen in the last lines of the output.</p>
 <div class="section" id="script-code-and-usage">
 <h2>Script Code and Usage<a class="headerlink" href="#script-code-and-usage" title="Permalink to this headline">¶</a></h2>
 <p>Available as sample in the sources of <code class="docutils literal"><span class="pre">backtrader</span></code>. Usage:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./memory-savings.py --help
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./memory-savings.py --help
 usage: memory-savings.py [-h] [--data DATA] [--save SAVE] [--datalines]
                          [--lendetails] [--plot]
 
@@ -309,7 +309,7 @@ optional arguments:
 </pre></div>
 </div>
 <p>The code:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span>
@@ -493,7 +493,7 @@ optional arguments:
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2016-05-09-memory-savings/memory-savings/';
         var disqus_title = 'Saving Memory';
-        var disqus_url = 'http://www.backtrader.com/posts/2016-05-09-memory-savings/memory-savings';
+        var disqus_url = 'http://blog.backtrader.com/posts/2016-05-09-memory-savings/memory-savings';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -599,15 +599,15 @@ optional arguments:
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -615,7 +615,7 @@ optional arguments:
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

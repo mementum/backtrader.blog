@@ -84,7 +84,7 @@ further possibilities</li>
 </ul>
 </div></blockquote>
 <p>The actual work before getting to the sample:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">CommInfoBase</span><span class="p">(</span><span class="n">with_metaclass</span><span class="p">(</span><span class="n">MetaParams</span><span class="p">)):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CommInfoBase</span><span class="p">(</span><span class="n">with_metaclass</span><span class="p">(</span><span class="n">MetaParams</span><span class="p">)):</span>
     <span class="n">COMM_PERC</span><span class="p">,</span> <span class="n">COMM_FIXED</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
     <span class="n">params</span> <span class="o">=</span> <span class="p">(</span>
@@ -132,7 +132,7 @@ value of this parameter to <code class="docutils literal"><span class="pre">True
 </div></blockquote>
 <p>All these parameters can also be used in <code class="docutils literal"><span class="pre">broker.setcommission</span></code> which now
 looks like this:</p>
-<div class="highlight-python"><div class="highlight"><pre>def setcommission(self,
+<div class="highlight-python"><div class="highlight"><pre><span></span>def setcommission(self,
                   commission=0.0, margin=None, mult=1.0,
                   commtype=None, percabs=True, stocklike=False,
                   name=None):
@@ -147,7 +147,7 @@ mentioned above for the <code class="docutils literal"><span class="pre">Commiss
 </div></blockquote>
 <p>The old sample to test <code class="docutils literal"><span class="pre">commissions-schemes</span></code> has been reworked to support
 command line arguments and the new behavior. The usage help:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./commission-schemes.py --help
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./commission-schemes.py --help
 usage: commission-schemes.py [-h] [--data DATA] [--fromdate FROMDATE]
                              [--todate TODATE] [--stake STAKE]
                              [--period PERIOD] [--cash CASH] [--comm COMM]
@@ -199,11 +199,11 @@ schemes posts.</p>
 <div class="section" id="commissions-for-futures-fixed-and-with-margin">
 <h2>Commissions for futures (fixed and with margin)<a class="headerlink" href="#commissions-for-futures-fixed-and-with-margin" title="Permalink to this headline">¶</a></h2>
 <p>The execution and chart:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./commission-schemes.py --comm 2.0 --margin 2000.0 --mult 10 --plot
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./commission-schemes.py --comm 2.0 --margin 2000.0 --mult 10 --plot
 </pre></div>
 </div>
 <a class=""
-               data-lightbox="group-92bcd249-eda5-4919-bbba-00e7fdb0ff16"
+               data-lightbox="group-d0133533-7f13-4f11-bdad-a16f75c4aefb"
                href="../../../_images/commission-futures-extended1.png"
                title=""
                data-title=""
@@ -214,7 +214,7 @@ schemes posts.</p>
                      alt=""/>
                 </a><p>And the output showing a fixed commission of 2.0 monetary units (default stake
 is 1):</p>
-<div class="highlight-python"><div class="highlight"><pre>2006-03-09, BUY CREATE, 3757.59
+<div class="highlight-python"><div class="highlight"><pre><span></span>2006-03-09, BUY CREATE, 3757.59
 2006-03-10, BUY EXECUTED, Price: 3754.13, Cost: 2000.00, Comm 2.00
 2006-04-11, SELL CREATE, 3788.81
 2006-04-12, SELL EXECUTED, Price: 3786.93, Cost: 2000.00, Comm 2.00
@@ -226,11 +226,11 @@ is 1):</p>
 <div class="section" id="commissions-for-stocks-perc-and-withoout-margin">
 <h2>Commissions for stocks (perc and withoout  margin)<a class="headerlink" href="#commissions-for-stocks-perc-and-withoout-margin" title="Permalink to this headline">¶</a></h2>
 <p>The execution and chart:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./commission-schemes.py --comm 0.005 --margin 0 --mult 1 --plot
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./commission-schemes.py --comm 0.005 --margin 0 --mult 1 --plot
 </pre></div>
 </div>
 <a class=""
-               data-lightbox="group-0b1fabf3-e4e5-44de-9a92-d4198eee86c8"
+               data-lightbox="group-06f04128-69d6-4f58-a431-3cc16696edfb"
                href="../../../_images/commission-stocks-extended1.png"
                title=""
                data-title=""
@@ -240,12 +240,12 @@ is 1):</p>
                      height="auto"
                      alt=""/>
                 </a><p>To improve readability a relative % value can be used:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./commission-schemes.py --percrel --comm 0.5 --margin 0 --mult 1 --plot
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./commission-schemes.py --percrel --comm 0.5 --margin 0 --mult 1 --plot
 </pre></div>
 </div>
 <p>Now <code class="docutils literal"><span class="pre">0.5</span></code> means directly <code class="docutils literal"><span class="pre">0.5%</span></code></p>
 <p>Being the output in both cases:</p>
-<div class="highlight-python"><div class="highlight"><pre>2006-03-09, BUY CREATE, 3757.59
+<div class="highlight-python"><div class="highlight"><pre><span></span>2006-03-09, BUY CREATE, 3757.59
 2006-03-10, BUY EXECUTED, Price: 3754.13, Cost: 3754.13, Comm 18.77
 2006-04-11, SELL CREATE, 3788.81
 2006-04-12, SELL EXECUTED, Price: 3786.93, Cost: 3754.13, Comm 18.93
@@ -257,11 +257,11 @@ is 1):</p>
 <div class="section" id="commissions-for-futures-perc-and-with-margin">
 <h2>Commissions for futures (perc and with margin)<a class="headerlink" href="#commissions-for-futures-perc-and-with-margin" title="Permalink to this headline">¶</a></h2>
 <p>Using the new parameters, futures on a perc based scheme:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./commission-schemes.py --commtype perc --percrel --comm 0.5 --margin 2000 --mult 10 --plot
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./commission-schemes.py --commtype perc --percrel --comm 0.5 --margin 2000 --mult 10 --plot
 </pre></div>
 </div>
 <a class=""
-               data-lightbox="group-f34e1ae7-d3bc-41de-96f1-0c802855de35"
+               data-lightbox="group-296dd985-d4b5-4996-8911-9bdcbeeede61"
                href="../../../_images/commission-stocks-extended1.png"
                title=""
                data-title=""
@@ -273,7 +273,7 @@ is 1):</p>
                 </a><p>It should come to no surprise that by changing the commission ... the final
 result has changed</p>
 <p>The output shows that the commission is variable now:</p>
-<div class="highlight-python"><div class="highlight"><pre>2006-03-09, BUY CREATE, 3757.59
+<div class="highlight-python"><div class="highlight"><pre><span></span>2006-03-09, BUY CREATE, 3757.59
 2006-03-10, BUY EXECUTED, Price: 3754.13, Cost: 2000.00, Comm 18.77
 2006-04-11, SELL CREATE, 3788.81
 2006-04-12, SELL EXECUTED, Price: 3786.93, Cost: 2000.00, Comm 18.93
@@ -287,7 +287,7 @@ cooked commission scheme.</p>
 </div>
 <div class="section" id="the-code-for-the-sample">
 <h2>The code for the sample<a class="headerlink" href="#the-code-for-the-sample" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span>
@@ -497,7 +497,7 @@ cooked commission scheme.</p>
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2015-11-05-commission-schemes-extended/commission-schemes-extended/';
         var disqus_title = 'Extending Commissions';
-        var disqus_url = 'http://www.backtrader.com/posts/2015-11-05-commission-schemes-extended/commission-schemes-extended';
+        var disqus_url = 'http://blog.backtrader.com/posts/2015-11-05-commission-schemes-extended/commission-schemes-extended';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -603,15 +603,15 @@ cooked commission scheme.</p>
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -619,7 +619,7 @@ cooked commission scheme.</p>
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

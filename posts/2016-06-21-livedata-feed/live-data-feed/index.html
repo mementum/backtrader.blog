@@ -140,11 +140,11 @@ documentation link:</p>
 </div></blockquote>
 <p>A couple of runs from the sample <code class="docutils literal"><span class="pre">ibtest</span></code> against the <em>TWS Demo</em></p>
 <p>First: <code class="docutils literal"><span class="pre">TWTR</span></code> with resampling to 5 seconds:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./ibtest.py --port 7497 --data0 TWTR --resample --timeframe Seconds --compression 5
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./ibtest.py --port 7497 --data0 TWTR --resample --timeframe Seconds --compression 5
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-python"><div class="highlight"><pre>Server Version: 76
+<div class="highlight-python"><div class="highlight"><pre><span></span>Server Version: 76
 TWS Time at connection:20160620 22:37:37 CET
 --------------------------------------------------
 Strategy Created
@@ -220,11 +220,11 @@ the currently resampled bar is yet over or not)</p>
 </div></blockquote>
 <p>Let&#8217;s do the same but forcing a disconnection (the network interface is
 disabled 20 seconds):</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./ibtest.py --port 7497 --data0 TWTR --resample --timeframe Seconds --compression 5
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./ibtest.py --port 7497 --data0 TWTR --resample --timeframe Seconds --compression 5
 </pre></div>
 </div>
 <p>Output (skipping the initial known part):</p>
-<div class="highlight-python"><div class="highlight"><pre>...
+<div class="highlight-python"><div class="highlight"><pre><span></span>...
 1440, 2016-06-20T18:16:20.000000, 16.05, 16.05, 16.04, 16.04, 0.0, 0, 16.048
 1441, 2016-06-20T18:16:25.000000, 16.05, 16.05, 16.05, 16.05, 0.0, 0, 16.05
 ***** DATA NOTIF: LIVE
@@ -287,12 +287,12 @@ current timestamps (identified through a sudden burst of packets)</p>
 <p>And finally some trading, buying <em>20K</em> shares of <code class="docutils literal"><span class="pre">TWTR</span></code> with a single
 <code class="docutils literal"><span class="pre">Market</span></code> order and selling them in 2 orders of <em>10K</em> each.</p>
 <p>Execution:</p>
-<div class="highlight-python"><div class="highlight"><pre>./ibtest.py --port 7497 --data0 TWTR --resample --timeframe Seconds --compression 5 --broker --trade --stake 20000
+<div class="highlight-python"><div class="highlight"><pre><span></span>./ibtest.py --port 7497 --data0 TWTR --resample --timeframe Seconds --compression 5 --broker --trade --stake 20000
 </pre></div>
 </div>
 <p>The output is rather verbose, showing all parts of the order
 exeuction. Summarising a bit:</p>
-<div class="highlight-python"><div class="highlight"><pre>...
+<div class="highlight-python"><div class="highlight"><pre><span></span>...
 ***** DATA NOTIF: LIVE
 1442, 2016-06-20T18:28:05.000000, 15.92, 15.93, 15.92, 15.93, 1748.0, 0, 16.03
 -------------------------------------------------- ORDER BEGIN 2016-06-20 23:28:11.343000
@@ -405,7 +405,7 @@ evening</p>
 </ul>
 </div></blockquote>
 <a class=""
-               data-lightbox="group-dab91140-acce-4d77-a048-eca8a61797f8"
+               data-lightbox="group-3306cc80-9cda-4043-a504-866d4e983f9a"
                href="../../../_images/ibtest-twtr-execution1.png"
                title=""
                data-title=""
@@ -417,7 +417,7 @@ evening</p>
                 </a><p>The sample can do much more and is intended as a thorough test of the
 facilities and if possible to uncover any rough edges.</p>
 <p>The usage:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./ibtest.py --help
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./ibtest.py --help
 usage: ibtest.py [-h] [--exactbars EXACTBARS] [--plot] [--stopafter STOPAFTER]
                  [--usestore] [--notifyall] [--debug] [--host HOST]
                  [--qcheck QCHECK] [--port PORT] [--clientId CLIENTID]
@@ -507,7 +507,7 @@ optional arguments:
 </pre></div>
 </div>
 <p>The code:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span>
@@ -965,7 +965,7 @@ optional arguments:
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2016-06-21-livedata-feed/live-data-feed/';
         var disqus_title = 'Live Data/Live Trading';
-        var disqus_url = 'http://www.backtrader.com/posts/2016-06-21-livedata-feed/live-data-feed';
+        var disqus_url = 'http://blog.backtrader.com/posts/2016-06-21-livedata-feed/live-data-feed';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -1071,15 +1071,15 @@ optional arguments:
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -1087,7 +1087,7 @@ optional arguments:
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

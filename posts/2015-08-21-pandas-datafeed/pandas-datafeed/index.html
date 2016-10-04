@@ -65,7 +65,7 @@ analyzing data from a <a class="reference external" href="pandas.pydata.org">Pan
 </div>
 <p>This seems to be of concern to lots of people, who rely on the already
 available parsing code for different data sources (including CSV)</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">PandasData</span><span class="p">(</span><span class="n">feed</span><span class="o">.</span><span class="n">DataBase</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">PandasData</span><span class="p">(</span><span class="n">feed</span><span class="o">.</span><span class="n">DataBase</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    The ``dataname`` parameter inherited from ``feed.DataBase``  is the pandas</span>
 <span class="sd">    Time Series</span>
@@ -126,7 +126,7 @@ Pandas Dataframe</p>
 <p>A small sample should be able to load the standar 2006 sample, having been
 parsed by <code class="docutils literal"><span class="pre">Pandas</span></code>, rather than directly by <code class="docutils literal"><span class="pre">backtrader</span></code></p>
 <p>Running the sample to use the exiting &#8220;headers&#8221; in the CSV data:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./panda-test.py
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./panda-test.py
 --------------------------------------------------
                Open     High      Low    Close  Volume  OpenInterest
 Date
@@ -136,7 +136,7 @@ Date
 </pre></div>
 </div>
 <p>The same but telling the script to skip the headers:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./panda-test.py --noheaders
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./panda-test.py --noheaders
 --------------------------------------------------
                   1        2        3        4  5  6
 0
@@ -158,7 +158,7 @@ offer a best match.</p>
 <p>The following chart is the tribute to success. The Pandas Dataframe has been
 correctly loaded (in both cases)</p>
 <a class=""
-               data-lightbox="group-b9eb8494-6876-45c5-880b-82fbeb7f823a"
+               data-lightbox="group-1c54fc87-bde0-41a1-b788-6870b89fd484"
                href="../../../_images/pandas-headers1.png"
                title=""
                data-title=""
@@ -168,7 +168,7 @@ correctly loaded (in both cases)</p>
                      height="auto"
                      alt=""/>
                 </a><p>The sample code for the test.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span>
@@ -275,7 +275,7 @@ correctly loaded (in both cases)</p>
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2015-08-21-pandas-datafeed/pandas-datafeed/';
         var disqus_title = 'Pandas DataFeed Support';
-        var disqus_url = 'http://www.backtrader.com/posts/2015-08-21-pandas-datafeed/pandas-datafeed';
+        var disqus_url = 'http://blog.backtrader.com/posts/2015-08-21-pandas-datafeed/pandas-datafeed';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -381,15 +381,15 @@ correctly loaded (in both cases)</p>
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -397,7 +397,7 @@ correctly loaded (in both cases)</p>
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

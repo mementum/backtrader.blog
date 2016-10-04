@@ -76,7 +76,7 @@ different lengths inside the <code class="docutils literal"><span class="pre">Ce
 </div></blockquote>
 <p>Example of a calculation, in which <code class="docutils literal"><span class="pre">data0</span></code> has a timeframe of days and
 <code class="docutils literal"><span class="pre">data1</span></code> has a timeframe of <code class="docutils literal"><span class="pre">months</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">pivotpoint</span> <span class="o">=</span> <span class="n">btind</span><span class="o">.</span><span class="n">PivotPoint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data1</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">pivotpoint</span> <span class="o">=</span> <span class="n">btind</span><span class="o">.</span><span class="n">PivotPoint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data1</span><span class="p">)</span>
 <span class="n">sellsignal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data0</span><span class="o">.</span><span class="n">close</span> <span class="o">&lt;</span> <span class="n">pivotpoint</span><span class="o">.</span><span class="n">s1</span>
 </pre></div>
 </div>
@@ -87,7 +87,7 @@ support</em>)</p>
 <p class="last"><code class="docutils literal"><span class="pre">PivotPoint</span></code> works in a larger timeframe by definition</p>
 </div>
 <p>This will in the past with the following error:</p>
-<div class="highlight-python"><div class="highlight"><pre>return self.array[self.idx + ago]
+<div class="highlight-python"><div class="highlight"><pre><span></span>return self.array[self.idx + ago]
 IndexError: array index out of range
 </pre></div>
 </div>
@@ -98,14 +98,14 @@ values of <code class="docutils literal"><span class="pre">self.data0.close</spa
 for <code class="docutils literal"><span class="pre">s1</span></code> and the attempt to fetch it from the underlying array fails.</p>
 <p><em>Lines</em> objects support the <code class="docutils literal"><span class="pre">()</span></code> operator (<code class="docutils literal"><span class="pre">__call__</span></code> special method in
 <em>Python</em>) for deliver a delayed version of itself:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">close1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">close1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>In this example the object <code class="docutils literal"><span class="pre">close1</span></code> (when accessed via <code class="docutils literal"><span class="pre">[0]</span></code>) contains
 always the previous values (<code class="docutils literal"><span class="pre">-1</span></code>) delivered by <code class="docutils literal"><span class="pre">close</span></code>. The syntax has been
 reused to accomodate adapting timeframes. Let&#8217;s rewrite the above
 <code class="docutils literal"><span class="pre">pivotpoint</span></code> snippet:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">pivotpoint</span> <span class="o">=</span> <span class="n">btind</span><span class="o">.</span><span class="n">PivotPoint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data1</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">pivotpoint</span> <span class="o">=</span> <span class="n">btind</span><span class="o">.</span><span class="n">PivotPoint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data1</span><span class="p">)</span>
 <span class="n">sellsignal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data0</span><span class="o">.</span><span class="n">close</span> <span class="o">&lt;</span> <span class="n">pivotpoint</span><span class="o">.</span><span class="n">s1</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -118,22 +118,22 @@ latest delivered value from the real <code class="docutils literal"><span class=
 <code class="docutils literal"><span class="pre">NaN</span></code>)</div></blockquote>
 <p>But something extra is needed to make the magic work. <code class="docutils literal"><span class="pre">Cerebro</span></code> has to be
 created with:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">cerebro</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">Cerebro</span><span class="p">(</span><span class="n">runonce</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">cerebro</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">Cerebro</span><span class="p">(</span><span class="n">runonce</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>or executed with:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">cerebro</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">runonce</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">cerebro</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">runonce</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>In this mode the indicators and late-evaluated automatic <em>lines</em> objects are
 executed step by step rather than in tight loops. This makes the entire
 operation slower, but it makes it <strong>possible</strong></p>
 <p>The sample script at the bottom which was breaking above, now runs:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./mixing-timeframes.py
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./mixing-timeframes.py
 </pre></div>
 </div>
 <p>With output:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="mo">0021</span><span class="p">,</span><span class="mo">0021</span><span class="p">,</span><span class="mo">0001</span><span class="p">,</span><span class="mi">2005</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mi">31</span><span class="p">,</span><span class="mf">2984.75</span><span class="p">,</span><span class="mf">2935.96</span><span class="p">,</span><span class="mf">0.00</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mo">0021</span><span class="p">,</span><span class="mo">0021</span><span class="p">,</span><span class="mo">0001</span><span class="p">,</span><span class="mi">2005</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mi">31</span><span class="p">,</span><span class="mf">2984.75</span><span class="p">,</span><span class="mf">2935.96</span><span class="p">,</span><span class="mf">0.00</span>
 <span class="mo">0022</span><span class="p">,</span><span class="mo">0022</span><span class="p">,</span><span class="mo">0001</span><span class="p">,</span><span class="mi">2005</span><span class="o">-</span><span class="mo">02</span><span class="o">-</span><span class="mo">01</span><span class="p">,</span><span class="mf">3008.85</span><span class="p">,</span><span class="mf">2935.96</span><span class="p">,</span><span class="mf">0.00</span>
 <span class="o">...</span>
 <span class="mo">0073</span><span class="p">,</span><span class="mo">0073</span><span class="p">,</span><span class="mo">0003</span><span class="p">,</span><span class="mi">2005</span><span class="o">-</span><span class="mo">04</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span><span class="mf">3013.89</span><span class="p">,</span><span class="mf">3010.76</span><span class="p">,</span><span class="mf">0.00</span>
@@ -144,22 +144,22 @@ operation slower, but it makes it <strong>possible</strong></p>
 <p>At trading 74 the 1st instance of <code class="docutils literal"><span class="pre">close</span> <span class="pre">&lt;</span> <span class="pre">s1</span></code> takes palce.</p>
 <p>The script also provides insight into the additional possiblity: <em>couple all
 lines of an indicator</em>. Before we had:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="bp">self</span><span class="o">.</span><span class="n">sellsignal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data0</span><span class="o">.</span><span class="n">close</span> <span class="o">&lt;</span> <span class="n">pp</span><span class="o">.</span><span class="n">s1</span><span class="p">()</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">sellsignal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data0</span><span class="o">.</span><span class="n">close</span> <span class="o">&lt;</span> <span class="n">pp</span><span class="o">.</span><span class="n">s1</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Being the alternative:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">pp1</span> <span class="o">=</span> <span class="n">pp</span><span class="p">()</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">pp1</span> <span class="o">=</span> <span class="n">pp</span><span class="p">()</span>
 <span class="bp">self</span><span class="o">.</span><span class="n">sellsignal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data0</span><span class="o">.</span><span class="n">close</span> <span class="o">&lt;</span> <span class="n">pp1</span><span class="o">.</span><span class="n">s1</span>
 </pre></div>
 </div>
 <p>Now the entire <code class="docutils literal"><span class="pre">PivotPoint</span></code> indicator has been coupled and any of its lines
 can be accessed (namely <code class="docutils literal"><span class="pre">p</span></code>, <code class="docutils literal"><span class="pre">r1</span></code>, <code class="docutils literal"><span class="pre">r2</span></code>, <code class="docutils literal"><span class="pre">s1</span></code>, <code class="docutils literal"><span class="pre">s2</span></code>). The script has
 only interest in <code class="docutils literal"><span class="pre">s1</span></code> and the access is direct.:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./mixing-timeframes.py --multi
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./mixing-timeframes.py --multi
 </pre></div>
 </div>
 <p>The output:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="mo">0021</span><span class="p">,</span><span class="mo">0021</span><span class="p">,</span><span class="mo">0001</span><span class="p">,</span><span class="mi">2005</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mi">31</span><span class="p">,</span><span class="mf">2984.75</span><span class="p">,</span><span class="mf">2935.96</span><span class="p">,</span><span class="mf">0.00</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mo">0021</span><span class="p">,</span><span class="mo">0021</span><span class="p">,</span><span class="mo">0001</span><span class="p">,</span><span class="mi">2005</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mi">31</span><span class="p">,</span><span class="mf">2984.75</span><span class="p">,</span><span class="mf">2935.96</span><span class="p">,</span><span class="mf">0.00</span>
 <span class="mo">0022</span><span class="p">,</span><span class="mo">0022</span><span class="p">,</span><span class="mo">0001</span><span class="p">,</span><span class="mi">2005</span><span class="o">-</span><span class="mo">02</span><span class="o">-</span><span class="mo">01</span><span class="p">,</span><span class="mf">3008.85</span><span class="p">,</span><span class="mf">2935.96</span><span class="p">,</span><span class="mf">0.00</span>
 <span class="o">...</span>
 <span class="mo">0073</span><span class="p">,</span><span class="mo">0073</span><span class="p">,</span><span class="mo">0003</span><span class="p">,</span><span class="mi">2005</span><span class="o">-</span><span class="mo">04</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span><span class="mf">3013.89</span><span class="p">,</span><span class="mf">3010.76</span><span class="p">,</span><span class="mf">0.00</span>
@@ -169,11 +169,11 @@ only interest in <code class="docutils literal"><span class="pre">s1</span></cod
 </div>
 <p>No surprises here. The same as before. The &#8220;coupled&#8221; object can even be
 plotted:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./mixing-timeframes.py --multi --plot
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./mixing-timeframes.py --multi --plot
 </pre></div>
 </div>
 <a class=""
-               data-lightbox="group-94ff86b1-0d09-4ab2-a40f-6a40cfaf9c30"
+               data-lightbox="group-2617d500-c2da-4073-a04e-ec57bd491063"
                href="../../../_images/indicators-mixing-timeframes1.png"
                title=""
                data-title=""
@@ -207,7 +207,7 @@ coupled and fetched by index (from <code class="docutils literal"><span class="p
 </li>
 <li><p class="first">If a string is passed, the line will be fetched by name.</p>
 <p>In the sample the following could have been done:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">coupled_s1</span> <span class="o">=</span> <span class="n">pp</span><span class="p">(</span><span class="n">line</span><span class="o">=</span><span class="s1">&#39;s1&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">coupled_s1</span> <span class="o">=</span> <span class="n">pp</span><span class="p">(</span><span class="n">line</span><span class="o">=</span><span class="s1">&#39;s1&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>
@@ -234,7 +234,7 @@ instantiated or created with <code class="docutils literal"><span class="pre">ru
 <div class="section" id="script-code-and-usage">
 <h2>Script Code and Usage<a class="headerlink" href="#script-code-and-usage" title="Permalink to this headline">¶</a></h2>
 <p>Available as sample in the sources of <code class="docutils literal"><span class="pre">backtrader</span></code>. Usage:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./mixing-timeframes.py --help
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./mixing-timeframes.py --help
 usage: mixing-timeframes.py [-h] [--data DATA] [--multi] [--plot]
 
 Sample for pivot point and cross plotting
@@ -247,7 +247,7 @@ optional arguments:
 </pre></div>
 </div>
 <p>The code:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span>
@@ -361,7 +361,7 @@ optional arguments:
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2016-05-05-indicators-mixing-timeframes/indicators-mixing-timeframes/';
         var disqus_title = 'Mixing Timeframes in Indicators';
-        var disqus_url = 'http://www.backtrader.com/posts/2016-05-05-indicators-mixing-timeframes/indicators-mixing-timeframes';
+        var disqus_url = 'http://blog.backtrader.com/posts/2016-05-05-indicators-mixing-timeframes/indicators-mixing-timeframes';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -467,15 +467,15 @@ optional arguments:
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -483,7 +483,7 @@ optional arguments:
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

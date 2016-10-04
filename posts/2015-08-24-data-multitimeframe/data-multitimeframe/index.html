@@ -94,7 +94,7 @@ several orders of magnitude of the smaller timeframe bars before a Strategy
 added to Cerebro kicks into action.</p>
 <p>The built-in <code class="docutils literal"><span class="pre">DataResampler</span></code> is going to be used to create a larger timeframe.</p>
 <p>Some examples below, but first the sauce of the test script.</p>
-<div class="highlight-python"><div class="highlight"><pre>    <span class="c1"># Load the Data</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span>    <span class="c1"># Load the Data</span>
     <span class="n">datapath</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">dataname</span> <span class="ow">or</span> <span class="s1">&#39;../datas/sample/2006-day-001.txt&#39;</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">btfeeds</span><span class="o">.</span><span class="n">BacktraderCSVData</span><span class="p">(</span>
         <span class="n">dataname</span><span class="o">=</span><span class="n">datapath</span><span class="p">)</span>
@@ -137,12 +137,12 @@ added to Cerebro kicks into action.</p>
 <div class="section" id="example-1-daily-and-weekly">
 <h2>Example 1 - Daily and Weekly<a class="headerlink" href="#example-1-daily-and-weekly" title="Permalink to this headline">¶</a></h2>
 <p>The invocation of the script:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./data-multitimeframe.py --timeframe weekly --compression 1
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./data-multitimeframe.py --timeframe weekly --compression 1
 </pre></div>
 </div>
 <p>And the output chart:</p>
 <a class=""
-               data-lightbox="group-66a4d343-4734-4dff-85e7-d57716cb4e08"
+               data-lightbox="group-fb89605c-f352-4b11-914d-60ba84d624f5"
                href="../../../_images/multitimeframe-daily-weekly1.png"
                title=""
                data-title=""
@@ -155,12 +155,12 @@ added to Cerebro kicks into action.</p>
 <div class="section" id="example-2-daily-and-daily-compression-2-bars-to-1">
 <h2>Example 2 - Daily and Daily Compression (2 bars to 1)<a class="headerlink" href="#example-2-daily-and-daily-compression-2-bars-to-1" title="Permalink to this headline">¶</a></h2>
 <p>The invocation of the script:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./data-multitimeframe.py --timeframe daily --compression 2
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./data-multitimeframe.py --timeframe daily --compression 2
 </pre></div>
 </div>
 <p>And the output chart:</p>
 <a class=""
-               data-lightbox="group-eaab3dc0-b825-4b94-ad39-084559d41b66"
+               data-lightbox="group-fb16033a-c24c-4fe1-a7ca-c18ed89547b8"
                href="../../../_images/multitimeframe-daily-daily-21.png"
                title=""
                data-title=""
@@ -201,7 +201,7 @@ to calling <code class="docutils literal"><span class="pre">next</span></code> t
 <h3>Invocation 1:<a class="headerlink" href="#invocation-1" title="Permalink to this headline">¶</a></h3>
 <p>Only the smaller timeframe, daily, gets a Simple Moving Average</p>
 <p>The command line and output</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./data-multitimeframe.py --timeframe weekly --compression 1 --indicators --onlydaily
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./data-multitimeframe.py --timeframe weekly --compression 1 --indicators --onlydaily
 --------------------------------------------------
 nextstart called with len 10
 --------------------------------------------------
@@ -209,7 +209,7 @@ nextstart called with len 10
 </div>
 <p>And the chart.</p>
 <a class=""
-               data-lightbox="group-597f2629-0c20-4bbb-993a-0ffe194e0203"
+               data-lightbox="group-d76f5837-49ab-45c0-a08c-d4599684ffc1"
                href="../../../_images/multitimeframe-daily-weekly-indicators-onlydaily1.png"
                title=""
                data-title=""
@@ -223,7 +223,7 @@ nextstart called with len 10
 <h3>Invocation 2:<a class="headerlink" href="#invocation-2" title="Permalink to this headline">¶</a></h3>
 <p>Both timeframes get a Simple Moving Average</p>
 <p>The command line:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./data-multitimeframe.py --timeframe weekly --compression 1 --indicators
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./data-multitimeframe.py --timeframe weekly --compression 1 --indicators
 --------------------------------------------------
 nextstart called with len 50
 --------------------------------------------------
@@ -262,7 +262,7 @@ timeframe <code class="docutils literal"><span class="pre">nextstart</span></cod
 </div></blockquote>
 <p>And the chart.</p>
 <a class=""
-               data-lightbox="group-8434a9c5-7925-4c03-95d1-260da9cdb5d6"
+               data-lightbox="group-f9a17ff0-ce6e-4e57-b371-130bab19e626"
                href="../../../_images/multitimeframe-daily-weekly-indicators1.png"
                title=""
                data-title=""
@@ -278,7 +278,7 @@ timeframe <code class="docutils literal"><span class="pre">nextstart</span></cod
 <p>Multiple Timeframe Datas can be used in <code class="docutils literal"><span class="pre">backtrader</span></code> with no special objects
 or tweaking: just add the smaller timeframes first.</p>
 <p>The test script.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span>
@@ -436,7 +436,7 @@ or tweaking: just add the smaller timeframes first.</p>
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2015-08-24-data-multitimeframe/data-multitimeframe/';
         var disqus_title = 'Data - Multiple Timeframes';
-        var disqus_url = 'http://www.backtrader.com/posts/2015-08-24-data-multitimeframe/data-multitimeframe';
+        var disqus_url = 'http://blog.backtrader.com/posts/2015-08-24-data-multitimeframe/data-multitimeframe';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -542,15 +542,15 @@ or tweaking: just add the smaller timeframes first.</p>
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -558,7 +558,7 @@ or tweaking: just add the smaller timeframes first.</p>
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

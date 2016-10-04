@@ -134,7 +134,7 @@ point representation of the day</p>
 <p>In the meantime the code of the <code class="docutils literal"><span class="pre">RelativeVolumeByBar</span></code> indicator is presented
 below. Having the&#8221;period&#8221;/&#8221;buffer&#8221; calculation inside the indicator is not the
 preferred pattern, but it serves the purpose in this case.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">collections</span>
@@ -271,7 +271,7 @@ preferred pattern, but it serves the purpose in this case.</p>
 </pre></div>
 </div>
 <p>Invoked through an script, which can be used as follows:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./relative-volume.py --help
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./relative-volume.py --help
 usage: relative-volume.py [-h] [--data DATA] [--prestart PRESTART]
                           [--start START] [--end END] [--fromdate FROMDATE]
                           [--todate TODATE] [--writer] [--wrcsv] [--plot]
@@ -297,12 +297,12 @@ optional arguments:
 </pre></div>
 </div>
 <p>A test invocation:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./relative-volume.py --plot
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./relative-volume.py --plot
 </pre></div>
 </div>
 <p>Generates this chart:</p>
 <a class=""
-               data-lightbox="group-62573f9b-3258-49ed-9f27-5a87001f4c7a"
+               data-lightbox="group-f0dc75de-1e1b-4344-8ca9-da6a9144396f"
                href="../../../_images/bar-synchronization1.png"
                title=""
                data-title=""
@@ -312,7 +312,7 @@ optional arguments:
                      height="auto"
                      alt=""/>
                 </a><p>The code for the script.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span>
@@ -453,7 +453,7 @@ optional arguments:
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2015-10-04-bar-synchronization/bar-synchronization/';
         var disqus_title = 'Bar Synchronization';
-        var disqus_url = 'http://www.backtrader.com/posts/2015-10-04-bar-synchronization/bar-synchronization';
+        var disqus_url = 'http://blog.backtrader.com/posts/2015-10-04-bar-synchronization/bar-synchronization';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -559,15 +559,15 @@ optional arguments:
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -575,7 +575,7 @@ optional arguments:
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

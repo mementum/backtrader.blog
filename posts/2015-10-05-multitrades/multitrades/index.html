@@ -80,13 +80,13 @@ implementation of a custom <code class="docutils literal"><span class="pre">MTra
 the plot according <code class="docutils literal"><span class="pre">tradeid</span></code> (for the test values 0, 1 and 2 are used)</p>
 <p>The script supports using the three ids (0, 1, 2) or simply use 0 (default)</p>
 <p>An execution without enabling multiple ids:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./multitrades.py --plot
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./multitrades.py --plot
 </pre></div>
 </div>
 <p>With the resulting chart showing all Trades carry id <code class="docutils literal"><span class="pre">0</span></code> and therefore cannot
 be diferentiated.</p>
 <a class=""
-               data-lightbox="group-d0ca3627-4ae3-4da7-a77b-c8cc8796026c"
+               data-lightbox="group-47383422-ffbf-4aa4-b02f-7052e5d3eeab"
                href="../../../_images/multitrades-disabled1.png"
                title=""
                data-title=""
@@ -96,13 +96,13 @@ be diferentiated.</p>
                      height="auto"
                      alt=""/>
                 </a><p>A second execution enables multitrades by cycling amongs 0, 1 and 2:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./multitrades.py --plot --mtrade
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./multitrades.py --plot --mtrade
 </pre></div>
 </div>
 <p>And now 3 different markers alternate showing each Trade can be distinguished
 using the <code class="docutils literal"><span class="pre">tradeid</span></code> member.</p>
 <a class=""
-               data-lightbox="group-d2efdb53-e6e3-46c7-9fec-48f0fc7b77d2"
+               data-lightbox="group-26417e0b-7594-46f8-89fd-54b14fda243b"
                href="../../../_images/multitrades-enabled1.png"
                title=""
                data-title=""
@@ -122,7 +122,7 @@ life broker in which case manually keeping track of the unique orde id
 assigned by the broker would be needed.</p>
 </div>
 <p>Now, the code for the custom observer</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">math</span>
@@ -154,7 +154,7 @@ assigned by the broker would be needed.</p>
 </pre></div>
 </div>
 <p>The main script usage:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./multitrades.py --help
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./multitrades.py --help
 usage: multitrades.py [-h] [--data DATA] [--fromdate FROMDATE]
                       [--todate TODATE] [--mtrade] [--period PERIOD]
                       [--onlylong] [--cash CASH] [--comm COMM] [--mult MULT]
@@ -184,7 +184,7 @@ optional arguments:
 </pre></div>
 </div>
 <p>The code for the script.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span>
@@ -421,7 +421,7 @@ optional arguments:
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2015-10-05-multitrades/multitrades/';
         var disqus_title = 'MultiTrades';
-        var disqus_url = 'http://www.backtrader.com/posts/2015-10-05-multitrades/multitrades';
+        var disqus_url = 'http://blog.backtrader.com/posts/2015-10-05-multitrades/multitrades';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -527,15 +527,15 @@ optional arguments:
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -543,7 +543,7 @@ optional arguments:
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

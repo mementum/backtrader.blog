@@ -90,11 +90,11 @@ master. The new plotting code allows datas of different length.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>The old behavior is still available by using:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">cerebro</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">Cerebro</span><span class="p">(</span><span class="n">oldsync</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">cerebro</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">Cerebro</span><span class="p">(</span><span class="n">oldsync</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>or:</p>
-<div class="last highlight-python"><div class="highlight"><pre><span class="n">cerebro</span><span class="o">.</span><span class="n">rund</span><span class="p">(</span><span class="n">oldsync</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<div class="last highlight-python"><div class="highlight"><pre><span></span><span class="n">cerebro</span><span class="o">.</span><span class="n">rund</span><span class="p">(</span><span class="n">oldsync</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -114,11 +114,11 @@ been capped down to <code class="docutils literal"><span class="pre">753</span><
 <div class="section" id="first-the-old-behavior">
 <h3>First the old behavior<a class="headerlink" href="#first-the-old-behavior" title="Permalink to this headline">¶</a></h3>
 <p>The execution:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./multidata-strategy-unaligned.py --oldsync --plot
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./multidata-strategy-unaligned.py --oldsync --plot
 </pre></div>
 </div>
 <p>From the output, the important part is right at the end:</p>
-<div class="highlight-python"><div class="highlight"><pre>...
+<div class="highlight-python"><div class="highlight"><pre><span></span>...
 Self  len: 753
 Data0 len: 753
 Data1 len: 750
@@ -140,7 +140,7 @@ Data1 dt: 2005-12-27 23:59:59
 <code class="docutils literal"><span class="pre">2005-12-30</span></code>, which is not being processed by the system.</p>
 <p>The visual chart</p>
 <a class=""
-               data-lightbox="group-22b13e64-9a82-4338-9fbb-79505c43e998"
+               data-lightbox="group-53505416-cae5-4895-ad54-f42c41037791"
                href="../../../_images/multidata-oldsync1.png"
                title=""
                data-title=""
@@ -153,11 +153,11 @@ Data1 dt: 2005-12-27 23:59:59
 <div class="section" id="the-new-behavior">
 <h3>The new behavior<a class="headerlink" href="#the-new-behavior" title="Permalink to this headline">¶</a></h3>
 <p>The execution:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./multidata-strategy-unaligned.py --plot
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./multidata-strategy-unaligned.py --plot
 </pre></div>
 </div>
 <p>From the output, the important part is right at the end:</p>
-<div class="highlight-python"><div class="highlight"><pre>...
+<div class="highlight-python"><div class="highlight"><pre><span></span>...
 Self  len: 756
 Data0 len: 753
 Data1 len: 753
@@ -180,7 +180,7 @@ removed for <code class="docutils literal"><span class="pre">data0</span></code>
 </div></blockquote>
 <p>The visual chart</p>
 <a class=""
-               data-lightbox="group-3b07e9e0-69cd-4919-8ead-5926f2974292"
+               data-lightbox="group-e77fd029-ad18-4ac2-86f4-fe6cb3983ca5"
                href="../../../_images/multidata-newsync1.png"
                title=""
                data-title=""
@@ -201,7 +201,7 @@ being plotted, the visual aspect of the larger time frame is better.</p>
 <div class="section" id="execution-with-new-synchronization-model">
 <h3>Execution with new synchronization model<a class="headerlink" href="#execution-with-new-synchronization-model" title="Permalink to this headline">¶</a></h3>
 <a class=""
-               data-lightbox="group-830ff93b-49d4-4319-8770-262f3ec9c950"
+               data-lightbox="group-6d95f7be-ce69-44c6-8a92-1b03fccf7412"
                href="../../../_images/data-multitimeframe-newsync1.png"
                title=""
                data-title=""
@@ -214,7 +214,7 @@ being plotted, the visual aspect of the larger time frame is better.</p>
 <div class="section" id="execution-with-old-synchronization-model">
 <h3>Execution with old synchronization model<a class="headerlink" href="#execution-with-old-synchronization-model" title="Permalink to this headline">¶</a></h3>
 <a class=""
-               data-lightbox="group-0e791a66-5695-4ecc-a6a3-409411163c7e"
+               data-lightbox="group-d2e86a8b-3e2b-42de-86d5-c8a4967edf8e"
                href="../../../_images/data-multitimeframe-oldsync1.png"
                title=""
                data-title=""
@@ -227,7 +227,7 @@ being plotted, the visual aspect of the larger time frame is better.</p>
 </div>
 <div class="section" id="sample-usage">
 <h2>Sample Usage<a class="headerlink" href="#sample-usage" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre>$ ./multidata-strategy-unaligned.py --help
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./multidata-strategy-unaligned.py --help
 usage: multidata-strategy-unaligned.py [-h] [--data0 DATA0] [--data1 DATA1]
                                        [--fromdate FROMDATE] [--todate TODATE]
                                        [--period PERIOD] [--cash CASH]
@@ -262,7 +262,7 @@ optional arguments:
 </div>
 <div class="section" id="sample-code">
 <h2>Sample Code<a class="headerlink" href="#sample-code" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span>
@@ -479,6 +479,13 @@ optional arguments:
   <span>&nbsp;</span>
   <span style="float: right;">
   
+  
+  <a href="../../2016-09-17-notebook-inline/notebook-inline/">
+    Notebook - Automatic Inline Plotting
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  </span>
+  
 </div>
 
   
@@ -491,7 +498,7 @@ optional arguments:
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2016-09-17-data-synchronization/data-synchronization/';
         var disqus_title = 'Data Synchronization Rework';
-        var disqus_url = 'http://www.backtrader.com/posts/2016-09-17-data-synchronization/data-synchronization';
+        var disqus_url = 'http://blog.backtrader.com/posts/2016-09-17-data-synchronization/data-synchronization';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -597,6 +604,8 @@ optional arguments:
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
       <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
     
       <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
@@ -605,15 +614,13 @@ optional arguments:
     
       <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
     
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
   </ul>
 
   <h3><a href="../../../blog/archive/">Archives</a></h3>
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (27)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

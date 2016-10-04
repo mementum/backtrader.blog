@@ -69,7 +69,7 @@ a couple lines of code. The <a class="reference external" href="http://stockchar
 reference literature has a <code class="docutils literal"><span class="pre">Trix</span></code> with a signal line showing the similarities
 with MACD.</p>
 <p>Let&#8217;s &#8220;compose&#8221; <code class="docutils literal"><span class="pre">MyTrixSignal</span></code> using the already developed <code class="docutils literal"><span class="pre">Trix</span></code></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MyTrixSignalComposed</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Indicator</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyTrixSignalComposed</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Indicator</span><span class="p">):</span>
 
     <span class="n">lines</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;trix&#39;</span><span class="p">,</span> <span class="s1">&#39;signal&#39;</span><span class="p">)</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;sigperiod&#39;</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
@@ -85,7 +85,7 @@ with MACD.</p>
 and the corresponding <code class="docutils literal"><span class="pre">sigperiod</span></code> parameter have been defined.</p>
 <p>The 2-liner is a good result.</p>
 <p>Now let&#8217;s go for <em>inheritance</em>, but first recalling how <code class="docutils literal"><span class="pre">Trix</span></code> looks like:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MyTrix</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Indicator</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyTrix</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Indicator</span><span class="p">):</span>
 
     <span class="n">lines</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;trix&#39;</span><span class="p">,)</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">),)</span>
@@ -100,7 +100,7 @@ and the corresponding <code class="docutils literal"><span class="pre">sigperiod
 </pre></div>
 </div>
 <p>Using <code class="docutils literal"><span class="pre">Trix</span></code> as the base class, this is the aspect of <code class="docutils literal"><span class="pre">TrixSignal</span></code></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MyTrixSignalInherited</span><span class="p">(</span><span class="n">MyTrix</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyTrixSignalInherited</span><span class="p">(</span><span class="n">MyTrix</span><span class="p">):</span>
 
     <span class="n">lines</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;signal&#39;</span><span class="p">,)</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;sigperiod&#39;</span><span class="p">,</span> <span class="mi">9</span><span class="p">),)</span>
@@ -136,7 +136,7 @@ of the base class</p>
 <ol class="arabic simple">
 <li>The first one shows the <strong>inherited</strong> version</li>
 </ol>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
@@ -175,7 +175,7 @@ of the base class</p>
 </pre></div>
 </div>
 <a class=""
-               data-lightbox="group-e57371de-57e4-4f2b-94a0-dfdbce24ef31"
+               data-lightbox="group-c283bb36-210e-4858-91d4-0c0eb0770753"
                href="../../../_images/trixsignal-inherited1.png"
                title=""
                data-title=""
@@ -187,7 +187,7 @@ of the base class</p>
                 </a><ol class="arabic simple" start="2">
 <li>The first one shows the <strong>composed</strong> version</li>
 </ol>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
@@ -226,7 +226,7 @@ of the base class</p>
 </pre></div>
 </div>
 <a class=""
-               data-lightbox="group-0a166355-e0ec-48d3-8fee-c02ebba4260d"
+               data-lightbox="group-b7a665a4-c776-49b6-b908-d716b59e1ee1"
                href="../../../_images/trixsignal-composed1.png"
                title=""
                data-title=""
@@ -274,7 +274,7 @@ of the base class</p>
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2015-07-20-extending-an-indicator/extending-an-indicator/';
         var disqus_title = 'Extending an Indicator';
-        var disqus_url = 'http://www.backtrader.com/posts/2015-07-20-extending-an-indicator/extending-an-indicator';
+        var disqus_url = 'http://blog.backtrader.com/posts/2015-07-20-extending-an-indicator/extending-an-indicator';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -380,15 +380,15 @@ of the base class</p>
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -396,7 +396,7 @@ of the base class</p>
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

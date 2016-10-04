@@ -153,11 +153,11 @@ control optimization to use multiple cores</p>
 </div></blockquote>
 <p>When the user wishes to optimize a <code class="docutils literal"><span class="pre">strategy</span></code>, the <code class="docutils literal"><span class="pre">Strategy</span></code> subclass gets
 added to a <code class="docutils literal"><span class="pre">Cerebro</span></code> instance as follows:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">cerebro</span><span class="o">.</span><span class="n">optstrategy</span><span class="p">(</span><span class="n">StrategyClass</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">cerebro</span><span class="o">.</span><span class="n">optstrategy</span><span class="p">(</span><span class="n">StrategyClass</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>As opposed to the regular way of passing a strategy to a <code class="docutils literal"><span class="pre">Cerebro</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">cerebro</span><span class="o">.</span><span class="n">addstrategy</span><span class="p">(</span><span class="n">StrategyClass</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">cerebro</span><span class="o">.</span><span class="n">addstrategy</span><span class="p">(</span><span class="n">StrategyClass</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This was always so and has not changed. The background being:</p>
@@ -197,7 +197,7 @@ machine with 16 GBytes of RAM, running Windows 8.1 and Python 64bit 2.7.9</p>
 and forth takes on the potential benefits but the speedup is still significant.</p>
 <p>The image shows the 8 cores being used.</p>
 <a class=""
-               data-lightbox="group-83e3fc40-1cc7-4de6-8048-e57422b5f353"
+               data-lightbox="group-22f77f02-9c19-4902-99b4-47e559b58538"
                href="../../../_images/eight-cores-in-use1.png"
                title=""
                data-title=""
@@ -208,7 +208,7 @@ and forth takes on the potential benefits but the speedup is still significant.<
                      alt=""/>
                 </a><p>The code is below. Just change the <code class="docutils literal"><span class="pre">maxcpus</span></code> parameter <code class="docutils literal"><span class="pre">1</span></code> to limit the test to 1
 core.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">time</span>
@@ -316,7 +316,7 @@ core.</p>
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2015-07-23-multicore-optimization/multicore-optimization/';
         var disqus_title = 'Multicore Optimization';
-        var disqus_url = 'http://www.backtrader.com/posts/2015-07-23-multicore-optimization/multicore-optimization';
+        var disqus_url = 'http://blog.backtrader.com/posts/2015-07-23-multicore-optimization/multicore-optimization';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -425,15 +425,15 @@ core.</p>
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -441,7 +441,7 @@ core.</p>
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

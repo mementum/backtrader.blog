@@ -102,7 +102,7 @@ correspond to a single price point</li>
 <h2>Creating a filler<a class="headerlink" href="#creating-a-filler" title="Permalink to this headline">¶</a></h2>
 <p>A <em>filler</em> in the <em>backtrader</em> ecosystem can be any <em>callable</em> which matches
 the following signature:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="nb">callable</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">ago</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="nb">callable</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">ago</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Where:</p>
@@ -120,7 +120,7 @@ the volume and price elements</p>
 <p>In almost all cases this will be <code class="docutils literal"><span class="pre">0</span></code> (current point in time) but in a
 corner case to cover <code class="docutils literal"><span class="pre">Close</span></code> orders this may be <code class="docutils literal"><span class="pre">-1</span></code></p>
 <p>To for example access the bar volume do:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">barvolume</span> <span class="o">=</span> <span class="n">order</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">volume</span><span class="p">[</span><span class="n">ago</span><span class="p">]</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">barvolume</span> <span class="o">=</span> <span class="n">order</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">volume</span><span class="p">[</span><span class="n">ago</span><span class="p">]</span>
 </pre></div>
 </div>
 </li>
@@ -128,7 +128,7 @@ corner case to cover <code class="docutils literal"><span class="pre">Close</spa
 </div></blockquote>
 <p>The callable can be a function or for example an instance of a class
 supporting the <code class="docutils literal"><span class="pre">__call__</span></code> method, like in:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MyFiller</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyFiller</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">ago</span><span class="p">):</span>
         <span class="k">pass</span>
 </pre></div>
@@ -137,7 +137,7 @@ supporting the <code class="docutils literal"><span class="pre">__call__</span><
 <div class="section" id="adding-a-filler-to-the-broker">
 <h2>Adding a Filler to the broker<a class="headerlink" href="#adding-a-filler-to-the-broker" title="Permalink to this headline">¶</a></h2>
 <p>The most straightforward method is to use the <code class="docutils literal"><span class="pre">set_filler</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
 
 <span class="n">cerebro</span> <span class="o">=</span> <span class="n">Cerebro</span><span class="p">()</span>
 <span class="n">cerebro</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">set_filler</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">filler</span><span class="o">.</span><span class="n">FixedSize</span><span class="p">())</span>
@@ -146,7 +146,7 @@ supporting the <code class="docutils literal"><span class="pre">__call__</span><
 <p>The second choice is to completely replace the <code class="docutils literal"><span class="pre">broker</span></code>, although this is
 probably only meant for subclasses of <code class="docutils literal"><span class="pre">BrokerBack</span></code> which have rewritten
 portions of the functionality:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
 
 <span class="n">cerebro</span> <span class="o">=</span> <span class="n">Cerebro</span><span class="p">()</span>
 <span class="n">filler</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">filler</span><span class="o">.</span><span class="n">FixedSize</span><span class="p">()</span>
@@ -162,11 +162,11 @@ to test some of the integrated <code class="docutils literal"><span class="pre">
 <p>The sample uses a default data sample in the sources named:
 <code class="docutils literal"><span class="pre">datas/2006-volume-day-001.txt</span></code>.</p>
 <p>For example a run with no filler:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./volumefilling.py --stakeperc 20.0
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./volumefilling.py --stakeperc 20.0
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-python"><div class="highlight"><pre>Len,Datetime,Open,High,Low,Close,Volume,OpenInterest
+<div class="highlight-python"><div class="highlight"><pre><span></span>Len,Datetime,Open,High,Low,Close,Volume,OpenInterest
 0001,2006-01-02,3602.00,3624.00,3596.00,3617.00,164794.00,1511674.00
 ++ STAKE VOLUME: 32958.0
 -- NOTIFY ORDER BEGIN
@@ -198,11 +198,11 @@ make sure it can withstand many test situations</p>
 </div>
 <p>Another run with the <code class="docutils literal"><span class="pre">FixedSize</span></code> volume filler and a maximum of <code class="docutils literal"><span class="pre">1000</span></code>
 units per bar:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./volumefilling.py --stakeperc 20.0 --filler FixedSize --filler-args size=1000
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./volumefilling.py --stakeperc 20.0 --filler FixedSize --filler-args size=1000
 </pre></div>
 </div>
 <p>Ouutput:</p>
-<div class="highlight-python"><div class="highlight"><pre>Len,Datetime,Open,High,Low,Close,Volume,OpenInterest
+<div class="highlight-python"><div class="highlight"><pre><span></span>Len,Datetime,Open,High,Low,Close,Volume,OpenInterest
 0001,2006-01-02,3602.00,3624.00,3596.00,3617.00,164794.00,1511674.00
 ++ STAKE VOLUME: 32958.0
 -- NOTIFY ORDER BEGIN
@@ -224,11 +224,11 @@ bar 33 bars are obviously needed to complete the execution</li>
 </ul>
 </div></blockquote>
 <p>This is not a great achievement, so let&#8217;s go for <code class="docutils literal"><span class="pre">FixedBarPerc</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./volumefilling.py --stakeperc 20.0 --filler FixedBarPerc --filler-args perc=0.75
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./volumefilling.py --stakeperc 20.0 --filler FixedBarPerc --filler-args perc=0.75
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-python"><div class="highlight"><pre>...
+<div class="highlight-python"><div class="highlight"><pre><span></span>...
 -- NOTIFY ORDER END
 -- ORDER REMSIZE: 0.0
 ++ ORDER COMPLETED at data.len: 11
@@ -246,11 +246,11 @@ bar 33 bars are obviously needed to complete the execution</li>
 </div></blockquote>
 <p>This is more interesting, but let&#8217;s see what happens now with a more dynamic
 volume allocation with <code class="docutils literal"><span class="pre">BarPointPerc</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./volumefilling.py --stakeperc 20.0 --filler BarPointPerc --filler-args minmov=1.0,perc=10.0
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./volumefilling.py --stakeperc 20.0 --filler BarPointPerc --filler-args minmov=1.0,perc=10.0
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-python"><div class="highlight"><pre>...
+<div class="highlight-python"><div class="highlight"><pre><span></span>...
 -- NOTIFY ORDER END
 -- ORDER REMSIZE: 0.0
 ++ ORDER COMPLETED at data.len: 22
@@ -278,13 +278,13 @@ the operation after a break</p>
 </div>
 <p>The cash is increased to an even insaner amount to avoid margin calls and
 plotting is enabled:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./volumefilling.py --filler FixedSize --filler-args size=10000 --stakeperc 10.0 --plot --cash 500e9
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./volumefilling.py --filler FixedSize --filler-args size=10000 --stakeperc 10.0 --plot --cash 500e9
 </pre></div>
 </div>
 <p>Rather than looking at the output which is extremely verbose, let&#8217;s look at the
 chart which already tells the story.</p>
 <a class=""
-               data-lightbox="group-e98f1a3f-8d36-4c69-ab37-81b52bf835a7"
+               data-lightbox="group-cec097ef-5ab3-49c6-8b70-6ae429190bbc"
                href="../../../_images/volumefilling1.png"
                title=""
                data-title=""
@@ -294,7 +294,7 @@ chart which already tells the story.</p>
                      height="auto"
                      alt=""/>
                 </a><p>Usage of the sample:</p>
-<div class="highlight-python"><div class="highlight"><pre>usage: volumefilling.py [-h] [--data DATA] [--cash CASH]
+<div class="highlight-python"><div class="highlight"><pre><span></span>usage: volumefilling.py [-h] [--data DATA] [--cash CASH]
                         [--filler {FixedSize,FixedBarPerc,BarPointPerc}]
                         [--filler-args FILLER_ARGS] [--stakeperc STAKEPERC]
                         [--opbreak OPBREAK] [--fromdate FROMDATE]
@@ -326,7 +326,7 @@ optional arguments:
 </div>
 <div class="section" id="the-code">
 <h3>The code<a class="headerlink" href="#the-code" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span>
@@ -527,7 +527,7 @@ optional arguments:
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2016-07-14-volume-filling/volume-filling/';
         var disqus_title = 'Volume Filling';
-        var disqus_url = 'http://www.backtrader.com/posts/2016-07-14-volume-filling/volume-filling';
+        var disqus_url = 'http://blog.backtrader.com/posts/2016-07-14-volume-filling/volume-filling';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -636,15 +636,15 @@ optional arguments:
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -652,7 +652,7 @@ optional arguments:
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

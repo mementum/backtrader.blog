@@ -75,11 +75,11 @@ For examples of plotting in ``backtrader`` see:
     <http://backtrader.readthedocs.org/quickstart.html#visual-inspection-plotting>`_
 
   - `Extending an Indicator
-    <http://www.backtrader.com/posts/2015-07-20/extending-an-indicator/>`_
+    <http://blog.backtrader.com/posts/2015-07-20/extending-an-indicator/>`_
 
 
   - `Improving Commissions: Stocks vs Futures
-    <http://www.backtrader.com/posts/2015-07-31/commission-schemes-updated/>`_
+    <http://blog.backtrader.com/posts/2015-07-31/commission-schemes-updated/>`_
 
 And for reference on how to apply that to the ``Indicators``:
 

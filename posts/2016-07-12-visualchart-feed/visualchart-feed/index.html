@@ -130,7 +130,7 @@ Ticks</em> at the start of a session.</p>
 <em>00:00:00</em>) seems to create a <em>time filter</em> in the <em>COM</em> API. For example
 if you say you want the <em>Minute</em> data, starting 3 days ago at <em>14:30</em>, you
 could do:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">dt</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">hour</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">minute</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
 
 <span class="n">vcstore</span><span class="o">.</span><span class="n">getdata</span><span class="p">(</span><span class="n">dataname</span><span class="o">=</span><span class="s1">&#39;001ES&#39;</span><span class="p">,</span> <span class="n">fromdate</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
@@ -183,11 +183,11 @@ documentation link:</p>
 the <em>Demo Broker</em></p>
 <p>First: <code class="docutils literal"><span class="pre">015ES</span></code> (<em>EuroStoxx50</em> continuous) with resampling to 1 minute and
 featuring a disconnection and reconnection:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./vctest.py --data0 015ES --timeframe Minutes --compression 1 --fromdate 2016-07-12
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./vctest.py --data0 015ES --timeframe Minutes --compression 1 --fromdate 2016-07-12
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-python"><div class="highlight"><pre>--------------------------------------------------
+<div class="highlight-python"><div class="highlight"><pre><span></span>--------------------------------------------------
 Strategy Created
 --------------------------------------------------
 Datetime, Open, High, Low, Close, Volume, OpenInterest, SMA
@@ -231,12 +231,12 @@ is built-in <em>Visual Chart</em></p>
 <p>And finally some trading, buying <em>2</em> contract of <code class="docutils literal"><span class="pre">015ES</span></code> with a single
 <code class="docutils literal"><span class="pre">Market</span></code> order and selling them in 2 orders of <em>1</em> contract each.</p>
 <p>Execution:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./vctest.py --data0 015ES --timeframe Minutes --compression 1 --fromdate 2016-07-12 2&gt;&amp;1 --broker --account accname --trade --stake 2
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./vctest.py --data0 015ES --timeframe Minutes --compression 1 --fromdate 2016-07-12 2&gt;&amp;1 --broker --account accname --trade --stake 2
 </pre></div>
 </div>
 <p>The output is rather verbose, showing all parts of the order
 exeuction. Summarising a bit:</p>
-<div class="highlight-python"><div class="highlight"><pre>--------------------------------------------------
+<div class="highlight-python"><div class="highlight"><pre><span></span>--------------------------------------------------
 Strategy Created
 --------------------------------------------------
 Datetime, Open, High, Low, Close, Volume, OpenInterest, SMA
@@ -348,7 +348,7 @@ evening with <code class="docutils literal"><span class="pre">015ES</span></code
 </ul>
 </div></blockquote>
 <a class=""
-               data-lightbox="group-a46cea52-6336-4498-8f67-f19b7d252070"
+               data-lightbox="group-cc5fef96-43e5-4295-bf55-681526b7b429"
                href="../../../_images/visualchart-filled-orders1.png"
                title=""
                data-title=""
@@ -360,7 +360,7 @@ evening with <code class="docutils literal"><span class="pre">015ES</span></code
                 </a><p>The sample can do much more and is intended as a thorough test of the
 facilities and if possible to uncover any rough edges.</p>
 <p>The usage:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./vctest.py --help
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./vctest.py --help
 usage: vctest.py [-h] [--exactbars EXACTBARS] [--plot] [--stopafter STOPAFTER]
                  [--nostore] [--qcheck QCHECK] [--no-timeoffset] --data0 DATA0
                  [--tradename TRADENAME] [--data1 DATA1] [--timezone TIMEZONE]
@@ -431,7 +431,7 @@ optional arguments:
 </pre></div>
 </div>
 <p>The code:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span>
@@ -862,7 +862,7 @@ optional arguments:
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2016-07-12-visualchart-feed/visualchart-feed/';
         var disqus_title = 'Visual Chart Live Data/Trading';
-        var disqus_url = 'http://www.backtrader.com/posts/2016-07-12-visualchart-feed/visualchart-feed';
+        var disqus_url = 'http://blog.backtrader.com/posts/2016-07-12-visualchart-feed/visualchart-feed';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -968,15 +968,15 @@ optional arguments:
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -984,7 +984,7 @@ optional arguments:
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

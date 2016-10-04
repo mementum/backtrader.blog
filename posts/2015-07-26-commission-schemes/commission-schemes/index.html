@@ -85,14 +85,14 @@ commission scheme can be created/set with a single function call. Within the
 regular <code class="docutils literal"><span class="pre">cerebro</span></code> creation/set-up process, just add a call to <code class="docutils literal"><span class="pre">setcomission</span></code>
 over the <code class="docutils literal"><span class="pre">broker</span></code> member variable. The following call sets a usual commission
 scheme for <strong>Eurostoxx50</strong> futures when working with <em>InteractiveBrokers</em>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">cerebro</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">setcommission</span><span class="p">(</span><span class="n">commission</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">margin</span><span class="o">=</span><span class="mf">2000.0</span><span class="p">,</span> <span class="n">mult</span><span class="o">=</span><span class="mf">10.0</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">cerebro</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">setcommission</span><span class="p">(</span><span class="n">commission</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">margin</span><span class="o">=</span><span class="mf">2000.0</span><span class="p">,</span> <span class="n">mult</span><span class="o">=</span><span class="mf">10.0</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Since most users will usually just test a single instrument, that&#8217;s all that&#8217;s
 down to it. If you have given a <code class="docutils literal"><span class="pre">name</span></code> to your data feed, because several
 instruments are being considered simultaneously on a chart, this call can be
 slightly extended to look as follows:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">cerebro</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">setcommission</span><span class="p">(</span><span class="n">commission</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">margin</span><span class="o">=</span><span class="mf">2000.0</span><span class="p">,</span> <span class="n">mult</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">cerebro</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">setcommission</span><span class="p">(</span><span class="n">commission</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">margin</span><span class="o">=</span><span class="mf">2000.0</span><span class="p">,</span> <span class="n">mult</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span>
 <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Eurostoxxx50&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -150,11 +150,11 @@ to profit and loss calculations.</p>
 <div class="section" id="two-examples-now-stocks-vs-futures">
 <h2>Two examples now: stocks vs futures<a class="headerlink" href="#two-examples-now-stocks-vs-futures" title="Permalink to this headline">¶</a></h2>
 <p>The futures example from above:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">cerebro</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">setcommission</span><span class="p">(</span><span class="n">commission</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">margin</span><span class="o">=</span><span class="mf">2000.0</span><span class="p">,</span> <span class="n">mult</span><span class="o">=</span><span class="mf">10.0</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">cerebro</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">setcommission</span><span class="p">(</span><span class="n">commission</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">margin</span><span class="o">=</span><span class="mf">2000.0</span><span class="p">,</span> <span class="n">mult</span><span class="o">=</span><span class="mf">10.0</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>A example for stocks:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">cerebro</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">setcommission</span><span class="p">(</span><span class="n">commission</span><span class="o">=</span><span class="mf">0.005</span><span class="p">)</span>  <span class="c1"># 0.5% of the operation value</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">cerebro</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">setcommission</span><span class="p">(</span><span class="n">commission</span><span class="o">=</span><span class="mf">0.005</span><span class="p">)</span>  <span class="c1"># 0.5% of the operation value</span>
 </pre></div>
 </div>
 </div>
@@ -163,13 +163,13 @@ to profit and loss calculations.</p>
 <p>A more permanent commission scheme can be created by working directly with
 <code class="docutils literal"><span class="pre">CommissionInfo</span></code> classes. The user could choose to have this definition
 somewhere:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">bt</span> <span class="kn">import</span> <span class="n">CommissionInfo</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bt</span> <span class="kn">import</span> <span class="n">CommissionInfo</span>
 
 <span class="n">commEurostoxx50</span> <span class="o">=</span> <span class="n">CommissionInfo</span><span class="p">(</span><span class="n">commission</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">margin</span><span class="o">=</span><span class="mf">2000.0</span><span class="p">,</span> <span class="n">mult</span><span class="o">=</span><span class="mf">10.0</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>To later apply it in another Python module with <code class="docutils literal"><span class="pre">addcommissioninfo</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">mycomm</span> <span class="kn">import</span> <span class="n">commEurostoxx50</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mycomm</span> <span class="kn">import</span> <span class="n">commEurostoxx50</span>
 
 <span class="o">...</span>
 
@@ -179,14 +179,14 @@ somewhere:</p>
 <p><code class="docutils literal"><span class="pre">CommissionInfo</span></code> is an object which uses a <code class="docutils literal"><span class="pre">params</span></code> declaration just like
 other objects in the <code class="docutils literal"><span class="pre">backtrader</span></code> environment. As such the above can be also
 expressed as:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">bt</span> <span class="kn">import</span> <span class="n">CommissionInfo</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bt</span> <span class="kn">import</span> <span class="n">CommissionInfo</span>
 
 <span class="k">class</span> <span class="nc">CommEurostoxx50</span><span class="p">(</span><span class="n">CommissionInfo</span><span class="p">):</span>
     <span class="n">params</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">commission</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">margin</span><span class="o">=</span><span class="mf">2000.0</span><span class="p">,</span> <span class="n">mult</span><span class="o">=</span><span class="mf">10.0</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>And later:</p>
-<div class="highlight-python"><div class="highlight"><pre>from mycomm import CommEurostoxx50
+<div class="highlight-python"><div class="highlight"><pre><span></span>from mycomm import CommEurostoxx50
 
 ...
 
@@ -207,7 +207,7 @@ commission schemes.</p>
 </div>
 <p>The code (see at the bottom for the full strategy) is the same and the
 scheme can be chosen before the strategy is defined.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">futures_like</span> <span class="o">=</span> <span class="bp">True</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">futures_like</span> <span class="o">=</span> <span class="bp">True</span>
 
 <span class="k">if</span> <span class="n">futures_like</span><span class="p">:</span>
     <span class="n">commission</span><span class="p">,</span> <span class="n">margin</span><span class="p">,</span> <span class="n">mult</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">2000.0</span><span class="p">,</span> <span class="mf">10.0</span>
@@ -220,7 +220,7 @@ scheme can be chosen before the strategy is defined.</p>
 <p>Some logging code has been added to evaluate the impact of the differrent
 commission schemes. Let&#8217;s concentrate on just the 2 first operations.</p>
 <p>For futures:</p>
-<div class="highlight-python"><div class="highlight"><pre>2006-03-09, BUY CREATE, 3757.59
+<div class="highlight-python"><div class="highlight"><pre><span></span>2006-03-09, BUY CREATE, 3757.59
 2006-03-10, BUY EXECUTED, Price: 3754.13, Cost: 2000.00, Comm 2.00
 2006-04-11, SELL CREATE, 3788.81
 2006-04-12, SELL EXECUTED, Price: 3786.93, Cost: 2000.00, Comm 2.00
@@ -233,7 +233,7 @@ commission schemes. Let&#8217;s concentrate on just the 2 first operations.</p>
 </pre></div>
 </div>
 <p>For stocks:</p>
-<div class="highlight-python"><div class="highlight"><pre>2006-03-09, BUY CREATE, 3757.59
+<div class="highlight-python"><div class="highlight"><pre><span></span>2006-03-09, BUY CREATE, 3757.59
 2006-03-10, BUY EXECUTED, Price: 3754.13, Cost: 3754.13, Comm 18.77
 2006-04-11, SELL CREATE, 3788.81
 2006-04-12, SELL EXECUTED, Price: 3786.93, Cost: 3786.93, Comm 18.93
@@ -286,7 +286,7 @@ backtested.</strong></p>
 <div class="section" id="commissions-for-futures">
 <h2>Commissions for futures<a class="headerlink" href="#commissions-for-futures" title="Permalink to this headline">¶</a></h2>
 <a class=""
-               data-lightbox="group-6bc9dd39-4e70-4f6d-8329-61144b557af4"
+               data-lightbox="group-4c557bf9-4f93-4a97-9d08-43a7b6b92ef2"
                href="../../../_images/commission-futures1.png"
                title=""
                data-title=""
@@ -299,7 +299,7 @@ backtested.</strong></p>
 <div class="section" id="commissions-for-stocks">
 <h2>Commissions for stocks<a class="headerlink" href="#commissions-for-stocks" title="Permalink to this headline">¶</a></h2>
 <a class=""
-               data-lightbox="group-53efc5fa-5b5a-40c1-80f8-34fe6127b0ab"
+               data-lightbox="group-4c7c2843-d297-4293-9c9c-0fd16bd7a924"
                href="../../../_images/commission-stocks1.png"
                title=""
                data-title=""
@@ -311,7 +311,7 @@ backtested.</strong></p>
                 </a></div>
 <div class="section" id="the-code">
 <h2>The code<a class="headerlink" href="#the-code" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
@@ -447,7 +447,7 @@ backtested.</strong></p>
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2015-07-26-commission-schemes/commission-schemes/';
         var disqus_title = 'Commissions: Stocks vs Futures';
-        var disqus_url = 'http://www.backtrader.com/posts/2015-07-26-commission-schemes/commission-schemes';
+        var disqus_url = 'http://blog.backtrader.com/posts/2015-07-26-commission-schemes/commission-schemes';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -556,15 +556,15 @@ backtested.</strong></p>
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -572,7 +572,7 @@ backtested.</strong></p>
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

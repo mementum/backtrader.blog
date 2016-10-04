@@ -100,7 +100,7 @@ strategy by controlling the <em>sizing</em>. Check the docs at
 <div><ul>
 <li><p class="first"><code class="docutils literal"><span class="pre">LongOnly</span></code>: will return a fixed size position if the current position is 0
 and will return the same fixed size to close it if already in the market.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">LongOnly</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Sizer</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">LongOnly</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Sizer</span><span class="p">):</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;stake&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),)</span>
 
     <span class="k">def</span> <span class="nf">_getsizing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comminfo</span><span class="p">,</span> <span class="n">cash</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">isbuy</span><span class="p">):</span>
@@ -119,7 +119,7 @@ and will return the same fixed size to close it if already in the market.</p>
 </li>
 <li><p class="first"><code class="docutils literal"><span class="pre">FixedReverser</span></code>: will return a fixed size stake if not in the market and
 a doubled fixed size stake if already in the market to allow for a reversal</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">FixedReverser</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Sizer</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">FixedReverser</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Sizer</span><span class="p">):</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;stake&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),)</span>
 
     <span class="k">def</span> <span class="nf">_getsizing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comminfo</span><span class="p">,</span> <span class="n">cash</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">isbuy</span><span class="p">):</span>
@@ -133,7 +133,7 @@ a doubled fixed size stake if already in the market to allow for a reversal</p>
 </ul>
 </div></blockquote>
 <p>These 2 <em>Sizers</em> will be combined with a very simple strategy.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">CloseSMA</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Strategy</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CloseSMA</span><span class="p">(</span><span class="n">bt</span><span class="o">.</span><span class="n">Strategy</span><span class="p">):</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">),)</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -159,7 +159,7 @@ a doubled fixed size stake if already in the market to allow for a reversal</p>
 <p>The same strategy as seen in the executions below changes behavior from
 <em>long-only</em> to <em>long-short</em> by simply changing the <em>sizer</em> with this code in
 the sample (controlled with the switch <code class="docutils literal"><span class="pre">--longonly</span></code>)</p>
-<div class="highlight-python"><div class="highlight"><pre>    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">longonly</span><span class="p">:</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span>    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">longonly</span><span class="p">:</span>
         <span class="n">cerebro</span><span class="o">.</span><span class="n">addsizer</span><span class="p">(</span><span class="n">LongOnly</span><span class="p">,</span> <span class="n">stake</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">stake</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">cerebro</span><span class="o">.</span><span class="n">addsizer</span><span class="p">(</span><span class="n">FixedReverser</span><span class="p">,</span> <span class="n">stake</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">stake</span><span class="p">)</span>
@@ -170,12 +170,12 @@ the sample (controlled with the switch <code class="docutils literal"><span clas
 <div class="section" id="long-only-execution">
 <h2>Long-Only Execution<a class="headerlink" href="#long-only-execution" title="Permalink to this headline">¶</a></h2>
 <p>Done with the command:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./sizertest.py --longonly --plot
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./sizertest.py --longonly --plot
 </pre></div>
 </div>
 <p>And this output.</p>
 <a class=""
-               data-lightbox="group-6f809ef8-3d1d-4216-914a-abb2554f9f82"
+               data-lightbox="group-06f2964f-a6c4-436d-98c2-df7b4a6fa6bf"
                href="../../../_images/sizer-long-only1.png"
                title=""
                data-title=""
@@ -188,12 +188,12 @@ the sample (controlled with the switch <code class="docutils literal"><span clas
 <div class="section" id="long-short-execution">
 <h2>Long-Short Execution<a class="headerlink" href="#long-short-execution" title="Permalink to this headline">¶</a></h2>
 <p>Done with the command:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./sizertest.py --plot
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./sizertest.py --plot
 </pre></div>
 </div>
 <p>And this output.</p>
 <a class=""
-               data-lightbox="group-fc325585-37fb-411c-8cdb-17b69aa24bb5"
+               data-lightbox="group-ba1ae5ef-1ec2-498a-af98-471aae0d446f"
                href="../../../_images/sizer-fixedreverser1.png"
                title=""
                data-title=""
@@ -213,7 +213,7 @@ strategy is always in the market</li>
 </div>
 <div class="section" id="sample-usage">
 <h2>Sample Usage<a class="headerlink" href="#sample-usage" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre>$ ./sizertest.py --help
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./sizertest.py --help
 usage: sizertest.py [-h] [--data0 DATA0] [--fromdate FROMDATE]
                     [--todate TODATE] [--cash CASH] [--longonly]
                     [--stake STAKE] [--period PERIOD] [--plot [kwargs]]
@@ -239,7 +239,7 @@ optional arguments:
 </div>
 <div class="section" id="the-full-code">
 <h3>The Full code<a class="headerlink" href="#the-full-code" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span>
@@ -415,7 +415,7 @@ optional arguments:
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2016-07-23-sizers-smart-staking/sizers-smart-staking/';
         var disqus_title = '&lt;em&gt;Sizers&lt;/em&gt; Smart Staking';
-        var disqus_url = 'http://www.backtrader.com/posts/2016-07-23-sizers-smart-staking/sizers-smart-staking';
+        var disqus_url = 'http://blog.backtrader.com/posts/2016-07-23-sizers-smart-staking/sizers-smart-staking';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -521,15 +521,15 @@ optional arguments:
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -537,7 +537,7 @@ optional arguments:
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

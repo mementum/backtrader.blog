@@ -101,11 +101,11 @@ built-in replayer.</p>
 <p>The <em>buying on the close</em> is achieved by issuing an order with
 <code class="docutils literal"><span class="pre">backtrader.Order.Close</span></code> as execution type.</p>
 <p>This is in the sample available with <code class="docutils literal"><span class="pre">-no-replay</span></code>. An execution:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./pinkfish-challenge.py --no-replay
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./pinkfish-challenge.py --no-replay
 </pre></div>
 </div>
 <p>Part of the output:</p>
-<div class="highlight-python"><div class="highlight"><pre>...
+<div class="highlight-python"><div class="highlight"><pre><span></span>...
 0955,0478,0478,2006-11-22T00:00:00,27.51,28.56,27.29,28.49,16027900.00,0.00
 High 28.56 &gt; Highest 28.56
 LAST 19 highs: array(&#39;d&#39;, [25.33, 25.6, 26.4, 26.7, 26.62, 26.6, 26.7, 26.7, 27.15, 27.25, 27.65, 27.5, 27.62,   27.5, 27.5, 27.33, 27.05, 27.04, 27.34])
@@ -139,11 +139,11 @@ end)</p>
 <h3>The problem with the <code class="docutils literal"><span class="pre">no</span> <span class="pre">mod</span></code> solution<a class="headerlink" href="#the-problem-with-the-no-mod-solution" title="Permalink to this headline">¶</a></h3>
 <p>This is not really a <strong>replay</strong> solution and this can be seen if the <em>execution
 type</em> of the order is changed from <code class="docutils literal"><span class="pre">Close</span></code> to <code class="docutils literal"><span class="pre">Market</span></code>. A new execution:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./pinkfish-challenge.py --no-replay --market
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./pinkfish-challenge.py --no-replay --market
 </pre></div>
 </div>
 <p>Now the output for the same period as above:</p>
-<div class="highlight-python"><div class="highlight"><pre>...
+<div class="highlight-python"><div class="highlight"><pre><span></span>...
 0955,0478,0478,2006-11-22T00:00:00,27.51,28.56,27.29,28.49,16027900.00,0.00
 High 28.56 &gt; Highest 28.56
 LAST 19 highs: array(&#39;d&#39;, [25.33, 25.6, 26.4, 26.7, 26.62, 26.6, 26.7, 26.7, 27.15, 27.25, 27.65, 27.5, 27.62, 27.5, 27.5, 27.33, 27.05, 27.04, 27.34])
@@ -243,7 +243,7 @@ data heartbeat, rather than fetching prices from the data</li>
 </ol>
 </div></blockquote>
 <p>The code:</p>
-<div class="highlight-python"><div class="highlight"><pre>        <span class="c1"># Make a copy of current data for ohlbar</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span>        <span class="c1"># Make a copy of current data for ohlbar</span>
         <span class="n">ohlbar</span> <span class="o">=</span> <span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">lines</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">size</span><span class="p">())]</span>
         <span class="n">closebar</span> <span class="o">=</span> <span class="n">ohlbar</span><span class="p">[:]</span>  <span class="c1"># Make a copy for the close</span>
 
@@ -283,11 +283,11 @@ data heartbeat, rather than fetching prices from the data</li>
 </pre></div>
 </div>
 <p>Executing without disabling <em>replay</em> and <code class="docutils literal"><span class="pre">Close</span></code> (let&#8217;s add plotting):</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./pinkfish-challenge.py --plot
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./pinkfish-challenge.py --plot
 </pre></div>
 </div>
 <p>The output for the same period:</p>
-<div class="highlight-python"><div class="highlight"><pre>...
+<div class="highlight-python"><div class="highlight"><pre><span></span>...
 0955,0478,0478,2006-11-22T00:00:00,27.51,28.56,27.29,27.79,16027900.00,0.00
 High 28.56 &gt; Highest 28.56
 LAST 19 highs: array(&#39;d&#39;, [25.33, 25.6, 26.4, 26.7, 26.62, 26.6, 26.7, 26.7, 27.15, 27.25, 27.65, 27.5, 27.62, 27.5, 27.5, 27.33, 27.05, 27.04, 27.34])
@@ -301,7 +301,7 @@ LAST 19 highs: array(&#39;d&#39;, [25.33, 25.6, 26.4, 26.7, 26.62, 26.6, 26.7, 2
 <p>Everything is ok and the <em>closing</em> price of <code class="docutils literal"><span class="pre">28.49</span></code> has been taken.</p>
 <p>And the chart.</p>
 <a class=""
-               data-lightbox="group-4562b943-3813-4e0b-a4c6-c72e1c306c96"
+               data-lightbox="group-1e32e427-083c-4854-a489-d93e20fa397d"
                href="../../../_images/pinkfish-challenge1.png"
                title=""
                data-title=""
@@ -311,11 +311,11 @@ LAST 19 highs: array(&#39;d&#39;, [25.33, 25.6, 26.4, 26.7, 26.62, 26.6, 26.7, 2
                      height="auto"
                      alt=""/>
                 </a><p>And last but not least to check the modifications have made sense:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ./pinkfish-challenge.py --market
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./pinkfish-challenge.py --market
 </pre></div>
 </div>
 <p>The output for the same period:</p>
-<div class="highlight-python"><div class="highlight"><pre>...
+<div class="highlight-python"><div class="highlight"><pre><span></span>...
 0955,0478,0478,2006-11-22T00:00:00,27.51,28.56,27.29,27.79,16027900.00,0.00
 High 28.56 &gt; Highest 28.56
 LAST 19 highs: array(&#39;d&#39;, [25.33, 25.6, 26.4, 26.7, 26.62, 26.6, 26.7, 26.7, 27.15, 27.25, 27.65, 27.5, 27.62, 27.5, 27.5, 27.33, 27.05, 27.04, 27.34])
@@ -333,7 +333,7 @@ single <em>tick</em>: <code class="docutils literal"><span class="pre">28.49</sp
 </div>
 <div class="section" id="usage-of-the-sample">
 <h2>Usage of the sample<a class="headerlink" href="#usage-of-the-sample" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre>$ ./pinkfish-challenge.py --help
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ./pinkfish-challenge.py --help
 usage: pinkfish-challenge.py [-h] [--data DATA] [--fromdate FROMDATE]
                              [--todate TODATE] [--cash CASH]
                              [--sellafter SELLAFTER] [--highperiod HIGHPERIOD]
@@ -367,7 +367,7 @@ optional arguments:
 </div>
 <div class="section" id="and-the-code-itself">
 <h2>And the code itself<a class="headerlink" href="#and-the-code-itself" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span>
                         <span class="n">unicode_literals</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span>
@@ -734,7 +734,7 @@ optional arguments:
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2016-07-29-pinkfish-challenge/pinkfish-challenge/';
         var disqus_title = 'Pinkfish Challenge';
-        var disqus_url = 'http://www.backtrader.com/posts/2016-07-29-pinkfish-challenge/pinkfish-challenge';
+        var disqus_url = 'http://blog.backtrader.com/posts/2016-07-29-pinkfish-challenge/pinkfish-challenge';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -840,15 +840,15 @@ optional arguments:
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -856,7 +856,7 @@ optional arguments:
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     

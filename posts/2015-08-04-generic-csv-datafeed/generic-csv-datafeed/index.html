@@ -61,7 +61,7 @@ need to have something that can actually handle any incoming CSV data feed.</p>
 <p>This has led to the implementation of <strong>GenericCSVData</strong> which can be used to
 parse different CSV formats.</p>
 <p>The sauce is in the params declaration:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">GenericCSVData</span><span class="p">(</span><span class="n">feed</span><span class="o">.</span><span class="n">CSVDataBase</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">GenericCSVData</span><span class="p">(</span><span class="n">feed</span><span class="o">.</span><span class="n">CSVDataBase</span><span class="p">):</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">(</span>
         <span class="p">(</span><span class="s1">&#39;nullvalue&#39;</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;NaN&#39;</span><span class="p">)),</span>
         <span class="p">(</span><span class="s1">&#39;dtformat&#39;</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">),</span>
@@ -132,7 +132,7 @@ of values.</p>
 </ul>
 </div></blockquote>
 <p>The code:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">datetime</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
 <span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
 <span class="kn">import</span> <span class="nn">backtrader.feeds</span> <span class="kn">as</span> <span class="nn">btfeed</span>
 
@@ -172,7 +172,7 @@ of values.</p>
 </ul>
 </div></blockquote>
 <p>The code:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">datetime</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
 <span class="kn">import</span> <span class="nn">backtrader</span> <span class="kn">as</span> <span class="nn">bt</span>
 <span class="kn">import</span> <span class="nn">backtrader.feeds</span> <span class="kn">as</span> <span class="nn">btfeed</span>
 
@@ -240,7 +240,7 @@ of values.</p>
         var disqus_shortname = 'backtrader'; // required: replace example with your forum shortname
         var disqus_identifier = '/posts/2015-08-04-generic-csv-datafeed/generic-csv-datafeed/';
         var disqus_title = 'A Generic CSV Data Feed';
-        var disqus_url = 'http://www.backtrader.com/posts/2015-08-04-generic-csv-datafeed/generic-csv-datafeed';
+        var disqus_url = 'http://blog.backtrader.com/posts/2015-08-04-generic-csv-datafeed/generic-csv-datafeed';
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -346,15 +346,15 @@ of values.</p>
   <ul>
     
     
+      <li><a href="../../2016-09-17-notebook-inline/notebook-inline/">Sep 17 - Notebook - Automatic Inline Plotting</a></li>
+    
+      <li><a href="../../2016-09-17-data-synchronization/data-synchronization/">Sep 17 - Data Synchronization Rework</a></li>
+    
+      <li><a href="../../2016-09-06-vwr/vwr/">Sep 06 - Variability Weighted Return (or VWR)</a></li>
+    
+      <li><a href="../../2016-09-05-optimization-improvements/optimization-improvements/">Sep 05 - Optimization improvements</a></li>
+    
       <li><a href="../../2016-09-02-target-orders/target-orders/">Sep 02 - Target Orders</a></li>
-    
-      <li><a href="../../2016-08-31-rolling-over-futures/rolling-futures-over/">Aug 31 - Rolling over Futures</a></li>
-    
-      <li><a href="../../2016-08-22-credit-interest/credit-interest/">Aug 22 - Credit Interest</a></li>
-    
-      <li><a href="../../2016-08-18-dickson-moving-average/dickson-moving-average/">Aug 17 - Dickson Moving Average</a></li>
-    
-      <li><a href="../../2016-08-15-stock-screening/stock-screening/">Aug 15 - Stock Screening</a></li>
     
   </ul>
 
@@ -362,7 +362,7 @@ of values.</p>
   <ul>
   
     
-    <li><a href="../../../blog/2016/">2016 (24)</a></li>
+    <li><a href="../../../blog/2016/">2016 (28)</a></li>
     
   
     
