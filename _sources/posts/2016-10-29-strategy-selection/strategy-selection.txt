@@ -7,7 +7,7 @@
 Strategy Selection
 ##################
 
-An interesting use case has come up via a `Ticket 177
+An interesting use case has come up via `Ticket 177
 <https://github.com/mementum/backtrader/issues/177>`_. In this case *cerebro*
 is being used multiple times to evaluate differet strategies which are being
 fetched from an external data source.
@@ -21,8 +21,8 @@ And the problem arises because:
 *backtrader* can still support this use case, but not in the direct way it has
 been attempted.
 
-Optmizing the selection
-#######################
+Optimizing the selection
+########################
 
 The buil-in optimization in *backtrader* already does the required thing:
 
@@ -49,8 +49,8 @@ And now let's do the magic of delivering those two strategies.
 Et voilá! When the class ``StFetcher`` is being instantiated, method
 ``__new__`` takes control of instance creation. In this case:
 
-  - Get the ``idx`` param which is passed to it
-  - Use this param to get a strategy from the ``_STRATS`` list in which our
+  - Gets the ``idx`` param which is passed to it
+  - Uses this param to get a strategy from the ``_STRATS`` list in which our
     previous sample strategies have been stored
 
     .. note:: Nothing would prevent using this ``idx`` value to fetch
@@ -83,6 +83,7 @@ results and extract the values of the analyzer we have added.
 A sample run
 ************
 ::
+
   ./strategy-selection.py
 
   Strat 0 Name St0:
@@ -104,11 +105,8 @@ The *Strategy Selection* use case is possible and doesn't need circumventing
 any of the built-in facilities in either *backtrader* or *Python* itself.
 
 
-The Sample
-**********
-
-Usage
-=====
+Sample Usage
+============
 ::
 
   $ ./strategy-selection.py --help

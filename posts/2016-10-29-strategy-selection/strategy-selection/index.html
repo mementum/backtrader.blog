@@ -56,7 +56,7 @@
             
   <div class="section" id="strategy-selection">
 <h1>Strategy Selection<a class="headerlink" href="#strategy-selection" title="Permalink to this headline">¶</a></h1>
-<p>An interesting use case has come up via a <a class="reference external" href="https://github.com/mementum/backtrader/issues/177">Ticket 177</a>. In this case <em>cerebro</em>
+<p>An interesting use case has come up via <a class="reference external" href="https://github.com/mementum/backtrader/issues/177">Ticket 177</a>. In this case <em>cerebro</em>
 is being used multiple times to evaluate differet strategies which are being
 fetched from an external data source.</p>
 <p>And the problem arises because:</p>
@@ -70,8 +70,8 @@ use case.</li>
 <p><em>backtrader</em> can still support this use case, but not in the direct way it has
 been attempted.</p>
 </div>
-<div class="section" id="optmizing-the-selection">
-<h1>Optmizing the selection<a class="headerlink" href="#optmizing-the-selection" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="optimizing-the-selection">
+<h1>Optimizing the selection<a class="headerlink" href="#optimizing-the-selection" title="Permalink to this headline">¶</a></h1>
 <p>The buil-in optimization in <em>backtrader</em> already does the required thing:</p>
 <blockquote>
 <div><ul class="simple">
@@ -114,9 +114,9 @@ technology built in <em>backtrader</em></p>
 <code class="docutils literal"><span class="pre">__new__</span></code> takes control of instance creation. In this case:</p>
 <blockquote>
 <div><ul>
-<li><p class="first">Get the <code class="docutils literal"><span class="pre">idx</span></code> param which is passed to it</p>
+<li><p class="first">Gets the <code class="docutils literal"><span class="pre">idx</span></code> param which is passed to it</p>
 </li>
-<li><p class="first">Use this param to get a strategy from the <code class="docutils literal"><span class="pre">_STRATS</span></code> list in which our
+<li><p class="first">Uses this param to get a strategy from the <code class="docutils literal"><span class="pre">_STRATS</span></code> list in which our
 previous sample strategies have been stored</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -155,23 +155,15 @@ results and extract the values of the analyzer we have added.</p>
 </div>
 <div class="section" id="a-sample-run">
 <h2>A sample run<a class="headerlink" href="#a-sample-run" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>::</dt>
-<dd><p class="first">./strategy-selection.py</p>
-<dl class="last docutils">
-<dt>Strat 0 Name St0:</dt>
-<dd><ul class="first last simple">
-<li>analyzer: OrderedDict([(u&#8217;rtot&#8217;, 0.04847392369449283), (u&#8217;ravg&#8217;, 9.467563221580632e-05), (u&#8217;rnorm&#8217;, 0.02414514457151587), (u&#8217;rnorm100&#8217;, 2.414514457151587)])</li>
-</ul>
-</dd>
-<dt>Strat 1 Name St1:</dt>
-<dd><ul class="first last simple">
-<li>analyzer: OrderedDict([(u&#8217;rtot&#8217;, 0.05124714332260593), (u&#8217;ravg&#8217;, 0.00010009207680196471), (u&#8217;rnorm&#8217;, 0.025543999840699633), (u&#8217;rnorm100&#8217;, 2.5543999840699634)])</li>
-</ul>
-</dd>
-</dl>
-</dd>
-</dl>
+<div class="highlight-python"><div class="highlight"><pre><span></span>./strategy-selection.py
+
+Strat 0 Name St0:
+  - analyzer: OrderedDict([(u&#39;rtot&#39;, 0.04847392369449283), (u&#39;ravg&#39;, 9.467563221580632e-05), (u&#39;rnorm&#39;, 0.02414514457151587), (u&#39;rnorm100&#39;, 2.414514457151587)])
+
+Strat 1 Name St1:
+  - analyzer: OrderedDict([(u&#39;rtot&#39;, 0.05124714332260593), (u&#39;ravg&#39;, 0.00010009207680196471), (u&#39;rnorm&#39;, 0.025543999840699633), (u&#39;rnorm100&#39;, 2.5543999840699634)])
+</pre></div>
+</div>
 <p>Our 2 strategies have been run and deliver (as expected) different results.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -184,11 +176,8 @@ complex scenarios using all CPUs will be useful.</p>
 <h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
 <p>The <em>Strategy Selection</em> use case is possible and doesn&#8217;t need circumventing
 any of the built-in facilities in either <em>backtrader</em> or <em>Python</em> itself.</p>
-</div>
-<div class="section" id="the-sample">
-<h2>The Sample<a class="headerlink" href="#the-sample" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="usage">
-<h3>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="sample-usage">
+<h3>Sample Usage<a class="headerlink" href="#sample-usage" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><div class="highlight"><pre><span></span>$ ./strategy-selection.py --help
 usage: strategy-selection.py [-h] [--data DATA] [--maxcpus MAXCPUS]
                              [--optreturn]

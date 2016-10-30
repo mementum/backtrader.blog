@@ -15,7 +15,7 @@
     <author>
       <name>mementum</name>
     </author>
-    <content type="html">&lt;p&gt;An interesting use case has come up via a &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/mementum/backtrader/issues/177&quot;&gt;Ticket 177&lt;/a&gt;. In this case &lt;em&gt;cerebro&lt;/em&gt;
+    <content type="html">&lt;p&gt;An interesting use case has come up via &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/mementum/backtrader/issues/177&quot;&gt;Ticket 177&lt;/a&gt;. In this case &lt;em&gt;cerebro&lt;/em&gt;
 is being used multiple times to evaluate differet strategies which are being
 fetched from an external data source.&lt;/p&gt;
 </content>
