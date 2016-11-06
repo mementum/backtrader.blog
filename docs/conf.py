@@ -256,7 +256,7 @@ html_theme_options = {
     'github_repo': 'backtrader',
     'travis_button': True,
     'font_family': 'Helvetica',
-    'analytics_id': 'UA-2435868-6',
+    'analytics_id': 'UA-2435868-8',
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
