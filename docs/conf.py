@@ -12,6 +12,9 @@ import os
 import sys
 import ablog
 import alabaster
+import sphinx_bootstrap_theme
+
+USE_ALABASTER=False
 
 # -- General ABlog Options ----------------------------------------------------
 
@@ -23,7 +26,7 @@ blog_title = u'backtrader Blog'
 
 # Base URL for the website, required for generating feeds.
 # e.g. blog_baseurl = "http://example.com/"
-blog_baseurl = u'http://blog.backtrader.com'
+blog_baseurl = u'http://www.backtrader.com/blog'
 
 # Choose to archive only post titles. Archiving only titles can speed
 # up project building.
@@ -92,13 +95,18 @@ post_redirect_refresh = 0
 # In addition, there are authors.html, languages.html, and locations.html
 # sidebars that link to author and location archive pages.
 html_sidebars = {
-    '**': [ 'about.html',
-            'postcard.html', 'navigation.html',
-            'recentposts.html', 'tagcloud.html',
-            'categories.html',  'archives.html',
-            'searchbox.html',
-            ],
-    }
+    '**': [
+        'ghub_button.html',
+        'searchbox.html',
+        # 'about.html',
+        'postcard.html',
+        # 'navigation.html',
+        'recentposts.html',
+        # 'tagcloud.html',
+        # 'categories.html',
+        'archives.html',
+    ],
+}
 
 # -- Blog Feed Options --------------------------------------------------------
 
@@ -183,7 +191,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'backtrader'
-copyright = u'2015, mementum'
+copyright = u'2015, 2016 backtrader.com'
 author = u'mementum'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -244,23 +252,101 @@ todo_include_todos = False
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'alabaster'
+if USE_ALABASTER:
+    html_theme = 'alabaster'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-html_theme_options = {
-    'github_banner': True,
-    'github_button': True,
-    'github_user': 'mementum',
-    'github_repo': 'backtrader',
-    'travis_button': True,
-    'font_family': 'Helvetica',
-    'analytics_id': 'UA-2435868-8',
-}
+    html_theme_options = {
+        'github_banner': True,
+        'github_button': True,
+        'github_user': 'mementum',
+        'github_repo': 'backtrader',
+        'travis_button': True,
+        'font_family': 'Helvetica',
+        'analytics_id': 'UA-2435868-6',
+    }
 
-# Add any paths that contain custom themes here, relative to this directory.
-html_theme_path = [alabaster.get_path()]
+    # Add any paths that contain custom themes here, relative to this directory.
+    html_theme_path = [alabaster.get_path()]
+
+else:
+    html_theme = 'bootstrap'
+    html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
+
+    html_theme_options = {
+        # 'nosidebar': "false",
+
+        # Navigation bar title. (Default: ``project`` value)
+        'navbar_title': "backtrader",
+
+        # Tab name for entire site. (Default: "Site")
+        # 'navbar_site_name': "Site",
+        'navbar_site_name': "",
+
+        # A list of tuples containing pages or urls to link to.
+        # Valid tuples should be in the following forms:
+        #    (name, page)                 # a link to a page
+        #    (name, "/aa/bb", 1)          # a link to an arbitrary relative url
+        #    (name, "http://example.com", True) # arbitrary absolute url
+        # Note the "1" or "True" value above as the third argument to indicate
+        # an arbitrary url.
+        # 'navbar_links': [],
+
+        'navbar_links': [
+            ("Home", "/", True),
+            ("Features", "/features", True),
+            ("Docs", "/docu", True),
+            ("Blog", "/blog", True),
+        ],
+
+        # Render the next and previous page links in navbar. (Default: true)
+        # 'navbar_sidebarrel': True,
+        'navbar_sidebarrel': False,
+
+        # Render the current pages TOC in the navbar. (Default: true)
+        'navbar_pagenav': False,
+
+        # Tab name for the current pages TOC. (Default: "Page")
+        'navbar_pagenav_name': "",
+
+        # Global TOC depth for "site" navbar tab. (Default: 1)
+        # Switching to -1 shows all levels.
+        'globaltoc_depth': 2,
+
+        # Include hidden TOCs in Site navbar?
+        #
+        # Note: If this is "false", you cannot have mixed ``:hidden:`` and
+        # non-hidden ``toctree`` directives in the same page, or else the build
+        # will break.
+        #
+        # Values: "true" (default) or "false"
+        'globaltoc_includehidden': "true",
+
+        # HTML navbar class (Default: "navbar") to attach to <div> element.
+        # For black navbar, do "navbar navbar-inverse"
+        'navbar_class': "navbar",
+
+        # Fix navigation bar to top of page?
+        # Values: "true" (default) or "false"
+        'navbar_fixed_top': "true",
+
+        # Location of link to source.
+        # Options are "nav" (default), "footer" or anything else to exclude.
+        # 'source_link_position': "nav",
+        'source_link_position': None,
+
+        # Bootswatch (http://bootswatch.com/) theme.
+        #
+        # Options are nothing (default) or the name of a valid theme
+        # such as "amelia" or "cosmo".
+        # 'bootswatch_theme': "united",
+
+        # Choose Bootstrap version.
+        # Values: "3" (default) or "2" (in quotes)
+        'bootstrap_version': "3",
+    }
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
@@ -313,10 +399,10 @@ html_use_index = True
 #html_split_index = False
 
 # If true, links to the reST sources are added to the pages.
-html_show_sourcelink = True
+html_show_sourcelink = False
 
 # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
-#html_show_sphinx = True
+html_show_sphinx = False
 
 # If true, "(C) Copyright ..." is shown in the HTML footer. Default is True.
 #html_show_copyright = True

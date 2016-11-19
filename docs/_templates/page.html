@@ -6,13 +6,14 @@
   <link rel="alternate" type="application/atom+xml"  href="{{ pathto(feed_path, 1) }}/atom.xml" title="{{ ablog.blog_title }}">
   {% endif %}
   {% if ablog.fontawesome_link_cdn%}
-  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
   {% elif ablog.fontawesome_css_file %}
   <link rel="stylesheet" href="{{ pathto('_static/' + ablog.fontawesome_css_file, 1) }}" type="text/css" />
   {% endif %}
   <style type="text/css">
     ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
-    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    <!-- dro font-size 80% -> 100% else it seems rather strange -->
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 100%}
     ul.post-list-style-disc {list-style-type: disc;}
     ul.post-list-style-none {list-style-type: none;}
     ul.post-list-style-circle {list-style-type: circle;}
@@ -42,8 +43,8 @@
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
     </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     </div>
   {% endif %}
   </div>
