@@ -15,7 +15,7 @@ body {
     line-height: 22px;
     color: #000;
 
-    padding-top: 70px; /* for the navbar */
+    /* padding-top: 70px; */ /* for the navbar */
 }
 
 h1, h2, h3, h4, h5, h6 {
