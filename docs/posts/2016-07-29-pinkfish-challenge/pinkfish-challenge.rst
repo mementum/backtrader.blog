@@ -2,11 +2,12 @@
 .. post:: Jul 29, 2016
    :author: mementum
    :image: 1
+   :excerpt: 2
 
 Pinkfish Challenge
 ##################
 
-(Sample and changes added to release ``1.7.1.93``)
+(Sample and changes added to release `1.7.1.93`)
 
 Along the way *backtrader* has gotten maturity, new features and of course
 complexity. Many of the new features have been introduced after requests,

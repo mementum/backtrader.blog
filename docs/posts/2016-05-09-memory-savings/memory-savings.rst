@@ -6,10 +6,10 @@
 Saving Memory
 #############
 
-`Release 1.3.1.92
-<https://github.com/mementum/backtrader/releases/tag/1.3.1.92>`_ has reworked
-and fully implemented the memory saving schemes that were previously in place,
-although not much touted and less used.
+`Release 1.3.1.92` has reworked and fully implemented the memory saving schemes
+that were previously in place, although not much touted and less used.
+
+Release: https://github.com/mementum/backtrader/releases/tag/1.3.1.92
 
 ``backtrader`` was (and will be further) developed in machines with nice
 amounts of RAM and that put together with the fact that visual feedback through

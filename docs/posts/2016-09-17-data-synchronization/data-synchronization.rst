@@ -2,16 +2,17 @@
 .. post:: Sep 17, 2016
    :author: mementum
    :image: 1
+   :excerpt: 2
 
 
 Data Synchronization Rework
 ###########################
 
-In the latest release the *minor* number has been moved from ``8`` to ``9`` to
+In the latest release the *minor* number has been moved from `8` to `9` to
 indicate a change which may have some behavioral impact, regardless, even if
 compatibility has been taken into account.
 
-With release ``1.9.0.99`` the entire mechanism to synchronize multiple datas
+With release `1.9.0.99` the entire mechanism to synchronize multiple datas
 using *datetime* has been reworked (for both *next* and *once* modes).
 
 .. note:: All standard test cases get a nice OK from ``nosetests``, but complex

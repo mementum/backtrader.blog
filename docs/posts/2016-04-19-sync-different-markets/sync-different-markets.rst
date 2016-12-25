@@ -7,7 +7,7 @@ Synchronizing different markets
 ###############################
 
 The more the usage the more the mix of ideas and unexpected scenarios that
-``backtrader`` has to face. And with each new one, a challenge to see if the
+`backtrader` has to face. And with each new one, a challenge to see if the
 platform can live up to the expectations set forth when development started,
 flexibility and ease of use were the targets and *Python* was chosen as the
 cornerstone.

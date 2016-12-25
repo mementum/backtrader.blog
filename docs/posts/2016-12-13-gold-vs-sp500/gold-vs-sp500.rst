@@ -2,6 +2,7 @@
 .. post:: Dec 13, 2016
    :author: mementum
    :image: 1
+   :excerpt: 3
 
 Gold vs SP500
 #############

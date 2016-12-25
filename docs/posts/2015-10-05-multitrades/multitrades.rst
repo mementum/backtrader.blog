@@ -6,6 +6,9 @@
 MultiTrades
 ###########
 
+One can now add a unique identifier to each trade, even if running on the same
+data.
+
 Following a request at `Tick Data and Resampling
 <https://disqus.com/home/discussion/backtrader/tick_data_and_resampling/?utm_source=digest&utm_medium=email&utm_content=replies>`_
 release 1.1.12.88 of ``backtrader`` support "MultiTrades", ie: the ability to

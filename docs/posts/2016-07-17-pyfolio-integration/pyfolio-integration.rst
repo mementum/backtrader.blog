@@ -7,13 +7,13 @@
 Pyfolio Integration
 ###################
 
+A first look at the tutorial deemed it as difficult, given the tight
+integration amongst `zipline` and `pyfolio`, but the sample *test* data
+available with `pyfolio` for some other uses is actually pretty useful to
+decode what's running behind the scenes and hence the wonder of integration.
+
 The integration of a *portfolio* tool, namely ``pyfolio``, came up with in
 `Ticket #108 <https://github.com/mementum/backtrader/issues/108>`_.
-
-A first look at the tutorial deemed it as difficult, given the tight
-integration amongst ``zipline`` and ``pyfolio``, but the sample *test* data
-available with ``pyfolio`` for some other uses is actually pretty useful to
-decode what's running behind the scenes and hence the wonder of integration.
 
 Most of the pieces were already in-place in *backtrader*:
 

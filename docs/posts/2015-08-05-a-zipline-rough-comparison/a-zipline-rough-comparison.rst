@@ -7,6 +7,10 @@ A rough Zipline comparison
    :image: 1
    :redirect: posts/2015-08-05
 
+Open Source is not a war (at least for me) and if anyone finds the API, ways of
+doing things, naming conventions or others better in `zipline`, I will not
+preach to move him/her away from that platform or any other.
+
 This "rough" and "quick" comparison hast its origin in an issue opened in
 GitHub, `Issue #7 <https://github.com/mementum/backtrader/issues/7>`_ asks about
 the differences with Quantopian's `Zipline
@@ -15,10 +19,6 @@ the differences with Quantopian's `Zipline
 The ``Zipline`` platform is listed in the ``backtrader`` `README.rst
 <https://github.com/mementum/backtrader>`_ as an open source alternative to
 ``backtrader``
-
-Open Source is not a war (at least for me) and if anyone finds the API, ways of
-doing things, naming conventions or others better in ``Zipline``, I will not
-preach to move him/her away from that platform or any other.
 
 And additionally ... if time and effort have been long invested in another
 platform, no matter which advantages may ``backtrader`` have, moving to it may

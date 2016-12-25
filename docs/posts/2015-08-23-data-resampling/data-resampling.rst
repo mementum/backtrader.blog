@@ -3,6 +3,7 @@
    :author: mementum
    :image: 1
    :redirect: posts/2015-08-23
+   :excerpt: 3
 
 Data Resampling
 ###############

@@ -2,6 +2,7 @@
 .. post:: Dec 6, 2016
    :author: mementum
    :image: 1
+   :excerpt: 3
 
 
 Shorting the cash

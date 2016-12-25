@@ -6,7 +6,7 @@
 *Sizers* Smart Staking
 ######################
 
-Release ``1.6.4.93`` marks a major milestone in *backtrader* even if the change
+Release `1.6.4.93` marks a major milestone in *backtrader* even if the change
 in version numbering is a minor one.
 
 *Position Sizing* is one of the things that actually set the foundation for

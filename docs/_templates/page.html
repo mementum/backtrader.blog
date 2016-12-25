@@ -29,6 +29,34 @@
   {% if ablog.disqus_shortname and ablog.blog_baseurl and ((pagename in ablog and (ablog[pagename].published or ablog.disqus_drafts)) or (not pagename in ablog and ablog.disqus_pages)) %}
     <div class="section">
     <h2>Comments</h2>
+  {% if pagename in ablog %}
+    {% set post = ablog[pagename] %}
+  {% else %}
+    {% set post = "" %}
+  {% endif %}
+  {% if post and post.published and post.date.strftime('%Y%m%d') > '20150101' %}
+    <a id="nodebb-comments"></a>
+    <script type="text/javascript">
+    var nodeBBURL = "https://community.backtrader.com";
+
+    var articleID = {{ post.date.strftime('%Y%m%d') + '%04d' % post.order }};
+    var articleData = {};
+    articleData.title_plain = "{{ post.title }}";
+    articleData.url = window.location.protocol + '//' + window.location.host + window.location.pathname;
+    articleData.tags = [];
+    articleData.markDownContent = '<div>Use the link below to go the original post</div>';
+    articleData.cid = -1;
+
+    (function() {
+    var nbb = document.createElement('script'); nbb.type = 'text/javascript';
+    nbb.async = true;
+    nbb.src = nodeBBURL + '/plugins/nodebb-plugin-blog-comments/lib/general.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(nbb);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view comments</noscript>
+
+  {% else %}
     <div id="disqus_thread"></div>
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
@@ -45,6 +73,7 @@
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  {% endif %}
     </div>
   {% endif %}
   </div>

@@ -2,6 +2,7 @@
 .. post:: Apr 28, 2016
    :author: mementum
    :image: 1
+   :excerpt: 2
 
 Pivot Point and Cross Plotting
 ##############################

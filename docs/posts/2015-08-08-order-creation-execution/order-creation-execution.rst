@@ -7,7 +7,7 @@
 Order Management and Execution
 ##############################
 
-Backtesting, and hence ``backtrader``, would not be complete if orders could not
+Backtesting, and hence `backtrader`, would not be complete if orders could not
 be simulated. To do so, the following is available in the platform.
 
 For order management 3 primitives:

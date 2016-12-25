@@ -2,14 +2,15 @@
 .. post:: Sep 2, 2016
    :author: mementum
    :image: 1
+   :excerpt: 2
 
 
 Target Orders
 #############
 
-Until version ``1.8.10.96`` smart staking was possible with *backtrader* over
-the *Strategy* methods: ``buy`` and ``sell``. It was all about adding a
-``Sizer`` to the equation which is responsible for the size of the stake.
+Until version `1.8.10.96` smart staking was possible with *backtrader* over
+the *Strategy* methods: `buy` and `sell`. It was all about adding a
+`Sizer` to the equation which is responsible for the size of the stake.
 
 What a *Sizer* cannot do is decide if the operation has to be a *buy* or a
 *sell*. And that means that a new concept is needed in which a small

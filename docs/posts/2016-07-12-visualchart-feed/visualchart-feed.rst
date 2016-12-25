@@ -6,7 +6,7 @@
 Visual Chart Live Data/Trading
 ##############################
 
-Starting with release *1.5.1.93*, ``backtrader`` supports Visual Chart Live
+Starting with release *1.5.1.93*, `backtrader` supports Visual Chart Live
 Feeds and Live Trading.
 
 Needed things:

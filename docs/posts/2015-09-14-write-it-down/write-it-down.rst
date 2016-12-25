@@ -6,7 +6,7 @@
 Writers - Write it down
 #######################
 
-With the 1.1.7.88 release ``backtrader`` gets a new addition: ``writers``
+With the 1.1.7.88 release `backtrader` gets a new addition: `writers`
 
 This is probably long due and should have been there and the discussion in
 `Issue #14 <https://github.com/mementum/backtrader/issues/14>`_ should also have

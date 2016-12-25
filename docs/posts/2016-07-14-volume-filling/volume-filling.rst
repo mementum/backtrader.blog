@@ -2,22 +2,25 @@
 .. post:: Jul 14, 2016
    :author: mementum
    :image: 1
+   :excerpt: 2
 
 Volume Filling
 ##############
-
-.. update:: Jul 15, 2016
-
-	    Corrected a bug in the implementation and updated the sample to
-	    ``close`` the position and repeat after a break.
-
-	    The last test run below (and the corresponding chart) are from the
-	    update sample
 
 Up until now the default volume filling strategy in *backtrader* has been
 rather simple and straightforward:
 
   - Ignore volume
+
+.. note::
+
+    Jul 15, 2016
+
+    Corrected a bug in the implementation and updated the sample to
+    ``close`` the position and repeat after a break.
+
+    The last test run below (and the corresponding chart) are from the
+    update sample
 
 This is based on 2 premises:
 

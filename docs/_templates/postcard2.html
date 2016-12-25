@@ -64,9 +64,12 @@
     </script>
     <span class="text-nowrap">
     {% if fa %}<i class="fa-fw fa fa-comments"></i>{% endif %}
+    {% if post.date.strftime('%Y%m%d') > '20150101' %}
+    <a href="{% if pagename != post.docname%}{{ pathto(post.docname) }}{% endif %}#nodebb-comments"><span id="nodebb-comments-count"></span>
+    {% else %}
     <a href="{% if pagename != post.docname%}{{ pathto(post.docname) }}{% endif %}#disqus_thread" data-disqus-identifier="/{{post.docname}}/">
-      {% if not fa %}comment(s){% endif %}
-    </a>
+    {% endif %}
+    comment(s)</a>
     </span>
   </li>
   {% endif %}

@@ -4,16 +4,16 @@
    :image: 1
 
 Bar Synchronization
-########################
-
-`Ticket #23 <https://github.com/mementum/backtrader/issues/23>`_ raises some
-questions as to whether ``backtrader`` can look into calculating
-a **RelativeVolume** indicator.
+###################
 
 The lack of a standard formula in the literature and/or industry is not the
 problem, because the problem can actually be summarized as:
 
   - Bar Synchronization
+
+`Ticket #23 <https://github.com/mementum/backtrader/issues/23>`_ raises some
+questions as to whether ``backtrader`` can look into calculating
+a **RelativeVolume** indicator.
 
 The requester needs to compare the volume of a given moment in time against the
 same moment in time on the previous trading day. Including:

@@ -2,6 +2,7 @@
 .. post:: Sep 21, 2015
    :author: mementum
    :image: 1
+   :excerpt: 4
 
 Plotting on the same axis
 #########################

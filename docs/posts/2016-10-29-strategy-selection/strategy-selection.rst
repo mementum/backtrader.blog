@@ -2,21 +2,22 @@
 .. post:: Oct 29, 2016
    :author: mementum
    :image: 1
+   :excerpt: 2
 
 
 Strategy Selection
 ##################
 
-An interesting use case has come up via `Ticket 177
-<https://github.com/mementum/backtrader/issues/177>`_. In this case *cerebro*
-is being used multiple times to evaluate differet strategies which are being
-fetched from an external data source.
-
-And the problem arises because:
+Houston we have a problem:
 
   - *cerebro* is not meant to be run several times. This is not the 1st time
     and rather than thinking that users are doing it wrong, it seems it is a
     use case.
+
+This interesting use case has come up via `Ticket 177
+<https://github.com/mementum/backtrader/issues/177>`_. In this case *cerebro*
+is being used multiple times to evaluate differet strategies which are being
+fetched from an external data source.
 
 *backtrader* can still support this use case, but not in the direct way it has
 been attempted.

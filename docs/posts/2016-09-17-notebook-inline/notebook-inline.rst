@@ -1,15 +1,16 @@
 .. post:: Sep 17, 2016
    :author: mementum
    :image: 1
+   :excerpt: 2
 
 
 Notebook - Automatic Inline Plotting
 ####################################
 
-Release ``1.9.1.99`` adds automatic inline plotting when running inside a
+Release `1.9.1.99` adds automatic inline plotting when running inside a
 *Jupyter Notebook*.
 
-Some of the questions around ``backtrader`` show people using the platform
+Some of the questions around `backtrader` show people using the platform
 inside a *Notebook* and supporting this and making it the default behavior
 should make things consistent.
 

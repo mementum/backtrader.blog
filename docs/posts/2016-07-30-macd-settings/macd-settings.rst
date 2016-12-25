@@ -6,7 +6,8 @@
 MACD Settings
 #############
 
-In the *Algotrading* site of *Reddit* I found the following thread:
+In the *Algotrading* site of *Reddit*  a thread about optimizing MACD settings was
+found.
 
   - `How to determine best MACD settings?
     <https://www.reddit.com/r/algotrading/comments/4s832w/how_to_determine_best_macd_settings/>`_

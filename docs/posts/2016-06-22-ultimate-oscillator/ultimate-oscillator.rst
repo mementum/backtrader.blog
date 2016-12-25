@@ -6,16 +6,16 @@
 Ultimate Oscillator
 ###################
 
+One of the goals when the development of *backtrader* was kickstarted was to
+make it very easy (at least for the author himself) to develop new *Indicators*
+to test ideas both mathematically and visually.
+
 `Ticket #102 <https://github.com/mementum/backtrader/issues/102>`_ is about
 adding the **UltimateOscillator** to the arsenal of *backtrader*
 
 .. note::
    It will be added in the next release, meanwhile it can be used, using
    the code below.
-
-One of the goals when the development of *backtrader* was kickstarted was to
-make it very easy (at least for the author himself) to develop new *Indicators*
-to test ideas both mathematically and visually.
 
 The reference as indicated in the ticket:
 

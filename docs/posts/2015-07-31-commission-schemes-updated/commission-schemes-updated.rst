@@ -7,7 +7,7 @@ Improving Commissions: Stocks vs Futures
    :image: 1
    :redirect: posts/2015-07-31
 
-Posting ``backtrader`` usage examples has given me an insight into things that
+Posting `backtrader` usage examples has given me an insight into things that
 were missing. For starters:
 
   - :ref:`multicore-optimization`

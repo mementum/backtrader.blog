@@ -3,11 +3,12 @@
    :author: mementum
    :image: 1
    :redirect: posts/2015-08-06
+   :excerpt: 3
 
 CSV Data Feed Development
 #########################
 
-``backtrader`` already offers a Generic CSV Data feed and some specific CSV Data
+`backtrader` already offers a Generic CSV Data feed and some specific CSV Data
 Feeds. Summarizing:
 
   - GenericCSVData

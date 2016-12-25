@@ -2,19 +2,20 @@
 .. post:: Jul 22, 2016
    :author: mementum
    :image: 1
+   :excerpt: 2
 
 Benchmarking
 ############
-
-`Ticket #89 <https://github.com/mementum/backtrader/issues/89>`_ is about
-adding benchmarking aginst an asset. Sensible as one may actually have a
-strategy that even if positive is below what simply tracking the asset would
-have delivered.
 
 *backtrader* includes 2 different types of objects which can aid with tracking:
 
   - *Observers*
   - *Analyzers*
+
+`Ticket #89 <https://github.com/mementum/backtrader/issues/89>`_ is about
+adding benchmarking aginst an asset. Sensible as one may actually have a
+strategy that even if positive is below what simply tracking the asset would
+have delivered.
 
 In the realm of *Analyzers* there was already a ``TimeReturn`` object which
 tracks the evolution of the returns of the entire portfolio value (i.e:

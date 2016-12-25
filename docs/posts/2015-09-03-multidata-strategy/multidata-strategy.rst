@@ -2,6 +2,7 @@
 .. post:: Sep 3, 2015
    :author: mementum
    :image: 1
+   :excerpt: 3
 
 MultiData Strategy
 ##################
@@ -12,7 +13,7 @@ to buy an asset is actually another asset.
 Using different analysis techniques a correlation may have been found between
 two different datas.
 
-``backtrader`` supports using different data sources simultaneously so it can
+`backtrader` supports using different data sources simultaneously so it can
 possibly be used for the purpose in most cases.
 
 Let's assume that a correlation has been found between the following companies:

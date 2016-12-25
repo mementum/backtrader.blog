@@ -7,18 +7,18 @@
 Dickson Moving Average
 ######################
 
+The *reddit* post from below names this average the *Dickson Moving Average*
+after its own author *Nathan Dickson* (*reddit* handle)
+
 In one of the regular visits to `reddit Algotrading
 <https://www.reddit.com/r/algotrading/>`_
 I found a post about a moving average which tries to mimic the Jurik Moving
 Average (aka *JMA*)
 
-  - `JMA on Jurik Research <http://www.jurikres.com/catalog1/ms_ama.htm>`_
-
-The *reddit* post names this average the *Dickson Moving Average* after its own
-author *Nathan Dickson* (*reddit* handle)
-
   - `Dickson Moving Average
     <https://www.reddit.com/r/algotrading/comments/4xj3vh/dickson_moving_average/>`_
+
+  - `JMA on Jurik Research <http://www.jurikres.com/catalog1/ms_ama.htm>`_
 
 Described as an algorithm in *EasyLanguage* I had to ask about the seed values
 and the nature of ``ec`` and this finally led to *Ehlers* and the *Zero Lag

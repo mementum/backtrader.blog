@@ -7,8 +7,8 @@ Extending Commissions
    :image: 1
 
 Commissions and asociated functionality were managed by a single class
-``CommissionInfo`` which was mostly instantiated by calling
-``broker.setcommission``.
+`CommissionInfo` which was mostly instantiated by calling
+`broker.setcommission`.
 
 There were some posts to discuss the behavior.
 

@@ -6,6 +6,15 @@ Multicore Optimization
    :author: mementum
    :image: 1
    :redirect: posts/2015-07-23
+   :excerpt: 2
+
+Making use of all available cores was something I had in mind for `backtrader`
+but never got done. Support of natural operations, removal of array notation,
+inclusion of new indicators and bla, bla, bla.
+
+In reality I am not a great fan of **optimization** and consequently neither a
+great fan of utilizing all cores for it. A good idea, imho, is worth a million
+optimizations.
 
 .. note::
    The initial multicore support is there and has worked for the *well known*
@@ -18,14 +27,6 @@ Multicore Optimization
    Some extra corrections for multicore have been pushed as release 1.0.10.88 to
    have more "unpickable" things made pickable. Indicators tests have shown no
    problems so far.
-
-Making use of all available cores was something I had in mind for ``backtrader``
-but never got done. Support of natural operations, removal of array notation,
-inclusion of new indicators and bla, bla, bla.
-
-In reality I am not a great fan of **optimization** and consequently neither a
-great fan of utilizing all cores for it. A good idea, imho, is worth a million
-optimizations.
 
 But someone in the BigMikeTrading forum asked about what this platform had to
 offer in comparison to others and I mentioned some of the features including

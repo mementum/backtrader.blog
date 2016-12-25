@@ -3,18 +3,19 @@
    :author: mementum
    :image: 1
    :redirect: posts/2015-08-12
+   :excerpt: 4
 
 Observers and Statistics
 ########################
 
-Strateties running inside the ``backtrader`` do mostly deal with **datas** and
+Strateties running inside the `backtrader` do mostly deal with **datas** and
 **indicators**.
 
 Datas are added to **Cerebro** instances and end up being part of the input of
 strategies (parsed and served as attributes of the instance) whereas Indicators
 are declared and managed by the Strategy itself.
 
-All ``backtrader`` sample charts have so far had 3 things which seem to be taken
+All `backtrader` sample charts have so far had 3 things which seem to be taken
 for granted because they are not declared anywhere:
 
   - Cash and Value (what's happening with the money in the broker)

@@ -6,22 +6,25 @@ Commissions: Stocks vs Futures
    :author: mementum
    :image: 1
    :redirect: posts/2015-07-26
+   :excerpt: 2
 
-.. update:: Jul 31, 2015
-
-   Follow up post with newly added operations/trades notifications, fixing the
-   plotting of trades P&L figures and avoiding manual calculation like in the
-   example below
-
-   :ref:`commission-schemes-updated`
-
-``backtrader`` has been born out of necessity. My own ... to have the feeling I
+`backtrader` has been born out of necessity. My own ... to have the feeling I
 control my own backtesting platform and can experiment new ideas. But in doing
 so and fully open sourcing it from the very beginning it was clear it has to
 have a way to fulfill the needs and wishes of others.
 
 Being a traders future I could have chosen to code point based calculations and
 fixed price per round commissions, but it would have been a mistake.
+
+.. note::
+
+   Jul 31, 2015
+
+   Follow up post with newly added operations/trades notifications, fixing the
+   plotting of trades P&L figures and avoiding manual calculation like in the
+   example below
+
+   :ref:`commission-schemes-updated`
 
 Instead, ``backtrader`` offers the possibility to play with regular % size/price
 based schemes and fixed price/point schemes. The choice is yours.

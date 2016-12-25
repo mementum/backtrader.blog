@@ -5,17 +5,19 @@ User Defined Commissions
 .. post:: Nov 20, 2015
    :author: mementum
    :image: 1
+   :excerpt: 2
 
-The commission schemes implementation was reworked not so long ago and the
-basics were outlined in :ref:`commission-schemes-extended`. The most important
+The commission schemes implementation was reworked not so long ago.  The most important:
 part of the rework involved:
 
-  - Retaining the original ``CommissionInfo`` class and behavior
+  - Retaining the original `CommissionInfo` class and behavior
 
   - Opening the door for easy creation of user defined commissions
 
   - Making the format xx% the default for new commission schemes instead of 0.xx
     (just a matter of taste), keeping the behavior configurable
+
+The basics were outlined in :ref:`commission-schemes-extended`.
 
 .. note:: See below he docstring of ``CommInfoBase`` for parameters reference
 

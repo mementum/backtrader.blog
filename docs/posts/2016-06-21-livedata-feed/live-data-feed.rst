@@ -2,11 +2,12 @@
 .. post:: Jun 21, 2016
    :author: mementum
    :image: 1
+   :excerpt: 3
 
 Live Data/Live Trading
 ######################
 
-Starting with release *1.5.0*, ``backtrader`` supports Live Data Feeds and Live
+Starting with release *1.5.0*, `backtrader` supports Live Data Feeds and Live
 Trading. The first integrated entity is:
 
   - *Interactive Brokers*

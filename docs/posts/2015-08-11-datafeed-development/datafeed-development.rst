@@ -7,8 +7,8 @@
 Datafeed Development
 ####################
 
-In :ref:`csv-data-feed-development` it was shown how to add new CSV based data
-feeds. The existing base class `CSVDataBase` provides the framework taking most
+Adding a new CSV based data feed is easy. The existing base class
+`CSVDataBase` provides the framework taking most
 of the work off the subclasses which in most cases can simply do::
 
   def _loadline(self, linetokens):
@@ -17,6 +17,8 @@ of the work off the subclasses which in most cases can simply do::
     # self.lines.high, etc
 
     return True # if data was parsed, else ... return False
+
+This was shown in :ref:`csv-data-feed-development`. 
 
 The base class takes care of the parameters, initialization, opening of files,
 reading lines, splitting the lines in tokens and additional things like skipping

@@ -3,6 +3,7 @@
    :author: mementum
    :image: 1
    :redirect: posts/2015-08-24
+   :excerpt: 4
 
 Data - Multiple Timeframes
 ##########################
@@ -15,7 +16,7 @@ Sometimes investing decisions are taken using different timeframes:
 
 Or 5 minutes vs 60 minutes.
 
-That implies that combining datas of multiple timeframes in ``backtrader`` is
+That implies that combining datas of multiple timeframes in `backtrader` is
 needed to support such combinations.
 
 Native support for it is already built-in. The end user must only follow these

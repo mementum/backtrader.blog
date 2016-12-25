@@ -2,12 +2,13 @@
 .. post:: Sep 6, 2016
    :author: mementum
    :image: 1
+   :excerpt: 3
 
 
 Variability Weighted Return (or VWR)
 ####################################
 
-Following some hints about an *improved* ``SharpeRatio``, *backtrader* has
+Following some hints about an *improved* `SharpeRatio`, *backtrader* has
 added this *analyzer* to its arsenal.
 
 The literature is at:
@@ -16,7 +17,7 @@ The literature is at:
 
 Starting with the benefits of logarithmic returns and following on the side
 effects of having the *standard deviation* in the denominator of the
-``SharpeRatio`` equation, the document develops the formula and expectations of
+`SharpeRatio` equation, the document develops the formula and expectations of
 this *analyzer*.
 
 One of the most important properties may be:

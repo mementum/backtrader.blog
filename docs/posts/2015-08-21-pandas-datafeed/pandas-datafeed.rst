@@ -7,9 +7,9 @@
 Pandas DataFeed Support
 #######################
 
-Amongst some minor enhancementss and some ``OrderedDict`` tweaks for better
-Python 2.6 support, the latest release from ``backtrader`` adds support for
-analyzing data from a `Pandas <pandas.pydata.org>`_ Dataframe aka Time Series.
+Amongst some minor enhancementss and some `OrderedDict` tweaks for better
+Python 2.6 support, the latest release from `backtrader` adds support for
+analyzing data from a `Pandas Dataframe` or Time Series.
 
 .. note::
 

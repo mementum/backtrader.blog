@@ -2,6 +2,7 @@
 .. post:: Jul 26, 2016
    :author: mementum
    :image: 6
+   :excerpt: 2
 
 TA-Lib
 ######

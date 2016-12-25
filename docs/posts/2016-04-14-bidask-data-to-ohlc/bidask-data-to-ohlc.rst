@@ -6,9 +6,11 @@
 Bid-Ask Data to OHLC
 ####################
 
-Lately ``backtrader`` executed an :ref:`escape-from-ohlc-land` by implementing
+Lately `backtrader` executed an `escape-from-ohlc-land` by implementing
 line overriding, which allows to redefine the entire hierarchy and for example
-have data feeds which only feature ``bid``, ``ask`` and ``datetime`` lines.
+have data feeds which only feature `bid`, `ask` and `datetime` lines.
+
+(Here to the original :ref:`escape-from-ohlc-land`)
 
 This opens the question as to how to visualize such data and this is most
 effectively done in ``OHLC`` format (be it a ``bar`` or a ``candlestick``)

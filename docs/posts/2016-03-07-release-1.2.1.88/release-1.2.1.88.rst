@@ -6,8 +6,8 @@
 Release 1.2.1.88
 ################
 
-Changing the ``minor`` version number from ``1`` to ``2`` has taken sometime,
-but the deprecation of the old ``DataResampler`` and ``DataReplayer`` have led
+Changing the `minor` version number from `1` to `2` has taken sometime,
+but the deprecation of the old `DataResampler` and `DataReplayer` have led
 to it.
 
 The documentation at **readthedocs** has

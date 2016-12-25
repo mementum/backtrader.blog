@@ -3,6 +3,7 @@
    :author: mementum
    :image: 1
    :redirect: posts/2015-08-25
+   :excerpt: 4
 
 Data - Replay
 #############

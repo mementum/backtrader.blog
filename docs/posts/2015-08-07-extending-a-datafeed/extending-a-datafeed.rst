@@ -8,7 +8,7 @@ Extending a data feed
 #####################
 
 Issues in GitHub are actually pushing into finishing documentation parts or
-helping me to understand if ``backtrader`` has the ease of use and flexibility I
+helping me to understand if `backtrader` has the ease of use and flexibility I
 envisioned from the first moments and the decisions made along the way.
 
 In this case is `Issue #9 <https://github.com/mementum/backtrader/issues/9>`_.

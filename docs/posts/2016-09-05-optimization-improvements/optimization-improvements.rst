@@ -7,7 +7,7 @@
 Optimization improvements
 #########################
 
-Version ``1.8.12.99`` of *backtrader* includes an improvement in how
+Version `1.8.12.99` of *backtrader* includes an improvement in how
 *data feeds* and *results* are managed during multiprocessing.
 
 .. note:: The behavior for both has been made

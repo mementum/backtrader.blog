@@ -2,6 +2,7 @@
 .. post:: Aug 31, 2016
    :author: mementum
    :image: 1
+   :excerpt: 2
 
 
 Rolling over Futures

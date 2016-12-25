@@ -6,9 +6,10 @@
 Data Filters
 ############
 
-Some time ago `Ticket #23 <https://github.com/mementum/backtrader/issues/23>`_
-got me thinking about a potential improvement for the discussion which was held
-in the context of that ticket.
+Some time ago `Ticket #23` got me thinking about a potential improvement
+for the discussion which was held in the context of that ticket.
+
+  - To ticket #23: https://github.com/mementum/backtrader/issues/23
 
 Within the ticket I added a ``DataFilter`` class, but this was overly
 complicated. Actually reminiscent of the complexity which was built in

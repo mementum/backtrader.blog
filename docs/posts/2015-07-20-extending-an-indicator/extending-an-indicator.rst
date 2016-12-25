@@ -6,6 +6,7 @@ Extending an Indicator
    :author: mementum
    :image: 1
    :redirect: posts/2015-07-20
+   :excerpt: 2
 
 In Object Oriented Programming, and of course in Python itself, extension of an
 existing class can be achieved in two ways.

@@ -3,11 +3,12 @@
    :author: mementum
    :image: 1
    :redirect: posts/2015-08-27
+   :excerpt: 3
 
 Real World Usage
 ################
 
-Finally it seems it pays having gotten down to developing ``backtrader``.
+Finally it seems it pays having gotten down to developing `backtrader`.
 
 Following what seemed like the end of the world when looking at the European
 markets in the last weeks, a friend asked if I could have a look at the data in

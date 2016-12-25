@@ -6,10 +6,10 @@
 Mixing Timeframes in Indicators
 ###############################
 
-`Release 1.3.0.92
-<https://github.com/mementum/backtrader/releases/tag/1.3.0.92>`_ brings up the
-possibility to have data (from either data feeds and/or indicators) from
-different timeframes mixed.
+`Release 1.3.0.92` brings up the possibility to have data (from either data
+feeds and/or indicators) from different timeframes mixed.
+
+To the release: https://github.com/mementum/backtrader/releases/tag/1.3.0.92
 
 Background: *Indicators are smart dumb objects.*
 

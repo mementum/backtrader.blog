@@ -2,6 +2,7 @@
 .. post:: Nov 20, 2016
    :author: mementum
    :image: 1
+   :excerpt: 3
 
 
 Hidden Powers of Python (1)

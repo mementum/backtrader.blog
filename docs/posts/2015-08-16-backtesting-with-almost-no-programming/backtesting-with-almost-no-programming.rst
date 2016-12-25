@@ -3,15 +3,12 @@
    :author: mementum
    :image: 1
    :redirect: posts/2015-08-16
+   :excerpt: 2
 
 Automating ``backtrader`` BackTesting
 #####################################
 
-.. update:: Aug 22, 2015
-
-   ``Analyzer`` support in ``bt-run.py`` included
-
-So far all ``backtrader`` examples and working samples have started from scratch
+So far all `backtrader` examples and working samples have started from scratch
 creating a main **Python** module which loads datas, strategies, observers and
 prepares cash and commission schemes.
 
@@ -19,6 +16,11 @@ One of the goals of *algorithmic trading* is the automation of trading and given
 that bactrader is a *backtesting* platform intented to check trading algorithms
 (hence is an *algotrading* platform), automating the use of backtrader was an
 obvious goal.
+
+.. note::
+   Aug 22, 2015
+
+   ``Analyzer`` support in ``bt-run.py`` included
 
 The development version of ``backtrader`` now contains the ``bt-run.py`` script
 which automates most tasks and will be installed along ``backtrader`` as part of

@@ -7,7 +7,7 @@ Developing an Indicator
    :image: 1
    :redirect: posts/2015-07-18
 
-After much ado in fine tuning ``backtrader`` (give it had already been running
+After much ado in fine tuning `backtrader` (give it had already been running
 for a while) I decided to not only share it via GitHub but to also tell the
 world it was there and posted about its existence in "Reddit".
 

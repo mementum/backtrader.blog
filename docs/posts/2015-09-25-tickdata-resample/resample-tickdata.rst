@@ -2,11 +2,12 @@
 .. post:: Sep 25, 2015
    :author: mementum
    :image: 1
+   :excerpt: 3
 
 Tick Data and Resampling
 ########################
 
-``backtrader`` could already do resampling up from minute data. Accepting tick
+`backtrader` could already do resampling up from minute data. Accepting tick
 data was not a problem, by simply setting the 4 usual fields (open, high, low,
 close) to the tick value.
 

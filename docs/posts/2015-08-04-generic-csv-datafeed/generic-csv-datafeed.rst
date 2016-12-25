@@ -7,12 +7,12 @@ A Generic CSV Data Feed
    :image: 1
    :redirect: posts/2015-08-04
 
-An issue opened in GitHub, `Issue #6
+An issue has led to the implementation of **GenericCSVData** which can be used
+to parse different CSV formats.
+
+The issue in GitHub, `Issue #6
 <https://github.com/mementum/backtrader/issues/6>`_ clearly shows there is a
 need to have something that can actually handle any incoming CSV data feed.
-
-This has led to the implementation of **GenericCSVData** which can be used to
-parse different CSV formats.
 
 The sauce is in the params declaration::
 

@@ -7,7 +7,7 @@ Escape from OHLC Land
 #####################
 
 One of the key concepts applied during the conception and development of
-``backtrader`` was **flexibility**. The *metaprogramming* and *introspection*
+`backtrader` was **flexibility**. The *metaprogramming* and *introspection*
 capabilities of Python were (and still are) the basis to keep many things
 flexible whilst still being able to deliver.
 
